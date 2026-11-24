@@ -1,0 +1,557 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{xcolor}
+\newcommand{\lijuntodo}[1]{\textcolor{red}{[Todo: #1]}}
+
+\usepackage{amsmath}   % Mathematical equations and aligned environments
+
+% For table
+\usepackage{float}
+
+% For emoji
+\usepackage{amssymb}
+
+% Terminology Reference use
+\usepackage{booktabs}
+\usepackage{tabularx}  % Tables with adjustable column widths
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[T1]{fontenc}
+
+% Chinese support
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+% Overleaf usually supports this font
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\title{Technical Report on Manipulator UR7e}
+\author{Author}
+\date{June 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+
+\section{Introduction}
+
+
+\section{Hardware setup}
+\label{sec:hardware}
+
+
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=footnotesize, justification=centering}
+
+    % First row
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, height=4.5cm, keepaspectratio]
+        {figures/ur7e.png}
+        \caption{\href{https://www.universal-robots.com/marketplace/products/01tP4000009EOV7IAO/}{UR7e robot arm}.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, height=4.5cm, keepaspectratio]
+        {figures/ur7e_joint.png}
+        \caption{UR7e joint names and locations.}
+    \end{subfigure}
+
+    \par\medskip
+
+    % Second row
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, height=3.5cm, keepaspectratio]
+        {figures/Robotiq_2F_85.png}
+        \caption{\href{https://www.universal-robots.com/marketplace/products/01tP40000071NgHIAU/}{Robotiq 2F-85 gripper}.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, height=3.5cm, keepaspectratio]
+        {figures/ORBBEC_Gemini_335L.png}
+        \caption{\href{https://www.orbbec.com/products/stereo-vision-camera/gemini-335l/}{ORBBEC Gemini 335L camera.}}
+    \end{subfigure}
+
+    \caption{UR7e manipulation platform and its components.}
+    \label{fig:ur7e_component}
+\end{figure}
+
+
+\subsection{Equipment list}
+\label{sec:equipment_list}
+
+The robotic manipulation platform consists of the following
+equipment and mechanical components:
+
+\begin{itemize}
+    \item Manipulator (1): Universal Robots UR7e collaborative robot with six degrees of freedom.
+    \item Robot controller (1): Universal Robots CB5 (v5.5) control box, running PolyScope 5.23.0.
+    \item Gripper (1): Robotiq 2F-85 two-finger adaptive gripper.
+    \item Gripper coupling (1): Mechanical coupling connecting the vision adapter to the Robotiq gripper.
+    \item Vision adapter (1): Mechanical adapter mounted on the robot tool flange to support the wrist-mounted camera and end-effector assembly.
+    \item RGB-D cameras (2): Two Orbbec Gemini 335L RGB-D cameras, providing synchronized color and depth images. One is mounted on the robot wrist (eye-in-hand), while the mounting position of the other is to be confirmed.
+    \item Workstation (1): External workstation equipped with two NVIDIA RTX 6000 GPUs for robot control, visual perception, and data processing.
+\end{itemize}
+
+
+\subsection{Manipulator}
+\label{sec:manipulator}
+
+The manipulation platform uses a UR7e collaborative robot
+from Universal Robots, equipped with a CB5 (v5.5)
+controller running PolyScope 5.23.0.
+The robot configuration, hardware specifications,
+communication interfaces, and control settings
+are summarized below.
+
+
+\subsubsection{Robot Configuration}
+
+\begin{table}[htbp]
+\centering
+\caption{UR7e robot configuration.}
+\label{tab:ur7e_config}
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Manufacturer & Universal Robots \\
+Robot model & UR7e (e-Series) \\
+Controller hardware & CB5 (v5.5) \\
+Programming and operation software & PolyScope 5.23.0 \\
+Controller version & 76.10.33 \\
+IP address & \texttt{192.168.1.100} \\
+Hostname & \texttt{ur-31255700443} \\
+Serial number & 31255700443 \\
+Production date & September 18, 2025 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The CB5 is the robot control box, housing the hardware and software responsible for executing robot control. PolyScope is Universal Robots' graphical programming and operation interface, accessed through the teach pendant. It provides functions for robot configuration, programming, operation, and monitoring. The PolyScope version and controller version are reported separately, as shown in Table~\ref{tab:ur7e_config}.
+
+
+\subsubsection{Hardware Specifications and Control Configuration}
+
+The hardware specifications, default control settings, and an example experimental configuration of the UR7e are summarized in Table~\ref{tab:ur7e_specs}.
+
+\begin{table}[htbp]
+\centering
+\caption{UR7e hardware specifications and control configuration.}
+\label{tab:ur7e_specs}
+\small
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X p{0.28\linewidth} p{0.27\linewidth}@{}}
+\toprule
+\textbf{Parameter} & \textbf{Specification / Default} & \textbf{Configured Value} \\
+\midrule
+Degrees of freedom & 6 & --- \\
+Reach & 850 mm & --- \\
+Payload mass & 7.5 kg (max) & 1.2 kg \\
+Maximum joint speed & $180^\circ$/s & --- \\
+Pose repeatability & $\pm 0.03$ mm & --- \\
+Force/torque sensor & 1 integrated 6-axis (tool flange) & --- \\
+Robot arm protection & IP54 & --- \\
+\midrule
+Internal control-loop frequency & 500 Hz (fixed) & --- \\
+RTDE state output frequency & 1--500 Hz & --- \\
+RTDE servo control frequency & $\leq 500$ Hz & 125 Hz (8 ms) \\
+ROS 2 control update rate & 500 Hz (default) & --- \\
+\midrule
+TCP position offset (mm) & --- & $(0, 0, 244)$ \\
+TCP orientation offset (rad) & --- & $(0, 0, 0)$ \\
+Initial joint angles ($^\circ$) & --- & $(45, -90, -30, 245, 90, 0)$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The UR7e is a six-degree-of-freedom collaborative manipulator with a reach of 850 mm and a maximum payload capacity of 7.5 kg. The configured payload mass of 1.2 kg represents the verified load of the experimental setup. Pose repeatability describes the robot's ability to return to a previously reached pose rather than its absolute positioning accuracy. The IP54 protection rating indicates protection against limited dust ingress and splashing water.
+
+The robot features one integrated six-axis force/torque (F/T) sensor located at the tool flange, rather than one sensor at each joint. It measures three force components $(F_x, F_y, F_z)$ and three torque components $(T_x, T_y, T_z)$, enabling force sensing at the end-effector. Joint-level torque information is available separately through the robot controller.
+
+The robot has a fixed internal control-loop frequency of 500 Hz, corresponding to a period of 2 ms. 
+\textbf{External control can be implemented through RTDE-based interfaces or the official ROS 2 driver.} 
+RTDE (Real-Time Data Exchange) enables communication between the robot controller and an external computer over TCP/IP. Its state output frequency is configurable from 1 to 500 Hz, allowing external applications to receive robot states such as joint positions, velocities, TCP poses, and forces.
+
+For RTDE-based control, the \texttt{ur\_rtde} library provides interfaces for robot state acquisition and motion control. Its servo control interface supports external command updates at up to 500 Hz. In the example experimental configuration, the external servo control frequency is customized to 125 Hz, corresponding to a nominal control period of 8 ms. The external command update frequency is distinct from the RTDE state output frequency, and both are independent of the robot's fixed internal control-loop frequency.
+
+Note that, data is received at 500 Hz on e-Series robots and 125 Hz on CB-series robots. The original UR5 belongs to the CB-series (CB3), while the UR5e belongs to the e-Series. Although the UR7e uses a CB5 controller, it is still an e-Series robot, not a CB-series robot.
+
+Alternatively, the official ROS 2 driver provides robot state feedback and motion control through the ROS 2 ecosystem, with a default controller update rate of 500 Hz. This rate can be configured independently of ROS 2 topic publication frequencies. The actual achieved external control rates depend on software execution, network communication, and system scheduling.
+
+The TCP (Tool Center Point) defines the reference pose of the end-effector relative to the robot tool flange. The configured TCP has a position offset of $(0, 0, 244)$ mm and zero rotation, corresponding to a displacement of 244 mm along the tool-flange Z-axis. The TCP offset is distinct from the payload center-of-gravity offset. The initial joint configuration specifies the six joint angles in degrees.
+
+
+
+
+
+
+\subsubsection{Workspace Configuration}
+
+The preliminary experimental workspace is characterized by four candidate corner points, as listed in Table~\ref{tab:ur7e_workspace}.
+
+\begin{table}[htbp]
+\centering
+\caption{Preliminary workspace corner coordinates (mm).}
+\label{tab:ur7e_workspace}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Point} & \textbf{X (mm)} & \textbf{Y (mm)} & \textbf{Z (mm)} \\
+\midrule
+$P_1$ & -195 & 572 & 430 \\
+$P_2$ & 603 & 237 & 430 \\
+$P_3$ & 1125 & 220 & 430 \\
+$P_4$ & 260 & 1106 & 430 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These coordinates are preliminary estimates rather than calibrated workspace or safety boundaries. Their reference frame and physical reachability require verification before use in automated control. The final operating workspace should account for robot kinematics, end-effector geometry, obstacles, and safety margins.
+
+
+
+\subsubsection{Communication Interfaces}
+\label{sec:ur7e_communication}
+
+The UR7e communicates with an external workstation over
+Ethernet using TCP/IP. The CB5 controller provides several
+communication interfaces for robot state acquisition, motion
+control, and program management, as summarized in
+Table~\ref{tab:ur7e_interfaces}. The overall communication
+architecture, including two alternative external control
+approaches, is illustrated in
+Fig.~\ref{fig:ur7e_communication}.
+
+\begin{table}[htbp]
+\centering
+\caption{UR7e communication interfaces.}
+\label{tab:ur7e_interfaces}
+\small
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\linewidth}{@{}ll>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Port} & \textbf{Interface} & \textbf{Function} \\
+\midrule
+30004 & \href{https://docs.universal-robots.com/tutorials/communication-protocol-tutorials/rtde-guide.html}{RTDE} &
+Robot state feedback and data exchange (up to 500 Hz) \\
+30001 & Primary &
+URScript commands, robot states, and messages (10 Hz) \\
+30002 & Secondary &
+URScript commands and robot states (10 Hz) \\
+30003 & Realtime &
+Legacy state streaming and URScript (500 Hz; deprecated) \\
+29999 & Dashboard &
+Remote program execution and robot management \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]
+    {figures/UR7e_remote_control.pdf}
+    \caption{Communication architecture of the UR7e
+    manipulation platform. The external workstation
+    supports two alternative control approaches:
+    (1) direct control using \texttt{ur\_rtde} and
+    (2) ROS 2-based control using
+    \texttt{ur\_robot\_driver}.
+    Both communicate with the CB5 robot controller
+    over Ethernet. The teach pendant provides access
+    to PolyScope for robot configuration and
+    program execution.}
+    \label{fig:ur7e_communication}
+\end{figure}
+
+\href{https://docs.universal-robots.com/tutorials/communication-protocol-tutorials/rtde-guide.html}{RTDE (Real-Time Data Exchange)}
+is a communication protocol
+for exchanging robot states and control-related data between
+the CB5 controller and an external workstation. URScript is
+Universal Robots' scripting language for robot programming
+and motion execution. The Primary and Secondary interfaces
+support URScript commands and state feedback, while the
+Dashboard interface provides remote program management.
+The frequencies listed in Table~\ref{tab:ur7e_interfaces}
+refer to nominal or maximum data streaming rates rather
+than external motion-command frequencies.
+
+The teach pendant provides access to PolyScope, Universal
+Robots' graphical programming and operation interface.
+PolyScope allows users to configure the robot, select
+Local or Remote Control mode, and execute robot programs.
+The External Control URCap is a PolyScope extension that
+enables external control through a robot program.
+
+For direct external control without ROS 2, the
+\texttt{ur\_rtde} library runs on the workstation and
+provides Python and C++ interfaces. Its
+\texttt{RTDEReceiveInterface} acquires robot states,
+while \texttt{RTDEControlInterface} sends motion commands
+that are executed through a URScript program running on
+the robot controller. By default, the library automatically
+uploads the control script when the robot is in Remote
+Control mode. Alternatively, the script can be started
+through the External Control URCap. The experimental setup
+uses a customized external servo control frequency of
+125 Hz (8 ms period).
+
+Alternatively, ROS 2 (Robot Operating System 2) provides
+a middleware framework for integrating robot perception,
+planning, and control applications. Within ROS 2,
+\texttt{ros2\_control} provides standardized hardware
+interfaces and controllers. The official UR ROS 2 driver
+(\texttt{ur\_robot\_driver}) integrates the UR7e with
+\texttt{ros2\_control} using the
+\texttt{ur\_client\_library}. It receives robot states
+through RTDE and sends motion commands through a reverse
+TCP connection to a URScript program running on the CB5
+controller. Although the reverse TCP connection is
+initiated by the robot, motion commands are transmitted
+from the workstation to the robot. The control program
+can be started through the External Control URCap or
+automatically in headless mode, which requires the robot
+to be in Remote Control mode. The ROS 2 driver runs on
+the external workstation and is not required when using
+\texttt{ur\_rtde} directly.
+
+The \textbf{official documentation for the third-party \texttt{ur\_rtde} library:}
+\begin{itemize}
+    \item \textbf{Documentation:}
+    \url{https://sdurobotics.gitlab.io/ur_rtde/}
+    \item \textbf{Quick start:}
+    \url{https://sdurobotics.gitlab.io/ur_rtde/pages/getting_started/quick_start.html}
+    \item \textbf{Using the Robotiq gripper:}
+    \url{https://sdurobotics.gitlab.io/ur_rtde/pages/core_concepts/guides/use_with_robotiq_gripper.html}
+\end{itemize}
+
+
+
+
+\subsubsection{Robot State Representation and Motion Control Using \texttt{ur\_rtde}}
+\label{sec:ur7e_motion_control}
+
+Two commonly used representations for describing robot motion are the joint configuration and the tool center point (TCP) pose. The joint configuration is represented as
+\begin{equation}
+    \mathbf{q} = [q_1,q_2,q_3,q_4,q_5,q_6]^\top,
+\end{equation}
+where all joint angles are measured in radians.
+
+The TCP pose is represented as
+\begin{equation}
+    \mathbf{p} = [x,y,z,r_x,r_y,r_z]^\top,
+\end{equation}
+where $(x,y,z)$ denotes the Cartesian position in meters, and $(r_x,r_y,r_z)$ represents the TCP orientation as a rotation vector in axis--angle form, measured in radians. By default, the TCP pose is expressed relative to the robot base frame. The TCP pose does not uniquely determine the joint configuration.
+
+The \texttt{ur\_rtde} library provides \texttt{getActualQ()} and \texttt{getActualTCPPose()} to acquire the actual joint positions and TCP pose, respectively.
+
+\paragraph{Motion Control Commands.}
+Two commonly used motion control commands are \texttt{moveJ()} and \texttt{moveL()}.
+
+The \texttt{moveJ()} command performs joint-space motion toward a target joint configuration:
+\begin{equation}
+    \mathbf{q}^{\mathrm{target}} = [q_1^{\mathrm{target}},\ldots,q_6^{\mathrm{target}}]^\top.
+\end{equation}
+It takes the target configuration, joint speed $v_J$ (rad/s), and joint acceleration $a_J$ (rad/s$^2$) as its main parameters.
+
+The \texttt{moveL()} command performs linear TCP motion toward a target Cartesian pose:
+\begin{equation}
+    \mathbf{p}^{\mathrm{target}} = [x^{\mathrm{target}},y^{\mathrm{target}},z^{\mathrm{target}},r_x^{\mathrm{target}},r_y^{\mathrm{target}},r_z^{\mathrm{target}}]^\top.
+\end{equation}
+Its main parameters are the target pose, TCP speed $v_L$ (m/s), and TCP acceleration $a_L$ (m/s$^2$).
+
+\paragraph{Path Execution and Blending.}
+Both \texttt{moveJ()} and \texttt{moveL()} support motion along a sequence of waypoints, with each waypoint specified by a nine-dimensional vector.
+
+For joint-space motion using \texttt{moveJ()}, the path is defined as
+\begin{equation}
+    \mathcal{Q} = [\mathbf{w}_J^{(1)},\ldots,\mathbf{w}_J^{(n)}],
+\end{equation}
+where
+\begin{equation}
+    \mathbf{w}_J^{(i)} = [q_1^{(i)},\ldots,q_6^{(i)},v_J^{(i)},a_J^{(i)},b_J^{(i)}].
+\end{equation}
+
+Similarly, for Cartesian motion using \texttt{moveL()}, the path is defined as
+\begin{equation}
+    \mathcal{P} = [\mathbf{w}_L^{(1)},\ldots,\mathbf{w}_L^{(n)}],
+\end{equation}
+where
+\begin{equation}
+    \mathbf{w}_L^{(i)} = [x^{(i)},y^{(i)},z^{(i)},r_x^{(i)},r_y^{(i)},r_z^{(i)},v_L^{(i)},a_L^{(i)},b_L^{(i)}].
+\end{equation}
+
+Here, $v^{(i)}$, $a^{(i)}$, and $b^{(i)}$ denote the speed, acceleration, and blend radius associated with the $i$-th waypoint, respectively. The units of speed and acceleration depend on the motion command, while the blend radius is measured in meters.
+
+The blend radius allows smooth transitions between consecutive path segments without stopping at intermediate waypoints. For example, $b^{(i)}=0$ specifies no blending, causing the robot to stop at the waypoint before continuing, whereas $b^{(i)}=0.02$ specifies a blend radius of 2 cm, allowing the robot to round the waypoint without necessarily passing through its exact position. A larger blend radius generally enables smoother transitions but introduces greater deviation from the specified waypoints.
+
+
+
+\subsection{Robotiq 2F-85 Gripper}
+\label{sec:robotiq_gripper}
+
+The manipulation platform uses a Robotiq 2F-85 two-finger adaptive gripper mounted at the end-effector of the UR7e. The gripper supports adjustable opening positions, gripping speeds, and gripping forces for object manipulation. Its maximum opening width is 85 mm, with a nominal finger speed range of 20--150 mm/s and a gripping force range of 20--235 N.
+
+\paragraph{Gripper Control Interfaces.}
+There are three approaches to controlling the Robotiq gripper from an external workstation:
+\begin{enumerate}
+    \item \textbf{URScript-based control:} Send Robotiq function definitions and commands through \texttt{RTDEControlInterface.sendCustomScriptFunction()}. This approach does not require a URCap but introduces communication delays and interrupts the robot's RTDE control script.
+    \item \textbf{RS485 URCap:} Communicate with the gripper through the robot's RS485 interface using a dedicated URCap. This approach supports fast communication but is incompatible with the Robotiq Grippers URCap.
+    \item \textbf{Robotiq Grippers URCap:} Communicate directly with the TCP server provided by the Robotiq Grippers URCap on port 63352. This approach supports fast gripper communication without interrupting the \texttt{ur\_rtde} arm-control script.
+\end{enumerate}
+
+The third approach is adopted for the manipulation platform. The workstation establishes a TCP connection to the robot controller at \texttt{192.168.1.100:63352}, where the Robotiq Grippers URCap provides an interface to the gripper. Unlike the first approach, this method does not require sending a complete URScript preamble for each gripper operation and allows the arm and gripper to be controlled through independent communication interfaces.
+
+\paragraph{Gripper Control Commands.}
+The gripper control command is represented by a three-dimensional vector:
+\begin{equation}
+    \mathbf{u}_t^g = [p_t^g, s_t^g, f_t^g]^\top,
+\end{equation}
+where $p_t^g$, $s_t^g$, and $f_t^g$ denote the target position, speed setting, and force setting, respectively. All three parameters are integer values in the range
+\begin{equation}
+    p_t^g, s_t^g, f_t^g \in \{0,1,\ldots,255\}.
+\end{equation}
+
+For the position command, $p_t^g=0$ corresponds to a fully open gripper, while $p_t^g=255$ corresponds to a fully closed gripper. The speed and force settings control the commanded finger motion speed and gripping force, respectively.
+
+In physical units, let $w_t^g$ denote the gripper opening width (mm), $v_t^g$ the finger speed (mm/s), and $F_t^g$ the gripping force (N). The manufacturer specifies the following opening range and nominal speed and force ranges:
+\begin{equation}
+    \begin{aligned}
+        0 &\leq w_t^g \leq 85 \ \mathrm{mm},\\
+        20 &\leq v_t^g \leq 150 \ \mathrm{mm/s},\\
+        20 &\leq F_t^g \leq 235 \ \mathrm{N}.
+    \end{aligned}
+\end{equation}
+These are physical specifications rather than direct units of the control commands. In particular, the integer command values should not be assumed to map linearly to the physical quantities, and the actual gripping force depends on contact conditions.
+
+\paragraph{Python Interface.}
+The \texttt{robotiq\_gripper.py} module provides the \texttt{RobotiqGripper} class for gripper activation, position control, and state monitoring. The \texttt{move\_and\_wait\_for\_pos(position, speed, force)} method accepts the three control parameters defined above and blocks until the gripper motion completes.
+
+The Python implementation and usage examples are available in the \href{https://sdurobotics.gitlab.io/ur_rtde/pages/core_concepts/guides/use_with_robotiq_gripper.html}{\texttt{ur\_rtde} Robotiq Gripper documentation}.
+
+
+
+
+\subsection{Camera}
+\label{sec:camera}
+
+The manipulation platform is equipped with two Orbbec Gemini 335L RGB-D cameras: one mounted on the UR7e wrist (eye-in-hand) and another providing an external view of the workspace (eye-to-hand). Both cameras provide RGB images and depth measurements using stereo vision and connect to the workstation via USB 3.0 Type-C.
+
+\subsubsection{Camera Specifications}
+
+Table~\ref{tab:camera_comparison} compares the Gemini 335L with the Intel RealSense D415, used in the original Diffusion Policy experiments, and the Intel RealSense D435i.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of RGB-D camera specifications.}
+\label{tab:camera_comparison}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccc}
+\hline
+\textbf{Parameter} & \textbf{Gemini 335L} & \textbf{RealSense D415} & \textbf{RealSense D435i} \\
+\hline
+Depth technology & Active/passive stereo & Active stereo & Active stereo \\
+Depth resolution & $1280\times800$ & $1280\times720$ & $1280\times720$ \\
+Depth frame rate & 30 fps & 30 fps & 30 fps \\
+RGB resolution & $1280\times800$ & $1920\times1080$ & $1920\times1080$ \\
+RGB frame rate & 60 fps & 30 fps & 30 fps \\
+Depth FOV (H$\times$V) & $90^\circ\times65^\circ$ & $65^\circ\times40^\circ$ & $87^\circ\times58^\circ$ \\
+RGB FOV (H$\times$V) & $94^\circ\times68^\circ$ & $69^\circ\times42^\circ$ & $69^\circ\times42^\circ$ \\
+Ideal depth range & 0.25--6 m & 0.5--3 m & 0.3--3 m \\
+Depth shutter & Global & Rolling & Global \\
+RGB shutter & Global & Rolling & Rolling \\
+Stereo baseline & 95 mm & 55 mm & 50 mm \\
+IMU & Yes (6-DoF) & No & Yes (6-DoF) \\
+Interface & USB 3.0 Type-C & USB 3.0 Type-C & USB 3.0 Type-C \\
+IP rating & IP65 & Not specified & Not specified \\
+Dimensions (mm) & $124\times29\times27$ & $99\times20\times23$ & $90\times25\times25$ \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+Compared with the RealSense D415 and D435i, the Gemini 335L offers a wider field of view, a longer stereo baseline, and global-shutter sensors for both RGB and depth imaging. The wider field of view increases workspace coverage, while global-shutter imaging reduces geometric distortion when capturing moving objects or a moving robot arm. The longer stereo baseline can improve depth precision at greater distances, although actual performance depends on object distance, surface properties, and environmental conditions. The specifications in Table~\ref{tab:camera_comparison} describe supported operating modes rather than the actual acquisition settings of our platform.
+
+\subsubsection{Camera Communication and Software Interfaces}
+
+The Gemini 335L supports two approaches for camera data acquisition: direct access through  \href{http://www.orbbec.com/developers/orbbec-sdk}{Orbbec software development kit (SDK)}
+and integration through ROS~2.
+
+\paragraph{Direct SDK Access.}
+
+The official \href{https://github.com/orbbec/OrbbecSDK_v2}{Orbbec SDK v2} provides C/C++ interfaces for camera configuration, RGB and depth acquisition, camera calibration, depth-to-color alignment, and point-cloud generation. Python applications can access the camera through the official \href{https://github.com/orbbec/pyorbbecsdk/tree/v2-main}{\texttt{pyorbbecsdk}} bindings.
+
+For comparison, the RealSense D415 and D435i are supported by \href{https://github.com/realsenseai/librealsense}{RealSense SDK 2.0 (librealsense)}, which provides C/C++ interfaces and the official Python wrapper \href{https://github.com/realsenseai/librealsense/tree/master/wrappers/python}{\texttt{pyrealsense2}}. The latter can also be installed from \href{https://pypi.org/project/pyrealsense2/}{PyPI}.
+
+Direct SDK access does not require ROS~2. Camera frames can be acquired and processed directly by a Python application, allowing integration with learned policies or robot control applications based on \texttt{ur\_rtde}.
+
+\paragraph{ROS~2 Integration.}
+
+The Gemini 335L is also supported by the official \href{https://github.com/orbbec/OrbbecSDK_ROS2}{OrbbecSDK\_ROS2} driver (v2-main branch). This driver uses the underlying Orbbec SDK to access the camera and publishes sensor data through ROS~2 topics. Typical interfaces include:
+
+\begin{itemize}
+    \item \texttt{/camera/color/image\_raw}: RGB images (\texttt{sensor\_msgs/msg/Image}).
+    \item \texttt{/camera/depth/image\_raw}: Depth images (\texttt{sensor\_msgs/msg/Image}).
+    \item \texttt{/camera/color/camera\_info}: RGB camera calibration parameters (\texttt{sensor\_msgs/msg/CameraInfo}).
+    \item \texttt{/camera/depth/camera\_info}: Depth camera calibration parameters (\texttt{sensor\_msgs/msg/CameraInfo}).
+    \item \texttt{/camera/depth/points}: 3D point clouds (\texttt{sensor\_msgs/msg/PointCloud2}), when enabled.
+\end{itemize}
+
+The driver provides the launch file \texttt{gemini\_330\_series.launch.py} for the Gemini 330 series, including the Gemini 335L. The default topic namespace can be changed through the launch configuration.
+
+For comparison, RealSense cameras can be integrated with ROS~2 through the official \href{https://github.com/realsenseai/realsense-ros}{\texttt{realsense-ros}} driver.
+
+For applications involving two cameras, each device should be assigned a unique camera name and identified by its serial number or USB port. Camera calibration must establish the transformations between the wrist-mounted camera and the robot end-effector, and between the external camera and the robot base. These transformations can be managed using TF2, the ROS~2 framework for maintaining coordinate transformations between reference frames.
+
+Camera observations must also be temporally aligned with robot state measurements. USB bandwidth, processing latency, and dropped frames should be monitored when acquiring high-resolution streams from multiple cameras.
+
+The ROS~2 camera driver operates independently of the UR ROS~2 driver. Therefore, the Gemini 335L cameras can publish observations through ROS~2 while the UR7e is controlled directly using \texttt{ur\_rtde}.
+
+\subsubsection{Interface Selection for Agent-Based Manipulation}
+
+The choice between direct SDK access and ROS~2 integration depends on the architecture of the robotic application.
+
+For a standalone Python-based application, such as a learned visuomotor policy or a simple agent framework, direct SDK access provides a straightforward implementation with fewer software dependencies. Camera observations can be acquired and processed within the same application, while robot commands are executed through \texttt{ur\_rtde}.
+
+For a modular agent-based robotic system, ROS~2 offers advantages in integrating multiple cameras, perception modules, robot state monitoring, motion planning, and other robotic components. It supports communication between independent processes through topics, services, and actions, and provides standard interfaces for sensor data and coordinate transformations. An agent framework can interact with these components through Python-based ROS~2 clients or application-specific interfaces.
+
+Importantly, an agent framework does not inherently require ROS~2. A high-level agent can interact with camera and robot interfaces directly through Python functions or indirectly through ROS~2. For example, a language-model-based agent may perform task planning and select high-level robot actions, while separate perception and control modules handle sensor acquisition and motion execution.
+
+For our platform, ROS~2 is suitable for integrating the two cameras and other robotic components, while \texttt{ur\_rtde} can independently handle low-level UR7e control. The high-level agent should issue task-level or motion-level commands to a validated execution interface, rather than directly maintaining the robot's 125 Hz control loop. This separation allows agent reasoning, camera acquisition, and low-level robot control to operate at different frequencies while maintaining appropriate safety constraints.
+
+\subsubsection{Camera Acquisition and Policy Observations}
+
+In the original Diffusion Policy experiments, the UR5 robot station employed five RealSense D415 cameras recording 720p RGB videos at 30 fps. Only two cameras were used for policy observations, with images downsampled to $320\times240$ at 10 Hz.
+
+Similarly, on our platform, RGB-D frames can be acquired through either the Orbbec SDK or ROS~2 and processed before being supplied to a learned policy or an agent-based decision-making system. Camera capture frequency, policy observation frequency, agent decision frequency, and robot control frequency are independently configurable.
+
+For closed-loop manipulation, camera observations and robot states should be associated with timestamps so that decisions are based on temporally consistent information. The high-level decision-making frequency need not match the camera acquisition or low-level robot control frequency.
+
+
+
+
+
+
+
+
+
+\input{section/references}
+
+\section{Appendix}
+
+\end{document}

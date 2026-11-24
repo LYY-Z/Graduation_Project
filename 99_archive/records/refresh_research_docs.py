@@ -1,0 +1,326 @@
+from pathlib import Path
+from urllib.parse import unquote
+import ast
+import json
+import posixpath
+import re
+
+ROOT=Path('G:/毕设');REC=ROOT/'99_archive/records'
+plan=json.loads((REC/'refresh_plan.json').read_text(encoding='utf8'))
+moves=plan['moves'];aliases=plan['aliases']
+
+def relocate(p):
+    if p in aliases:return aliases[p]
+    for src,dst in sorted(moves.items(),key=lambda kv:-len(kv[0])):
+        if p==src or p.startswith(src+'/'):return dst+p[len(src):]
+    src='99_archive/workspace_cleanup_20261123'
+    if p==src or p.startswith(src+'/'):return '99_archive/records'+p[len(src):]
+    return p
+
+def old_location(p):
+    for src,dst in sorted(moves.items(),key=lambda kv:-len(kv[1])):
+        if p==dst or p.startswith(dst+'/'):return src+p[len(dst):]
+    return p
+
+docs=list((ROOT/'02_learning').rglob('*.md'))+[ROOT/'README.md',ROOT/'03_code/README.md',ROOT/'03_code/references/README.md',ROOT/'99_archive/README.md']
+docs += [p for p in (ROOT/'03_code/diffusion_policy_ur7e').rglob('*.md') if '/third_party/' not in p.as_posix()]
+pattern=re.compile(r'(!?\[[^\]\n]*\]\()(<[^>\n]+>|[^\)\s]+)(\))')
+changed=[]
+for doc in docs:
+    rel=doc.relative_to(ROOT).as_posix();old=old_location(rel)
+    text=doc.read_text(encoding='utf-8-sig',errors='replace');count=[0]
+    def patch(m):
+        target=unquote(m.group(2).strip('<>'))
+        if target.startswith(('#','http:','https:','mailto:','plugin:','app:','artifact:','data:','/')) or re.match(r'^[A-Za-z]:',target):return m.group(0)
+        path,sep,anchor=target.partition('#');line=''
+        lm=re.search(r':\d+$',path)
+        if lm:line=lm.group(0);path=path[:-len(line)]
+        resolved=posixpath.normpath(posixpath.join(posixpath.dirname(old),path.replace('\\','/')))
+        new=relocate(resolved)
+        if not (ROOT/new).exists():return m.group(0)
+        if new.endswith('.zip'):line='';sep='';anchor=''
+        result=posixpath.relpath(new,posixpath.dirname(rel) or '.')+line+(sep+anchor if sep else '')
+        if ' ' in result:result='<'+result+'>'
+        value=m.group(1)+result+m.group(3)
+        if value!=m.group(0):count[0]+=1
+        return value
+    new=pattern.sub(patch,text)
+    replacements={**aliases,**moves}
+    for src,dst in sorted(replacements.items(),key=lambda kv:-len(kv[0])):
+        new=new.replace(src,dst).replace(src.replace('/','\\'),dst.replace('/','\\'))
+    new=new.replace('02_learning/motion_control/','02_learning/research/').replace('02_learning\\motion_control\\','02_learning\\research\\')
+    new=new.replace('99_archive/workspace_cleanup_20261123/','99_archive/records/')
+    if new!=text:
+        doc.write_text(new,encoding='utf8');changed.append({'path':rel,'links':count[0]})
+
+handoff='''# 研究目标与交接说明
+
+更新：2026-11-23。供新对话快速接续研究；详细推导、实验数字和历史方案见专题资料。
+
+## 1. 当前阶段：选题前的开放调研
+
+现在仍在**研究课题开启之前的大调研阶段**。研究问题、基础论文、技术路线和创新点均可继续调整，已有分类、排序和方案都可以被更充分的证据推翻。
+
+TAM、GRAM、SADL，以及此前搜集的论文，都是目前读过的样本，**不是最终论文清单，也不是下一轮检索的边界**。可以继续寻找更合适的工作并替代它们。既有复现和汇报是可利用的积累，不构成必须沿用某篇论文的理由。
+
+下列要求是研究质量和协作标准，技术选择保持开放。新窗口应主动提出有依据的新判断，而不是只维护旧答案。
+
+## 2. 目标、平台与研究空间
+
+用户是本科生，希望通过毕设形成有价值、有创新性、具备投稿潜力的研究成果。复现用于建立可信的研究基础，最终需要提出并验证自己的贡献。
+
+主要平台为 **Go2-W 轮足机器人和 UR7e 机械臂**。当前关注 adaptive robot motion control，尤其是运行中变化后的适应与恢复。如果其他运动控制问题具有更好的研究价值和平台适配性，也可以重新论证。
+
+方法不限于强化学习。历史条件策略、在线系统辨识、动力学学习、预测控制、自适应/鲁棒控制、残差学习、扰动补偿及合理组合都可参与比较。是否采用 RL、共享网络、同一套权重或分平台训练，应由问题与证据决定。
+
+论文可以使用其他机器人。审查重点是方法假设、可测输入、动作接口和迁移代价，而不是是否原生包含 Go2-W 或 UR7e。必要的模型、任务、接口和训练拓展可以作为工作的一部分，但要说清怎样做、为什么值得做。
+
+老师更关注 **同一 episode 中突然变化后的恢复**，而不仅是回合开始设置未知参数后保持不变。载荷、摩擦/打滑、执行响应、延迟、外力和复合变化都可调查；具体研究哪些，应继续根据文献与平台条件收敛。
+
+## 3. 老师要求的论文阅读与汇报主线
+
+每篇论文应形成下面的论证链，而不是把术语和结果分散罗列。
+
+| 环节 | 需要回答的问题 |
+|---|---|
+| 作者的问题 | 作者实际上要解决什么？问题定义、控制目标和适用对象是什么？ |
+| 已有局限与挑战 | 哪类已有方法哪里不够？困难来自什么，为什么值得研究？ |
+| 方法设计 | 作者基于什么已有方法增加了什么机制？每项设计对应哪项挑战？ |
+| Task 与训练 | 做什么任务？输入输出是什么？如何训练、适应和部署？ |
+| Benchmark | 使用哪些机器人、环境、扰动和测试协议？训练与测试条件如何区分？ |
+| Baseline | 和谁比较？为什么选这些方法？是否有强对照和合理调参？ |
+| 实验与指标 | 怎样验证各项主张？样本、重复次数、误差、成功率、恢复时间和成本如何定义？ |
+| Contribution 与 limitation | 相对最近工作真正增加了什么？结果支持到哪里，仍有什么未解决？ |
+
+**问题必须来自作者原文。** 作者主张、实验证据、我们的评价和拟做的新问题分别表述，不能为了贴合自己的方向而替作者改写研究问题。
+
+重点检查故事是否自洽：提出的 challenge 是否真的由 method 处理，实验 task 是否暴露这项 challenge，评价方法是否足以支持 contribution。方法模块的消融、失败案例和不占优的结果同样有价值。
+
+## 4. 文献搜索与可复现性评价
+
+以 **2025、2026 年已正式发表或明确录用的高质量工作**为重点，较早论文保留非常有代表性、与问题直接相关的。新预印本可用于发现前沿和查重，发表状态单独标明。
+
+检索应从问题、控制层级和机制展开，结合近邻论文、前向/后向引文、正式论文库、作者主页和官方仓库，持续扩展并比较。不要反复围绕最初几篇搜索，也不要用标题数量、搜索时长或会议名替代实际阅读和质量判断。
+
+每篇重点论文同时核查：
+
+- **问题与证据：** 作者原意、最近工作、实验对象、变化时序、指标定义、结果和局限。
+- **方法与信息：** 原控制器、学习模块、训练/部署分工、历史或模型怎样更新，是否需要特权状态、故障标签或未来信息。
+- **输入输出：** 状态和动作的物理意义、来源、维数、关节/坐标映射、执行链与反馈条件。
+- **公开实现：** 官方归属、版本、环境、任务、资产、数据、训练、权重、评估和 baseline 是否齐备；缺口要落实到功能或文件。
+- **工程可行性：** 软件/GPU 兼容性、训练代价、迁移工作、可复用部分和验证路线。
+
+有完整官方复现路径的论文更适合主线起点；不满足这一点的好论文仍可提供问题、机制和实验设计参考。区分“原任务能运行”“核心结果能对齐”“目标平台能部署”，也区分作者实现、第三方复现和我们新增的适配。
+
+会议、期刊及 Spotlight/Oral 的含义要准确，不把所有论文统称顶刊。重要结论保留可靠来源和具体版本；遇到访问限制，说明实际读取范围，不把未读到写成不存在。
+
+## 5. 要能回应控制领域研究者
+
+讨论方法为什么更好时，首先说清比较的问题、条件和指标，重点准备这些回答：
+
+1. 原本的控制器和闭环是什么？新方法放在哪一层，改变了什么？
+2. 原控制器、增益调整或经典辨识/补偿为何不够？学习机制提供了什么额外能力？
+3. 方法依赖什么可观测反馈和模型？历史是否足够有效，估计错误时怎样影响控制？
+4. 输出是位置、速度、力矩、末端动作还是机体命令？经过 PD、IK、OSC 或其他环节后实际施加什么？
+5. 基线是否拥有同等状态、模型、动作权限、数据、调参和计算预算？
+6. 改善是恢复更快、稳态误差更小、泛化更好还是少重新训练？代价是否包含试探、偏差、抖动、能耗和计算？
+7. 延迟、接触切换、饱和和故障改变了什么？任务是否仍有足够控制能力完成？
+8. 稳定性和约束结论来自理论还是有限实验？适用条件是什么？
+
+PID、LQR、MPC、L₁、自适应控制、扰动观测器、在线辨识以及近期学习方法，可按问题选择有说服力的比较，不机械堆满全部算法。
+
+鲁棒、适应、任务失败恢复和动力学恢复需要分别理解。固定权重的历史推理与在线更新模型也不同。故障实现要有物理含义，例如撤去主动控制并不等于机械锁死，通信消息中的字段也不自动证明实机有相应有效测量。
+
+## 6. 怎样形成创新课题
+
+从充分调研中寻找值得解决的缺口，再提出机制明确、可以用强对照验证、工作量匹配的方案。可以延伸一篇论文，也可以借鉴多个工作的互补思想；关键是确实解决一个问题，而不是为了组合而组合。
+
+提出选题时说明：
+
+1. 研究问题及价值，现有方法为何没有充分解决。
+2. 最近相关工作的实际贡献，以及新方案与它们的具体差别。
+3. 新增机制、信息或目标是什么，为什么预期有效，简单替代方案是否足够。
+4. 复现起点及代码条件，需要自己实现的部分、技术和资源。
+5. baseline、消融、仿真和实机怎样构成证据，工作量与主要风险如何安排。
+6. 若关键假设不成立，怎样修正问题或选择更好的路线。
+
+新颖性审查在开工前开展，并持续跟踪。不要把换平台、加一个网络、简单叠加 PPO 或两个已有模块本身称为首创。也不要只说“无法保证”，应给出查重依据、差异分析和明确的研究判断。
+
+本科毕设需要可完成的主线，同时要保留有竞争力的论文贡献。既不能承诺未经验证的首创和录用，也不应过早把方向限制成低价值小修补。允许根据更好的论文、机制分析或实验发现重新选题。
+
+## 7. 迁移与实施需要注意什么
+
+Go2-W 有 12 个腿部主动关节和 4 个驱动轮；UR7e 是六关节机械臂。统一数组长度只解决形状，关节语义、有效性、结构、方向、单位、归一化和动作读出仍需定义。专用编码器/输出头、固定槽位与 mask、逐关节结构 token 都是可以继续比较的方案。
+
+检查 Actor、Critic、教师和部署各自能读到什么。机体线速度、物体状态、接触和力矩必须有真实来源。仿真模型可以提供资产和动力学基础，但完整任务还需要控制器、观测动作、奖励、训练与评价。
+
+TAM 的力矩层、GRAM 的位置目标、SADL 的预测规划属于不同控制层级，这些只是已有样本，不是唯一可选接口。可通过合理拓展实现迁移，但要分析方法假设是否仍成立，而不仅是 SDK 能否发送对应数值。
+
+训练与仿真在服务器上准备，采用独立 Conda 环境和个人工作空间，不改他人环境。本地 PC 用于文献、代码和文档工作。先查现有安装、GPU 完整型号和依赖兼容性，再确定环境方案与预算。连接资料单独保存，不把密码写入交接、公开代码或论文。
+
+代码以公共项目为读者：模块职责清楚、上游版本和修改可追溯，保留必要验证。Guide 解释环境、配置和启动关系，命令附用途；technical report 按研究问题、系统、方法、实验和局限组织，不堆个人操作或代码目录。
+
+## 8. 学习、文档和 PPT 的表达要求
+
+**学习时：** 用户基础较弱，按连贯章节推进。先给全流程，再定位当前阶段，说明变量从哪里来、是什么数组、交给谁。需要原理时给小例子和必要推导；只调研问题方法时保持概括，不无故深挖。遇到疑问解释缺失的连接，不只是换个比喻重复结论。
+
+**文档：** 归纳问题和完整流程，建立清楚入口，避免同主题多份“最终版”。学习教材可以详细，公开 README、guide、技术报告和组会材料应各有读者和信息层次。表达专业自然、容易理解，少空泛术语和 AI 套话。
+
+**汇报时：** 是研究汇报而非逐步上课。围绕问题链讲设计、证据和判断，通过取舍与分析体现理解，不使用“我的思考”“我的总结”作空标题。页间要有承接，重点放在老师关注的问题、方法、实验与研究价值。
+
+**视觉：** 当前偏好白蓝简约风。优先论文原图、真实实验照片和清楚的流程图，图文共同解释，减少长段文字和连续大表格。每页有重点，检查公式、字号、图片、表格和真实渲染。需要只改某页时尊重范围。
+
+**讲稿：** 与每页内容和图片位置对应，引导老师看哪个区域、对照和曲线，解释图支持什么结论。口吻适合本科生正式汇报，有主题和转场，能直接朗读。附录关键结论融入正文，附录另作答问。
+
+**中英文：** 页序、数据、图和结论对应，英文自然表达并单独检查排版。来源保留在备注；用户不喜欢页角堆叠章节来源。交付前检查文件、图片嵌入、备注和链接。
+
+## 9. 已积累的工作与资料
+
+| 积累 | 可利用的基础 |
+|---|---|
+| Diffusion Policy | 已建立 DDPM、论文、视觉编码、官方源码与 checkpoint 学习资料 |
+| UR7e 适配 | 已有相机/状态输入、策略推理、限幅执行与实测反馈的受限链路记录；当前代码经过模块化整理。该记录不等于真实 Push-T 已成功 |
+| LocoFormer | 已学习长历史、跨 Trial、Transformer-XL、PPO，并审查第三方工程和参考接口；作者完整发布不足是当时判断，后续有新资料可重评 |
+| FLAIR | 六足 Chicane 主对照有数据复核、独立运行及 80 回合批次记录，可作复现和指标经验 |
+| 文献调研 | 已读 TAM、GRAM、SADL 等并做源码和接口审查，形成阶段 PPT；这些工作都可以继续扩展和替代 |
+
+早期 FLAIR 创新方案、三篇排序和汇报计划保留为历史，不是当前课题决定。详细实验数字、模型身份和运行边界查对应原始记录，不在本交接反复复制。
+
+## 10. 从哪里继续
+
+- [研究资料入口](research/README.md)：阶段综述、分路线审查、来源证据和工具。
+- [学习与概念导航](README.md)：Diffusion Policy、LocoFormer、FLAIR 及共同基础。
+- [Go2-W 硬件与 SDK](locoformer/go2_reproduction/01_go2w_hardware.CN.md)。
+- [当前 UR7e 项目](../03_code/diffusion_policy_ur7e/README.CN.md)与[重构代码讲解](diffusion_policy/06_refactored_code/README.md)。
+- [FLAIR 执行记录](flair/reproduction_execution.md)与[复现总结](flair/reproduction_summary.md)。
+- [汇报与逐页讲稿](reports/README.md)。
+- [平台连接资料](platform/vnc.md)与[归档索引](../99_archive/README.md)。
+
+新窗口先理解当前目标和用户下一条任务，再开展工作。如果任务是找论文和选题，应继续广泛调研、比较、查重和重新判断，主动寻找优于既有样本的工作；没有必要先维护任何旧方案，也不应把现有报告当成检索终点。
+'''
+(ROOT/'02_learning/00_research_handoff.CN.md').write_text(handoff,encoding='utf8')
+
+indexes={
+'README.md':'''# 机器人运动控制研究工作区
+
+面向 Go2-W 轮足机器人与 UR7e 机械臂，开展适应、恢复及相关运动控制研究。目前处于选题前的开放调研阶段，已有论文与方案可继续调整。
+
+| 入口 | 内容 |
+|---|---|
+| [研究目标与交接](02_learning/00_research_handoff.CN.md) | 目标、老师要求、评价标准和协作方式 |
+| [研究资料](02_learning/research/README.md) | 阶段论文综述、源码审查和来源证据 |
+| [学习资料](02_learning/README.md) | 论文、代码与基础概念 |
+| [PPT 与讲稿](02_learning/reports/README.md) | 各主题汇报材料 |
+| [代码](03_code/README.md) | 活动项目与参考实现 |
+| [归档](99_archive/README.md) | 历史代码、证据与旧文档 |
+
+```text
+01_papers/    论文、补充材料、技术报告
+02_learning/  交接、研究、教材、平台说明、汇报
+03_code/      活动代码与参考实现
+99_archive/   历史归档与整理记录
+```
+''',
+'02_learning/README.md':'''# 学习与研究导航
+
+当前研究目标和长期要求见[交接说明](00_research_handoff.CN.md)。详细教材与调研资料按用途分开，论文在 `01_papers/`，源码在 `03_code/`。
+
+| 用途 | 入口 |
+|---|---|
+| 研究调研与选题 | [research](research/README.md) |
+| DDPM、Diffusion Policy、UR7e | [学习路线](diffusion_policy/README.md) |
+| LocoFormer、长记忆与 PPO | [学习手册](locoformer/README.md) |
+| FLAIR 源码与复现 | [学习入口](flair/README.md) |
+| Go2-W 硬件和接口 | [硬件与 SDK](locoformer/go2_reproduction/01_go2w_hardware.CN.md) |
+| PPT 与讲稿 | [reports](reports/README.md) |
+| 服务器可视化 | [VNC](platform/vnc.md) |
+
+## 基础概念怎么衔接
+
+共同基础是张量、网络、参数、前向、损失、梯度和优化器。Diffusion Policy 从演示学习噪声预测并生成动作块；LocoFormer 从交互回报训练历史条件策略；FLAIR 从实际响应在线更新补偿模型。训练信号和时间组织各不相同。
+
+| 疑问 | 阅读位置 |
+|---|---|
+| 网络、参数和前向到底是什么？ | [网络基础](locoformer/02_network_and_memory.md#tensors) |
+| 加噪、高斯、平方根和反向公式 | [DDPM 推导](diffusion_policy/01_foundations/02_ddpm_from_intuition_to_formula.md) |
+| score、动作扩散和 DDIM | [条件动作扩散](diffusion_policy/02_paper_study/02_action_diffusion_and_formulas.md) |
+| 视觉、FiLM、EMA 和控制窗口 | [网络与控制](diffusion_policy/02_paper_study/03_control_network_and_design.md) |
+| QKV、segment 和缓存 | [网络与记忆](locoformer/02_network_and_memory.md) |
+| Trial、Episode 和训练时间链 | [全流程](locoformer/01_paper_and_full_pipeline.md#concepts) |
+| 奖励、优势、重新前向和 PPO 更新 | [强化学习与 PPO](locoformer/03_reinforcement_learning_and_ppo.md) |
+| 相机、checkpoint、限幅与实体执行 | [重构代码讲解](diffusion_policy/06_refactored_code/README.md) |
+| 航点怎样到六足结果统计 | [FLAIR 源码](flair/README.md) |
+
+遇到公式或代码，先明确它处于哪个阶段、数据从哪里来、使用哪版参数或缓存、结果交给谁，再用小例子连接。详细疑问索引见各教材，不再维护一份重复的总教材。
+''',
+'02_learning/research/README.md':'''# 研究调研
+
+当前处于选题前的开放调研阶段。这里保存已经搜集的资料，不是最终论文池。可以继续扩展方向、替换候选、重评已有建议；研究目标和阅读要求见[交接说明](../00_research_handoff.CN.md)。
+
+## 阅读入口
+
+| 内容 | 文件 |
+|---|---|
+| 已读论文的阶段比较 | [review.CN.md](review.CN.md) |
+| 上次汇报归纳 | [briefing.CN.md](briefing.CN.md) |
+| 策略、历史与强化学习 | [策略路线审查](reviews/policy_literature.md) |
+| 动力学、辨识与模型控制 | [模型路线审查](reviews/dynamics_literature.md) |
+| 容错和突发变化 | [故障恢复审查](reviews/fault_literature.md) |
+| 双平台接口和评估 | [硬件接口](reviews/hardware_interface_audit.md) · [平台与 benchmark](reviews/platform_and_benchmark_review.md) |
+| 后续补充与近邻工作 | [additional_review.CN.md](reviews/additional_review.CN.md) |
+
+## 资料组织
+
+```text
+review.CN.md       阶段综述
+briefing.CN.md     阶段汇报材料
+reviews/           详细论文和源码审查
+evidence/          公开来源与目录记录
+tools/             文献发现和链接检查工具
+```
+
+`evidence/primary_review_records.json` 保存当时校验过的来源记录，`proceedings_catalog.json` 是标题发现记录，`source_link_checks.jsonl` 只反映链接访问情况。它们不替代阅读，也不代表穷尽研究领域。
+
+已有推荐、实现状态和版本条件属于对应批次的判断。后续根据正式论文、作者更新和实际验证持续修正。主复现选择应综合研究价值、官方实现和平台条件，而不是由旧报告的排序决定。
+''',
+'99_archive/README.md':'''# 历史归档
+
+日常入口见[研究与学习](../02_learning/README.md)、[汇报](../02_learning/reports/README.md)和[代码](../03_code/README.md)。
+
+| 内容 | 位置 |
+|---|---|
+| 旧源码、原始实机记录、环境锁定 | [code.zip](code.zip) |
+| 旧方案、旧汇报、构建来源、此前归档与文档快照 | [history.zip](history.zip) |
+| 文件清单、校验和整理操作记录 | [records](records/) |
+
+`history.zip` 按资料类别保留内部路径，`entries.json` 记录逐项 SHA-256。旧源码归档不包含可重建环境和重复权重，恢复时按来源记录准备依赖，并从当前模型目录校验补齐 checkpoint。
+
+记录反映各次整理时的路径，当前入口以本页为准。归档包含原始连接记录，公开发布前应单独审查敏感信息。
+'''
+}
+for rel,text in indexes.items():(ROOT/rel).write_text(text,encoding='utf8')
+
+# Preserve the paper audits as dated evidence, rather than current selection rules.
+notice='> 阶段记录（2026-11-22）：以下论文、分类和建议反映当时已查到的资料，不是最终候选或后续检索边界。可随新文献和核验结果替换、修正。\n\n'
+for p in [ROOT/'02_learning/research/review.CN.md',ROOT/'02_learning/research/briefing.CN.md']+list((ROOT/'02_learning/research/reviews').glob('*.md')):
+    text=p.read_text(encoding='utf8');lines=text.splitlines(keepends=True)
+    p.write_text(lines[0]+'\n'+notice+''.join(lines[1:]).lstrip('\n'),encoding='utf8')
+
+p=ROOT/'02_learning/flair/README.md';text=p.read_text(encoding='utf8')
+text='\n'.join(line for line in text.splitlines() if not line.startswith('| 历史方案 |'))+'\n'
+text=text.replace('第 4 篇和旧汇报保留早期选题，不作为当前确定课题。当前研究状态见[研究交接](../00_research_handoff.CN.md)，六足结果见[复现总结](reproduction_summary.md)。','早期选题已归档。当前研究仍可重新选择论文与方向，见[交接说明](../00_research_handoff.CN.md)；六足结果见[复现总结](reproduction_summary.md)。')
+p.write_text(text,encoding='utf8')
+p=ROOT/'02_learning/reports/README.md';text=p.read_text(encoding='utf8')
+text=text.replace('当前课题判断以[研究交接]','这些阶段汇报不限定后续论文选择，研究目标以[研究交接]')
+p.write_text(text,encoding='utf8')
+
+# Keep research tools functional after separating code and evidence.
+for name in ['check_source_links.py','screen_proceedings.py']:
+    p=ROOT/'02_learning/research/tools'/name;text=p.read_text(encoding='utf8')
+    text=text.replace('Path(__file__).resolve().parent','Path(__file__).resolve().parents[1]')
+    text=text.replace("ROOT.glob('*.md')","ROOT.rglob('*.md')")
+    for file in ['source_link_checks.jsonl','proceedings_catalog.json','primary_review_aids.jsonl']:
+        text=text.replace("ROOT/'"+file+"'","ROOT/'evidence'/'"+file+"'")
+    ast.parse(text);p.write_text(text,encoding='utf8')
+(REC/'refresh_link_changes.json').write_text(json.dumps(changed,ensure_ascii=False,indent=2),encoding='utf8')
+print(json.dumps({'documents_updated':len(changed),'links_repaired':sum(x['links'] for x in changed),'handoff_bytes':len(handoff.encode('utf8'))},ensure_ascii=True))

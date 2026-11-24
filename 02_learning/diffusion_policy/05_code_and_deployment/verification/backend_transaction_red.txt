@@ -1,0 +1,83 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+________ test_failed_backend_probe_never_activates_a_candidate[False] _________
+
+tmp_path = WindowsPath('C:/Users/laiyo/AppData/Local/Temp/pytest-of-laiyo/pytest-40/test_failed_backend_probe_neve0')
+existing = False
+
+    @pytest.mark.parametrize("existing", [False, True])
+    def test_failed_backend_probe_never_activates_a_candidate(tmp_path, existing):
+        module = tool("build_backend")
+        private = tmp_path / ".runtime/control_backend"
+        candidate = private / "candidate/manifest.json"
+        candidate.parent.mkdir(parents=True)
+        candidate.write_text('{"candidate": true}', encoding="utf-8")
+        active = private / "manifest.json"
+        previous = b'{"working": true}\n'
+        if existing:
+            active.write_bytes(previous)
+    
+        def fail(*_, **__):
+            raise RuntimeError("simulated coexistence probe failure")
+    
+>       assert hasattr(module, "activate_backend"), "transactional activation is missing"
+E       AssertionError: transactional activation is missing
+E       assert False
+E        +  where False = hasattr(<module 'test_tool_build_backend' from 'G:\\����\\03_code\\diffusion_policy_ur7e_refactored\\scripts\\build_backend.py'>, 'activate_backend')
+
+tests\test_repository_tools.py:91: AssertionError
+_________ test_failed_backend_probe_never_activates_a_candidate[True] _________
+
+tmp_path = WindowsPath('C:/Users/laiyo/AppData/Local/Temp/pytest-of-laiyo/pytest-40/test_failed_backend_probe_neve1')
+existing = True
+
+    @pytest.mark.parametrize("existing", [False, True])
+    def test_failed_backend_probe_never_activates_a_candidate(tmp_path, existing):
+        module = tool("build_backend")
+        private = tmp_path / ".runtime/control_backend"
+        candidate = private / "candidate/manifest.json"
+        candidate.parent.mkdir(parents=True)
+        candidate.write_text('{"candidate": true}', encoding="utf-8")
+        active = private / "manifest.json"
+        previous = b'{"working": true}\n'
+        if existing:
+            active.write_bytes(previous)
+    
+        def fail(*_, **__):
+            raise RuntimeError("simulated coexistence probe failure")
+    
+>       assert hasattr(module, "activate_backend"), "transactional activation is missing"
+E       AssertionError: transactional activation is missing
+E       assert False
+E        +  where False = hasattr(<module 'test_tool_build_backend' from 'G:\\����\\03_code\\diffusion_policy_ur7e_refactored\\scripts\\build_backend.py'>, 'activate_backend')
+
+tests\test_repository_tools.py:91: AssertionError
+_________ test_backend_activation_occurs_only_after_successful_probe __________
+
+tmp_path = WindowsPath('C:/Users/laiyo/AppData/Local/Temp/pytest-of-laiyo/pytest-40/test_backend_activation_occurs0')
+
+    def test_backend_activation_occurs_only_after_successful_probe(tmp_path):
+        module = tool("build_backend")
+        private = tmp_path / ".runtime/control_backend"
+        candidate = private / "candidate/manifest.json"
+        candidate.parent.mkdir(parents=True)
+        candidate.write_text('{"candidate": true}', encoding="utf-8")
+        active = private / "manifest.json"
+        active.write_text('{"working": true}', encoding="utf-8")
+        calls = []
+    
+        def probe(*_, **__):
+            assert active.read_text(encoding="utf-8") == '{"working": true}'
+            calls.append("validated")
+    
+>       assert hasattr(module, "activate_backend"), "transactional activation is missing"
+E       AssertionError: transactional activation is missing
+E       assert False
+E        +  where False = hasattr(<module 'test_tool_build_backend' from 'G:\\����\\03_code\\diffusion_policy_ur7e_refactored\\scripts\\build_backend.py'>, 'activate_backend')
+
+tests\test_repository_tools.py:111: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_repository_tools.py::test_failed_backend_probe_never_activates_a_candidate[False]
+FAILED tests/test_repository_tools.py::test_failed_backend_probe_never_activates_a_candidate[True]
+FAILED tests/test_repository_tools.py::test_backend_activation_occurs_only_after_successful_probe
+3 failed, 11 deselected in 0.19s

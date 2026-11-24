@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">LocoFormer training and deployment method</title>
+  <desc id="desc">Training samples diverse robot bodies and dynamics, encodes observations, runs a shared Transformer-XL policy with cached history, receives rewards, and updates parameters using PPO. Deployment keeps parameters fixed while the history cache informs later actions.</desc>
+  <defs><style>
+    .bg{fill:#f5f7fa}.title{font:700 32px 'Segoe UI',Arial,sans-serif;fill:#14263d}.subtitle{font:700 21px 'Segoe UI',Arial,sans-serif;fill:#31506e}
+    .box{fill:#fff;stroke:#9bb0c5;stroke-width:2}.boxblue{fill:#e8f1fb;stroke:#4f83b6;stroke-width:2}.boxgreen{fill:#e8f5ef;stroke:#47916d;stroke-width:2}.boxorange{fill:#fff1df;stroke:#dc9a3d;stroke-width:2}
+    .head{font:700 19px 'Segoe UI',Arial,sans-serif;fill:#1e3a56}.txt{font:16px 'Segoe UI',Arial,sans-serif;fill:#425a72}
+    .arrow{stroke:#59748d;stroke-width:3;fill:none;marker-end:url(#arr)}.band{fill:#eef3f8;stroke:#d5e0ea;stroke-width:1}.small{font:15px 'Segoe UI',Arial,sans-serif;fill:#52657a}
+  </style><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#59748d"/></marker></defs>
+  <rect class="bg" width="1400" height="760" rx="20"/>
+  <text class="title" x="55" y="60">LocoFormer：训练更新参数，部署依靠历史适应</text>
+  <text class="subtitle" x="55" y="105">仿真训练阶段</text>
+  <rect class="box" x="55" y="145" width="220" height="150" rx="16"/><text class="head" x="165" y="183" text-anchor="middle">多样机器人任务</text><text class="txt" x="165" y="217" text-anchor="middle">四足 / 双足 / 轮足</text><text class="txt" x="165" y="245" text-anchor="middle">质量、摩擦、电机随机化</text>
+  <rect class="boxblue" x="325" y="145" width="220" height="150" rx="16"/><text class="head" x="435" y="183" text-anchor="middle">统一观测编码</text><text class="txt" x="435" y="217" text-anchor="middle">机体状态 + 运动指令</text><text class="txt" x="435" y="245" text-anchor="middle">关节槽位 + 有效位</text>
+  <rect class="boxblue" x="595" y="145" width="250" height="150" rx="16"/><text class="head" x="720" y="183" text-anchor="middle">共享策略</text><text class="txt" x="720" y="217" text-anchor="middle">Transformer-XL</text><text class="txt" x="720" y="245" text-anchor="middle">段缓存 / 跨 Trial 历史</text>
+  <rect class="boxgreen" x="895" y="145" width="205" height="150" rx="16"/><text class="head" x="997" y="183" text-anchor="middle">动作执行</text><text class="txt" x="997" y="217" text-anchor="middle">统一动作向量</text><text class="txt" x="997" y="245" text-anchor="middle">适配器映射到机器人</text>
+  <rect class="boxorange" x="1150" y="145" width="195" height="150" rx="16"/><text class="head" x="1247" y="183" text-anchor="middle">环境反馈</text><text class="txt" x="1247" y="217" text-anchor="middle">新状态与奖励</text><text class="txt" x="1247" y="245" text-anchor="middle">Trial 结果进入历史</text>
+  <path class="arrow" d="M275 220 H315"/><path class="arrow" d="M545 220 H585"/><path class="arrow" d="M845 220 H885"/><path class="arrow" d="M1100 220 H1140"/>
+  <path class="arrow" d="M1245 310 V360 H720 V310"/><text class="small" x="980" y="352" text-anchor="middle">PPO：依据累计回报更新共享网络参数</text>
+  <rect class="band" x="55" y="405" width="1290" height="1" rx="1"/>
+  <text class="subtitle" x="55" y="455">实机推理与在线适应阶段</text>
+  <rect class="box" x="75" y="500" width="220" height="125" rx="16"/><text class="head" x="185" y="540" text-anchor="middle">Go2-W 观测</text><text class="txt" x="185" y="575" text-anchor="middle">IMU / 电机反馈 / 指令</text>
+  <rect class="boxblue" x="360" y="500" width="250" height="125" rx="16"/><text class="head" x="485" y="540" text-anchor="middle">共享策略 + KV 缓存</text><text class="txt" x="485" y="575" text-anchor="middle">近期历史影响后续动作</text>
+  <rect class="boxgreen" x="675" y="500" width="250" height="125" rx="16"/><text class="head" x="800" y="540" text-anchor="middle">Go2-W 适配层</text><text class="txt" x="800" y="575" text-anchor="middle">16 路映射 / 解码 / 限幅</text>
+  <rect class="box" x="990" y="500" width="220" height="125" rx="16"/><text class="head" x="1100" y="540" text-anchor="middle">机器人运动</text><text class="txt" x="1100" y="575" text-anchor="middle">反馈回到下一时刻</text>
+  <path class="arrow" d="M295 562 H350"/><path class="arrow" d="M610 562 H665"/><path class="arrow" d="M925 562 H980"/>
+  <path class="arrow" d="M1100 635 V690 H485 V635"/><text class="small" x="790" y="685" text-anchor="middle">部署时网络权重固定；历史状态随交互更新</text>
+</svg>

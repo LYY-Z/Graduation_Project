@@ -1,0 +1,63 @@
+{
+  "documents_checked": 95,
+  "broken_links": [],
+  "history_entries_verified": 1118,
+  "archives_hash_match": true,
+  "checkpoint_hash_match": true,
+  "research_tools_syntax": "pass",
+  "handoff_bytes": 13904,
+  "presentations": [
+    {
+      "path": "02_learning/reports/diffusion_policy/report.CN.pptx",
+      "slides": 10,
+      "notes": 10
+    },
+    {
+      "path": "02_learning/reports/flair/report.CN.pptx",
+      "slides": 13,
+      "notes": 13
+    },
+    {
+      "path": "02_learning/reports/flair/report.EN.pptx",
+      "slides": 13,
+      "notes": 13
+    },
+    {
+      "path": "02_learning/reports/locoformer/paper.CN.pptx",
+      "slides": 14,
+      "notes": 14
+    },
+    {
+      "path": "02_learning/reports/locoformer/paper.EN.pptx",
+      "slides": 14,
+      "notes": 14
+    },
+    {
+      "path": "02_learning/reports/locoformer/reproduction.CN.pptx",
+      "slides": 10,
+      "notes": 10
+    },
+    {
+      "path": "02_learning/reports/locoformer/reproduction.EN.pptx",
+      "slides": 10,
+      "notes": 10
+    },
+    {
+      "path": "02_learning/reports/research/report.CN.pptx",
+      "slides": 13,
+      "notes": 13
+    },
+    {
+      "path": "02_learning/reports/research/report.EN.pptx",
+      "slides": 13,
+      "notes": 13
+    }
+  ],
+  "root": [
+    "01_papers",
+    "02_learning",
+    "03_code",
+    "99_archive",
+    "README.md"
+  ]
+}

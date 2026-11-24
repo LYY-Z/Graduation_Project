@@ -1,0 +1,40 @@
+{
+  "root": "G:\\����\\03_code\\diffusion_policy_ur7e_refactored",
+  "checkpoint": {
+    "schema_version": 1,
+    "file": "pusht_image_transformer.ckpt",
+    "source": "Chi et al. original Diffusion Policy public experiment artifacts",
+    "url": "https://diffusion-policy.cs.columbia.edu/data/experiments/image/pusht/diffusion_policy_transformer/train_0/checkpoints/epoch=0100-test_mean_score=0.748.ckpt",
+    "official_config_url": "https://diffusion-policy.cs.columbia.edu/data/experiments/image/pusht/diffusion_policy_transformer/config.yaml",
+    "bytes": 412727949,
+    "sha256": "d68cdbcf9c21df724fb60f2573aa28a22a333f555225a2ec29cb6b7890608c56",
+    "architecture": "DiffusionTransformerHybridImagePolicy",
+    "task": "simulated Push-T image benchmark",
+    "reported_test_mean_score": 0.748,
+    "download_date": "2026-10-24",
+    "locally_deserialized": false,
+    "locally_inferred": false,
+    "hardware_domain_match": false,
+    "usage": "Hardware pipeline integration; task behavior and wrist-camera domain match are not validated.",
+    "normalization": "retain checkpoint embedded normalizer; do not refit on live observations"
+  },
+  "checkpoint_present": true,
+  "checkpoint_sha256_verified": true,
+  "ready_for_inference": true,
+  "input_shapes": {
+    "image": [
+      1,
+      2,
+      3,
+      96,
+      96
+    ],
+    "agent_pos": [
+      1,
+      2,
+      2
+    ]
+  },
+  "model_loaded": false,
+  "hardware_connected": false
+}

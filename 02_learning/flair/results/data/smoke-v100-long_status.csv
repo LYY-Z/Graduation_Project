@@ -1,0 +1,5 @@
+case,exit_code,files,completed,logged_failures
+healthy_driver,0,1,1,0
+healthy_flair,0,1,1,0
+weakened_driver,0,1,1,0
+weakened_flair,0,1,1,0

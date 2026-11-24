@@ -1,0 +1,52 @@
+{
+  "generated_utc": "2026-10-26T23:57:22.717096+00:00",
+  "original_project": "G:\\毕设\\03_code\\diffusion_policy_ur7e",
+  "refactored_project": "G:\\毕设\\03_code\\diffusion_policy_ur7e_refactored",
+  "original_files_unchanged": 1138,
+  "original_changed": [],
+  "original_added": [],
+  "git_commit": "ac98a2b33692afc7cb8b72d713c37f4c66a907fe",
+  "offline_tests": {
+    "passed": 131,
+    "skipped": 5,
+    "reason": "ROS system environment unavailable",
+    "log": "final_tests.txt"
+  },
+  "critical_definitions_ast_identical": 38,
+  "differential_cases_passed": 533,
+  "offline_pipeline_integration_cases": 2,
+  "development_environment": {
+    "python": "3.9.19",
+    "numpy": "1.23.5",
+    "platform": "Windows"
+  },
+  "pinned_upstream_files": 369,
+  "pinned_patched_sdk_files": 339,
+  "independent_review": {
+    "critical_findings": 0,
+    "important_findings": 1,
+    "important_fixed": 1,
+    "fix": "Probe candidate backend before atomic activation; failed probe preserves active manifest."
+  },
+  "wheel_build": true,
+  "not_executed": [
+    "SSH/server modification",
+    "real model loading/inference",
+    "ROS lifecycle checks",
+    "Linux native backend compilation/loopback",
+    "physical robot/camera validation",
+    "GitHub CI execution",
+    "public upload/publication"
+  ],
+  "required_before_hardware_acceptance": [
+    "target dependency isolation/import checks",
+    "private Linux backend build with loopback/probe",
+    "ROS lifecycle and real capture",
+    "shadow and preview",
+    "separately supervised bounded live verification"
+  ],
+  "release_metadata_pending": [
+    "maintainer-selected project software license",
+    "maintainer-confirmed authorship/publication metadata"
+  ]
+}

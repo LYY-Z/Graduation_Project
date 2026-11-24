@@ -1,0 +1,205 @@
+{
+  "recorded_date": "2026-11-08",
+  "scope": "Local source reading only",
+  "repositories": [
+    {
+      "name": "locoformer",
+      "url": "https://github.com/lucidrains/locoformer.git",
+      "commit": "79ce9d72d1137015e0212284f06656c83bb414e7",
+      "path": "G:\\毕设\\03_code\\locoformer",
+      "purpose": "已有本地主算法候选，保留工作区",
+      "status": "existing_preserved"
+    },
+    {
+      "name": "metamorph",
+      "url": "https://github.com/agrimgupta92/metamorph.git",
+      "commit": "d49826475d4d22d8e63df694785833dc127c4e8d",
+      "purpose": "统一观测、掩码与动作过滤",
+      "path": "G:\\毕设\\03_code\\references\\metamorph",
+      "status": "learning_source_snapshot",
+      "file_count": 58,
+      "bytes": 239609
+    },
+    {
+      "name": "BabyLocoFormer",
+      "url": "https://github.com/linden713/BabyLocoFormer.git",
+      "commit": "f2dadf8eb13826f449387ecc9970593a9af141bc",
+      "purpose": "历史策略与生成四足",
+      "path": "G:\\毕设\\03_code\\references\\BabyLocoFormer",
+      "status": "learning_source_snapshot",
+      "file_count": 86,
+      "bytes": 381093,
+      "source_submodules": "ca906f2161e9a7244d1bfee923cf57f6da0a259b rsl_rl (ca906f2)"
+    },
+    {
+      "name": "embodiment-scaling-laws",
+      "url": "https://github.com/BoAi01/embodiment-scaling-laws.git",
+      "commit": "62e43ce01b07487f83a108122de66e56c428549e",
+      "purpose": "GenBot1K 资产与多本体训练",
+      "path": "G:\\毕设\\03_code\\references\\embodiment-scaling-laws",
+      "status": "learning_source_snapshot",
+      "file_count": 150,
+      "bytes": 3343411
+    },
+    {
+      "name": "one_policy_to_run_them_all",
+      "url": "https://github.com/nico-bohlinger/one_policy_to_run_them_all.git",
+      "commit": "7c1819444028c529b0a964fe3f32878333b1310a",
+      "purpose": "URMA 多本体策略",
+      "path": "G:\\毕设\\03_code\\references\\one_policy_to_run_them_all",
+      "status": "learning_source_snapshot",
+      "file_count": 939,
+      "bytes": 2479321
+    },
+    {
+      "name": "GenLoco",
+      "url": "https://github.com/HybridRobotics/GenLoco.git",
+      "commit": "98b2dd77bb53ac32f04a15806ff4c6d0e7a1b70e",
+      "purpose": "程序化四足与共享控制",
+      "path": "G:\\毕设\\03_code\\references\\GenLoco",
+      "status": "learning_source_snapshot",
+      "file_count": 1347,
+      "bytes": 28203416
+    },
+    {
+      "name": "BodyTransformer",
+      "url": "https://github.com/carlosferrazza/BodyTransformer.git",
+      "commit": "008d8cd514322252b53f4d5e3dd5c2fc47c7b9cd",
+      "purpose": "身体结构注意力",
+      "path": "G:\\毕设\\03_code\\references\\BodyTransformer",
+      "status": "learning_source_snapshot",
+      "file_count": 2769,
+      "bytes": 29635079
+    }
+  ],
+  "deferred_references": [
+    {
+      "name": "modular-rl",
+      "url": "https://github.com/huangwl18/modular-rl.git",
+      "commit": "1e617d099198f9a2c1b49fb96255080c708522ca",
+      "purpose": "模块化跨本体控制"
+    },
+    {
+      "name": "AnyMorph",
+      "url": "https://github.com/montrealrobotics/AnyMorph.git",
+      "commit": "b1e8457c9dc619cda5a2d544383c4fb036d2f184",
+      "purpose": "可变身体策略"
+    },
+    {
+      "name": "legged_gym",
+      "url": "https://github.com/leggedrobotics/legged_gym.git",
+      "commit": "8fa29acc6fd1910c3d9659eef6310bdd301cde0a",
+      "purpose": "四足强化学习基线"
+    },
+    {
+      "name": "LocoWheeledLegged",
+      "url": "https://github.com/zhaozijie2022/LocoWheeledLegged.git",
+      "commit": "015b8230b1a21331ab6d2b054a2ef8f1e435db84",
+      "purpose": "轮足训练与部署"
+    },
+    {
+      "name": "walk-these-ways",
+      "url": "https://github.com/Improbable-AI/walk-these-ways.git",
+      "commit": "0e7236bdc81ce855cbe3d70345a7899452bdeb1c",
+      "purpose": "历史适应与四足部署"
+    },
+    {
+      "name": "RoboGauge",
+      "url": "https://github.com/wty-yy/RoboGauge.git",
+      "commit": "add2c7ee0185ea8fd93d242f86e1c8cac6e9913b",
+      "purpose": "Go2 评测"
+    },
+    {
+      "name": "go2_rl_lab",
+      "url": "https://github.com/wty-yy/go2_rl_lab.git",
+      "commit": "6c95d9feef4814c25eb6536e61bb38e1d1d718d4",
+      "purpose": "Go2 训练基线"
+    },
+    {
+      "name": "DreamWaQ_Go2W",
+      "url": "https://github.com/ShengqianChen/DreamWaQ_Go2W.git",
+      "commit": "b64f7b90856fc71595870cb283ce29dd0f4d6f0f",
+      "purpose": "Go2-W 强化学习参考"
+    },
+    {
+      "name": "IsaacLab",
+      "url": "https://github.com/isaac-sim/IsaacLab.git",
+      "commit": "37ddf626871758333d6ed89cf64ad702aef127d0",
+      "purpose": "主仿真学习框架"
+    },
+    {
+      "name": "unitree_mujoco",
+      "url": "https://github.com/unitreerobotics/unitree_mujoco.git",
+      "commit": "1eb6642e3f3fdfb7fb13a9794fd6a2dd93ea0e7d",
+      "purpose": "官方 MuJoCo 模型与接口"
+    },
+    {
+      "name": "unitree_ros2",
+      "url": "https://github.com/unitreerobotics/unitree_ros2.git",
+      "commit": "668d1ec5a05d1c38d3306bdca7d59f2ba3581a88",
+      "purpose": "官方 ROS 2 接口"
+    },
+    {
+      "name": "unitree_sdk2",
+      "url": "https://github.com/unitreerobotics/unitree_sdk2.git",
+      "commit": "8e1b927586712edd6a4c29d50dd52dff1e163439",
+      "purpose": "官方 C++ SDK"
+    },
+    {
+      "name": "unitree_ros",
+      "url": "https://github.com/unitreerobotics/unitree_ros.git",
+      "commit": "41dec58c7a3ccb3050243ef16ac2ca74b2b0f9ca",
+      "purpose": "Go2/Go2-W 官方 URDF"
+    },
+    {
+      "name": "unitree_sdk2_python",
+      "url": "https://github.com/unitreerobotics/unitree_sdk2_python.git",
+      "commit": "814556d15970dd2ecf1c9984e845ca02ab07e206",
+      "purpose": "官方 Python SDK"
+    },
+    {
+      "name": "unitree_rl_lab",
+      "url": "https://github.com/unitreerobotics/unitree_rl_lab.git",
+      "commit": "4960b84732b0c2ec593dccbfe963fda1bcd7b1e3",
+      "purpose": "官方机器人训练"
+    },
+    {
+      "name": "robot_lab",
+      "url": "https://github.com/fan-ziqi/robot_lab.git",
+      "commit": "09f6a9dfdf48f32f38bb851dfa3a7d44db32b270",
+      "purpose": "Go2-W 任务"
+    },
+    {
+      "name": "rsl_rl",
+      "url": "https://github.com/leggedrobotics/rsl_rl.git",
+      "commit": "11563319134f987f70fb034410496fe3cc7327a9",
+      "purpose": "PPO 基础库"
+    },
+    {
+      "name": "transformer-xl",
+      "url": "https://github.com/kimiyoung/transformer-xl.git",
+      "commit": "44781ed21dbaec88b280f74d9ae2877f52b492a5",
+      "purpose": "原始 Transformer-XL 实现"
+    },
+    {
+      "name": "unitree_rl_mjlab",
+      "url": "https://github.com/unitreerobotics/unitree_rl_mjlab.git",
+      "commit": "1425b15f73bd4095f0df53709d7c389c3eb9e790",
+      "purpose": "官方模型映射与部署"
+    },
+    {
+      "name": "rl_sar",
+      "url": "https://github.com/fan-ziqi/rl_sar.git",
+      "commit": "376d42c9b128f963ab08579762d5a216a976ce39",
+      "purpose": "策略推理与部署"
+    }
+  ],
+  "notes": [
+    "Six local source-only snapshots retain code, documentation, licenses and small text configurations.",
+    "The original 03_code/locoformer Git working copy is preserved.",
+    "Full newly fetched repositories were sent to Windows Recycle Bin.",
+    "Runtime frameworks, SDKs, model meshes, checkpoints, full datasets and Git histories are excluded from the six snapshots.",
+    "BabyLocoFormer custom rsl_rl source is retained for reading; one GenBot structure/configuration sample is retained.",
+    "Server installation and downloads will follow the work plan."
+  ]
+}

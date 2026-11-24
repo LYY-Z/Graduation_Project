@@ -1,0 +1,70 @@
+{
+  "root": "G:\\毕设",
+  "moves": {
+    "99_archive/workspace_cleanup_20261123/legacy_code.zip": "99_archive/code.zip",
+    "02_learning/platform/vnc/connect.md": "02_learning/platform/vnc.md",
+    "02_learning/motion_control/selection_report.CN.md": "02_learning/research/review.CN.md",
+    "02_learning/motion_control/meeting_brief.CN.md": "02_learning/research/briefing.CN.md",
+    "02_learning/motion_control/README.md": "02_learning/research/README.md",
+    "02_learning/motion_control/additional_review.CN.md": "02_learning/research/reviews/additional_review.CN.md",
+    "02_learning/motion_control/dynamics_literature.md": "02_learning/research/reviews/dynamics_literature.md",
+    "02_learning/motion_control/fault_literature.md": "02_learning/research/reviews/fault_literature.md",
+    "02_learning/motion_control/policy_literature.md": "02_learning/research/reviews/policy_literature.md",
+    "02_learning/motion_control/hardware_interface_audit.md": "02_learning/research/reviews/hardware_interface_audit.md",
+    "02_learning/motion_control/platform_and_benchmark_review.md": "02_learning/research/reviews/platform_and_benchmark_review.md",
+    "02_learning/motion_control/proceedings_catalog.json": "02_learning/research/evidence/proceedings_catalog.json",
+    "02_learning/motion_control/primary_review_records.json": "02_learning/research/evidence/primary_review_records.json",
+    "02_learning/motion_control/source_link_checks.jsonl": "02_learning/research/evidence/source_link_checks.jsonl",
+    "02_learning/motion_control/check_source_links.py": "02_learning/research/tools/check_source_links.py",
+    "02_learning/motion_control/screen_proceedings.py": "02_learning/research/tools/screen_proceedings.py",
+    "02_learning/reports/motion_control": "02_learning/reports/research"
+  },
+  "remove": [
+    "02_learning/00_learning_map.md",
+    "02_learning/flair/04_go2w_paper_plan.md",
+    "02_learning/motion_control/primary_review_aids.jsonl",
+    "02_learning/motion_control",
+    "02_learning/platform/vnc",
+    "99_archive/workspace_cleanup_20261123/legacy_documents.zip",
+    "99_archive/workspace_cleanup_20261123/presentation_sources.zip",
+    "99_archive/workspace_cleanup_20261123/prior_archives.zip",
+    "99_archive/workspace_cleanup_20261123/documentation_before.zip",
+    "99_archive/workspace_cleanup_20261123/audit_records.zip"
+  ],
+  "aliases": {
+    "02_learning/00_learning_map.md": "02_learning/README.md",
+    "02_learning/flair/04_go2w_paper_plan.md": "99_archive/history.zip",
+    "02_learning/motion_control/primary_review_aids.jsonl": "99_archive/history.zip",
+    "99_archive/workspace_cleanup_20261123/legacy_documents.zip": "99_archive/history.zip",
+    "99_archive/workspace_cleanup_20261123/presentation_sources.zip": "99_archive/history.zip",
+    "99_archive/workspace_cleanup_20261123/prior_archives.zip": "99_archive/history.zip",
+    "99_archive/workspace_cleanup_20261123/documentation_before.zip": "99_archive/history.zip",
+    "99_archive/workspace_cleanup_20261123/audit_records.zip": "99_archive/records"
+  },
+  "record_move": {
+    "source": "99_archive/workspace_cleanup_20261123",
+    "target": "99_archive/records"
+  },
+  "history": {
+    "path": "99_archive/history.zip",
+    "sha256": "5a23f39bab4b2b23e31cbfa140e14ecf878d49b874adfffac3f3b4534cbcd784",
+    "entries": 1118
+  },
+  "code_sha256": "974e312381dea8ee09387a8dfbaa8ca3dad82eb83ef94d210e421988eae30c21",
+  "research": {
+    "selection_report.CN.md": "review.CN.md",
+    "meeting_brief.CN.md": "briefing.CN.md",
+    "README.md": "README.md",
+    "additional_review.CN.md": "reviews/additional_review.CN.md",
+    "dynamics_literature.md": "reviews/dynamics_literature.md",
+    "fault_literature.md": "reviews/fault_literature.md",
+    "policy_literature.md": "reviews/policy_literature.md",
+    "hardware_interface_audit.md": "reviews/hardware_interface_audit.md",
+    "platform_and_benchmark_review.md": "reviews/platform_and_benchmark_review.md",
+    "proceedings_catalog.json": "evidence/proceedings_catalog.json",
+    "primary_review_records.json": "evidence/primary_review_records.json",
+    "source_link_checks.jsonl": "evidence/source_link_checks.jsonl",
+    "check_source_links.py": "tools/check_source_links.py",
+    "screen_proceedings.py": "tools/screen_proceedings.py"
+  }
+}

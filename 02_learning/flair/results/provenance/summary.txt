@@ -1,0 +1,2 @@
+hexapod_chicane_broken_leg_replication_main_0.csv: 551 rows, maximum numerical difference 0.0
+hexapod_chicane_broken_leg_replication_adaptation_0.csv: 110 rows, maximum numerical difference 0.0

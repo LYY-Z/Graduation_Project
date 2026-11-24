@@ -1,0 +1,62 @@
+{
+  "locked_files_in_deploy_selection": 708,
+  "locked_files_in_git": 708,
+  "public_selection_files": 763,
+  "git_files": 763,
+  "documentation_links_checked": 91,
+  "broken_links": [],
+  "python_examples_syntax_checked": 27,
+  "documents": [
+    {
+      "path": "G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\README.md",
+      "characters": 6145,
+      "bytes": 6146
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\docs\\guide.md",
+      "characters": 32573,
+      "bytes": 32574
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\docs\\technical_report.md",
+      "characters": 28733,
+      "bytes": 28742
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\01_project_and_python.md",
+      "characters": 9783,
+      "bytes": 19535
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\02_hardware_and_observations.md",
+      "characters": 10024,
+      "bytes": 20232
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\03_model_and_inference.md",
+      "characters": 9354,
+      "bytes": 18232
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\04_control_and_execution.md",
+      "characters": 9058,
+      "bytes": 19244
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\05_reading_and_operation.md",
+      "characters": 16113,
+      "bytes": 29496
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\06_refactoring_and_verification.md",
+      "characters": 7719,
+      "bytes": 17591
+    },
+    {
+      "path": "G:\\\u6bd5\u8bbe\\02_learning\\06_refactored_code\\README.md",
+      "characters": 5200,
+      "bytes": 9568
+    }
+  ],
+  "wheel_members": 22
+}

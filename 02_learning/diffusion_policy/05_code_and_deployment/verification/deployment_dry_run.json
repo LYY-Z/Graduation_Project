@@ -1,0 +1,7 @@
+{
+  "mode": "dry_run",
+  "destination": "/home/example/lyy_ws/dp_project",
+  "files": 756,
+  "bytes": 29183786,
+  "remote_commands": false
+}

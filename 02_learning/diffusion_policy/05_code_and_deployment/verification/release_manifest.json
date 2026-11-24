@@ -1,0 +1,3062 @@
+{
+  "upstream_files_verified": 369,
+  "sdk_files_verified": 339,
+  "patch_verified": true,
+  "checkpoint_verified": true,
+  "model_deserialized": false,
+  "robot_connected": false,
+  "public_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "8991949f180425aa7d68e9881db622d120f7e1c0cd10ed5438553adf15e770d2"
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "sha256": "8115fbf3574bd08bdd25881f9423b2db4f1363d00a7b317321aa2c7162f7f906"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "b2a647eae3c137885b6bfe99db521f826badecbcd3c652ebcf580244b92f7782"
+    },
+    {
+      "path": "config.example.yaml",
+      "sha256": "d02724728832d9ba5fe981c286d650c6490107753e8b74d18b009e345e88703b"
+    },
+    {
+      "path": "docs/guide.md",
+      "sha256": "e8bbdd683f3d979dc8685104dcc67e86d86dde3232c0eaad8285b90de44d3691"
+    },
+    {
+      "path": "docs/technical_report.md",
+      "sha256": "fd80fb2db69df72b0610c61d74a3e2fd1c18a969ca34305ad7d15db151e3bbf0"
+    },
+    {
+      "path": "docs/validation.json",
+      "sha256": "359373a82ee905004f9d406a293a8e853ea7fde6bd2db1ae07384c7e4ebebd0a"
+    },
+    {
+      "path": "environment.yml",
+      "sha256": "5883fc3d4f884421d6ab0d424e998b05a4f3ed0b90866e21978dc930db2b8543"
+    },
+    {
+      "path": "models/checkpoint_manifest.json",
+      "sha256": "37662041b9c2575de28bd46f810052291f262011eedcdac057f429b815e41237"
+    },
+    {
+      "path": "models/transformer_config.yaml",
+      "sha256": "433514f88682e9a15634877417f115db4e61b3bc0b45525a510b4fe61523398f"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "7f9389ff8e6514fdab480fe136ea6c6ff27569d0c608d381345df1bc1a9215b5"
+    },
+    {
+      "path": "README.md",
+      "sha256": "83e0afce95218004e9d47a4fb4daf3c4c76638b0407e55b06c70bbaad2cfd485"
+    },
+    {
+      "path": "scripts/build_backend.py",
+      "sha256": "dec28115cd6de4360b278ac680b145c0b2fabe81eece4615c9fd0fe14aaba0d8"
+    },
+    {
+      "path": "scripts/check_environment.py",
+      "sha256": "4592a1dffb613e8454d9dc5b8971bb36efd63b3cbaf852c02a0d9b83a768089b"
+    },
+    {
+      "path": "scripts/deploy.py",
+      "sha256": "a4459dd4ee286cccc8f98df398390e2f3024f2ae0d2e10964c5b1e3a383843e3"
+    },
+    {
+      "path": "scripts/fetch_checkpoint.py",
+      "sha256": "e5b4f4379c3f6662b3d01bb0fd777048065b7e94b3807c165c81f866bd6d70fc"
+    },
+    {
+      "path": "scripts/prepare_environment.sh",
+      "sha256": "c480bb16b6d76d8d4fcc17f2b7fb56ab2e5bc30875608d279c60e37649f7b057"
+    },
+    {
+      "path": "scripts/prepare_environment_cache.py",
+      "sha256": "149422b3dc9c24ce5c29f5a2ab69313daccdb3c8af885c14438542be63d0e17c"
+    },
+    {
+      "path": "scripts/summarize_run.py",
+      "sha256": "c276e53b3beaaff6adfaef8894ca4ac0dcceaf445c00f3e9c4e2eda4f7cf746a"
+    },
+    {
+      "path": "scripts/verify_bundle.py",
+      "sha256": "5793af403f7f31212b198e10aedc1e9cdb061551fcf9e84937242309de59098d"
+    },
+    {
+      "path": "src/dp_ur7e/__init__.py",
+      "sha256": "3265d12bbaf60fc253b1c001ee0abcbb8a8e1fd2d68d08defc89315da96dcc15"
+    },
+    {
+      "path": "src/dp_ur7e/__main__.py",
+      "sha256": "3129adff95e0f38b87ab34cddfc27082c7892bcaec267ff5d40f160fdf55b44a"
+    },
+    {
+      "path": "src/dp_ur7e/cli.py",
+      "sha256": "2a8add33ae1023bd9c6f2b6a923e1e6e9f30525529ae0d22d7f75f126d3d0945"
+    },
+    {
+      "path": "src/dp_ur7e/config.py",
+      "sha256": "15466eb7eda0ce6d73059627ab493955bd59098cb386c3d6a377fcaf3b8f625b"
+    },
+    {
+      "path": "src/dp_ur7e/control/__init__.py",
+      "sha256": "670417a7c7f26ccfe9d04f3015633d88ac9e9231cd8c49325754b2dba7dae48b"
+    },
+    {
+      "path": "src/dp_ur7e/control/robot.py",
+      "sha256": "af90bc968e1514a7a6250de36dd450f89d548df3403f7a58cec685705a274ffe"
+    },
+    {
+      "path": "src/dp_ur7e/control/safety.py",
+      "sha256": "65060dc4df05606b559b3607b8203d73e5eb79a0e6591bf87a5bab1729daef42"
+    },
+    {
+      "path": "src/dp_ur7e/geometry.py",
+      "sha256": "2d299784aae272c06892961a8659cb8112d39b30428fc5dd62bb1c08f129a9a7"
+    },
+    {
+      "path": "src/dp_ur7e/hardware/__init__.py",
+      "sha256": "6380ddf4cd6dde7b6011d4ba8c01159d6f36b63580c544987c75ccfa24e7e712"
+    },
+    {
+      "path": "src/dp_ur7e/hardware/camera.py",
+      "sha256": "4058da171ab514f547c6715157d1bf4191dae2f1082187901bb07f5c63904805"
+    },
+    {
+      "path": "src/dp_ur7e/hardware/camera_bridge.py",
+      "sha256": "cd32d0edb5cb4152b9f78eadf4fb589f20928cd9dc97e1504007a4d060ba6d6e"
+    },
+    {
+      "path": "src/dp_ur7e/hardware/observations.py",
+      "sha256": "7164ec9c0fea6c132ca473a1e3314492b496be03cb1f2e6951a0ea3bc9a81665"
+    },
+    {
+      "path": "src/dp_ur7e/hardware/robot_state.py",
+      "sha256": "ef17862569535de9c57378f2d66ba5c657a711ca7f517c89981d5fee5acafaca"
+    },
+    {
+      "path": "src/dp_ur7e/inference/__init__.py",
+      "sha256": "995cc3348c5e206ccd592012883203cc2f3ce5c3a2f9f4012029735ed682b763"
+    },
+    {
+      "path": "src/dp_ur7e/inference/policy.py",
+      "sha256": "ba73d78f3eddd27f25039b1bbd7fd515356552d18d5a4b92aace57dd0814a2a1"
+    },
+    {
+      "path": "src/dp_ur7e/pipeline.py",
+      "sha256": "83e87dc8401138e0e09a94ba4bf799e67594450700ab6ceacbd6b5b287cc126c"
+    },
+    {
+      "path": "src/dp_ur7e/recording.py",
+      "sha256": "aad400bdb84ccf58eacb58815e9b98f2d65741f87978f31e614f2a227b424325"
+    },
+    {
+      "path": "tests/native/test_guarded_transport.cpp",
+      "sha256": "79ec37739fee0c2d3ea4a51f2a8ca2b69d1f26925f58a44dcd7324a034b07d0d"
+    },
+    {
+      "path": "tests/test_additional_boundaries.py",
+      "sha256": "fc3e6d38903fd3bf26e12774f1ebf66eed5dc688978bcff11283f2cda9c0af1e"
+    },
+    {
+      "path": "tests/test_camera_bridge_shutdown.py",
+      "sha256": "f84c35603171ec57f4efcc522eda85fe5ce78219156cf43ce2443097d938d102"
+    },
+    {
+      "path": "tests/test_contracts_and_robot.py",
+      "sha256": "47028c52cc0e11f68b85bf79eb17a01058cdebbd67e2015618299458bcdcf10f"
+    },
+    {
+      "path": "tests/test_execution_contract.py",
+      "sha256": "c37dace24f66459b5b420deb4fe57d68e8f0dcc840715f4a955e041b4db46bf7"
+    },
+    {
+      "path": "tests/test_geometry_and_mapping.py",
+      "sha256": "a17191e4964500a78f2e053d1702b509b210c967154b7311daee58a017d9d501"
+    },
+    {
+      "path": "tests/test_guarded_backend.py",
+      "sha256": "6ea86a2364c2414024dd69e96ea23de9719d0fb8e674bd7997e6abd7d8567b7a"
+    },
+    {
+      "path": "tests/test_images_and_store.py",
+      "sha256": "780a0988eea342517f32992afec65af32726bd2d994fc05a22245a22af8a4c32"
+    },
+    {
+      "path": "tests/test_motion_robot.py",
+      "sha256": "8e81dff336c2a0ec95e926374c6f3264054cab1c01e08b1db5bb41bc3800fe89"
+    },
+    {
+      "path": "tests/test_motion_safety.py",
+      "sha256": "49f95cea12e4013a788e494c20f97747e9354437abadfb92b9a895814881cfd7"
+    },
+    {
+      "path": "tests/test_observations.py",
+      "sha256": "f65c3a66f293f5397e0d4313b2e40c5b0242360bd7960e0398b0d1ecda60b469"
+    },
+    {
+      "path": "tests/test_pipeline_offline.py",
+      "sha256": "a4ed3c630049ae7c064a39ebefbcc31b970e63ee5b2686a8be369b78bdaf0bd0"
+    },
+    {
+      "path": "tests/test_public_interface.py",
+      "sha256": "4f77e9dcfc6c862d18eff3487d9187f0614c354564f4d9d5a52489ae649aec2b"
+    },
+    {
+      "path": "tests/test_recording.py",
+      "sha256": "af6e13fc7e48af50d5e232390687ce7f19ec7478947746e7a0e7aa32a917541d"
+    },
+    {
+      "path": "tests/test_repository_tools.py",
+      "sha256": "9da22a0a37367a770cf68f97b7de7667674bd5b516ba9977b6ea64a6a64f8921"
+    },
+    {
+      "path": "third_party/diffusion_policy/.gitignore",
+      "sha256": "5a09c4fcc80bfe6b54e4f5dcaf68d24d6bae501075594df328b0961b73410eba"
+    },
+    {
+      "path": "third_party/diffusion_policy/conda_environment.yaml",
+      "sha256": "98faf32bd026a431498cfa516897b6f15e9193f258f560dd3eb6bfe6c30a8878"
+    },
+    {
+      "path": "third_party/diffusion_policy/conda_environment_macos.yaml",
+      "sha256": "60a4ca41aaf6b68d118f2643f54235d4fc3ad97eea5abb8b95e9acfb2ab1a4b2"
+    },
+    {
+      "path": "third_party/diffusion_policy/conda_environment_real.yaml",
+      "sha256": "8eaa1852e53992988040aa3fc92e18145dba0516a9caa6315bce34c3fcc32662"
+    },
+    {
+      "path": "third_party/diffusion_policy/demo_pusht.py",
+      "sha256": "c4f2a7f4a4b141c3a25bda30db328785681bb17de25e984a18a233c65a26af96"
+    },
+    {
+      "path": "third_party/diffusion_policy/demo_real_robot.py",
+      "sha256": "d10c58f45260616454077b87d02985c1b6b588fea01af303bba30e57b0969f9e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/codecs/imagecodecs_numcodecs.py",
+      "sha256": "707cd3692ba676ea9229d1ec45a24b3fc824c9caf79e4b10eb4a042e15af2245"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/checkpoint_util.py",
+      "sha256": "32b262b6702a1d521cd7914f90138f69b42cab6ad64f787df8aad2c0d3fe91e0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/cv2_util.py",
+      "sha256": "731ca631a535ed0f4b22433573d67e458a6f889a944dab6b879d66094b512fd8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/env_util.py",
+      "sha256": "3f9c1cb7419d2c1abc8133e0795e5573f8e174a53e75d70814fe566fd5f21b65"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/json_logger.py",
+      "sha256": "3f4b9e6df2be652b99fc7d8f500a68934160d83f59ab3525b83778a695a40927"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/nested_dict_util.py",
+      "sha256": "f89ca867ff3d6266bd007db058ca9eca07a245d0e6b30d339e383867c47eda51"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/normalize_util.py",
+      "sha256": "6a51898829954a7e66112f38b8f02afec0ccf8c39fe29693d8992240181cac91"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/pose_trajectory_interpolator.py",
+      "sha256": "225363b8efeebfc0a11a42ac5524d79f5f2c2ad933a3cdcee05b07cd8ab3bf65"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/precise_sleep.py",
+      "sha256": "d7fbfbdc3788a0003bb5dcf130fe41f8a4ef66655b9f4e9bd266b038c8c9db1b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/pymunk_override.py",
+      "sha256": "41ac8f4fe1a7dc592bb56ebd0f2f87e86fadda349d70c10a824bb0b2fcab2407"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/pymunk_util.py",
+      "sha256": "608a95988aab99112c888697c6830351ab48ff8b694ed16bc528e9cf37becde2"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/pytorch_util.py",
+      "sha256": "97e74ca61df1375535d5259e1e695947a7f49be484fa024900482294aa3d7285"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/replay_buffer.py",
+      "sha256": "e3134141336d2f6312ab9e3416f80c8c8343da14f942ca0a7cec6a8786150579"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/robomimic_config_util.py",
+      "sha256": "dfec04bcc4d8650807d4fc05aa09ed290a06972b889f18d1312a38fca090df76"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/robomimic_util.py",
+      "sha256": "0d654122b988e30617e288f3c5b1ee9de098bf1cff5d9c1f70d36f0da55e4be1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/sampler.py",
+      "sha256": "618de58816861c95d73e03543961840e858c765b31d377051920a1bb9d9d8871"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/common/timestamp_accumulator.py",
+      "sha256": "9423b7753a0faf9fc9a887a3cba61961d504a27b388ab72007c9fd145046cfa0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/blockpush_lowdim_seed.yaml",
+      "sha256": "00d5deebc601d8fbe963f7049f969a05399779097e862ed4b00151787e9b02ba"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/blockpush_lowdim_seed_abs.yaml",
+      "sha256": "293db4a89d84d39c62216bb8afdb90646be850c87c886a0f7444b573f91425e7"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/can_image.yaml",
+      "sha256": "7108570dec0e79d1b550f69f0ec36dc361872140436f783c53f2a0454fee7faa"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/can_image_abs.yaml",
+      "sha256": "e08d8293d779a3967dbf869bebf6e92e2a1d4aea58452e9d0608f3ce6ca1344e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/can_lowdim.yaml",
+      "sha256": "af8bf6f9f604e65849fe139878428b83e4a60e6ca82216771fd2484e59623929"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/can_lowdim_abs.yaml",
+      "sha256": "c98c0e9aa1f23bcabc8e3d91017b9024ae1932de1c79c33b2954068fc18bbc0f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/kitchen_lowdim.yaml",
+      "sha256": "8a74d9c4d72507090de85ccae621f11f12d96318f6ee5e56f05bdf22fdeb3713"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/kitchen_lowdim_abs.yaml",
+      "sha256": "33f102e281bb98dfa0dda57a5f28e2abef1f04d377122d65777806e3c667219c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/lift_image.yaml",
+      "sha256": "63d347f69d3e1e5989108afd36bcfc6d359f5955e9a483c17e5b477a04bde578"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/lift_image_abs.yaml",
+      "sha256": "cfb4eec7eca11a87004b785d652a2d64618f51b0cd9744f8edd33316eacb3e6d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/lift_lowdim.yaml",
+      "sha256": "0da908ebca69da9cbc57b6d0997e7324a352aef7138b324042cc853cd18ffed5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/lift_lowdim_abs.yaml",
+      "sha256": "e8d64d45adc65b29e1a03823574543e7a76e0aa14588be742b943bc407c37ded"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/pusht_image.yaml",
+      "sha256": "30db6e9ed57588e4fc33af0a54039047318622310be1636a7fd14b4b3264e918"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/pusht_lowdim.yaml",
+      "sha256": "f1b39bf1176990f5dee651e88d470a8d2b5fbc4a9e8368c0904736396d27ab54"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/real_pusht_image.yaml",
+      "sha256": "8aa6631a4fbaee05478ccfdbda456431ba1f156cb19046f853217d980315a18b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/square_image.yaml",
+      "sha256": "0ab11b5f66b388d0de3631ea28a92e57cd57d60b95acea5a5351101e41b1d572"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/square_image_abs.yaml",
+      "sha256": "b3a8e9e05a5e18e8e53bbfc43be960ac46ff97ae9955b20dacade9e190afb028"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/square_lowdim.yaml",
+      "sha256": "04cff4670cea0107601b75e3ad90f0ef43e244d6033cdbb09787a02d0d924078"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/square_lowdim_abs.yaml",
+      "sha256": "38158d73f2924f327be310c2c2c47d3f5ac4b0e9b8f4efaf71a58860715b1dd9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/tool_hang_image.yaml",
+      "sha256": "5c3ac118749e880741d40a6a6bb71c771082031ee50c7289451e8f8c5342adf5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/tool_hang_image_abs.yaml",
+      "sha256": "efb2b97658410b78c866e2d4b1237c9a1c18af422092bdfa90ee307b05f8bade"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/tool_hang_lowdim.yaml",
+      "sha256": "8cdbc87373323df175ab146ac5584819223a8a5711eb0a8286b53ccbc5659e5e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/tool_hang_lowdim_abs.yaml",
+      "sha256": "1caf0eb307214b38dc2df8193792d0c79af3fd7c6a28dab49884605b9ea52033"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/transport_image.yaml",
+      "sha256": "7ab4e3447d62dd979f8fbd78d4e6d65acb2eea3f5504b0b4137458eb36052e6b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/transport_image_abs.yaml",
+      "sha256": "c62356eacff592df1d10cba433ea5eaa73a6b28e0fe3a42bd34cffc53d00d152"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/transport_lowdim.yaml",
+      "sha256": "0384e01c0591aae56de75e40d451e6dc9ccea736135ba6107c5c99dc9349126c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/task/transport_lowdim_abs.yaml",
+      "sha256": "f1375078fcc736e69c8a2ff01e40cc8bfbb1c0a899247258c1ba4510ef7e683b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_bet_lowdim_workspace.yaml",
+      "sha256": "1f0c684a860f7390518238f1a281434713ad9f7776f0cf100822e72b88854e3f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_transformer_hybrid_workspace.yaml",
+      "sha256": "da3913519dc2b28a86a73743e3737ba7e4aeb179d5d3d49dde466167e499b7f6"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_transformer_lowdim_kitchen_workspace.yaml",
+      "sha256": "b0a99cdd49eceacaa75c95c985341a0a19b3e7db23a12896366676327abedad4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_transformer_lowdim_pusht_workspace.yaml",
+      "sha256": "81c270ab86476f7d201f0b12789b8e8f71e118bacf0c2cac2473c0e7293cf481"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_transformer_lowdim_workspace.yaml",
+      "sha256": "4c407c51808e38af8521aac9de3dfabd5c41c5329f8273b2408859c46de83ebe"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_transformer_real_hybrid_workspace.yaml",
+      "sha256": "fe23310f28da9574eebda27b0843cd9659e515f305f26465b21e3b1e1fb995d3"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_ddim_hybrid_workspace.yaml",
+      "sha256": "a71d843fb4ecd76d5bf29128a6f6cc66eb8e97fcc8ef9892dbf222f299638aa7"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_ddim_lowdim_workspace.yaml",
+      "sha256": "8e021b58ab23df3516e1941ac0d2f874e2b92d09c2783e4f300983d6bbfef4fd"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_hybrid_workspace.yaml",
+      "sha256": "3546dd50f39e2b5156a20fd897b115bbb799d279b012723e22eab93792148227"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_image_pretrained_workspace.yaml",
+      "sha256": "690bf7baa394b74a9f9f02ddef352f7e6c01ba6c27fce78817531f5650a2ba5f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_image_workspace.yaml",
+      "sha256": "2b1514d39ec5cd2248cd3f2b42d2ac7a62358e8369501aa54a37a7d98423d2f6"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_lowdim_workspace.yaml",
+      "sha256": "f8df8960752b7d0d587eab53a1f93f37ae4d9afcea1a576c0d87cb984a95be3e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_real_hybrid_workspace.yaml",
+      "sha256": "1a3f4b4a5e625ae174a5c11b1dd917d6ae519aaf57a01cf7d8c053e57fbfbb89"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_real_image_workspace.yaml",
+      "sha256": "800a7f842a93f31fc159369b8dd75025fb5e319a2945f9e01e6d83eda637e0b4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_real_pretrained_workspace.yaml",
+      "sha256": "a43fb3f255d823bc71fb412548def9e4327a2cc71af2e585931c67d9032cd790"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_diffusion_unet_video_workspace.yaml",
+      "sha256": "998d2700167e0c7c3f0305d052d2bfc71c0466061efca05baf2cbf8632e84a90"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_ibc_dfo_hybrid_workspace.yaml",
+      "sha256": "b286b187e252729da0dd0348d923b47219a69e58f4c222e070abd3aed3a1d7a1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_ibc_dfo_lowdim_workspace.yaml",
+      "sha256": "d2ff7ed76743d77bfd84a4c0d9ab18a1c4fb2ab2cce3d95716187773f47afb2c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_ibc_dfo_real_hybrid_workspace.yaml",
+      "sha256": "3901e690fc36f9b8b30440d390dfb85aa5286c67c9957411b93e76908ef92650"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_robomimic_image_workspace.yaml",
+      "sha256": "d347ebf846644cd5aa87a167f430d28159aedb53ddaad79f600522d1fe4cfdbc"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_robomimic_lowdim_workspace.yaml",
+      "sha256": "2c3d8141004dec06304e187147f81d58a5e3276b88a0d5f689bd83db7ced9786"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/config/train_robomimic_real_image_workspace.yaml",
+      "sha256": "295bfec047e26f0137a36167fd2f081ebc812aa77671b16ec4a5e06b98ae9c63"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/base_dataset.py",
+      "sha256": "92a78778631690cd44bb3aa8ff0f54296a0dc9cbb4f8029afdbc9c139f4491b0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/blockpush_lowdim_dataset.py",
+      "sha256": "b42ddb75c531f2f039e873103e438538c183409208938529c948fe09e260394f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/kitchen_lowdim_dataset.py",
+      "sha256": "7a1059dc6cf968f7285fb41ed12fdee37322c7cb80ff2d4437d62410032b8510"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/kitchen_mjl_lowdim_dataset.py",
+      "sha256": "3bdb0be54c665b8dd4cc202a986368f677ce04241a299f62ef802f1ff3480819"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/mujoco_image_dataset.py",
+      "sha256": "f8c5df9dc614b5a4856bc5843fe7df34abb594544954e3c798bbbedead95afb9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/pusht_dataset.py",
+      "sha256": "7ac581de140bb47f82fc711b13b00e1520aa33c6391cc058f16e44482616ce36"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/pusht_image_dataset.py",
+      "sha256": "bea06c9128ff5d6f87e4f087f25fb824cd041bd2e813640ec8ead77181d73ebb"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/real_pusht_image_dataset.py",
+      "sha256": "ce77b62747f9dabb100a512aa9b508067b148ab5ea5187f1ff6d3515d0be260b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/robomimic_replay_image_dataset.py",
+      "sha256": "c6d65d9e0f206a20df4ce87ed6ad0e78b7b1c91a2a5043cd46b480d7e00e01d2"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/dataset/robomimic_replay_lowdim_dataset.py",
+      "sha256": "48f703cafe4c0038bf41a2d5cf657af03da5abfb861d8129f4d4ee46dbc27a05"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/block.urdf",
+      "sha256": "27c9e706f454bd79172e40283628c34b0c6daae806307e54cf28c73f4dd6925a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/block2.urdf",
+      "sha256": "1e45b1d2ccd1443287c40820be56957a72c0aab0269ff023c887df4ea2b2b5f4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/blue_cube.urdf",
+      "sha256": "e2298512033b227e7676acd8409d92801c3113adf82f70bbf32734be80a37508"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/cube.obj",
+      "sha256": "73a47e6b676e3615a5cf0ea503223151b7de497e5818e6ef6913b197d1bf344e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/green_star.urdf",
+      "sha256": "920b00a3fe3266952ece7491c44761e630248f8dbd72eb3dab75e06f1b855e62"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/moon.obj",
+      "sha256": "1dcaac8676e845523ac6c93583f2ab3e9d7c4e93e2e48dac3b3cc30625c09503"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/pentagon.obj",
+      "sha256": "20b9bfeb688a634a79b91722ea5f641506e5bebe80e3f2acc4c84c11b0ad692a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/red_moon.urdf",
+      "sha256": "a6e8548a2beb72666a4005f4cd53dfdb8ede34f7bac83b2c724edada2b4b390b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/star.obj",
+      "sha256": "509d7e33ce6476c343796f277f17dd97e620049ea65e94689943541a1716137b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/blocks/yellow_pentagon.urdf",
+      "sha256": "772728cca70d189a710dda2097de006829848a4fa5808b9f203cbeb2dfac7956"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/insert.urdf",
+      "sha256": "9e8bab9cdfc951dee628d99dda00fbeb20b2feb7162f85a30b4ea69116524253"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/plane.obj",
+      "sha256": "f0a20b422a2739089500fa1ea373cb4253a02fff16857b445689cbca5ebdf293"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/base.obj",
+      "sha256": "2913fe3556e73df8e4117209ec9b20374e701faae2f7927c7b0cbc93cdf4ea01"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/cylinder.urdf",
+      "sha256": "372937473e1dce175a2d6f02428bb5abb506777b5c2af54ff8b95ff406c41f4f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/cylinder_real.urdf",
+      "sha256": "4968556c767cc7781fd5ded34947da864767301f64a33ff1b644905923fabe50"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/head.obj",
+      "sha256": "43d69adf518135ffc160aa87e3f0e2ac77fed3b52bfa6032515ffca3eb5c1a4e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/mid.obj",
+      "sha256": "a9253c7a01eacab4c103a02a1433eacf174459e58c80f5283a3a1bdc5201a977"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/suction-base.urdf",
+      "sha256": "f99b31568fb997c0324ca1f4589941502813864077776c3b622bff52cdbc4dc5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/suction-head-long.urdf",
+      "sha256": "bfbd09194bc87f1c842a8c40106b68188f0df63b5351e07e96d8769a7b0a215e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/suction-head.urdf",
+      "sha256": "be97d35b903cb140b46754112b484944e59c5d24a3f1b81e762f44dd24042583"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/suction/tip.obj",
+      "sha256": "011e83c5542ef65a9826cf67a9a31f60d35bd47b2e1301b77d9dbee698aabb6d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/workspace.urdf",
+      "sha256": "12d5e890dc706e3efab00442ed02d7b1ff4099feb0214eb15b00d8f114107713"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/workspace_real.urdf",
+      "sha256": "83048f86a25c9029086b68d05f6fe71611d836e149e9e83446c38688cdf87095"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/zone.obj",
+      "sha256": "66da379a56bf3df4d811312dc1019a603b9bee76df39bf35d3b01db000c3f901"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/zone.urdf",
+      "sha256": "c548d06a1125423740989a794ab1434fb514c8ebc393c597cf6e97e88f6985bb"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/assets/zone2.urdf",
+      "sha256": "8708cd1bb8ce82c0621034dfd89052b1b6967371da773192c75d9e90629ca286"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/block_pushing.py",
+      "sha256": "11c457ae60855339740966b11081da2ba34d2fb8649df8e558cbad5d994fca7a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/block_pushing_discontinuous.py",
+      "sha256": "f3d80eca60a66d389a4eb17193e2c2ad383d72aa81fd89cf0082ef8516e057b6"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/block_pushing_multimodal.py",
+      "sha256": "d77443eed887ed52e1a1d4a7f877028cb346c8a5a4559f157b27213999736e4b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/oracles/discontinuous_push_oracle.py",
+      "sha256": "8ea161996f2d79d37b04ca1b7fa1c6d935ab2adbc779daf709645260c11b7e0d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/oracles/multimodal_push_oracle.py",
+      "sha256": "9eebcbcaa447e772b7482fbaf51fd03f406f27c0d0e1b186517796e070e8b3d4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/oracles/oriented_push_oracle.py",
+      "sha256": "25cd64712ee229f7cd1c3771bae105e83a333076f1b4286b2e556aff0040ad2c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/oracles/pushing_info.py",
+      "sha256": "f691602c8851d1fe691fa70718c4e530b8171a103733317e4551af31ddc5dcc8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/oracles/reach_oracle.py",
+      "sha256": "ebb748820cc079b39a3258e912bffb6cc1e7af4c594fb1f33620fe0ef7e7c599"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/utils/pose3d.py",
+      "sha256": "8abae82ca38015a4d49316ab0f42d6167864eb7f45e3399a6e40d6cf527512b0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/utils/utils_pybullet.py",
+      "sha256": "6b7b0ae6541fbbd5d5f1429789a2fd4590331ed4c8fd84bdaca8d0f3a021f4eb"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/block_pushing/utils/xarm_sim_robot.py",
+      "sha256": "3499af2636973c1d12c4ff0fd47bcb14433680c97f0ebf473813e7821849f42a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/__init__.py",
+      "sha256": "4caca68a2e29278feb99e7111b25691e166c6351f96933fc13420ad9f1e20429"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/base.py",
+      "sha256": "0b83fe6c070d6be1ee6420e56a7e63ba0ca3dc89940ab8f49049e3d299db43b5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/kitchen_lowdim_wrapper.py",
+      "sha256": "130b10992584b959f6b93da9a893d0c785dea8947fb8cd638e8c3f776b1cc0e8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/kitchen_util.py",
+      "sha256": "2e9ec388602f3954de395703f04aa3ae3337ed119e9287f377be56181b57a09e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/.pylintrc",
+      "sha256": "aded6386c7d9e5f75b06bbca12572713fd9a2be1234fdc86a924edffa2b9c612"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/.style.yapf",
+      "sha256": "b842fd059fc64605a619b6abd37050539e89624b28ee59b4183c67a68a0cf9d0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/__init__.py",
+      "sha256": "666c5de6eb85ddcb3124b841d4f78aa8bcf22d3c40b8723dfb2f8d62357c2de9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/base_robot.py",
+      "sha256": "8142807a178d0c71afc9c83292a691d7961606dbd41f46b2249d7a6f929ef805"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/franka/__init__.py",
+      "sha256": "e77ddd535b27b87b14c023db1f4c15e5d1ef598274a53d300a8ad7f215d5dfef"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/franka/assets/franka_kitchen_jntpos_act_ab.xml",
+      "sha256": "ba3e604289fd005acc0463379fd44155b421b5473dbedfb6eb514d4dca5e62fb"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/franka/kitchen_multitask_v0.py",
+      "sha256": "da9239b7c7eecedafdcd8e43ee349d02c913b242f00f6690a120839d4bc16f68"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/franka/robot/franka_config.xml",
+      "sha256": "b480593626539c16f58b54bb1ba74f8c9fa357d597725e03250a541ff7091ff5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/franka/robot/franka_robot.py",
+      "sha256": "a6f71848c3c87e11d39f4e89c61c3d0c52ef1e3d7a8078491108ff6159b2bcf0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/mujoco_env.py",
+      "sha256": "44e44834e55cfabafead255dc4045f47796af417c3ba09706e5331235d021867"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/robot_env.py",
+      "sha256": "b32639e2c82e2f358e66d2bbc95fca4bda5d7d4629b3b9d4b32ed35017824c50"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/simulation/module.py",
+      "sha256": "cbecab3ed3f477ad3b7db56040387ede9d04e06c11115f0c13fb1a737019d39d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/simulation/renderer.py",
+      "sha256": "44a7edc031f9299e1e6806403a6a08156305010a40dc86c6b24516f83646edde"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/simulation/sim_robot.py",
+      "sha256": "f1d0c5b303b6ac7d38c7f927722bb491af202a0c511d2bd2de9d9f92ee78b18b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/utils/config.py",
+      "sha256": "0ac655c56c7ec4c2bf1cc42de4617f67e57793ca67e48031066d6799a416cbf9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/utils/configurable.py",
+      "sha256": "b5e0e1c96e2efd126314323e50a2eef8ecb6ae57731d929c65d9440b63f32bfa"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/utils/constants.py",
+      "sha256": "b92fbc27d0ce98f6d24f24eec67f73b2c52aeff40919b1efc9f743b8a48de73b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/utils/parse_demos.py",
+      "sha256": "59049b8c905423e1044d2d3eb641165730eaaaa0e01348c53842fbfa7edbe287"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_envs/adept_envs/utils/quatmath.py",
+      "sha256": "559a456202f0a0c9daedad4686db1e9b47c9558b220b8b8ee170fa01b1857995"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/.gitignore",
+      "sha256": "13ab2b85b688fc921df075e3c989eb78679b87ed94df34b97b2819f1f63b2788"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/CONTRIBUTING.public.md",
+      "sha256": "bb79e55fec16391c1585199f5b98173920846d0d2de5267ede70aa50d3ce59c0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/backwall_asset.xml",
+      "sha256": "cfc3704f4c260f5a4300af6627b2b05e282ba406105d4b7f3ae92ac9d4314998"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/backwall_chain.xml",
+      "sha256": "eeca3fe739b467376496d3626d14c0a9078014d966eee215072dc4570600f22a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/counters_asset.xml",
+      "sha256": "cba343634c9781659b95f813e7bb4a7d4d6ec2da911f39e9ef71025dd7a85b44"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/counters_chain.xml",
+      "sha256": "fc445fcb400c0c9a188dd141138469a02a9492ff1de7d0c22d80b22ede4276a0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/hingecabinet_asset.xml",
+      "sha256": "df8f987045994ac95b4613d2235893963d63c24c39f0ee3467bfd8a7820f8700"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/hingecabinet_chain.xml",
+      "sha256": "015348314606eb9280ae99e132f157b411daa05812c357604065a16b1600fa7f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/kettle_asset.xml",
+      "sha256": "737c8964b53febf918b49ef4f81f107d58ef6e850010fa77c965d7dcf6c705e2"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/kettle_chain.xml",
+      "sha256": "acd8986e15c9f6ee33515f10343cea63dddb9000347f3eb6d3e6e28d4ce59053"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/microwave_asset.xml",
+      "sha256": "fd578d538563adcff7096c95dcd1a5f2123994540679b38c4af4d7953983a779"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/microwave_chain.xml",
+      "sha256": "338a6f131b7bd1ffb9b578915d72c5d024c2cb1456834e5f23a76229e13d4649"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/oven_asset.xml",
+      "sha256": "0c951e188536f83b306358152e9db88f1aa7323ce9997cd4f058d174c4be6f9e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/oven_chain.xml",
+      "sha256": "a6b7d3245c2109ac6ceda9619f46e3bc8e03e294694900b5ec7cb948b24c8344"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/slidecabinet_asset.xml",
+      "sha256": "7a8688056410ebece82a73490c5f61c12725c266a7d96bf311ea7083410c41fc"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/assets/slidecabinet_chain.xml",
+      "sha256": "861713b6bf9e3a966b2784376ce0f07fea207543242ef3df8eaaf105a9c5ec04"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/counters.xml",
+      "sha256": "8c81d5d1378eba0333f6b5d4196e72d369458943d35bd93d2b13cefa638bafb2"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/hingecabinet.xml",
+      "sha256": "19471d060b5c79d5085dcc830415946a75d481e67aa383b21a6c6a09d2adb2d0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/kettle.xml",
+      "sha256": "e81c2189d05e717fb5503e0a9d4dc4b31dc907499fa420fa7d94387a04f093af"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/kitchen.xml",
+      "sha256": "3197eb50d3958efd7a17c8501ae252c92f2a04184f1e0065ecc90a5b1cd5bc1f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/burnerplate.stl",
+      "sha256": "93526fc3f2585e828c115f0f20d5ff43129ce7dc46c9fcc8216c4015c717bd00"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/burnerplate_mesh.stl",
+      "sha256": "93526fc3f2585e828c115f0f20d5ff43129ce7dc46c9fcc8216c4015c717bd00"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/cabinetbase.stl",
+      "sha256": "c13f3d98e058654eb4e52b9290ad598c2055b5bb96f1e752785b349cd1ba9c83"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/cabinetdrawer.stl",
+      "sha256": "0877afb9819895c554543e2c79fb90000f592f9b7f808ecb6d9b0206a6e709e3"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/cabinethandle.stl",
+      "sha256": "33559788c258fdaea9c63d8be5a5a26c049c97f8dde559fbb7bab5e3c90de37d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/countertop.stl",
+      "sha256": "f032e7822ad9754a0d133cc6c9e9f71911c77348845e3c94957f0f08469da928"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/faucet.stl",
+      "sha256": "bd2c5fb5bc2d73d2225157abacf500f8418361f7cdd3cfe49693ee0df4cd62e9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/handle2.stl",
+      "sha256": "86d04164fddeb688b95c2bc1df412a4e804c3ef2e2d4f342e90e6714752e69ad"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/hingecabinet.stl",
+      "sha256": "5b360e2755bb36a8fa3be1532312cb331d87ae23d1314637e1f088679ee54e6a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/hingedoor.stl",
+      "sha256": "532e93785fdf771dca626df096c90cfd39a50aac194d393ed6a40f89c373e732"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/hingehandle.stl",
+      "sha256": "c80c724ae66dd1e10637dda47a83b607da57e25f9b0c2039e00474176b649efc"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/hood.stl",
+      "sha256": "4f1685ce8c7a6437b69f05b915760a9e4bc3b856185b3e2c2b9d56c359dcacc1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/kettle.stl",
+      "sha256": "f330f07caebd56642b42acb4ecba9b62da8da7b48cf21c50fc59b12b69120682"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/kettlehandle.stl",
+      "sha256": "cfa71c48cd8064c0d95aa8c2646cb74a02d138e2c6a66e7b315358f2aa97cf15"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/knob.stl",
+      "sha256": "75435696d7ebcbcf3ae6fc25e2d917a265c82fde1511c6aa9b0447c71b4e84e1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/lightswitch.stl",
+      "sha256": "816a493680ad3347bdf9c4dbfba2e3ff56595af0ea6943ec0b7cf7b667211760"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/lightswitchbase.stl",
+      "sha256": "cefc31de9d254deff101a5423de6d932bd7ebd912ba57424471c63ce98ffae25"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/micro.stl",
+      "sha256": "0825383a47b711561328d1db63ee9aa15c2c182f362298c315ee2cb2cd0fba1d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/microbutton.stl",
+      "sha256": "d932505444c465f2a73aebbb4f2bf220f4b0978ebafd1e49f2e1c0a23f9f27b7"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/microdoor.stl",
+      "sha256": "e65499c915972f081c969636022ffe8a31a884ea9f0fa8aa9252993644575976"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/microefeet.stl",
+      "sha256": "2c8e6a5ba351a154d95d1d58fdea98f3c640a5836ba76de3e0fa7a23ed43df8e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/microfeet.stl",
+      "sha256": "07dc873d4e1f9a2fc5dc6e376729e5b4f5b8ed11a54e10d0bc7a22c6c7bd6bec"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/microhandle.stl",
+      "sha256": "b0610f828666b21e38d63c78b1e561ad28bb0914633f8af46a1dc64396b9aeab"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/microwindow.stl",
+      "sha256": "9f9638d4dbded50ee3ee25e6b77aa8f8abda3b17ce801528fb5c8e85d1adc7ae"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/oven.stl",
+      "sha256": "7663fc6dcc25da810c137e6c401641fd0c91c22c9d6903031fcb66f90570d378"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/ovenhandle.stl",
+      "sha256": "e19963a20f62da40a303335f3ff85c08ee2c495be35042127a62bbf7ad9f3406"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/oventop.stl",
+      "sha256": "c2b7988f2b5bab2b8c20b6b69beda511e28f8d93608bba9fa7c834ac0c982f88"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/ovenwindow.stl",
+      "sha256": "d2b127d28a8151adeb1336ced6e583b557738af92fe57afff28495411747092a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/slidecabinet.stl",
+      "sha256": "f37e756a4cbc0f99ecb73251cc8936c58ff1146d673f8f4ef4f49f402b69fc2e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/slidedoor.stl",
+      "sha256": "3c1b3337061e8ab8412c133a06915425a72124e51016b1e0ddc1ef914c24ace2"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/stoverim.stl",
+      "sha256": "35b1a3005873502d142afd875a9ac92e67944046f1214a7f24eda6abeb705956"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/tile.stl",
+      "sha256": "9b09036d4df9e61db1803914bb3b1a2a28fa2d9a59156969d1b14e8100b84f07"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/meshes/wall.stl",
+      "sha256": "02a58f22865c9d09df109412d928961e8b39111b0df440e06551c9f68f7bb5da"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/microwave.xml",
+      "sha256": "164229a9d5a9b7ddde5dacf284710aa435d220448ce0928c27d7ea27ac6c47fc"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/oven.xml",
+      "sha256": "c36ed21c6e45eb059c9c78696e7ed4718cd244cc1e7e49c179c7620c0fc7c3f1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/slidecabinet.xml",
+      "sha256": "abf448a1556fd7b0a4436e4f4bcdfcda37aa75afaa91b65377ecc5c98a36f33c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/textures/marble1.png",
+      "sha256": "0100096b4de05919fbecdf223895bbb0693d5068d5e20b3cb140ee39a3cdbc39"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/textures/metal1.png",
+      "sha256": "0d25fa8affbb0f579220f0cdad6ee74f875495822ee79bb5afd23d73671f6363"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/textures/tile1.png",
+      "sha256": "5f4157d705c5d8c60e58ea9c5a35f4fde068aec56d6ef207481f02c57b823a08"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/kitchen/textures/wood1.png",
+      "sha256": "a39fbea7e52f7988753424d135bbf36e696087bd267cc362cfbbd6725eb36dbe"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/LICENSE",
+      "sha256": "9ef095165a46f4107ffcd84cd6bd71571dd58ff7d17fac8a407caf19557df509"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/README.public.md",
+      "sha256": "8fdedaf108d1e26097c8a73da7bf13ab0f59f51c85846139b140a7974035df14"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/scenes/basic_scene.xml",
+      "sha256": "792e7aedf78ff194538de801584b1e8d86da4b60e778f5850b88bad78a72e909"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/scenes/textures/white_marble_tile.png",
+      "sha256": "d054514d195d5d3d967d6570a3c9ea9478bbd192bd80aa742b91cec0253f1f11"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/adept_models/scenes/textures/white_marble_tile2.png",
+      "sha256": "fc7acf625b5ec4fa4a5bc92f61e719d33ae16652a18956682923dc3b34038b84"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/actuator0.xml",
+      "sha256": "67a20cdd7209f5b7073510ed2c1f622710c0fbba5317baf76f9f85376d869f42"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/actuator1.xml",
+      "sha256": "f571213df80c5eba2ac6e3bbf9a17e2952ab4829f5aec84f2b71355d5d8c8362"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/assets.xml",
+      "sha256": "315eb3dea087ff792e665034aceae2b2dbee9b77badc00281fcf203bc32e85ee"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/basic_scene.xml",
+      "sha256": "50f6246986d829f593799a76974b1c43a62c9e477926071149ab34186c287817"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/chain0.xml",
+      "sha256": "2d3a31406f6087b34730a29cc01e1729e6085011f3fd9b36af4756fd32075873"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/chain0_overlay.xml",
+      "sha256": "5e61b14061afa26f12788cd2bebcb941aa1bffaff94886bf6256cf1696f57a35"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/chain1.xml",
+      "sha256": "eb79286e019838176eed66f9fc1d7897e28a7943f46f8a0d35c4ccc1f8a3e934"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/assets/teleop_actuator.xml",
+      "sha256": "c6742c730d8143bd8007f966ff1fa9fcbf72d740bc1e664e2d9b9990120a8631"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/bi-franka_panda.xml",
+      "sha256": "fde043e3651f9b848beee39723316ac8a29fd9b7c37cecec0b1d4eec1762e822"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/franka_panda.png",
+      "sha256": "a6f370a7f1b084d0376a3a0802883ca0584e3c94917f407102aba780739ef291"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/franka_panda.xml",
+      "sha256": "7d6004380f4b3c9546c12e0b96f94eea985d5663b144735ac950329534d4bc2a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/franka_panda_teleop.xml",
+      "sha256": "c46c27d65d2a2e8ec2def685ed70621fd0ce9052a69e05e309d7ec70c64b93b5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/finger.stl",
+      "sha256": "2d07a740392f3b9b0816f65d64fff9927d3d57c897870fc4b6ff9c56fff3a0c8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/hand.stl",
+      "sha256": "94493e94f30fe940f2c8ca2f155c3bbe67bbff406d3edf5e261670d2f0f6e2ed"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link0.stl",
+      "sha256": "dfc6d94330de8ddb005b311bfdba9f3b8e1aa7c256b71592ee7ff32cb9a9a5aa"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link1.stl",
+      "sha256": "e41a39a94108fcf56aacff603fc91ec80541f4c1af17b51a0de5617f5566e6d2"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link2.stl",
+      "sha256": "370f7605a0fae3529db169ded50f52f171024aa792d4d773bc84197301f6a039"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link3.stl",
+      "sha256": "0a8d638b9349c6c0eefc4e888636ac4838c4b27170f18a51699321118af709c1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link4.stl",
+      "sha256": "0180ebb5772ec9840cb049750cffb29a9ddc90311752a16ea34757782ef9e48d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link5.stl",
+      "sha256": "dd17e688c7870e722283525879643d53a74c0024d328b0e14b034b54c8b6c31a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link6.stl",
+      "sha256": "20b768e99a0e0440b5754dcca108016434e57937cc356acd9c352ccd3cb27f77"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/collision/link7.stl",
+      "sha256": "92ac6afcf7574c034d3170d8a68e95ac9048ab9d0dd5bbd8311b86e551b9ab1c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/finger.stl",
+      "sha256": "f36550380d0208f35279b2514db133bfdde5b9242ec35e8ed7970d1ffe985501"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/hand.stl",
+      "sha256": "2cebeea31d5cd743b669182a62e9deeaaf387ef2beacc9177aeaa19fcfb7de2c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link0.stl",
+      "sha256": "9309aa838114f35b2fa6ba081faa5fcdc4f16f01bcfd6d7dbfd87414b0f1b5c9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link1.stl",
+      "sha256": "ead5671c2a8b55eef02e6b95e2f685b836a2e1565334f7a81163011e3a130020"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link2.stl",
+      "sha256": "f6455febcb22ed165b462f337c73c9dc428aa82b4e46f35f860f5c860705d528"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link3.stl",
+      "sha256": "60027188106f799b964dbcffd22b9da11fb4c76015d65bdfa9a52c0bdad9a5b8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link4.stl",
+      "sha256": "9d428c713864a405f428b424f1a3ee08e4f4290394d9d093191f2e94b15d6082"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link5.stl",
+      "sha256": "73137c203d79e91a51cd57acde3fd009b810d9b647f71d95ef08ca6ce480ade9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link6.stl",
+      "sha256": "7278c6bbc121f4f51fca15a1d59ceb8e031c085c20a087c61218763e49957a61"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/meshes/visual/link7.stl",
+      "sha256": "3fce4a10775f0089afde0bfc67b26b8c1f29d6138b64aaaaf2da85cc1a14a9be"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/relay_policy_learning/third_party/franka/README.md",
+      "sha256": "4f84b47fe85b8bec156ef54b7c5329698fa12be116062f3ecdbd91ac9aef8e9b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/kitchen/v0.py",
+      "sha256": "7a4dbdbbb1d499b6f867e6f91d39e2359efca8adf88c860f4429a941223e0730"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/pusht/__init__.py",
+      "sha256": "b684249fd4f78e67bfbaa2a4dbd102060b037515435c5754308f8327edba00d5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/pusht/pusht_env.py",
+      "sha256": "7ab42523823eeb740f45d3c5c0bc03c21dcda3fe7c97717bec86bc553021687d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/pusht/pusht_image_env.py",
+      "sha256": "462310381fcb7be2ee73fe4e94d97c3d79aa17cc854969e059386e5e85279e4f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/pusht/pusht_keypoints_env.py",
+      "sha256": "3f7891784dccfcd0a540c1cd5fc8f878510768e0495a0faf639800649cdbf4aa"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/pusht/pymunk_keypoint_manager.py",
+      "sha256": "c0a71361272ab59bda6393f17c129bad865f66f67c32afddd6966bda1241d7c7"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/pusht/pymunk_override.py",
+      "sha256": "41ac8f4fe1a7dc592bb56ebd0f2f87e86fadda349d70c10a824bb0b2fcab2407"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/robomimic/robomimic_image_wrapper.py",
+      "sha256": "81ae8c8178213b5b6056fe8340bd7e1e49ff0938838ea44a14e5901cdfdceb27"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env/robomimic/robomimic_lowdim_wrapper.py",
+      "sha256": "5b9f45adb64b5e6593d5f32eca90f05f9ccdd33ce813484b2d4fda51314e1f28"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/base_image_runner.py",
+      "sha256": "5273acbdbd6aea328d7698a41cca568e2a5357fd1a096ce38231afac246f8e20"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/base_lowdim_runner.py",
+      "sha256": "337414d9e8a681aaf0812a52911d47cafcedee352bd328050d210ef281ad1d88"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/blockpush_lowdim_runner.py",
+      "sha256": "f6c896ed0df79ae474efb431c3f20d6bfc5a4fdc1707e313bde8a61abac7796c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/kitchen_lowdim_runner.py",
+      "sha256": "0693eeaff3feb8924352dd68f9ec6eb46d755180af0d66eff51da21d219a0cb1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/pusht_image_runner.py",
+      "sha256": "1399cac4f2da91e5f861fe01e87512a24d6b184115549ab0c579afa87d3595e4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/pusht_keypoints_runner.py",
+      "sha256": "a1a24d1e0c6b9d6d33b6c3d780bcbd3ddb86a49283ffb713498994df003c1954"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/real_pusht_image_runner.py",
+      "sha256": "d1cd206c35210618ab99308bc21f7998586027dd1a7d2b58511d3291bd17d449"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/robomimic_image_runner.py",
+      "sha256": "5ee3e6af0586e33557651de8ce5402dd57fb58c6662b8fbf09a4b513dff44bb1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/env_runner/robomimic_lowdim_runner.py",
+      "sha256": "0809353492fb2308845c91f89addacac135ddad6eaf8e10fcdf96fd4c718caad"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/gym_util/async_vector_env.py",
+      "sha256": "c0759640b728693531be3654128523143671cbd6c45629b7b8427e172b93208c"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/gym_util/multistep_wrapper.py",
+      "sha256": "d00e900c1fb91cd9c0d3b16e6bb9bc1353ae08ab7aab8c00ce28bfaf857a9394"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/gym_util/sync_vector_env.py",
+      "sha256": "5dad6e6298dd6d41377cffdec00f134ec3ecadd395f6be3f7c07b3ad33b601d0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/gym_util/video_recording_wrapper.py",
+      "sha256": "5812dd584f12e622c3a8e5421b82c0dac3e3a6032f67ed300e2a559190dc0a5f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/gym_util/video_wrapper.py",
+      "sha256": "244eb4c917a427eed7b2da42f813afcabff8933d0cbc2218030d82dafcc0d53b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/action_ae/__init__.py",
+      "sha256": "69cef068d6a1ff41555e3f8e1e708d71004afd59cf53291a326b4149ca70709a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/action_ae/discretizers/k_means.py",
+      "sha256": "8c2848fc72a757be2311d1e43689be6b37c855d9ab9e842d392dcc0b3f7175dc"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/latent_generators/latent_generator.py",
+      "sha256": "9b7a9b8cb1284916d3210abd3094c6166e69c4b99a9fa556b36576ec40dcc197"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/latent_generators/mingpt.py",
+      "sha256": "c2ce6912776267156ea01ee997c5de23cd345f8d2a8aefd1761a1ba3613831e1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/latent_generators/transformer.py",
+      "sha256": "6018b1e8bdbdb2b01cd9be6898fb9a57dd32b998d482aee1debd2a3584ae59d6"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/libraries/loss_fn.py",
+      "sha256": "b3a3c2b2eb368fcc3e170079c7e018a348d69dfc64c9d7e154fba7503d4b53af"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/libraries/mingpt/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/libraries/mingpt/LICENSE",
+      "sha256": "f5c4128241f8863155562a99a9d3f772466e846d022699242aa69274bdee4ac9"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/libraries/mingpt/model.py",
+      "sha256": "24f0b3bd9e2969a566aa8ac034c5b72e6fb9ecd212deb96e461ce3bf742b4f44"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/libraries/mingpt/trainer.py",
+      "sha256": "11a76f99467cda16589301b3152e0e11cd5dc3085eba163b2a1d8656e03430c0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/libraries/mingpt/utils.py",
+      "sha256": "c719277bb34af559e86cc5dfcd42f2ae1a51dd2f025ade8659d9e30aade78abd"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/bet/utils.py",
+      "sha256": "183a9a2ea733b33637e5aa04482043d7967c34417fb589e20650398070ec205f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/dict_of_tensor_mixin.py",
+      "sha256": "7626cf5020fc07fd35e1e31ba5c4930605dec03232047387dabd98a02d56814e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/lr_scheduler.py",
+      "sha256": "6b6962467bd4dcc6c48758ae3a2e1bec92c45d96c73b3e62bef33bb9a5285b13"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/module_attr_mixin.py",
+      "sha256": "25e4f2ec9802a3e5b9d86ea72e10ff3f691c3dc9116efb97e02207657bdd49e5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/normalizer.py",
+      "sha256": "41716b26e46f75a868db012647e810c0a75666e2839bdf4a79bbca6524d0e803"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/rotation_transformer.py",
+      "sha256": "3357bd22b5b2995375eb95b6afd3e01874247493d9121d828f3eab3d52e980d4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/shape_util.py",
+      "sha256": "5e37c49617b952b4475ff53de9457b7a725d9fae72e26da7b2a450870ac282f1"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/common/tensor_util.py",
+      "sha256": "877b4dc0f78f6cc1464ebd54c5dc956099e81b6083891fa624488ab9a6555ad6"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/diffusion/conditional_unet1d.py",
+      "sha256": "1e020288d07f187a13b1e7a23324540fcf1db307c200e43a177e72d9208d1c33"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/diffusion/conv1d_components.py",
+      "sha256": "71c04137f59d3ba6a7d41e985336f7a5753439976753ce6fc23cb57a5b53d98d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/diffusion/ema_model.py",
+      "sha256": "f6578769bf9105f368602a959f5a37906ce00c2885ecde5baf56117261651807"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/diffusion/mask_generator.py",
+      "sha256": "5d7832fa66af8b30b6a5c2ad83e8d9f9f8a8092a5d587d6f5fa2a8ae66d7966a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/diffusion/positional_embedding.py",
+      "sha256": "58e88588c30ec28d0b52e5b4d5f5376e3d78bb61e49da31c87cddf7776fd5f4e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/diffusion/transformer_for_diffusion.py",
+      "sha256": "dc55e7c23fcbbd4083bba793773ac42367e6309ece85584793b220b009bfad5e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/vision/crop_randomizer.py",
+      "sha256": "71dc97593b10b4c9ebbecb7c723c7eef4d10841e0ec59e5f20341a87f52e83cb"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/vision/model_getter.py",
+      "sha256": "c10154b71ab6ba9e5947c700d1cecadfedb15ed9470d117f81792d74f5747be4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/model/vision/multi_image_obs_encoder.py",
+      "sha256": "fa05d3734ccb95bd8cb05417d6bc49739ee86dcba91728fe4066d5c864b7fe48"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/base_image_policy.py",
+      "sha256": "d3271b5e97ff3bf2d5eb078e05a35e75485b7203f70ae2ac2f139f513748c330"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/base_lowdim_policy.py",
+      "sha256": "859149c4ffa898d2b350da4e9f856953f457a6d106892cf1a7a9bb806c1bdc7e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/bet_lowdim_policy.py",
+      "sha256": "56b8c6da6b91d94599374dc1e8af85a0b71d4a33b535b2427c5465915f4546ba"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/diffusion_transformer_hybrid_image_policy.py",
+      "sha256": "ab15ff7954cc2dd538509d219b58f5b1c6f76e9f5e2971950fdb3af60dd3505e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/diffusion_transformer_lowdim_policy.py",
+      "sha256": "00653bcf8b69d76303bcac81a3f8512833f3daee88f46b37173d5df23faeb137"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/diffusion_unet_hybrid_image_policy.py",
+      "sha256": "b6bb274ee4631999fa9aa80fc3f5e0004bc2ec2fed7e6c9ac9f68c34cfe872d4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/diffusion_unet_image_policy.py",
+      "sha256": "ff3bf7d91caa14ff7987df620b69a983249424184f92048115baafc2f5a45c66"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/diffusion_unet_lowdim_policy.py",
+      "sha256": "5e1521ce3a21b86320811deb8ea6fec76c6733b6941f80027a9ce86218a80a67"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/diffusion_unet_video_policy.py",
+      "sha256": "58523f96da5dc21984b398de20a1075ece7ba5d4d0b6b8c83e5251cdacec2221"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/ibc_dfo_hybrid_image_policy.py",
+      "sha256": "8866909c86ff944c04b658e85f48affbfe0ec3488dd07d38e20aa08ef0cc0e02"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/ibc_dfo_lowdim_policy.py",
+      "sha256": "2c5afde937645b08a2f05083fc9a8be8c733d0f7520f2cecb9a7460b2a933263"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/robomimic_image_policy.py",
+      "sha256": "27e46d57c65cd4dde36abc6a383f62a65fdda1e89aeef6e5e6b622bfc501550a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/policy/robomimic_lowdim_policy.py",
+      "sha256": "81f02a90c44d1e874bb3236303c5a5216e5e4a75cf3c6b2b74b82c321174dd05"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/keystroke_counter.py",
+      "sha256": "70c669c7767877cec82a3a695a1039297af48020367feae42c4438c5b19e10a0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/multi_camera_visualizer.py",
+      "sha256": "8d170a0173be34db64ef8ab310b25018d268056559eff72c13364affc208f4af"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/multi_realsense.py",
+      "sha256": "ebf1d66dc01d2e450813d1ee48113ec7a6b9846aedfe50b73f0c45ffd6e63fa8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/real_data_conversion.py",
+      "sha256": "3a60b42630ac988e1a4c8b0ff61c1e87d664012665a278df5f28b9c28bd2639e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/real_env.py",
+      "sha256": "5d4517b189189b9868ff547731a2d5c5c7d7235df040c1214db3b990c7accfbb"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/real_inference_util.py",
+      "sha256": "d9a155d442240c5ee2c7f6df29b869ab704fb7b00d6f26b3868faebec6c08dbe"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/realsense_config/415_high_accuracy_mode.json",
+      "sha256": "af82081c6cf05dabba4501109c3ca95634530412a3523e0ed38856938d75db8a"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/realsense_config/435_high_accuracy_mode.json",
+      "sha256": "48cba9f526bd624ba0994a81910095daf7cf5545d119e5bffe0e3946383b41ce"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/rtde_interpolation_controller.py",
+      "sha256": "2dd37b3b2a3bf860d76878836cd4af60268759bb5a40b297884c9ebe6ae0a56d"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/single_realsense.py",
+      "sha256": "dc4fdcaeb2137b08d73b8210e13b27e29ea87d3ae16100538a9ae33cd66ec12e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/spacemouse.py",
+      "sha256": "8c4789cb35597daee53d5a9f9d2598108aa956715047259327bcba8fa4078ec4"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/spacemouse_shared_memory.py",
+      "sha256": "b75ab61f9b00864bfb6f37f9a4be950e1f0dd8c737db5492646c40b0db13c58b"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/real_world/video_recorder.py",
+      "sha256": "e357cf00b1f51efd5a56db49c7524f8486dce710aad2a9b6aa83bcb616842956"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/bet_blockpush_conversion.py",
+      "sha256": "06088377bbdc6381c178400143baf308225ef0290541ba52241a29f2da7e70a0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/blockpush_abs_conversion.py",
+      "sha256": "1b48601df1ba3f751b06a407d147613b2ae5fe0cf7519938fed5b8e92c4fa4ba"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/episode_lengths.py",
+      "sha256": "e5ea0fbc838f3f99cd423a69cf78c7202f9bf0f2e64d13b2645febc3b22fdda0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/generate_bet_blockpush.py",
+      "sha256": "2b7de2be0f8022e97b7c0a9c02bc51210a9686a0a17e2fcb69ae1aaff78bf702"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/real_dataset_conversion.py",
+      "sha256": "1182d04253fc7f6ae266cec4efe6c8e729402c08e41338821a3b2bd9dd133c48"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/real_pusht_metrics.py",
+      "sha256": "1b3c00446f66ac3b9dec490837aeaee78cf425a21ff52b17a4ab7cf39aea4481"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/real_pusht_successrate.py",
+      "sha256": "4c44f257c239310c64e8c2117b775f7fa40a7e76c3d8847be32fa3d5b0c0b285"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/robomimic_dataset_action_comparison.py",
+      "sha256": "429bd26c7e6cfecd77d42862167b618f054fd58a435505ab2538f046fd8f40e8"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/scripts/robomimic_dataset_conversion.py",
+      "sha256": "86c40258e677801cdb6337ee11f98396a89561c6514dc6e2ea864fbdfb7007a5"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/shared_memory/shared_memory_queue.py",
+      "sha256": "6de3b4db82db0f7885f35d65a59b4149ef4fd092af1a45f61929b3b18467e20e"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/shared_memory/shared_memory_ring_buffer.py",
+      "sha256": "f619bfb765d67deafeb6e498b15a74ad882c303846f2d6d647d094c3e2ab4a96"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/shared_memory/shared_memory_util.py",
+      "sha256": "eba2e24ebcd276fde89955b0abcbc4753b2d5901cca9090192506c7710f1e8a0"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/shared_memory/shared_ndarray.py",
+      "sha256": "cc443770dd06ccb3a805b0e2e16e6af29535da805cfb7630e79c7c4e4836740f"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/base_workspace.py",
+      "sha256": "6f0bbc3eafcdd7e84fd868a7378a38e15d79d906d6cd971c0c769f699c2ede50"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_bet_lowdim_workspace.py",
+      "sha256": "74b5e7bef89d9643027f0d052cddec9eda70355eb7220e78a269f2ad97e9a844"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_diffusion_transformer_hybrid_workspace.py",
+      "sha256": "df8c6b96bae95a449ebb98fffc3364da12f8de50e3971570c5c3f95866409204"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_diffusion_transformer_lowdim_workspace.py",
+      "sha256": "165b783b44f942a03c8f5b3c33d16b62086de312e594a1501e8e75c2290e23ae"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_diffusion_unet_hybrid_workspace.py",
+      "sha256": "7bebb63c772cc9ac515f00941756c2f93c82e300aff38676a99cbb4305899662"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_diffusion_unet_image_workspace.py",
+      "sha256": "e60167ee988a932c4df56041ccb662c0e136820fa3093f013e29f0b7a577b282"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_diffusion_unet_lowdim_workspace.py",
+      "sha256": "9c9ffef76300cb3a49d7226c7b016b238a2ffb0067dda9b051a1984605ea7365"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_diffusion_unet_video_workspace.py",
+      "sha256": "e5cdb8d8f5500d756349530ef23d88196218e1c3c2fb2cc0d167b221716497b3"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_ibc_dfo_hybrid_workspace.py",
+      "sha256": "1c14ffa9e10813eafd0068b28e4b57e515ce78587deb3b276859d7cbfbb088ca"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_ibc_dfo_lowdim_workspace.py",
+      "sha256": "8cd939f0a01c5b85381151d90b488788759bbb76c0c07e5b6e2633242c012b06"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_robomimic_image_workspace.py",
+      "sha256": "7686b54bfd00e9606584066648d34908bb5be5edb903bd475f8574248596c546"
+    },
+    {
+      "path": "third_party/diffusion_policy/diffusion_policy/workspace/train_robomimic_lowdim_workspace.py",
+      "sha256": "a7b3dae620aecb038ddd74d27efeb2025f17a0659dbd7d00eef89a16fc1e6156"
+    },
+    {
+      "path": "third_party/diffusion_policy/eval.py",
+      "sha256": "3b73675bc5c61d4fe37868809e6012e390f1bbedfc0e06ccf87e475a0e93a434"
+    },
+    {
+      "path": "third_party/diffusion_policy/eval_real_robot.py",
+      "sha256": "931f2059c5ff2df77c0a5a721ce1f54709b9d5eeb656ffd33eef352110c33162"
+    },
+    {
+      "path": "third_party/diffusion_policy/image_pusht_diffusion_policy_cnn.yaml",
+      "sha256": "56f11404e20d6466b6f02a0d0ae46a0124fc12b1adfd09bb1be023ff888bf72f"
+    },
+    {
+      "path": "third_party/diffusion_policy/LICENSE",
+      "sha256": "d3c8cac5c13e43b7e8a165d9a05ddd311512342e3782c0e34f0271a7abe02196"
+    },
+    {
+      "path": "third_party/diffusion_policy/media/multimodal_sim.png",
+      "sha256": "7cfd95dcc68df463da30926decf2db9198240ba62710277d577c9718625c6b8d"
+    },
+    {
+      "path": "third_party/diffusion_policy/media/teaser.png",
+      "sha256": "7f91755dbda057c36e30f1f967db17f431df82e4b60bed29099fac56d4187959"
+    },
+    {
+      "path": "third_party/diffusion_policy/multirun_metrics.py",
+      "sha256": "c297cc8bbd860c4c026d0301cec9bf3f86994a0b6041a4ea4ce0037f11e4c164"
+    },
+    {
+      "path": "third_party/diffusion_policy/pyrightconfig.json",
+      "sha256": "15c7c9c6d4ad90adf309f1bbf1e83230a48af23e1151c040a89f644b63f31089"
+    },
+    {
+      "path": "third_party/diffusion_policy/ray_exec.py",
+      "sha256": "7951f17e3b531314ba262adabf49c0eeaae1002c5b5f4f608a2bcc45d9f1f525"
+    },
+    {
+      "path": "third_party/diffusion_policy/ray_train_multirun.py",
+      "sha256": "55adc5d089cd3b06afe4a87f18a53aabcf2c7e507e083e296ed02ed321f0c4e8"
+    },
+    {
+      "path": "third_party/diffusion_policy/README.md",
+      "sha256": "3712dc7f713efc7b29690954cb10f4d809aaa3ed21e29881c37a27ad8545e4b0"
+    },
+    {
+      "path": "third_party/diffusion_policy/setup.py",
+      "sha256": "dd853e61e95463eb37b88a8dbcb83a59df21118e46771646e1743724a6fb3514"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_block_pushing.py",
+      "sha256": "0a0f8fbcc0d318091d1bca53edf42327a08f023554067005b9ca377dc8127342"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_cv2_util.py",
+      "sha256": "f5e74dfc17a20605ec8f3dd33a886f385bd12e984087510fc89fd983d00434a8"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_multi_realsense.py",
+      "sha256": "754a941e7edc4da25e0af13c5e59a41eb8ff1cbfca469d5766b1f9b677fee2fd"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_pose_trajectory_interpolator.py",
+      "sha256": "63d38f7aeb4aad5df4a43a39f5d5c099a86ccfc3c18334a165f789b8b1350b36"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_precise_sleep.py",
+      "sha256": "2e009d9bebe0c276368ea11672eade5a026bb77de1d5fccc4be4bf7d983a9478"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_replay_buffer.py",
+      "sha256": "08317c0bad56bd469c9529135c0035ca86a40e12e89ff7b5d54c8c18cded3b40"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_ring_buffer.py",
+      "sha256": "be10520bcca6754cc40ded9f87cfab2e5eaada519582147190730f32c693c05a"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_robomimic_image_runner.py",
+      "sha256": "155f57dad9fa5f59411df2cf4d127e1048353556c8abc1bc63dfe76ec8c54581"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_robomimic_lowdim_runner.py",
+      "sha256": "3e787b2c7a4b803abe1312dc7e6484b90de1dc942a9d3f8441057c9398211258"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_shared_queue.py",
+      "sha256": "506dd72501caf70120269b208fa4c28f590456d2de852a3f1ea4656cc2c3bb06"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_single_realsense.py",
+      "sha256": "dc41fa5686b30f269139c9caedb68c1ba11313b87da2817405b31f8ac51138a0"
+    },
+    {
+      "path": "third_party/diffusion_policy/tests/test_timestamp_accumulator.py",
+      "sha256": "d4e695ffdfd1dbe80c94541351f47e4e0f12b997c58da047c54209f41ff34abc"
+    },
+    {
+      "path": "third_party/diffusion_policy/train.py",
+      "sha256": "48260d0a44643dda6b1dba7aab918ac0658e8771ca5eaa86e96c158ff9173b09"
+    },
+    {
+      "path": "third_party/sources.json",
+      "sha256": "9f9e79b7616987bdfb91f27cffbda8fb00b20b5ac5631c01b75d640ef8ecb1c3"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/build.json",
+      "sha256": "e078f47fe18b69ce539fc38e046015741cf0022cf749f5b92dbc6628a96d5f53"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/guarded.patch",
+      "sha256": "8232f57f2a64d288022121a4d6b4b9c6ff30ba002500a0bfd8fad9707aa7465a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/.clang-format",
+      "sha256": "d2716c785a0abb4927d9cb07fabb99ed16dfa198b0d9cb8342decfc0a4480613"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/.clangd",
+      "sha256": "224065b0ff4387c6236436e340a8ba9c884f861a199a46ab650b2d346c943d59"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/.gitignore",
+      "sha256": "bde55fe8754c13775520b0c1305d71f402cde3d9588a3eb9115384d78cc06e1e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/.gitlab-ci.yml",
+      "sha256": "227044da18f02820b16196feb8fe9bba6f3478ae8bc1df35dcc346771c0bc96c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/.gitmodules",
+      "sha256": "d97bea252de1fdc5cb012e2be44b7aae00e1984c16b36a1854304d55ac899bb0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/cb-series/.urcontrol/safety.conf.UR5",
+      "sha256": "f4b6301148075dc5a61fada6229ae688e87266ca44dee719430e151ba785bc89"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/cb-series/default.installation",
+      "sha256": "9219650baed7a15590f10ffbd3ecc13515f788d83c7dad94269352df19e70526"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/cb-series/default.variables",
+      "sha256": "6993c7f28e83fd70cde8416ecd5ccff95c23e8780e387b6ba0467ec99b911b3c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/cb-series/programs.UR5",
+      "sha256": "2ccf9d762c6030d11449807ca51f58cd789d1d66b581c40d9e4df051a07c3482"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/e-series/default.installation",
+      "sha256": "8749d4c09428d754c7ff011bc881f7fa0f60f05ab473c47b2fa3c6f6f798ff97"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/e-series/default.variables",
+      "sha256": "75e8b2cc5504f9a007476605a8a103a8352768b21f276a7f89f5d84ab5814ffc"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/.vol/e-series/programs.UR5",
+      "sha256": "2ccf9d762c6030d11449807ca51f58cd789d1d66b581c40d9e4df051a07c3482"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/build-boost.sh",
+      "sha256": "ee458fb912eda0de4f577eeff8cd334819653ed682f65cead4747ba47a8bbb02"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/build-wheels.sh",
+      "sha256": "10765f4652682a1f2b7248c8b3ea5ddfb3dc1d4786c97ed6da62bd7dfefae367"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/gitlab-ci-common.yml",
+      "sha256": "2dbe5cef1fe1a436e72f815a67f4f7d435035a9f32728b1a4a580d33aa73ab43"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/gitlab-ci-linux.yml",
+      "sha256": "b4b6d188a5c866c62a7df58b1ec449bd37127b6f8379ea35d9bf8cadf82de67b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/gitlab-ci-mac.yml",
+      "sha256": "d4d75ac4a1c46b19215581ad21a2936715496bd5843998ddf23b8147602b4075"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/gitlab-ci-windows.yml",
+      "sha256": "89f7fe4b2d902cd242abcd70599e8ba7e954c52fb06b7bd72130f3cae79c1719"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/platforms/mac-sequoia.yml",
+      "sha256": "62fcc18b6235922f214f050f38c302e265faf925b450a00950cdd34315b10b40"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/platforms/ubuntu2004.yml",
+      "sha256": "a5b04b4e1c2f51979865abbe1dac607e24e0a6c24442a7cd3868c3b2727f4975"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/platforms/ubuntu2204.yml",
+      "sha256": "12cc40d081eef5ac7acbea39c4f2ea30f85943337964708e762e6baeaef1fcef"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/platforms/ubuntu2404.yml",
+      "sha256": "76d1344c8c6da2b9bb8cfdb33f8231f5e150f7528e6ef1b1ead3d166b2d572e7"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/ci/platforms/windows10-vs16.yml",
+      "sha256": "99bbf20b835eaf5529d207227161e686b2d4d00770faf05224bcb54a284185af"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/find_python_module.cmake",
+      "sha256": "d9d3885ef618e1a4aa04da8dc39b982697f8c381af878890903a34a8ef2945a6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/FindEigen3.cmake",
+      "sha256": "c76838505ae69671005b14d69b4c4abaf66ed7dac74ad18ea8370c9a06179b7a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/FindPythonLibsNew.cmake",
+      "sha256": "90ff77046f0e1e07c3cfdc77fe86fcd675a052856060a11bb23a9548f3bd80ca"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/pybind11Config.cmake",
+      "sha256": "0ab44281f1be94f41c520a963e73e9efd95a08bc9c85f11fd3c150508d7dfcc9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/pybind11Tools.cmake",
+      "sha256": "25512b51bbe88f2cf5577c82ac3a5bed331cddb6e8992c78c59caece5ebf6937"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/ur_rtdeBuildConfig.cmake.in",
+      "sha256": "838811287680d1953e405d634a7cd0f207c71428fff1ef260816c2f876972207"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/cmake/ur_rtdeConfig.cmake",
+      "sha256": "28e56f9cc7b1b815d2a04fe32f87844d08be86aca564f3edfdca172085821556"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/CMakeLists.txt",
+      "sha256": "e1ff6e6d182a0c184a0738b9bccb4d4ddb9a4564882a9ea89f290918aa29fc0e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/conanfile.py",
+      "sha256": "7a699d232242e06af6858944e6daa35c5d846fcce2a571865ffa8368345488ed"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/changelog",
+      "sha256": "d300f413a14e881ab6b8035d2c0f19443f3eafcce23829f970784958869d2a4f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/compat",
+      "sha256": "917df3320d778ddbaa5c5c7742bc4046bf803c36ed2b050f30844ed206783469"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/control",
+      "sha256": "ef16999ff594c569ae7cb15fd3a5b47acbc42d9e3f588c02f50ff8faa08942cb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/copyright",
+      "sha256": "b25abe512ce821bdf1562f58914d2a89ebd143182c01a09a4bef13b3bdb4a949"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/how_to_setup.md",
+      "sha256": "25ae88bc6dfaa26e0bc4dc1c5bcdd7f0c25dd121766f218e5d68992cde792697"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/librtde-dev.install",
+      "sha256": "7ce7983f86fe79634eba3411b415d9e2da4dc82c197658e81567370469615f85"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/librtde.install",
+      "sha256": "c30aa33bace8a54cc8b7d2d8aae0df98f0da015600b17c681bc92841ce855245"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/librtde.lintian-overrides",
+      "sha256": "0acf446a0e14765269235cac2f9d3f4d114c9cb1c04954c39648cb86885513e8"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/rules",
+      "sha256": "148e70eac36d2ed3d5da0b2df9acfda70bc08a35f4889699a1dcfe3796f4e4c6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/source/format",
+      "sha256": "1be7080d72e6b566df3e236ce2c55efdfbbb8fa1c972d825e5b672ff8773be1a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/debian/ur_rtde_build.sh",
+      "sha256": "0a7dab7c4b04f7f75c674e7793b0cbc401701a46453fc4837e32beeec1844a62"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/boost-logo.svg",
+      "sha256": "32bc4bc23d33eb43f9e6f41e24911f4e6275e769651bfe2fba5b46f298ac0d4a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/force_mode_example.gif",
+      "sha256": "1edbd2adb4f231e901298575a4508b343e82c1d80ba06e2aaa7623b61bdf6148"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/googled5bfdc1684e49924.html",
+      "sha256": "bd10821f2f2217a84788bd20e2f9296d737d4a8de1fda435c78a519980a874b0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/move_circle_example.gif",
+      "sha256": "fceaf9669febcec77861d2f6d543982a05102489832e3fa7342ed6f274d7bcca"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/movel_path_blend.gif",
+      "sha256": "45dd6888b526b66c8d6647fdf55b708a9979cac3cf3a873c6afab7e282ee8797"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/movep_circle.jpg",
+      "sha256": "b3fabcdd48a60de8780d6a6fe6caf9cc714820cba9b20a92cd18a2533446f4a2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/open_cmake_project.png",
+      "sha256": "0c855afee636ba47c5048797c78d29187613e42a354b0dfb18fbcaf68c3de174"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/pybind11-logo.png",
+      "sha256": "e3faf68e64e60f2f419a5935b0741f369958aab0bba2f67f825c257d54362ac9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/robotiq_gripper.py",
+      "sha256": "ca4042e593a51a849d812fdbd55e8a8329c7fbf56e3a824d550234d177a64d8b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/robotiq_gripper_control.py",
+      "sha256": "63207d04acf9bd0925cea550b4b7fd2b7316859cb5bf98a34c896048c3fd2fda"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/robotiq_preamble.py",
+      "sha256": "8be40ec109a97522aaa68caaf82c580f0bb6a1553127909d60378b89832f11c5"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/robots.png",
+      "sha256": "d8065680de4b129ae46211a41bdb3d78b43c5961f46123a7fd5e147f487df3be"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/servoj_example.gif",
+      "sha256": "c4d35c6ef8a71f75f4a815ea9bf166190334c62e52dbceaf7bf831c179e721d1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/speedj_example.gif",
+      "sha256": "b95277d5c244b34c4ce1c165b1787168c8e2a9b41830102b96b2cce60deb2305"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/theme_overrides.css",
+      "sha256": "26ce5edfedb5bda5f872d6c6b219469719e93f01e54818f4c1bfd791b8076ded"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/ur_rtde_diagram.png",
+      "sha256": "617c30a6c2a936c99606be4f71d3631723b6f20237b03fbef9345c967646a240"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/ur_rtde_logo.png",
+      "sha256": "b4063918d927438a9a185881c54795f412f0ed3b4ba934207ca86c19bcd1a083"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/_static/ur_rtde_manual_program.png",
+      "sha256": "9d000ea5b352909bbc6bc9070035986bb20417c81cb3a9eaf8a8eeb973487018"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/api/api.rst",
+      "sha256": "7a1fb5de1484fb82f0fa674b9605645b296da4456cb77f9763437535f6e0e483"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/CMakeLists.txt",
+      "sha256": "5a14f7c8bef7c5cadc2fab4c8507e9637091b21cb4bedad916c99e3351deb2c1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/conf.py.in",
+      "sha256": "e71b37496f3170afe81504aed9590ca722ec6dd4ef346bfc2287bfdb03fdcaa0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/doxyfile.in",
+      "sha256": "460561f8ee76052c3cb665ed45e7f596e42fc7d2fde848a80ed487f7a2d3eb56"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/examples/examples.rst",
+      "sha256": "677863cd16fc42d6c0264f7d7aaffd0d792815184b07d82253ddd415b8711b6c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/faq/faq.rst",
+      "sha256": "848fdaa3b0ac166fe10417b1dbd94c5fc2cb187e1746c44c9fb98a9d8532b32b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/guides/guides.rst",
+      "sha256": "141d6c96dc961d15f779cb0c75cf04386f1078dfb19d6e342673fd2fec4982c8"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/index.rst",
+      "sha256": "ef0363fb17f9dfffa1e4659e6d317e56c8c293b70ab530025fdd58e0e48c7e3f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/installation/installation.rst",
+      "sha256": "abd2b49c1ce1d1f8574ff09b082317926ddd3bc55fad631e70a8724382263354"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/doc/introduction/introduction.rst",
+      "sha256": "c4c479199932ba7e153e4ae59d91c30fe07bd4bf7bfda65ae063741415a18858"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/CMakeLists.txt",
+      "sha256": "a7fb51421657d7181d772fa8a282ff317764444b3121f99b5a9d02e2afded036"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/contact_detection_example.cpp",
+      "sha256": "8241de33be6742103a0011228fb6efe6591f8e5de42c74a859335fb6d091f0e4"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/forcemode_example.cpp",
+      "sha256": "6350d0c0721ed86e225699447fd8ff17eb441f557b08cba64116fca24b906c1d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/io_example.cpp",
+      "sha256": "a92dfdb8efecc33f5e51e3bcf54f8e18fa7de2300fcd7f6644c908662fc0f397"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/jog_example.cpp",
+      "sha256": "ebc8c5787e1d551c09144c43822672318f6a49d14295e422c7360cd8a981c31b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/move_async_example.cpp",
+      "sha256": "2532d8a536c77195d5dfd2d67e55a7a1917e244eb20e60e84991a956c1852a33"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/move_path_async_example.cpp",
+      "sha256": "fb74e3239718bd5333b7375879cee75d1748ef1104e3c95694d26a1e2bc2eaf1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/move_until_contact.cpp",
+      "sha256": "3860c492bfb528f67fce13be5ef0fbd35350c111fb1b6ee56521d51edc04a40e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/movej_path_with_blend_example.cpp",
+      "sha256": "de1bbe10e9b21251f212f9bd0100db2bd2cccad505c8440cb3d81b9149a85afb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/realtime_control_example.cpp",
+      "sha256": "9dbc172d5064dbaf928e78671398060254569469b38a743328ac66d333b04a1e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/record_data_example.cpp",
+      "sha256": "1735ac6a27aaba09f9f6ea57b06172d589d73fa08053ef6e791074639aa6e9c0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/robotiq_gripper_example.cpp",
+      "sha256": "3fce9dd6b40d660f53e92c3ecdf22bbb5788ba0fd16b39ff651b9fb8686a16cd"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/servoj_example.cpp",
+      "sha256": "dfa54c70d609af03f69fbc9e5306f07026c239f04ef1c0c4a56a34d8f0296427"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/cpp/speedj_example.cpp",
+      "sha256": "e2d3c8b0fafdb4ff47abd09e878aa65b18e1667b7537e2bc28515dd04b28ae4b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/forcemode_example.py",
+      "sha256": "4177341eb6ee37c0f497e1795dadf7355d125cb9a1c0564c9952f0aa85cc04eb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/io_example.py",
+      "sha256": "a0902753027dca663e19a56a796daeaab8a6b42f22fa2e0c96ff85339b4890fb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/joint_pd_torque_control.py",
+      "sha256": "c01fd2d17617b5ce1142b3959acd7c5c29a7fd9fa346c14bf725eecb11cefb2c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/move_async_example.py",
+      "sha256": "428e6879d658131e43cc16c463ca919012ab34b647ba9b1c8e76aabc55bb52a2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/move_path_async_example.py",
+      "sha256": "a90aad98add91c3938ffaf1434f152a52c798f1dfaa45c54642ac6b27926ccb9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/move_until_contact.py",
+      "sha256": "3da43788dd97a30793ecc04ab7b034fa5d0a009820c31c49ecd6304574770ced"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/movel_path_with_blend_example.py",
+      "sha256": "78365e957e6797721144f84ff36e83d60109b32cc4be5cae95720d043782e34c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/realtime_control_example.py",
+      "sha256": "051aca6652b4508a0cc93ab80a0f4969aa734bd3abccd1c9f577dd544aface0c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/record_data_example.py",
+      "sha256": "2920a603178558f06c6c2564c788fd6ec4cd9880719c483ffb81cf7b4ff894cf"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/servoj_example.py",
+      "sha256": "721ddfb6ffdc8582e75fb407f998ec6bdce4e18a8425cdf1d25512d175d29ba9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/speedj_example.py",
+      "sha256": "9edf040f4092b0fb0474d618312af8261a6bec32416ee5a90c924a28b9444d0d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/examples/py/test_external_control.py",
+      "sha256": "4d72bf257114e7ba95e02583d67c7e4a1251fa4b5c961b1dfdea6ebb983fa2e9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/dashboard_client.h",
+      "sha256": "ab59dc05d1e36af7f1ba189c1960694834f5ee40554e73de333903a56019e743"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/dashboard_enums.h",
+      "sha256": "3ecd08b5d919e5c63431c8a8c0064536e0431a807db51ddc210d11789e32670d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/robot_state.h",
+      "sha256": "a2d3e666b450d38f684f303552119613ba5fc8fea798bf20aeb8b9837ba6ba76"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/robotiq_gripper.h",
+      "sha256": "a8d46e949ead4671ace007409138c65730e6648b7f357e3f24c95a91cbfdc61a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde.h",
+      "sha256": "4430f5b9dd9ba59678741c531266d1cba051b521a22d53d0a7311cd54d1babd1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_control_interface.h",
+      "sha256": "de8a32608574470f8e35609fa1b38f1495d7536782913de080dd5a9eb4f37b07"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_control_interface_doc.h",
+      "sha256": "e99bba8f48cae3a54f9ce2eebf1a0ecbd7f0b2859dd0591b382c38703ccaa21d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_io_interface.h",
+      "sha256": "eb676eb51bd896440bd9ea152e28fd997b964a2512f4ebe05f46a0b503cdcbac"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_io_interface_doc.h",
+      "sha256": "247d67e2d52191aff44e1571b37a295446bca42248ba100ed117968b55a9f51e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_receive_interface.h",
+      "sha256": "f197c0752ed27ab2a9910588cfa3d0457b738ff41250518027cd0a7cb085627a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_receive_interface_doc.h",
+      "sha256": "c6f49957d6386ad4ce62adfb43117889286a1477c3a343def897cb8b3416dea7"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/rtde_utility.h",
+      "sha256": "5e7412096505f4da6f1570b92857beeee4be79db555439110a229293f5b0a527"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/script_client.h",
+      "sha256": "b79a3cb9828ac39b6ec5e210220d96baac57216eb1d8767aacfb201805fdaa01"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/ur_rtde/thread_utility.h",
+      "sha256": "4329b6cac945b9b72d225522b952f4e16d6954bf2b2dd37497275b2e7d544a3d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/urcl/default_log_handler.h",
+      "sha256": "dced5a51cac107c12b85ee71d8a1ac8ab13ff8918bc93396ee707630888a548a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/urcl/log.h",
+      "sha256": "693b61299f590440b49324e051d6400a116081ad7d07618d75c5d733f812bd74"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/urcl/script_sender.h",
+      "sha256": "bd6f052cf5fdffe1d2547dd617247d24ada498d232951e25566cb18f75a48278"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/urcl/tcp_server.h",
+      "sha256": "c2f703015d5baeeb4265719f564bbc661426cdfb83881b86521fc5a93fe9469a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/include/urcl/tcp_socket.h",
+      "sha256": "25e49f6cf4c5062f59ffdfd6be81dac572451bfe96c3cf978296668539e1ca2f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/LICENSE",
+      "sha256": "1277836eec59b2a54250c6f2273825f19fe56b7a091d2a5e4518c19a3ef5232e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/PKG-INFO",
+      "sha256": "7c43631b9677338f2b8acf040b40df40c2c13493bd5ea178d7aae7d38400e4f2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/.appveyor.yml",
+      "sha256": "b12283fae2cec2d6e1734bfa4bbee01408a2e349567cb728d20968bc395b02c2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/.gitignore",
+      "sha256": "5c6eacc08dea115cfe09aa92d0543494150363656aa452050d667da55205f43e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/.gitmodules",
+      "sha256": "22121192dd66f419048abb21022ea0d3bcabe730068d14c2348acd191afc9108"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/.readthedocs.yml",
+      "sha256": "13a711449f1e8514e376c107e72b7d5b7dd0660fbdc8a065e674587322f472d2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/.travis.yml",
+      "sha256": "43289d7706ea755073ecc19084c992843ba11d01df6a051300eacec8cf1e40ab"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/CMakeLists.txt",
+      "sha256": "fdb70d36819eba15e843df77d7a8ab1195e897039a9049706204ecad21d6ccda"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/CONTRIBUTING.md",
+      "sha256": "bdb3ac2a3b34891b09bc8ae86754cf0fff65c959d5a9e550222520f792b73cad"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/_static/theme_overrides.css",
+      "sha256": "b590b10b7453481257c646e0fac53485883a2ff35d131fb291d60e962b981420"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/chrono.rst",
+      "sha256": "0f0839136dcc71ff4104a41c5cadef367ce2fd16ac8d11bfbf2598608f0cd675"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/custom.rst",
+      "sha256": "acc1b7b3d4cfd6870abb8fac7288eb2a4d40777dc0e4e9903379f03b9590bfad"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/eigen.rst",
+      "sha256": "542d97025024d56a900f833bf9b3ff5da74a8b5b9c393efdf2003c22ffa6f32b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/functional.rst",
+      "sha256": "f812a36990cf68ad86fbbaa9e98d4a0b2cab0c319c7b0b32a00de97c80160ddb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/index.rst",
+      "sha256": "6dd2b566835f53a9d7f03d2156640d1057ff7cf5bf46b7f27db84e63e14c2927"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/overview.rst",
+      "sha256": "306bb6181164cc2b4391305939d647599f2ecf6be571262a69e4cb3d92cda70d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/stl.rst",
+      "sha256": "7862f35a6761103b5be22f2999306942336828a75d6192f6d568793b37752639"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/cast/strings.rst",
+      "sha256": "7b60f80d7f8c78521000f407a58a4b6aa916f68f64ac956be02033dd2b77489d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/classes.rst",
+      "sha256": "dce2aefaac55ef7e859e0114f6075d97d39947065f241e2b259d62e5f92855f6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/embedding.rst",
+      "sha256": "bbf852e032adff899e27d8efa3848ea25a5ce72d15cf000a26176eaf12c44f1f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/exceptions.rst",
+      "sha256": "232e7fad357582eb85916d699a7963e767f9b79cfc1f184cd64d5f6e032ae9a2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/functions.rst",
+      "sha256": "5f6c0906e60608d9e9392b37686c350580ffbe8c87633fcda0f005746b75d559"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/misc.rst",
+      "sha256": "253cac86be43812e78df063bd6d1d982bcc0c993c571bf1c105d024698f4d98a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/pycpp/index.rst",
+      "sha256": "67846224822a7aa9f925ec8af0c2d432b105e38f4413f7f8718d228ea8aea3ca"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/pycpp/numpy.rst",
+      "sha256": "bf63fe807b298e39a873d3e324c5ec9a63ac61674c8c5e8598f59d29aef7a6f1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/pycpp/object.rst",
+      "sha256": "8e9749b5a56e42496b5479160ae874f9fe7f4ac5e63f796be9b60772e241b1b5"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/pycpp/utilities.rst",
+      "sha256": "ff8ae027d9d1972e9a59cf07a586b1b28f6b1b4befecd10d07bde4f009bfda54"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/advanced/smart_ptrs.rst",
+      "sha256": "ff9239387fd49a25d43ea2d0811ab1660d0aeb1992279d4ed82dd01e5fe8cc29"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/basics.rst",
+      "sha256": "eea511a0e1c3d543cf9b390ed9ba6ec3cc1e073e05312464205e32c7ce625ebf"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/benchmark.py",
+      "sha256": "83d44ecc13c646bd5525adab30d6a17316cd85e96ab31d36ad828a4b3bf4e7dc"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/benchmark.rst",
+      "sha256": "d7b350c1c894986ab3034e93a12cfb217042ad295954c112d8d0b5e6b95ebb42"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/changelog.rst",
+      "sha256": "fd756bc831e96fdf32706521e703e84e0a3b00b9ab1b826da91c3002348b2728"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/classes.rst",
+      "sha256": "803cb205a94b1ab3f0dbd4ed4b8cbd1dd37db80edc821b8538cb7183803dfb69"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/compiling.rst",
+      "sha256": "58c28c32f1b028cc3dd3f9c8f038794b08976bc9abae8db254e0e0075c02002e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/conf.py",
+      "sha256": "081eefcea621fef2c9da45e069e540b448b42c20b1330b64c2c477d55efdfb6b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/Doxyfile",
+      "sha256": "aa472de73088c4abaab552f4ff5ec21a077743d3da145caf61d1cdcbd9d25d75"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/faq.rst",
+      "sha256": "1e6b027e3fed2a8c3378ba7d0eed2b50bef5654677ef32f3c8bffb68b1d72191"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/index.rst",
+      "sha256": "df593b198716899f46b0da7d3bc964f6dff45e9e67ba3003358e70a31db8d049"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/intro.rst",
+      "sha256": "fc3b81c534424c9149825b2fe1cbc45c4d1bf38dd28c24f40d837e659266cea9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/limitations.rst",
+      "sha256": "2f468f0cd0925bd775ed8ea7a838d6734c2fb6b77b15a3001b423dd4aadac57c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/Makefile",
+      "sha256": "36e33deeebeda7d752af352ea2e87e427cf5c72eba1a3d54e11d2f8f8ccc2737"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/pybind11-logo.png",
+      "sha256": "e3faf68e64e60f2f419a5935b0741f369958aab0bba2f67f825c257d54362ac9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/pybind11_vs_boost_python1.png",
+      "sha256": "2845c0aa832cbb21ce38397fb850730610b786c988ea2ee8cb5db7130795f91a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/pybind11_vs_boost_python1.svg",
+      "sha256": "103daed215a55dcd7f96e4f5566131f5c823e1a9ebc9df83c97d09ff8cd9de37"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/pybind11_vs_boost_python2.png",
+      "sha256": "724a5b94fe8b104996de044c7ea72a4c781e244a45976fc508162bf2e2b7b3f2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/pybind11_vs_boost_python2.svg",
+      "sha256": "246ebe37d637704005174d87fc28caad4e6eb2b136d860e04f4ed7fbe23f32d3"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/reference.rst",
+      "sha256": "f7465df3aba8c3fa2b1f4385e69e795440a90a3fa78964b7e76e4f0651f3ae9f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/release.rst",
+      "sha256": "c9d254350821f11fafca107e715a38c43db9e1397d10fae4c7e44ba13147084c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/requirements.txt",
+      "sha256": "d103ebda0613f3112975b0e1ddc2cd23a6c8dbe6ae5e9c1d625a6c2dd3ad40e7"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/docs/upgrade.rst",
+      "sha256": "1d041faeb5bd70ae31ef5c413ead102d2f526d10ba21c65ffe02bbfe3ecb21c8"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/attr.h",
+      "sha256": "589d1aabe10040d7b882b77b0005e3381b37cd0a0ccee3f3302bb6e6d7734ea4"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/buffer_info.h",
+      "sha256": "218bb8b65d2efc0f64dbddbaa06bd2d1a72cd3c3e2b270faf9a27aa71dc8b70b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/cast.h",
+      "sha256": "aee683e492b04de49ef0e46a11dca64b29b90ceb136271195256f6f0ab4c26b1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/chrono.h",
+      "sha256": "ed368f7d68b6d29542fafc721f2f141db8d25b0b0fe63471fae439a17df1c79a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/common.h",
+      "sha256": "01383d06dd69c05f2a9cdb88d3ce9fa6b3380944ddad9764fe0d875c4d527fa0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/complex.h",
+      "sha256": "cc2c304c07246650d255980d67db4e16d5c6c3c65bf4884f286fc10d4c88c110"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/detail/class.h",
+      "sha256": "36681c52b8e4254fa7170364b15d3c756f3a5f41a4c6c5935465f3ebe6a76b43"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/detail/common.h",
+      "sha256": "819fb515b02d323bb1818003244fa0797a33e604d70d6ecbd33f7f2a723a2ac7"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/detail/descr.h",
+      "sha256": "14f0abdfb56e224db72241121921c286a5127963fa8f211de117d62ef424d6f1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/detail/init.h",
+      "sha256": "b60db6a24bff8e3ab376ff7077d579492175828780112e132dadabfbf2873afa"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/detail/internals.h",
+      "sha256": "bcb5c7ffc4fb116775ebc36f58443e83f2658a10662231a2420bc18d6a800144"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/detail/typeid.h",
+      "sha256": "37bcf9f0023d4214bd7a26bed38bdbfc05c51b904c89a7b3f89590405aa2687f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/eigen.h",
+      "sha256": "95a4960669618a8465d0bf9398935ef806e999b228c653c3c790627535bfe0e3"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/embed.h",
+      "sha256": "5d68f26df6aa5cd69565337ae14b973e21fa06b7cf1645308344398561e1126a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/eval.h",
+      "sha256": "fdac3f0d51ccd6d3bab9a3d384ebdf6bb18c296a8f6a71649ebbf1519431088a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/functional.h",
+      "sha256": "48efe0e5bb8cc3ce311d85f828b6181b1fdd0e40ab1d8b172863f4442eb914a8"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/iostream.h",
+      "sha256": "03e8df65fab2b9e20f0fc037a4f607744131855a8955e0e785d13d4529af7a6b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/numpy.h",
+      "sha256": "6b9fd8f5d72684393688b186739e49097d2f9145ef6da2b56f076f611d76845a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/operators.h",
+      "sha256": "c64d4d76724210bfc1bdf4030905af07f4b4b836ed114383e468f18a8d85a36d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/options.h",
+      "sha256": "ae7bf9401a11341a94bf9f40db45ce3834bcb55d30187b4c1426eca7a0896e79"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/pybind11.h",
+      "sha256": "caf8a2954b6fd59cb2faece934e362ef9143406265cc09e3191b4b7e4a0cb5b6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/pytypes.h",
+      "sha256": "77e3cbe8c9283163f9a21183df476edd8795d57cbbf058bb79b0b5b568858979"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/stl.h",
+      "sha256": "5910d1a8fa38490b28d4daa364313535f184c3e0f04d3f34c715673d00771e7a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/include/pybind11/stl_bind.h",
+      "sha256": "4d7c1e71a8d3755a9ec2dc5123b1b82ed5e4942291868a21110d11eaf87fb1e7"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/ISSUE_TEMPLATE.md",
+      "sha256": "fca5ed5b2f12a29e530331037bdad9ef4656a2e4c18d56e4b73381093cc666d6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/LICENSE",
+      "sha256": "9a37ea54aa3cf12c7f3292799f20822ffd4b9b7142b36a7a9997b28c39264dc9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/MANIFEST.in",
+      "sha256": "fcd461f37594b411930a99af090a4a45e9a5c086a93639ebb6ed6fdec9cd3df6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/pybind11/__init__.py",
+      "sha256": "11ec5d13da5dfc9652263699875efded0746441023693e8f87b7c3b76e7343b5"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/pybind11/__main__.py",
+      "sha256": "53de930b725739e131636ba327466b99bfc493bf804849ccbdfe6576fe8aef2d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/pybind11/_version.py",
+      "sha256": "d09911b4cefee7e8cb8a7659d76c12cd9a16e390d4670c103fa532c991b7c505"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/README.md",
+      "sha256": "d8bff137e6dbf00ac793301270dea882d88ef736715611f29f26f15497a3f768"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/setup.cfg",
+      "sha256": "de73c2a07494d162e86b85a99bc61f39e201ff11bdc41e557af44a4ab2edba4c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/setup.py",
+      "sha256": "a8eda8af67395f29c024ad536277d4cdb3696464546ba055563615704f1cae73"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/CMakeLists.txt",
+      "sha256": "a3702715c2a9d09ce1f304796b4576709f86a0e935c38445dd67a7ed3b79fba2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/conftest.py",
+      "sha256": "a85434a2de059bce0ac13b4ab15428d77c40933dadaad236445a5340003e92b6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/constructor_stats.h",
+      "sha256": "912291c2c30e10b5968e361df810aebf17f6d40df69de86d683a2247aaf389bc"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/cross_module_gil_utils.cpp",
+      "sha256": "53bd971fc7e8658610f9cc44ed6016f9c4b4a888121415c62e1dfa9920b38012"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/local_bindings.h",
+      "sha256": "90df486b2500f86a6d01062fb38e77fe630d3461a365e502b1652b6a56e4c020"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/object.h",
+      "sha256": "ed24b5dbeccf374a763dc43ad59699d05e1d5d7596fbe695f76f5c4344b4128a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/pybind11_cross_module_tests.cpp",
+      "sha256": "053febc086433627561e2382ab5413bb93da654cd31b8bdd8ece2443657120aa"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/pybind11_tests.cpp",
+      "sha256": "bbd66488caf09f55fa937da164f4d3e01f99512e18f4e538f9399e3aff2cbc5c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/pybind11_tests.h",
+      "sha256": "b46d80ac95a92046b72c5197947797ffeb7f7886bc8ab5323c2cd8114b76b09f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/pytest.ini",
+      "sha256": "221240609e9ff5af699f9eb6304354f9373b324318ff60b5c5549a08f32390f6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_async.cpp",
+      "sha256": "479d26ea7923f6d1175ea53f0174c99ea645d0a86d6f00603ba5376a1a4463d5"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_async.py",
+      "sha256": "45c429d30078042c16dedb683ddd87423fb68415a50d0eecf45286a8e4e5067a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_buffers.cpp",
+      "sha256": "d840b127b2f2ff84960feda0f3a2881fee4760d197d14afdc9a8f18dd35d0560"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_buffers.py",
+      "sha256": "3a5b98c73538d0e3fb55ac21543aaa88452c04852634f0850659d562955f2461"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_builtin_casters.cpp",
+      "sha256": "ba28ffeae1b09c4692c117eaa4b08dac0b4aa768c48783259ad1952860bb2d16"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_builtin_casters.py",
+      "sha256": "4c40cc17a2b3284d58b62f9cd125d9262be31abede228abc7e5c0a58526bd7e9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_call_policies.cpp",
+      "sha256": "2afa5948c97f80eb3a54da48bc8af76debd991c8ada3bb8d0b2e9b7a337358fc"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_call_policies.py",
+      "sha256": "63e3dcff7eb8720023776f522c92e32867416af9f0a4cd2c59f0dace43a4aaca"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_callbacks.cpp",
+      "sha256": "9087a83927d7260ceba874af6afeece8dd27d5c1eb22402b4544a3f6d1dc4882"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_callbacks.py",
+      "sha256": "765d75a8c20a4cd85d3cc76b7feda728008c4abc4a65a28762518d6d18e82d2e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_chrono.cpp",
+      "sha256": "1d9ce26461f74f8c15115c1214b1fdc2927708f1b76468a20392f7400e3fc10f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_chrono.py",
+      "sha256": "3c0c4b860a217fb7c23e4be7b596f1f2d6b8e45341603eb2d4593c82f0f45423"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_class.cpp",
+      "sha256": "c57cc761afe5179acb386d42e565d979cdf2b890dcf6f1deff060fdee2b776db"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_class.py",
+      "sha256": "a98e78205b655f470cba0140860af488e80cc028447f32a0905166d30e0da828"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/CMakeLists.txt",
+      "sha256": "e69a439e6c90c600713c58e1c7811abbd2b2275de1a66f92986a1f6d9e8e0b35"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/embed.cpp",
+      "sha256": "818040c5a0de14d012ddd4fdeb5ad3751dd540439eabe9933f973074a8070171"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/installed_embed/CMakeLists.txt",
+      "sha256": "6012449666ed000aca1855c55145731a850a7800c079f0dbb6c2751bdac9d8ae"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/installed_function/CMakeLists.txt",
+      "sha256": "522315ebe804631aa2d09937e42e448cc0d27c5292c3fe1d00dec05fe2af3172"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/installed_target/CMakeLists.txt",
+      "sha256": "95ea5d2f004460764b6b412a21b2f6359e1adca1fd8150d3493cc7a39ff8ca0b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/main.cpp",
+      "sha256": "29efbc3b9c1d5c82e73665b9209c8ebe9d29cac74547224342e54cf0ab0e92a2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/subdirectory_embed/CMakeLists.txt",
+      "sha256": "bfcfec17df515f576c07ce9dbaac445e905b3d1b0eae7b53846621a3a66110cd"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/subdirectory_function/CMakeLists.txt",
+      "sha256": "f2091a536d5bfc7ec66c41a5b8875471dfb65929c4d3e0f4d1e7eaa499cc357c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/subdirectory_target/CMakeLists.txt",
+      "sha256": "601870bc92679b74a517c9209154dd3dd2c3f13d258825b90f6085f5c7a7a015"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_cmake_build/test.py",
+      "sha256": "60dcaa65538707d36d12f6eb950f42f20f2b592ed1283a434074390026e1d23b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_constants_and_functions.cpp",
+      "sha256": "b411fbba7ab57d028013fe249084682c0ede5274d3276430e51ca7a75c4f2555"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_constants_and_functions.py",
+      "sha256": "d2a0b3c3996bd89c4d0b8ef6306bec5ea0159bcb09439c125f3520630271855b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_copy_move.cpp",
+      "sha256": "b1975a0981c5a52d980c75d1ef2d886661c7f0a239b0fc38c4f4c9dca1ba6c36"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_copy_move.py",
+      "sha256": "7eccf2aacf61f011013824d406f17cf8ed27f32931bfd244eab874b0f5d7d4bd"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_docstring_options.cpp",
+      "sha256": "76ae9796f7fbb8eaef6e99d69cf024786ef163f7c37dd2ce1f77605606f134a0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_docstring_options.py",
+      "sha256": "290bb7e07a0476efa173e9cbe962fd43688b029dd2fc80d1da55ec0256a740fb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_eigen.cpp",
+      "sha256": "ac5264e4d790c608d3e6ea9ed2ec5dfe51ab1b9d5259820cb9a0ac3a938475fc"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_eigen.py",
+      "sha256": "975cf9121cced8e35851aea0b40f27fe7530b1e564c515e075c11094d900b92f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_embed/catch.cpp",
+      "sha256": "e0f150c88d03c5ec610b16f1ea1aa2ac6e5e44af71b493d9e659188f3dec7ebb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_embed/CMakeLists.txt",
+      "sha256": "adde0506fa025a0d8022c554fcccc9029b658bf32d3d4086da5dbf5597b49941"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_embed/external_module.cpp",
+      "sha256": "ab53116bd686e9ec09f110155c5882f9fda928e59e34c6d62553d1991ebf5a57"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_embed/test_interpreter.cpp",
+      "sha256": "5512887735e2e2ae9881894944b4583e74947b4762f00a88d9eacbea7368732f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_embed/test_interpreter.py",
+      "sha256": "b4e2503f64b18f4b6f32cc56c84830d48ffb1ced35154ca9ca30db0cde119c87"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_enum.cpp",
+      "sha256": "a53b68b979fea0596b8417af6dbb56354ba808c0e246ee9e5f39935d505f1538"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_enum.py",
+      "sha256": "a999140328b9f3262f6eb5cd92439dd6a57dddfc3b1a2739ef9ec06a2af667be"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_eval.cpp",
+      "sha256": "c0bda2c1fcaf1e961e0595654e1177acf2203bfd220769007b090a22e49099e4"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_eval.py",
+      "sha256": "3a35aa52ed3da2d1da95bd12ada0c772a2d97ad2ea53d476598885dc3aebf4d6"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_eval_call.py",
+      "sha256": "963fa5dd45466add4b9ae2c0b8697980e62ba2e28052f2fb7a95a5137cfb6154"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_exceptions.cpp",
+      "sha256": "afd43e0b0e53bf6b4db9a71d516754faa9c7fc1bd1e9336cfd3f30c950a0abc9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_exceptions.py",
+      "sha256": "4214227a3aac38b29d9e383bbb9c130c808dbf6c169442bd55e4ddd8df25f838"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_factory_constructors.cpp",
+      "sha256": "81a0949c400ce63bd7b198b64d5dfa0212c3a9b27a6195a72422bdc79dda1368"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_factory_constructors.py",
+      "sha256": "30c6c8677a77b3b251135dd0f92277906b1bb4914e546a56a37aba75d425be24"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_gil_scoped.cpp",
+      "sha256": "358511b4c1a6f60303d6b47caaba0447f968ad1223dc6a8371765d360446ca42"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_gil_scoped.py",
+      "sha256": "09f99f06a77e1b90b5c24ba21242e4e178ec6a0a9a327550527ab09a7821e456"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_iostream.cpp",
+      "sha256": "f61b49afd251af2be66a3db4e4d2b81f38923c9e8c5c0e04e62f81a5d50a49ad"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_iostream.py",
+      "sha256": "7f7003bead57ca2b223eda27070bc0fd1893863cd45fb349d751edff74a5eaeb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_kwargs_and_defaults.cpp",
+      "sha256": "10faf0d0f36bfc21f79b7ffd8b58448542256d9199f36e81a4f1fd324507fe88"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_kwargs_and_defaults.py",
+      "sha256": "861a411dbd1d3d2ed4d27fad3b7d7dd6bae18f7c34db874e3ef78c96ac9c26e0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_local_bindings.cpp",
+      "sha256": "eb05d07741bfb748f982201f0981618ca2625d1feb12532ab64eededecf4c812"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_local_bindings.py",
+      "sha256": "0104da385539115b2ed4448dbf0f6e524d35166b5456a664771d46ea6a996e64"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_methods_and_attributes.cpp",
+      "sha256": "a9779557a4d6733b876a28b399cd074168696d7760cba7fd4f0fe9e25f236fbb"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_methods_and_attributes.py",
+      "sha256": "7c9f519268d6f227cc20995c3b4d3425a57dbe6204c2f504d39c9b11c96ff0a1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_modules.cpp",
+      "sha256": "8450c234791c103d9bcb95e5084dc76dc1caf89b394021eb4625119907d58ea0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_modules.py",
+      "sha256": "0bfb237ecde8e73ec4789249fa786ea7cb21c33786b0908e2c83df1bf80cca69"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_multiple_inheritance.cpp",
+      "sha256": "7fbb5880d5d5da8ff76e728dc7337fabbcf85f6603f397eda1d98d2f28faa701"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_multiple_inheritance.py",
+      "sha256": "c9cf86bdfd667b1cb0e2bf2bd771c8b04bb1b616fbd58b5c0b7208d26ae6b5a5"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_numpy_array.cpp",
+      "sha256": "4d20fc58e8ed6154a4f0cd7084d2fbdf23db6a26da1bbd6ba92dbc10f5ac54b8"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_numpy_array.py",
+      "sha256": "8f02a34318667c9ade7dce59cd974c1a109128a18f5ab517daa2f72ccd832834"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_numpy_dtypes.cpp",
+      "sha256": "2866f6948a6b804db0a10285ce2c9582f0371a8caf12bcc93d99bfdf3e67e290"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_numpy_dtypes.py",
+      "sha256": "a77ec7180a8b7d91f0112938a36a1d77a8612c25b6b36593f4f81baf81901944"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_numpy_vectorize.cpp",
+      "sha256": "b62cffdb3dd0bafcc72c61129ba0dbbee2dcc4d3c1fb95e572be2624831a0ab1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_numpy_vectorize.py",
+      "sha256": "98e44d6db0bec9bd98edb7d723262c64f439f6f813b530b0c8a1de2a8ae7d321"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_opaque_types.cpp",
+      "sha256": "92f2f431cfc7f3ba3ce9965a5e13561e21f427e6ce601b1639c72987758b7661"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_opaque_types.py",
+      "sha256": "0bb83d40781be93a23035e8cfc77589e80f38222098365f701c624a19066a13d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_operator_overloading.cpp",
+      "sha256": "49ddb72640878a6d4da5b0280ac4f446982a022cf947f58f36c6ba97eb8ac542"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_operator_overloading.py",
+      "sha256": "ada10aba28942472d12592926cc36a98cd786ab416c8674e85e3693226ee75fe"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_pickling.cpp",
+      "sha256": "e1e18d8bc8c502c17b7a9dbcd79a4d1edf7e97571ee61d886f13b157fff3aa51"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_pickling.py",
+      "sha256": "9b3a81c1b9a2bef13e4ac5b1c59d20a6e712cef71c665d0ab02793078056432d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_pytypes.cpp",
+      "sha256": "13cd7453ecfd93708518ac7862ead251b4552a701ac30ddf6eef399bf0a12c5f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_pytypes.py",
+      "sha256": "1829248185f3e541ed939398c6a4d7c3d4bc2c458ae219b2e1eed1372d860db7"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_sequences_and_iterators.cpp",
+      "sha256": "15f17ae297ca0ee0266f1835929c42139a8a86dd05853c809628cdb5ece6094a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_sequences_and_iterators.py",
+      "sha256": "8689924e8bfc4623c01745e5a13ead74df3c911d0b8f55d98726764dd1447370"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_smart_ptr.cpp",
+      "sha256": "d6a59cfee1729ef92a8ef1971500d5bb1198f6373131d2080bb368c1922b93b9"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_smart_ptr.py",
+      "sha256": "2b23a461226b2627cac6b7787a3ee062bc4527097dc8b1df7d53842e3b53662c"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_stl.cpp",
+      "sha256": "477a9c98b92e4dec554223f9f4789ee0fa91c8ae082f382a6047540a9adf17d0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_stl.py",
+      "sha256": "0c38370c6fe0d6687bb46424f24920ce352c7c3e9e4627ed4b2874edfe99316b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_stl_binders.cpp",
+      "sha256": "684c81023cc8af82b54c46237f26b2416035f06ae12f260a526c4c0e3c9f8d22"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_stl_binders.py",
+      "sha256": "0b99ea9f5f38b9e283a90953c17a8c6240ff993bef0698cea0dee9e6d9bd9c5d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_tagbased_polymorphic.cpp",
+      "sha256": "4587a30cc937d2e10a95ebd3633158295b52911231edd20119adba5b4d42415e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_tagbased_polymorphic.py",
+      "sha256": "0db923046fa2c13f143b37299bd401d00a8a13fe49282c76152a4eb62180681d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_union.cpp",
+      "sha256": "38e90294f06a6e17677bb352ba097029d97311d9c3df644c1a0006e44d40aced"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_union.py",
+      "sha256": "93cd2ff2b453ca0bc3289d60940f0fa6d975fc95b19f68474886549f327f33ee"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_virtual_functions.cpp",
+      "sha256": "69e46256d06ef9b2f1fa92ef0388ff016641decde3f623f5bd267511ccfa9016"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tests/test_virtual_functions.py",
+      "sha256": "c62772644bda98c230227bc94523bbb1a7fabb0a8f3d338f5f35e79fb563b282"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/check-style.sh",
+      "sha256": "1f0b4095aca5effb25b4d48ea6c7e720dbbd4ae99d6ae16ae78915d30d6121be"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/clang/.gitignore",
+      "sha256": "96493cac1f092ac93e91a8228ee85bab4bbff72a920d4cc0d11634b93354df29"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/clang/__init__.py",
+      "sha256": "ae017a37ab089e59d5cfbd790d4f0ffd8f4f41a7278872faf163f800bb608d9a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/clang/cindex.py",
+      "sha256": "25cc05afb1911c23731aaf3a6a2c29858b56f8687e865616b3e59ee689938f5e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/clang/enumerations.py",
+      "sha256": "0dae9787d2061935fe0f56d424e70a1a1745aa64393cde21d3fa4b950d53146f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/clang/LICENSE.TXT",
+      "sha256": "23c817ddf55e9a8ea332a376e6c23469c31a6c833516385cf0662767ba863276"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/clang/README.md",
+      "sha256": "34a0d272fad78287e98487da27ddc58a2c07d7291681c2ac369043b8386b728b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/FindCatch.cmake",
+      "sha256": "3f13d63840332169e4ae19e28a266aaf515da5a6b321cc81a9d3637fe512d10d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/FindEigen3.cmake",
+      "sha256": "c76838505ae69671005b14d69b4c4abaf66ed7dac74ad18ea8370c9a06179b7a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/FindPythonLibsNew.cmake",
+      "sha256": "fac872d835f3ca949a6839d74a175811e8e62d29959cfd5ada364c43706f18cf"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/libsize.py",
+      "sha256": "532c4918a851a6714ff074c70a899a72e1420498c706ac8464198e849287728f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/mkdoc.py",
+      "sha256": "22e24c1cd9b65fa9510a050f44095562d258ef897b15d65b0404679c71d08d2f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/pybind11Config.cmake.in",
+      "sha256": "1d9556f8255f4cea4c501441421f64073eb2800605ecc228a15dcf7687fb4ad0"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pybind11/tools/pybind11Tools.cmake",
+      "sha256": "e6a0458b44b95c4004f62297b62cb5e5891c0e7f517636f6907491dd164a9085"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/pyproject.toml",
+      "sha256": "c653683ea8c8b40af5e998bf4abf7c308bb1b65170ecd0ed6c15a8eb84145d39"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/README.md",
+      "sha256": "0750cee0a3d02aafe38377b07b9ceddec8584e5e27cdd13516b6df96d8b8b7db"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/scripts/rtde_control.script",
+      "sha256": "e0e4404aa134831a1caea69ac72c70753cabcf57298209bc748a321c81f641dc"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/setup.cfg",
+      "sha256": "1c473cbaee8da5fc46e7f0158794af5cea4414c34a3cf3f180c2001f5e38bd3e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/setup.py",
+      "sha256": "fa30b0fc25604ee41e61b76762e9da0873a5b7a57936fc3aa83faf407a5452c2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/dashboard_client.cpp",
+      "sha256": "11b43de4c06a0301b32699a1884234f0d66173221426efb8fc588291d23a2e3d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/dashboard_enums.cpp",
+      "sha256": "2d5ad56248246659b79b43b9e9334576a9314542440839837d4e0a82484fdfc3"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/robot_state.cpp",
+      "sha256": "e33b453a5678575c3f2449e54f3a3d00da86a2adb306f477f7dcfa3057bdce83"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/robotiq_gripper.cpp",
+      "sha256": "b3c42592540bc8a8c2f34426633af2fcd8fd23e48bfafaac153fc98a84c2f01f"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/rtde.cpp",
+      "sha256": "4b642dbb1aba2358a7ff7304f0cd2434bd0d6007397f1eefd9e0f4fd2279739d"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/rtde_control_interface.cpp",
+      "sha256": "8fe716ba8b7c5adf1ad1b69ee85407ef248461f3424967b6abcf7e20cdf14db3"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/rtde_io_interface.cpp",
+      "sha256": "2c603dad8e482d3e2b4af5cdac18d8a408c39a7adbed73f6c5fbb880386e819e"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/rtde_python_bindings.cpp",
+      "sha256": "6d1d9ed375d66b470d44867f205b6138af033184014320372b4eb88422d047fd"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/rtde_receive_interface.cpp",
+      "sha256": "58a1b420a06fe0c25f6a13998743fd39dc4ac5245236d1f0528164ec8519bd19"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/script_client.cpp",
+      "sha256": "e6ce9f844a93ae8c2a8aae237e4dbbf42d5cf7690ff1eac57ac69d38572bf8f3"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/not-zip-safe",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/PKG-INFO",
+      "sha256": "7c43631b9677338f2b8acf040b40df40c2c13493bd5ea178d7aae7d38400e4f2"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/SOURCES.txt",
+      "sha256": "92cd61bd0e2d6430ae67e47da538cdff8e70d8b40be50e080e4faa2605b167c1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/top_level.txt",
+      "sha256": "615d6682c1266cb564f6a5f8d43b24a3ca8be801ef3bb6551342920b3ae3d88a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/urcl/default_log_handler.cpp",
+      "sha256": "8304252bed237f2a4e9ad363197d0b14700671bf880f904cdb511651cf5d5990"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/urcl/log.cpp",
+      "sha256": "8227daf9d9f45fd5dccd87cce075ef4d3d9423ec2366a8c4f91c9047ab3eec03"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/urcl/script_sender.cpp",
+      "sha256": "cc963d95930c1e2553228e5e82161b645630df5786e03d1607fc2ce83d86445a"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/urcl/tcp_server.cpp",
+      "sha256": "097992416e2b97c3c57fc3848011aabaa21f9c81a440f9cfc8d492d3c7424627"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/src/urcl/tcp_socket.cpp",
+      "sha256": "49c2f295c94e7cce689d632fbd236e1c0711c572db68a4747a1fbfb29c3927b8"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/test/CMakeLists.txt",
+      "sha256": "2f1c025a01de87370ea456a26bb072ca332044d77d5c65be393b63aee58f209b"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/test/doctest.h",
+      "sha256": "95a271de66a63d4fea0b350b5cd3ecedf28b8c5384012f013e7ed903ef9615a1"
+    },
+    {
+      "path": "third_party/ur_rtde_guarded/source/test/main.cpp",
+      "sha256": "5da8c2bc4a5d57b7f7db66c6d32c3631a6986bd6cbaa499a4e41120977cbd1d9"
+    }
+  ]
+}

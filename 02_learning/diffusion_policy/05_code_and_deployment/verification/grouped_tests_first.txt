@@ -1,0 +1,9 @@
+.........sssss.......................................................... [ 60%]
+...............................................                          [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_camera_bridge_shutdown.py:60: requires ROS system Python and rclpy
+SKIPPED [1] tests\test_camera_bridge_shutdown.py:72: requires ROS system Python and rclpy
+SKIPPED [1] tests\test_camera_bridge_shutdown.py:79: requires ROS system Python and rclpy
+SKIPPED [1] tests\test_camera_bridge_shutdown.py:68: requires ROS system Python and rclpy
+SKIPPED [1] tests\test_camera_bridge_shutdown.py:91: requires ROS system Python and rclpy
+114 passed, 5 skipped in 3.09s

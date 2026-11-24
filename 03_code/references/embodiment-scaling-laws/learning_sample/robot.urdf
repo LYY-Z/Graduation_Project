@@ -1,0 +1,582 @@
+<?xml version="1.0" ?>
+<robot name="gen_dog">
+  <link name="trunk">
+    <inertial>
+      <origin xyz="0.021112 0 -0.005366" rpy="0 0 0"/>
+      <mass value="6.921"/>
+      <inertia ixx="0.02448" ixy="0.00012166" ixz="0.0014849" iyy="0.098077" iyz="-3.12e-05" izz="0.107"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3762 0.0935 0.114"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3762 0.0935 0.114"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_left_hip">
+    <inertial>
+      <origin xyz="-0.0054 0.00194 -0.000105" rpy="0 0 0"/>
+      <mass value="0.678"/>
+      <inertia ixx="0.00048" ixy="-3.01e-06" ixz="1.11e-06" iyy="0.000884" iyz="-1.42e-06" izz="0.000596"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_left_hip_pitch_joint" type="revolute">
+    <parent link="trunk"/>
+    <child link="front_left_hip"/>
+    <origin xyz="0.1881 0.04675 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.05" upper="1.05" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="front_left_thigh">
+    <inertial>
+      <origin xyz="-0.00374 -0.0223 -0.0327" rpy="0 0 0"/>
+      <mass value="1.152"/>
+      <inertia ixx="0.00584" ixy="8.72e-05" ixz="-0.000289" iyy="0.0058" iyz="0.000808" izz="0.00103"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_left_thigh_joint" type="revolute">
+    <parent link="front_left_hip"/>
+    <child link="front_left_thigh"/>
+    <origin xyz="0 0.0955 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="3.49" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="front_left_calf">
+    <inertial>
+      <origin xyz="0.00548 -0.000975 -0.115" rpy="0 0 0"/>
+      <mass value="0.154"/>
+      <inertia ixx="0.00108" ixy="3.4e-07" ixz="1.72e-05" iyy="0.0011" iyz="8.28e-06" izz="3.29e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_left_knee_joint" type="revolute">
+    <parent link="front_left_thigh"/>
+    <child link="front_left_calf"/>
+    <origin xyz="0 0 -0.213" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.72" upper="-0.84" effort="45.43" velocity="15.7"/>
+  </joint>
+  <link name="front_left_calflower">
+    <visual>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_left_calflower_joint" type="fixed">
+    <parent link="front_left_calf"/>
+    <child link="front_left_calflower"/>
+    <origin xyz="0.02 0 -0.096" rpy="0 0.05 0"/>
+  </joint>
+  <link name="front_left_calflower1">
+    <visual>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_left_calflower1_joint" type="fixed">
+    <parent link="front_left_calflower"/>
+    <child link="front_left_calflower1"/>
+    <origin xyz="-0.01 0 -0.065" rpy="0 0.48 0"/>
+  </joint>
+  <link name="front_left_foot">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.04"/>
+      <inertia ixx="9.6e-06" ixy="0" ixz="0" iyy="9.6e-06" iyz="0" izz="9.6e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_left_ankle_joint" type="fixed">
+    <parent link="front_left_calflower1"/>
+    <child link="front_left_foot"/>
+    <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+  </joint>
+  <link name="front_right_hip">
+    <inertial>
+      <origin xyz="-0.0054 -0.00194 -0.000105" rpy="0 0 0"/>
+      <mass value="0.678"/>
+      <inertia ixx="0.00048" ixy="3.01e-06" ixz="1.11e-06" iyy="0.000884" iyz="1.42e-06" izz="0.000596"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 -0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_right_hip_pitch_joint" type="revolute">
+    <parent link="trunk"/>
+    <child link="front_right_hip"/>
+    <origin xyz="0.1881 -0.04675 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.05" upper="1.05" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="front_right_thigh">
+    <inertial>
+      <origin xyz="-0.00374 0.0223 -0.0327" rpy="0 0 0"/>
+      <mass value="1.152"/>
+      <inertia ixx="0.00584" ixy="-8.72e-05" ixz="-0.000289" iyy="0.0058" iyz="-0.000808" izz="0.00103"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_right_thigh_joint" type="revolute">
+    <parent link="front_right_hip"/>
+    <child link="front_right_thigh"/>
+    <origin xyz="0 -0.0955 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="3.49" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="front_right_calf">
+    <inertial>
+      <origin xyz="0.00548 0.000975 -0.115" rpy="0 0 0"/>
+      <mass value="0.154"/>
+      <inertia ixx="0.00108" ixy="-3.4e-07" ixz="1.72e-05" iyy="0.0011" iyz="-8.28e-06" izz="3.29e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_right_knee_joint" type="revolute">
+    <parent link="front_right_thigh"/>
+    <child link="front_right_calf"/>
+    <origin xyz="0 0 -0.213" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.72" upper="-0.84" effort="45.43" velocity="15.7"/>
+  </joint>
+  <link name="front_right_calflower">
+    <visual>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_right_calflower_joint" type="fixed">
+    <parent link="front_right_calf"/>
+    <child link="front_right_calflower"/>
+    <origin xyz="0.02 0 -0.096" rpy="0 0.05 0"/>
+  </joint>
+  <link name="front_right_calflower1">
+    <visual>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_right_calflower1_joint" type="fixed">
+    <parent link="front_right_calflower"/>
+    <child link="front_right_calflower1"/>
+    <origin xyz="-0.01 0 -0.065" rpy="0 0.48 0"/>
+  </joint>
+  <link name="front_right_foot">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.04"/>
+      <inertia ixx="9.6e-06" ixy="0" ixz="0" iyy="9.6e-06" iyz="0" izz="9.6e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_right_ankle_joint" type="fixed">
+    <parent link="front_right_calflower1"/>
+    <child link="front_right_foot"/>
+    <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+  </joint>
+  <link name="rear_left_hip">
+    <inertial>
+      <origin xyz="0.0054 0.00194 -0.000105" rpy="0 0 0"/>
+      <mass value="0.678"/>
+      <inertia ixx="0.00048" ixy="3.01e-06" ixz="-1.11e-06" iyy="0.000884" iyz="-1.42e-06" izz="0.000596"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_left_hip_pitch_joint" type="revolute">
+    <parent link="trunk"/>
+    <child link="rear_left_hip"/>
+    <origin xyz="-0.1881 0.04675 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.05" upper="1.05" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="rear_left_thigh">
+    <inertial>
+      <origin xyz="-0.00374 -0.0223 -0.0327" rpy="0 0 0"/>
+      <mass value="1.152"/>
+      <inertia ixx="0.00584" ixy="8.72e-05" ixz="-0.000289" iyy="0.0058" iyz="0.000808" izz="0.00103"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_left_thigh_joint" type="revolute">
+    <parent link="rear_left_hip"/>
+    <child link="rear_left_thigh"/>
+    <origin xyz="0 0.0955 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.52" upper="4.53" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="rear_left_calf">
+    <inertial>
+      <origin xyz="0.00548 -0.000975 -0.115" rpy="0 0 0"/>
+      <mass value="0.154"/>
+      <inertia ixx="0.00108" ixy="3.4e-07" ixz="1.72e-05" iyy="0.0011" iyz="8.28e-06" izz="3.29e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_left_knee_joint" type="revolute">
+    <parent link="rear_left_thigh"/>
+    <child link="rear_left_calf"/>
+    <origin xyz="0 0 -0.213" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.72" upper="-0.8399999999999999" effort="45.43" velocity="15.7"/>
+  </joint>
+  <link name="rear_left_calflower">
+    <visual>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_left_calflower_joint" type="fixed">
+    <parent link="rear_left_calf"/>
+    <child link="rear_left_calflower"/>
+    <origin xyz="0.02 0 -0.096" rpy="0 0.05 0"/>
+  </joint>
+  <link name="rear_left_calflower1">
+    <visual>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_left_calflower1_joint" type="fixed">
+    <parent link="rear_left_calflower"/>
+    <child link="rear_left_calflower1"/>
+    <origin xyz="-0.01 0 -0.065" rpy="0 0.48 0"/>
+  </joint>
+  <link name="rear_left_foot">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.04"/>
+      <inertia ixx="9.6e-06" ixy="0" ixz="0" iyy="9.6e-06" iyz="0" izz="9.6e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_left_ankle_joint" type="fixed">
+    <parent link="rear_left_calflower1"/>
+    <child link="rear_left_foot"/>
+    <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+  </joint>
+  <link name="rear_right_hip">
+    <inertial>
+      <origin xyz="0.0054 -0.00194 -0.000105" rpy="0 0 0"/>
+      <mass value="0.678"/>
+      <inertia ixx="0.00048" ixy="-3.01e-06" ixz="-1.11e-06" iyy="0.000884" iyz="1.42e-06" izz="0.000596"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 -0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.08 0" rpy="1.57 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.046"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_right_hip_pitch_joint" type="revolute">
+    <parent link="trunk"/>
+    <child link="rear_right_hip"/>
+    <origin xyz="-0.1881 -0.04675 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.05" upper="1.05" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="rear_right_thigh">
+    <inertial>
+      <origin xyz="-0.00374 0.0223 -0.0327" rpy="0 0 0"/>
+      <mass value="1.152"/>
+      <inertia ixx="0.00584" ixy="-8.72e-05" ixz="-0.000289" iyy="0.0058" iyz="-0.000808" izz="0.00103"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.1065" rpy="0 1.57 0"/>
+      <geometry>
+        <box size="0.213 0.0245 0.034"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_right_thigh_joint" type="revolute">
+    <parent link="rear_right_hip"/>
+    <child link="rear_right_thigh"/>
+    <origin xyz="0 -0.0955 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.52" upper="4.53" effort="23.7" velocity="30.1"/>
+  </joint>
+  <link name="rear_right_calf">
+    <inertial>
+      <origin xyz="0.00548 0.000975 -0.115" rpy="0 0 0"/>
+      <mass value="0.154"/>
+      <inertia ixx="0.00108" ixy="-3.4e-07" ixz="1.72e-05" iyy="0.0011" iyz="-8.28e-06" izz="3.29e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.008 0 -0.048" rpy="0 -0.21 0"/>
+      <geometry>
+        <cylinder length="0.096" radius="0.013"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_right_knee_joint" type="revolute">
+    <parent link="rear_right_thigh"/>
+    <child link="rear_right_calf"/>
+    <origin xyz="0 0 -0.213" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.72" upper="-0.84" effort="45.43" velocity="15.7"/>
+  </joint>
+  <link name="rear_right_calflower">
+    <visual>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.065" radius="0.011"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_right_calflower_joint" type="fixed">
+    <parent link="rear_right_calf"/>
+    <child link="rear_right_calflower"/>
+    <origin xyz="0.02 0 -0.096" rpy="0 0.05 0"/>
+  </joint>
+  <link name="rear_right_calflower1">
+    <visual>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.0155"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_right_calflower1_joint" type="fixed">
+    <parent link="rear_right_calflower"/>
+    <child link="rear_right_calflower1"/>
+    <origin xyz="-0.01 0 -0.065" rpy="0 0.48 0"/>
+  </joint>
+  <link name="rear_right_foot">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.04"/>
+      <inertia ixx="9.6e-06" ixy="0" ixz="0" iyy="9.6e-06" iyz="0" izz="9.6e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.022"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_right_ankle_joint" type="fixed">
+    <parent link="rear_right_calflower1"/>
+    <child link="rear_right_foot"/>
+    <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+  </joint>
+</robot>

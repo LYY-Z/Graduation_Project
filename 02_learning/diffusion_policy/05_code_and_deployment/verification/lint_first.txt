@@ -1,0 +1,6 @@
+src\dp_ur7e\hardware\observations.py:14:24: F811 [*] Redefinition of unused `PlanarMapping` from line 9
+src\dp_ur7e\pipeline.py:20:24: F811 [*] Redefinition of unused `RunWriter` from line 8
+src\dp_ur7e\pipeline.py:20:35: F811 [*] Redefinition of unused `environment_versions` from line 8
+tests\test_repository_tools.py:65:44: E701 Multiple statements on one line (colon)
+Found 4 errors.
+[*] 3 fixable with the `--fix` option.

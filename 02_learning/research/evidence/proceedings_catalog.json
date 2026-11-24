@@ -1,0 +1,1244 @@
+[
+  {
+    "title": "Robust Trajectory Prediction against Adversarial Attacks",
+    "url": "https://proceedings.mlr.press/v205/cao23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/cao23a/cao23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "PRISM: Probabilistic Real-Time Inference in Spatial World Models",
+    "url": "https://proceedings.mlr.press/v205/mirchev23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/mirchev23a/mirchev23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "RAP: Risk-Aware Prediction for Robust Planning",
+    "url": "https://proceedings.mlr.press/v205/nishimura23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/nishimura23a/nishimura23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "SE(2)-Equivariant Pushing Dynamics Models for Tabletop Object Manipulations",
+    "url": "https://proceedings.mlr.press/v205/kim23b.html",
+    "pdf": "https://proceedings.mlr.press/v205/kim23b/kim23b.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Interpretable Self-Aware Neural Networks for Robust Trajectory Prediction",
+    "url": "https://proceedings.mlr.press/v205/itkina23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/itkina23a/itkina23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "CADSim: Robust and Scalable in-the-wild 3D Reconstruction for Controllable Sensor Simulation",
+    "url": "https://proceedings.mlr.press/v205/wang23b.html",
+    "pdf": "https://proceedings.mlr.press/v205/wang23b/wang23b.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Proactive slip control by learned slip model and trajectory adaptation",
+    "url": "https://proceedings.mlr.press/v205/nazari23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/nazari23a/nazari23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Motion Style Transfer: Modular Low-Rank Adaptation for Deep Motion Forecasting",
+    "url": "https://proceedings.mlr.press/v205/kothari23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/kothari23a/kothari23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Towards Capturing the Temporal Dynamics for Trajectory Prediction: a Coarse-to-Fine Approach",
+    "url": "https://proceedings.mlr.press/v205/jia23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/jia23a/jia23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Transformers Are Adaptable Task Planners",
+    "url": "https://proceedings.mlr.press/v205/jain23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/jain23a/jain23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Out-of-Dynamics Imitation Learning from Multimodal Demonstrations",
+    "url": "https://proceedings.mlr.press/v205/qiu23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/qiu23a/qiu23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Domain Adaptation and Generalization: A Low-Complexity Approach",
+    "url": "https://proceedings.mlr.press/v205/niemeijer23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/niemeijer23a/niemeijer23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Graph network simulators can learn discontinuous, rigid contact dynamics",
+    "url": "https://proceedings.mlr.press/v205/allen23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/allen23a/allen23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Learning with Muscles: Benefits for Data-Efficiency and Robustness in Anthropomorphic Tasks",
+    "url": "https://proceedings.mlr.press/v205/wochner23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/wochner23a/wochner23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Learning Robust Real-World Dexterous Grasping Policies via Implicit Shape Augmentation",
+    "url": "https://proceedings.mlr.press/v205/chen23b.html",
+    "pdf": "https://proceedings.mlr.press/v205/chen23b/chen23b.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Robustness Certification of Visual Perception Models via Camera Motion Smoothing",
+    "url": "https://proceedings.mlr.press/v205/hu23b.html",
+    "pdf": "https://proceedings.mlr.press/v205/hu23b/hu23b.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Masked World Models for Visual Control",
+    "url": "https://proceedings.mlr.press/v205/seo23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/seo23a/seo23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "ARC - Actor Residual Critic for Adversarial Imitation Learning",
+    "url": "https://proceedings.mlr.press/v205/deka23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/deka23a/deka23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Hypernetworks in Meta-Reinforcement Learning",
+    "url": "https://proceedings.mlr.press/v205/beck23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/beck23a/beck23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Adapting Neural Models with Sequential Monte Carlo Dropout",
+    "url": "https://proceedings.mlr.press/v205/carreno23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/carreno23a/carreno23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "HTRON: Efficient Outdoor Navigation with Sparse Rewards via  Heavy Tailed Adaptive Reinforce Algorithm",
+    "url": "https://proceedings.mlr.press/v205/weerakoon23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/weerakoon23a/weerakoon23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "In-Hand Object Rotation via Rapid Motor Adaptation",
+    "url": "https://proceedings.mlr.press/v205/qi23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/qi23a/qi23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Learning Multi-Object Dynamics with Compositional Neural Radiance Fields",
+    "url": "https://proceedings.mlr.press/v205/driess23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/driess23a/driess23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "VIRDO++: Real-World, Visuo-tactile Dynamics and Perception of Deformable Objects",
+    "url": "https://proceedings.mlr.press/v205/wi23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/wi23a/wi23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Learning the Dynamics of Compliant Tool-Environment Interaction for Visuo-Tactile Contact Servoing",
+    "url": "https://proceedings.mlr.press/v205/merwe23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/merwe23a/merwe23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Fast Lifelong Adaptive Inverse Reinforcement Learning from Demonstrations",
+    "url": "https://proceedings.mlr.press/v205/chen23e.html",
+    "pdf": "https://proceedings.mlr.press/v205/chen23e/chen23e.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Residual Skill Policies: Learning an Adaptable Skill-based Action Space for Reinforcement Learning for Robotics",
+    "url": "https://proceedings.mlr.press/v205/rana23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/rana23a/rana23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Lyapunov Design for Robust and Efficient Robotic Reinforcement Learning",
+    "url": "https://proceedings.mlr.press/v205/westenbroek23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/westenbroek23a/westenbroek23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "DayDreamer: World Models for Physical Robot Learning",
+    "url": "https://proceedings.mlr.press/v205/wu23c.html",
+    "pdf": "https://proceedings.mlr.press/v205/wu23c/wu23c.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "Online Dynamics Learning for Predictive Control with an Application to Aerial Robots",
+    "url": "https://proceedings.mlr.press/v205/jiahao23a.html",
+    "pdf": "https://proceedings.mlr.press/v205/jiahao23a/jiahao23a.pdf",
+    "source": "https://proceedings.mlr.press/v205/"
+  },
+  {
+    "title": "DATT: Deep Adaptive Trajectory Tracking for Quadrotor Control",
+    "url": "https://proceedings.mlr.press/v229/huang23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/huang23a/huang23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Finetuning Offline World Models in the Real World",
+    "url": "https://proceedings.mlr.press/v229/feng23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/feng23a/feng23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Scalable Deep Kernel Gaussian Process for Vehicle Dynamics in Autonomous Racing",
+    "url": "https://proceedings.mlr.press/v229/ning23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/ning23a/ning23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Geometry Matching for Multi-Embodiment Grasping",
+    "url": "https://proceedings.mlr.press/v229/attarian23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/attarian23a/attarian23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Robust Reinforcement Learning in Continuous Control Tasks with Uncertainty Set Regularization",
+    "url": "https://proceedings.mlr.press/v229/zhang23d.html",
+    "pdf": "https://proceedings.mlr.press/v229/zhang23d/zhang23d.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Sample-Efficient Preference-based Reinforcement Learning with Dynamics Aware Rewards",
+    "url": "https://proceedings.mlr.press/v229/metcalf23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/metcalf23a/metcalf23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "SA6D: Self-Adaptive Few-Shot 6D Pose Estimator for Novel and Occluded Objects",
+    "url": "https://proceedings.mlr.press/v229/gao23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/gao23a/gao23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Efficient Sim-to-real Transfer of Contact-Rich Manipulation Skills with Online Admittance Residual Learning",
+    "url": "https://proceedings.mlr.press/v229/zhang23e.html",
+    "pdf": "https://proceedings.mlr.press/v229/zhang23e/zhang23e.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Quantifying Assistive Robustness Via the Natural-Adversarial Frontier",
+    "url": "https://proceedings.mlr.press/v229/he23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/he23a/he23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "DYNAMO-GRASP: DYNAMics-aware Optimization for GRASP Point Detection in Suction Grippers",
+    "url": "https://proceedings.mlr.press/v229/yang23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/yang23a/yang23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "A Bayesian Approach to Robust Inverse Reinforcement Learning",
+    "url": "https://proceedings.mlr.press/v229/wei23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/wei23a/wei23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "CAJun: Continuous Adaptive Jumping using a Learned Centroidal Controller",
+    "url": "https://proceedings.mlr.press/v229/yang23b.html",
+    "pdf": "https://proceedings.mlr.press/v229/yang23b/yang23b.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Neural Field Dynamics Model for Granular Object Piles Manipulation",
+    "url": "https://proceedings.mlr.press/v229/xue23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/xue23a/xue23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "TactileVAD: Geometric Aliasing-Aware Dynamics for High-Resolution Tactile Control",
+    "url": "https://proceedings.mlr.press/v229/oller23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/oller23a/oller23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "AdaptSim: Task-Driven Simulation Adaptation for Sim-to-Real Transfer",
+    "url": "https://proceedings.mlr.press/v229/ren23b.html",
+    "pdf": "https://proceedings.mlr.press/v229/ren23b/ren23b.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "XSkill: Cross Embodiment Skill Discovery",
+    "url": "https://proceedings.mlr.press/v229/xu23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/xu23a/xu23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Online Model Adaptation with Feedforward Compensation",
+    "url": "https://proceedings.mlr.press/v229/abuduweili23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/abuduweili23a/abuduweili23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Simultaneous Learning of Contact and Continuous Dynamics",
+    "url": "https://proceedings.mlr.press/v229/bianchini23a.html",
+    "pdf": "https://proceedings.mlr.press/v229/bianchini23a/bianchini23a.pdf",
+    "source": "https://proceedings.mlr.press/v229/"
+  },
+  {
+    "title": "Vocal Sandbox: Continual Learning and Adaptation for Situated Human-Robot Collaboration",
+    "url": "https://proceedings.mlr.press/v270/grannen25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/grannen25a/grannen25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "OCCAM: Online Continuous Controller Adaptation with Meta-Learned Models",
+    "url": "https://proceedings.mlr.press/v270/sanghvi25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/sanghvi25a/sanghvi25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "RoVi-Aug: Robot and Viewpoint Augmentation for Cross-Embodiment Robot Learning",
+    "url": "https://proceedings.mlr.press/v270/chen25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/chen25a/chen25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Gameplay Filters: Robust Zero-Shot Safety through Adversarial Imagination",
+    "url": "https://proceedings.mlr.press/v270/nguyen25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/nguyen25a/nguyen25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Guided Reinforcement Learning for Robust Multi-Contact Loco-Manipulation",
+    "url": "https://proceedings.mlr.press/v270/sleiman25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/sleiman25a/sleiman25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Robust Manipulation Primitive Learning via Domain Contraction",
+    "url": "https://proceedings.mlr.press/v270/xue25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/xue25a/xue25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Adaptive Diffusion Terrain Generator for Autonomous Uneven Terrain Navigation",
+    "url": "https://proceedings.mlr.press/v270/yu25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/yu25a/yu25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "DeliGrasp: Inferring Object Properties with LLMs for Adaptive Grasp Policies",
+    "url": "https://proceedings.mlr.press/v270/xie25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/xie25a/xie25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Policy Adaptation via Language Optimization: Decomposing Tasks for Few-Shot Imitation",
+    "url": "https://proceedings.mlr.press/v270/myers25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/myers25a/myers25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Modeling the Real World with High-Density Visual Particle Dynamics",
+    "url": "https://proceedings.mlr.press/v270/whitney25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/whitney25a/whitney25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling",
+    "url": "https://proceedings.mlr.press/v270/zhang25d.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/zhang25d/zhang25d.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Learning to Walk from Three Minutes of Real-World Data with Semi-structured Dynamics Models",
+    "url": "https://proceedings.mlr.press/v270/levy25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/levy25a/levy25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Rate-Informed Discovery via Bayesian Adaptive Multifidelity Sampling",
+    "url": "https://proceedings.mlr.press/v270/sinha25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/sinha25a/sinha25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Autonomous Interactive Correction MLLM for Robust Robotic Manipulation",
+    "url": "https://proceedings.mlr.press/v270/xiong25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/xiong25a/xiong25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Progressive Multi-Modal Fusion for Robust 3D Object Detection",
+    "url": "https://proceedings.mlr.press/v270/mohan25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/mohan25a/mohan25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "One Policy to Run Them All: an End-to-end Learning Approach to Multi-Embodiment Locomotion",
+    "url": "https://proceedings.mlr.press/v270/bohlinger25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/bohlinger25a/bohlinger25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Body Transformer: Leveraging Robot Embodiment for Policy Learning",
+    "url": "https://proceedings.mlr.press/v270/sferrazza25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/sferrazza25a/sferrazza25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Adaptive Language-Guided Abstraction from Contrastive Explanations",
+    "url": "https://proceedings.mlr.press/v270/peng25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/peng25c/peng25c.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Adapting Humanoid Locomotion over Challenging Terrain via Two-Phase Training",
+    "url": "https://proceedings.mlr.press/v270/cui25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/cui25a/cui25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "SHADOW: Leveraging Segmentation Masks for Cross-Embodiment Policy Transfer",
+    "url": "https://proceedings.mlr.press/v270/lepert25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/lepert25a/lepert25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Multi-Strategy Deployment-Time Learning and Adaptation for Navigation under Uncertainty",
+    "url": "https://proceedings.mlr.press/v270/paudel25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/paudel25a/paudel25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Multi-Task Interactive Robot Fleet Learning with Visual World Models",
+    "url": "https://proceedings.mlr.press/v270/liu25g.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/liu25g/liu25g.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Enhancing Visual Domain Robustness in Behaviour Cloning via Saliency-Guided Augmentation",
+    "url": "https://proceedings.mlr.press/v270/zhuang25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/zhuang25b/zhuang25b.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "ResPilot: Teleoperated Finger Gaiting via Gaussian Process Residual Learning",
+    "url": "https://proceedings.mlr.press/v270/naughton25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/naughton25a/naughton25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Dynamics-Guided Diffusion Model for Sensor-less Robot Manipulator Design",
+    "url": "https://proceedings.mlr.press/v270/xu25d.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/xu25d/xu25d.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Simple Masked Training Strategies Yield Control Policies That Are Robust to Sensor Failure",
+    "url": "https://proceedings.mlr.press/v270/skand25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/skand25a/skand25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "What Makes Pre-Trained Visual Representations Successful for Robust Manipulation?",
+    "url": "https://proceedings.mlr.press/v270/burns25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/burns25a/burns25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Automated Creation of Digital Cousins for Robust Policy Learning",
+    "url": "https://proceedings.mlr.press/v270/dai25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/dai25a/dai25a.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Online Transfer and Adaptation of Tactile Skill: A Teleoperation Framework",
+    "url": "https://proceedings.mlr.press/v270/chen25i.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/chen25i/chen25i.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Learning Differentiable Tensegrity Dynamics using Graph Neural Networks",
+    "url": "https://proceedings.mlr.press/v270/chen25j.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/chen25j/chen25j.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "Get a Grip: Multi-Finger Grasp Evaluation at Scale Enables Robust Sim-to-Real Transfer",
+    "url": "https://proceedings.mlr.press/v270/lum25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v270/main/assets/lum25b/lum25b.pdf",
+    "source": "https://proceedings.mlr.press/v270/"
+  },
+  {
+    "title": "LocoFormer: Generalist Locomotion via Long-context Adaptation",
+    "url": "https://proceedings.mlr.press/v305/liu25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/liu25a/liu25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Real2Render2Real: Scaling Robot Data Without Dynamics Simulation or Robot Hardware",
+    "url": "https://proceedings.mlr.press/v305/yu25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/yu25a/yu25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "FACET: Force-Adaptive Control via Impedance Reference Tracking for Legged Robots",
+    "url": "https://proceedings.mlr.press/v305/xu25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/xu25c/xu25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "X-Sim: Cross-Embodiment Learning via Real-to-Sim-to-Real",
+    "url": "https://proceedings.mlr.press/v305/dan25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/dan25a/dan25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Multi-Loco: Unifying Multi-Embodiment Legged Locomotion via Reinforcement Learning Augmented Diffusion",
+    "url": "https://proceedings.mlr.press/v305/yang25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/yang25a/yang25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "AT-Drone: Benchmarking Adaptive Teaming in Multi-Drone Pursuit",
+    "url": "https://proceedings.mlr.press/v305/li25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/li25a/li25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Residual Neural Terminal Constraint for MPC-based Collision Avoidance in Dynamic Environments",
+    "url": "https://proceedings.mlr.press/v305/derajic25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/derajic25a/derajic25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Adapt3R: Adaptive 3D Scene Representation for Domain Transfer in Imitation Learning",
+    "url": "https://proceedings.mlr.press/v305/wilcox25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/wilcox25a/wilcox25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "PrioriTouch: Adapting to User Contact Preferences for Whole-Arm Physical Human-Robot Interaction",
+    "url": "https://proceedings.mlr.press/v305/madan25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/madan25a/madan25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Sequence Modeling for Time-Optimal Quadrotor Trajectory Optimization with Sampling-based Robustness Analysis",
+    "url": "https://proceedings.mlr.press/v305/mao25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/mao25b/mao25b.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Robot Trains Robot: Automatic Real-World Policy Adaptation and Learning for Humanoids",
+    "url": "https://proceedings.mlr.press/v305/hu25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/hu25a/hu25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Diffusion Dynamics Models with Generative State Estimation for Cloth Manipulation",
+    "url": "https://proceedings.mlr.press/v305/tian25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/tian25c/tian25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "LaDi-WM: A Latent Diffusion-Based World Model for Predictive Manipulation",
+    "url": "https://proceedings.mlr.press/v305/huang25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/huang25a/huang25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "ControlVLA: Few-shot Object-centric Adaptation for Pre-trained Vision-Language-Action Models",
+    "url": "https://proceedings.mlr.press/v305/li25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/li25c/li25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Search-TTA: A Multi-Modal Test-Time Adaptation Framework for Visual Search in the Wild",
+    "url": "https://proceedings.mlr.press/v305/tan25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/tan25a/tan25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "MEReQ: Max-Ent Residual-Q Inverse RL for Sample-Efficient Alignment from Intervention",
+    "url": "https://proceedings.mlr.press/v305/chen25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/chen25c/chen25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "3DS-VLA: A 3D Spatial-Aware Vision Language Action Model for Robust Multi-Task Manipulation",
+    "url": "https://proceedings.mlr.press/v305/li25g.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/li25g/li25g.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Latent Adaptive Planner for Dynamic Manipulation",
+    "url": "https://proceedings.mlr.press/v305/noh25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/noh25a/noh25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "GraspQP: Differentiable Optimization of Force Closure for Diverse and Robust Dexterous Grasping",
+    "url": "https://proceedings.mlr.press/v305/zurbrugg25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/zurbrugg25a/zurbrugg25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "ATK: Automatic Task-driven Keypoint Selection for Robust Policy Learning",
+    "url": "https://proceedings.mlr.press/v305/zhang25e.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/zhang25e/zhang25e.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Subteaming and Adaptive Formation Control for Coordinated Multi-Robot Navigation",
+    "url": "https://proceedings.mlr.press/v305/deng25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/deng25b/deng25b.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Robust Dexterous Grasping of General Objects",
+    "url": "https://proceedings.mlr.press/v305/zhang25h.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/zhang25h/zhang25h.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Contrastive Forward Prediction Reinforcement Learning for Adaptive Fault-Tolerant Legged Robots",
+    "url": "https://proceedings.mlr.press/v305/fu25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/fu25b/fu25b.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "DiWA: Diffusion Policy Adaptation with World Models",
+    "url": "https://proceedings.mlr.press/v305/chandra25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/chandra25a/chandra25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Towards Embodiment Scaling Laws in Robot Locomotion",
+    "url": "https://proceedings.mlr.press/v305/ai25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/ai25a/ai25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "WoMAP: World Models For Embodied Open-Vocabulary Object Localization",
+    "url": "https://proceedings.mlr.press/v305/yin25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/yin25b/yin25b.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Motion Priors Reimagined: Adapting Flat-Terrain Skills for Complex Quadruped Mobility",
+    "url": "https://proceedings.mlr.press/v305/zhang25j.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/zhang25j/zhang25j.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Neural Robot Dynamics",
+    "url": "https://proceedings.mlr.press/v305/xu25g.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/xu25g/xu25g.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "FLARE: Robot Learning with Implicit World Modeling",
+    "url": "https://proceedings.mlr.press/v305/zheng25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/zheng25a/zheng25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "From Space to Time: Enabling Adaptive Safety with Learned Value Functions via Disturbance Recasting",
+    "url": "https://proceedings.mlr.press/v305/tonkens25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/tonkens25a/tonkens25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "CDP: Towards Robust Autoregressive Visuomotor Policy Learning via Causal Diffusion",
+    "url": "https://proceedings.mlr.press/v305/ma25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/ma25c/ma25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "UniSkill: Imitating Human Videos via Cross-Embodiment Skill Representations",
+    "url": "https://proceedings.mlr.press/v305/kim25d.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/kim25d/kim25d.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "OPAL: Visibility-aware LiDAR-to-OpenStreetMap Place Recognition via Adaptive Radial Fusion",
+    "url": "https://proceedings.mlr.press/v305/kang25b.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/kang25b/kang25b.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Crossing the Human-Robot Embodiment Gap with Sim-to-Real RL using One Human Demonstration",
+    "url": "https://proceedings.mlr.press/v305/lum25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/lum25a/lum25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "HyperTASR: Hypernetwork-Driven Task-Aware Scene Representations for Robust Manipulation",
+    "url": "https://proceedings.mlr.press/v305/sun25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/sun25c/sun25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "COLLAGE: Adaptive Fusion-based Retrieval for Augmented Policy Learning",
+    "url": "https://proceedings.mlr.press/v305/kumar25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/kumar25a/kumar25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Dynamics-Compliant Trajectory Diffusion for Super-Nominal Payload Manipulation",
+    "url": "https://proceedings.mlr.press/v305/pasricha25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/pasricha25a/pasricha25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "ParticleFormer: A 3D Point Cloud World Model for Multi-Object, Multi-Material Robotic Manipulation",
+    "url": "https://proceedings.mlr.press/v305/huang25c.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/huang25c/huang25c.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "RICL:  Adding In-Context Adaptability to Pre-Trained Vision-Language-Action Models",
+    "url": "https://proceedings.mlr.press/v305/sridhar25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/sridhar25a/sridhar25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "DreamGen: Unlocking Generalization in Robot Learning through Video World Models",
+    "url": "https://proceedings.mlr.press/v305/jang25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/jang25a/jang25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Adapting by Analogy: OOD Generalization of Visuomotor Policies via Functional Correspondence",
+    "url": "https://proceedings.mlr.press/v305/gupta25a.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/gupta25a/gupta25a.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Disentangled Multi-Context Meta-Learning: Unlocking Robust and Generalized Task Learning",
+    "url": "https://proceedings.mlr.press/v305/kim25e.html",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/kim25e/kim25e.pdf",
+    "source": "https://proceedings.mlr.press/v305/"
+  },
+  {
+    "title": "Structured World Models from Human Videos",
+    "url": "https://www.roboticsproceedings.org/rss19/p012.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p012.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "RoboNinja: Learning an Adaptive Cutting Policy for Multi-Material Objects",
+    "url": "https://www.roboticsproceedings.org/rss19/p046.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p046.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Few-shot Adaptation for Manipulating Granular Materials Under Domain Shift",
+    "url": "https://www.roboticsproceedings.org/rss19/p048.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p048.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Learning and Adapting Agile Locomotion Skills by Transferring Experience",
+    "url": "https://www.roboticsproceedings.org/rss19/p051.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p051.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Robust and Versatile Bipedal Jumping Control through Reinforcement Learning",
+    "url": "https://www.roboticsproceedings.org/rss19/p052.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p052.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "ERASOR2: Instance-Aware Robust 3D Mapping of the Static World in Dynamic Scenes",
+    "url": "https://www.roboticsproceedings.org/rss19/p067.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p067.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "HDVIO: Improving Localization and Disturbance Estimation with Hybrid Dynamics VIO",
+    "url": "https://www.roboticsproceedings.org/rss19/p071.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p071.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Robust Safety under Stochastic Uncertainty with Discrete-Time Control Barrier Functions",
+    "url": "https://www.roboticsproceedings.org/rss19/p084.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p084.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Bridging Active Exploration and Uncertainty-Aware Deployment Using Probabilistic Ensemble Neural Network Dynamics",
+    "url": "https://www.roboticsproceedings.org/rss19/p086.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p086.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Adaptive Tracking Control of Dielectric Elastomer Soft Actuators with Viscoelastic Hysteresis Compensation",
+    "url": "https://www.roboticsproceedings.org/rss19/p093.html",
+    "pdf": "https://www.roboticsproceedings.org/rss19/p093.pdf",
+    "source": "https://www.roboticsproceedings.org/rss19/"
+  },
+  {
+    "title": "Differentiable Robust Model Predictive Control",
+    "url": "https://www.roboticsproceedings.org/rss20/p003.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p003.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "AdaptiGraph: Material-Adaptive Graph-Based Neural Dynamics for Robotic Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss20/p010.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p010.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Reconciling Reality through Simulation: A Real-To-Sim-to-Real Approach for Robust Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss20/p015.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p015.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Demonstrating CropFollow++: Robust Under-Canopy Navigation with Keypoints",
+    "url": "https://www.roboticsproceedings.org/rss20/p023.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p023.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Task Adaptation in Industrial Human-Robot Interaction: Leveraging Riemannian Motion Policies",
+    "url": "https://www.roboticsproceedings.org/rss20/p026.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p026.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "World Models for General Surgical Grasping",
+    "url": "https://www.roboticsproceedings.org/rss20/p041.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p041.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Demonstrating Adaptive Mobile Manipulation in Retail Environments",
+    "url": "https://www.roboticsproceedings.org/rss20/p047.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p047.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Rethinking Robustness Assessment: Adversarial Attacks on Learning-based Quadrupedal Locomotion Controllers",
+    "url": "https://www.roboticsproceedings.org/rss20/p057.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p057.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Advancing Humanoid Locomotion: Mastering Challenging Terrains with Denoising World Model Learning",
+    "url": "https://www.roboticsproceedings.org/rss20/p058.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p058.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "RL2AC: Reinforcement Learning-based Rapid Online Adaptive Control for Legged Robot Robust Locomotion",
+    "url": "https://www.roboticsproceedings.org/rss20/p060.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p060.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "MIRAGE: Cross-Embodiment Zero-Shot Policy Transfer with Cross-Painting",
+    "url": "https://www.roboticsproceedings.org/rss20/p069.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p069.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Broadcasting Support Relations Recursively from Local Dynamics for Object Retrieval in Clutters",
+    "url": "https://www.roboticsproceedings.org/rss20/p070.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p070.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Pushing the Limits of Cross-Embodiment Learning for Manipulation and Navigation",
+    "url": "https://www.roboticsproceedings.org/rss20/p093.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p093.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "RoboPack: Learning Tactile-Informed Dynamics Models for Dense Packing",
+    "url": "https://www.roboticsproceedings.org/rss20/p130.html",
+    "pdf": "https://www.roboticsproceedings.org/rss20/p130.pdf",
+    "source": "https://www.roboticsproceedings.org/rss20/"
+  },
+  {
+    "title": "Learned Perceptive Forward Dynamics Model for Safe and Platform-aware Robotic Navigation",
+    "url": "https://www.roboticsproceedings.org/rss21/p001.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p001.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Kinodynamic Trajectory Following with STELA: Simultaneous Trajectory Estimation & Local Adaptation",
+    "url": "https://www.roboticsproceedings.org/rss21/p008.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p008.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Debiasing 6-DOF IMU via Hierarchical Learning of Continuous Bias Dynamics",
+    "url": "https://www.roboticsproceedings.org/rss21/p009.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p009.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Unified World Models: Coupling Video and Action Diffusion for Pretraining on Large Robotic Datasets",
+    "url": "https://www.roboticsproceedings.org/rss21/p015.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p015.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "ROMAN: Open-Set Object Map Alignment for Robust View-Invariant Global Localization",
+    "url": "https://www.roboticsproceedings.org/rss21/p029.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p029.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Particle-Grid Neural Dynamics for Learning Deformable Object Models from RGB-D Videos",
+    "url": "https://www.roboticsproceedings.org/rss21/p036.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p036.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "On the Surprising Robustness of Sequential Convex Optimization for Contact-Implicit Motion Planning",
+    "url": "https://www.roboticsproceedings.org/rss21/p047.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p047.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Robust Peg-in-Hole Assembly under Uncertainties via Compliant and Interactive Contact-Rich Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss21/p060.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p060.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "AMO: Adaptive Motion Optimization for Hyper-Dexterous Humanoid Whole-Body Control",
+    "url": "https://www.roboticsproceedings.org/rss21/p061.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p061.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Gain Tuning Is Not What You Need: Reward Gain Adaptation for Constrained Locomotion Learning",
+    "url": "https://www.roboticsproceedings.org/rss21/p123.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p123.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "SATA: Safe and Adaptive Torque-Based Locomotion Policies Inspired by Animal Learning",
+    "url": "https://www.roboticsproceedings.org/rss21/p124.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p124.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Adaptive Locomotion on Mud through Proprioceptive Sensing of Substrate Properties",
+    "url": "https://www.roboticsproceedings.org/rss21/p126.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p126.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Meta-Learning Online Dynamics Model Adaptation in Off-Road Autonomous Driving",
+    "url": "https://www.roboticsproceedings.org/rss21/p139.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p139.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "RAPID: Robust and Agile Planner Using Inverse Reinforcement Learning for Vision-Based Drone Navigation",
+    "url": "https://www.roboticsproceedings.org/rss21/p142.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p142.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Prompting with the Future: Open-World Model Predictive Control with Interactive Digital Twins",
+    "url": "https://www.roboticsproceedings.org/rss21/p145.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p145.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "Novel Demonstration Generation with Gaussian Splatting Enables Robust One-Shot Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss21/p146.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p146.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "RoboMIND: Benchmark on Multi-embodiment Intelligence Normative Data for Robot Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss21/p152.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p152.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "PIN-WM: Learning Physics-INformed World Models for Non-Prehensile Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss21/p153.html",
+    "pdf": "https://www.roboticsproceedings.org/rss21/p153.pdf",
+    "source": "https://www.roboticsproceedings.org/rss21/"
+  },
+  {
+    "title": "SID: Sliding into Distribution for Robust Few-Demonstration Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss22/p008.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p008.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "RAG-Diff: Adapting Diffusion Policies to Dynamic Constraints with Retrieval-Augmented Guidance",
+    "url": "https://www.roboticsproceedings.org/rss22/p011.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p011.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Self-Improving Robot Policy with Compositional World Model",
+    "url": "https://www.roboticsproceedings.org/rss22/p012.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p012.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "HAIC: Humanoid Agile Object Interaction Control via Dynamics-Aware World Model",
+    "url": "https://www.roboticsproceedings.org/rss22/p013.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p013.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Collaborating Visual and Parameter Spaces for Consistent Long-Horizon Embodied World Model",
+    "url": "https://www.roboticsproceedings.org/rss22/p014.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p014.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Act2Goal: From World Model To General Goal-conditioned Policy",
+    "url": "https://www.roboticsproceedings.org/rss22/p015.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p015.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Causal World Modeling for Robot Control",
+    "url": "https://www.roboticsproceedings.org/rss22/p016.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p016.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Simulation Distillation: Pretraining World Models in Simulation for Rapid Real-World Adaptation",
+    "url": "https://www.roboticsproceedings.org/rss22/p017.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p017.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Learning to Evolve: Multi-modal Interactive Fields for Robust Humanoid Navigation in Dynamic Environments",
+    "url": "https://www.roboticsproceedings.org/rss22/p023.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p023.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Distributed Pose Graph Optimization via Continuous Riemannian Dynamics",
+    "url": "https://www.roboticsproceedings.org/rss22/p032.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p032.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Adapting Execution-Time Objectives for Multi-Robot Policies via Collaborative Flow Policy Guidance",
+    "url": "https://www.roboticsproceedings.org/rss22/p033.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p033.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "A Closed-Loop Multi-Agent Framework for Robust Multi-Robot Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss22/p036.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p036.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Interactive Knowledge Distillation with Adaptive Teachers in Cooperative Multi-Agent Reinforcement Learning",
+    "url": "https://www.roboticsproceedings.org/rss22/p040.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p040.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "BIEVR-LIO: Robust LiDAR-Inertial Odometry through Bump-Image-Enhanced Voxel Maps",
+    "url": "https://www.roboticsproceedings.org/rss22/p049.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p049.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "CoRAL: Contact-Rich Adaptive LLM-based Control for Robotic Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss22/p054.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p054.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "DexEvolve: Evolutionary Optimization for Robust and Diverse Dexterous Grasp Synthesis",
+    "url": "https://www.roboticsproceedings.org/rss22/p059.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p059.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Distributionally Robust Control via Stein Variational Inference for Contact-rich Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss22/p061.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p061.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "LongNav-R1: Horizon-Adaptive Multi-Turn RL for Long-Horizon VLA Navigation",
+    "url": "https://www.roboticsproceedings.org/rss22/p068.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p068.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "SanD-Planner: Sample-Efficient Diffusion Planner in B-Spline Space for Robust Local Navigation",
+    "url": "https://www.roboticsproceedings.org/rss22/p069.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p069.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "LIBERO-X: Robustness Litmus for Vision-Language-Action Models",
+    "url": "https://www.roboticsproceedings.org/rss22/p097.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p097.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "cuNRTO: GPU-Accelerated Nonlinear Robust Trajectory Optimization",
+    "url": "https://www.roboticsproceedings.org/rss22/p102.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p102.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Safe Large-Scale Robust Nonlinear MPC in Milliseconds via Reachability-Constrained System Level Synthesis on the GPU",
+    "url": "https://www.roboticsproceedings.org/rss22/p103.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p103.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "asRoBallet: Closing the Sim2Real Gap via Friction-Aware Reinforcement Learning for Underactuated Spherical Dynamics",
+    "url": "https://www.roboticsproceedings.org/rss22/p105.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p105.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Stabilizing 3D Continuum-Arm Rollouts via Equilibrium Anchoring and Feature-Lifted Residual Learning",
+    "url": "https://www.roboticsproceedings.org/rss22/p106.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p106.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Learning-Based Adaptive Control for Surgical Robotic Exposure Task on Deformable Tissues",
+    "url": "https://www.roboticsproceedings.org/rss22/p107.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p107.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Tempered Sequential Monte Carlo for Trajectory and Policy Optimization with Differentiable Dynamics",
+    "url": "https://www.roboticsproceedings.org/rss22/p109.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p109.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Robots That Know What to Ask: Recovering Misaligned Rewards through Targeted Explanations",
+    "url": "https://www.roboticsproceedings.org/rss22/p116.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p116.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Embodiment Meets Environment: Toward Context-Aware, Safe Physical Caregiving Robots",
+    "url": "https://www.roboticsproceedings.org/rss22/p117.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p117.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Beyond Failure Recovery: An Engagement-Aware Human-in-the-loop Framework for Robotic Systems",
+    "url": "https://www.roboticsproceedings.org/rss22/p118.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p118.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "DexGrasp-Zero: A Morphology-Aligned Policy for Zero-Shot Cross-Embodiment Dexterous Grasping",
+    "url": "https://www.roboticsproceedings.org/rss22/p122.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p122.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "AxisGuide: Grounding Robot Action Coordinate System in RGB Observations for Robust Visuomotor Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss22/p125.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p125.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Adaptive Smooth Tchebycheff Attention for Multi-Objective Policy Optimization",
+    "url": "https://www.roboticsproceedings.org/rss22/p134.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p134.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Learning What Matters: Adaptive Information Theoretic Objectives for Robot Exploration",
+    "url": "https://www.roboticsproceedings.org/rss22/p137.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p137.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Emerging Extrinsic Dexterity in Cluttered Scenes via Dynamics-aware Policy Learning",
+    "url": "https://www.roboticsproceedings.org/rss22/p149.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p149.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "ViserDex: Visual Sim-to-Real for Robust Dexterous In-hand Reorientation",
+    "url": "https://www.roboticsproceedings.org/rss22/p150.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p150.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Toward Reliable Sim-to-Real Predictability for MoE-based Robust Quadrupedal Locomotion",
+    "url": "https://www.roboticsproceedings.org/rss22/p156.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p156.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Damage Adaptation in Seconds for Architected Materials",
+    "url": "https://www.roboticsproceedings.org/rss22/p158.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p158.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "NeuralActuator: Neural Actuation Modeling for Robot Dynamics and External Force Perception",
+    "url": "https://www.roboticsproceedings.org/rss22/p159.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p159.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "RIO: Flexible Real-time Robot I/O for Cross-Embodiment Robot Learning",
+    "url": "https://www.roboticsproceedings.org/rss22/p164.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p164.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "From Reaction to Anticipation: Proactive Failure Recovery through Agentic Task Graph for Robotic Manipulation",
+    "url": "https://www.roboticsproceedings.org/rss22/p180.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p180.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Parallel Differentiable Reachability for Learning and Planning with Certified Neural Dynamics and Controllers",
+    "url": "https://www.roboticsproceedings.org/rss22/p191.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p191.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "Active Surface-Driven Reconfigurable Gripper: Robust Grasping and Sequential Manipulation of Thin Objects",
+    "url": "https://www.roboticsproceedings.org/rss22/p200.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p200.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer",
+    "url": "https://www.roboticsproceedings.org/rss22/p203.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p203.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  },
+  {
+    "title": "LDA-1B: Scaling Latent Dynamics Action Model via Universal Embodied Data Ingestion",
+    "url": "https://www.roboticsproceedings.org/rss22/p210.html",
+    "pdf": "https://www.roboticsproceedings.org/rss22/p210.pdf",
+    "source": "https://www.roboticsproceedings.org/rss22/"
+  }
+]

@@ -1,0 +1,54 @@
+{
+    "robot_name": "gen_dog_77",
+    "drop_height": 0.3127638770343266,
+    "action_space": 12,
+    "apply_joint_limit_scale_joint_names": {
+        "front_left_knee_joint": 0,
+        "front_right_knee_joint": 0,
+        "rear_left_knee_joint": 1,
+        "rear_right_knee_joint": 0
+    },
+    "apply_joint_limit_scale_factor": 0.6,
+    "nominal_joint_positions": {
+        ".*_left_hip_pitch_joint": 0.1,
+        ".*_right_hip_pitch_joint": -0.1,
+        "front_.*_thigh_joint": 0.8,
+        "rear_.*_thigh_joint": 1.0,
+        ".*_knee_joint": -1.5
+    },
+    "reward_cfgs": {
+        "feet_ground_contact_cfg": ".*foot",
+        "feet_ground_asset_cfg": ".*foot",
+        "undesired_contact_cfg": [
+            ".*calf.*",
+            ".*thigh.*",
+            ".*trunk.*"
+        ],
+        "joint_hip_cfg": [
+            ".*hip.*joint"
+        ],
+        "joint_knee_cfg": [
+            ".*knee.*joint"
+        ],
+        "illegal_contact_cfg": [
+            ".*trunk.*",
+            ".*hip.*",
+            ".*thigh.*",
+            ".*calf.*"
+        ]
+    },
+    "actuators": {
+        "base_legs": {
+            "motor_type": "DCMotor",
+            "joint_names_expr": [
+                ".*joint"
+            ],
+            "effort_limit": 23.5,
+            "saturation_effort": 23.5,
+            "velocity_limit": 30.0,
+            "stiffness": 25.0,
+            "damping": 0.5,
+            "friction": 0.0
+        }
+    }
+}

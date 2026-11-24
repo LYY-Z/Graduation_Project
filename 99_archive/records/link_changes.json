@@ -1,0 +1,90 @@
+[
+  {
+    "file": "02_learning/00_learning_map.md",
+    "repaired_links": 1
+  },
+  {
+    "file": "02_learning/00_research_handoff.CN.md",
+    "repaired_links": 0
+  },
+  {
+    "file": "02_learning/README.md",
+    "repaired_links": 1
+  },
+  {
+    "file": "02_learning/diffusion_policy/README.md",
+    "repaired_links": 2
+  },
+  {
+    "file": "02_learning/diffusion_policy/05_deployment/01_system_and_code.md",
+    "repaired_links": 22
+  },
+  {
+    "file": "02_learning/diffusion_policy/05_deployment/02_hardware_and_observations.md",
+    "repaired_links": 2
+  },
+  {
+    "file": "02_learning/diffusion_policy/05_deployment/03_inference_and_actions.md",
+    "repaired_links": 2
+  },
+  {
+    "file": "02_learning/diffusion_policy/05_deployment/06_evidence_and_publication.md",
+    "repaired_links": 5
+  },
+  {
+    "file": "02_learning/diffusion_policy/05_deployment/README.md",
+    "repaired_links": 3
+  },
+  {
+    "file": "02_learning/diffusion_policy/06_refactored_code/README.md",
+    "repaired_links": 1
+  },
+  {
+    "file": "02_learning/flair/01_path_to_motion.md",
+    "repaired_links": 24
+  },
+  {
+    "file": "02_learning/flair/02_feedback_and_adaptation.md",
+    "repaired_links": 19
+  },
+  {
+    "file": "02_learning/flair/03_reproduction_and_metrics.md",
+    "repaired_links": 19
+  },
+  {
+    "file": "02_learning/flair/README.md",
+    "repaired_links": 3
+  },
+  {
+    "file": "02_learning/flair/reproduction_execution.md",
+    "repaired_links": 27
+  },
+  {
+    "file": "02_learning/locoformer/README.md",
+    "repaired_links": 2
+  },
+  {
+    "file": "02_learning/locoformer/go2_reproduction/04_reproduction_workplan.CN.md",
+    "repaired_links": 1
+  },
+  {
+    "file": "02_learning/reports/locoformer/paper.speech.CN.md",
+    "repaired_links": 1
+  },
+  {
+    "file": "02_learning/reports/locoformer/paper.speech.EN.md",
+    "repaired_links": 1
+  },
+  {
+    "file": "02_learning/reports/ur7e/deployment_brief.CN.md",
+    "repaired_links": 2
+  },
+  {
+    "file": "README.md",
+    "repaired_links": 3
+  },
+  {
+    "file": "03_code/references/README.md",
+    "repaired_links": 2
+  }
+]

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Go2-W joint and SDK channel map</title>
+  <desc id="desc">Top-view simplified diagram. Four leg triples are FR 0 to 2, FL 3 to 5, RR 6 to 8, RL 9 to 11; wheel channels are FR 12, FL 13, RR 14, RL 15.</desc>
+  <defs><style>
+    .bg{fill:#f5f7fa}.title{font:700 32px 'Segoe UI',Arial,sans-serif;fill:#14263d}.sub{font:18px 'Segoe UI',Arial,sans-serif;fill:#52657a}
+    .body{fill:#dce5ef;stroke:#24415f;stroke-width:3}.bodytxt{font:700 24px 'Segoe UI',Arial,sans-serif;fill:#213b56}
+    .leg{stroke:#55718e;stroke-width:10;stroke-linecap:round}.joint{fill:#2168a5;stroke:#fff;stroke-width:2}.jointtext{font:700 15px 'Segoe UI',Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+    .wheel{fill:#e7902f;stroke:#fff;stroke-width:3}.wheeltext{font:700 16px 'Segoe UI',Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+    .label{font:700 20px 'Segoe UI',Arial,sans-serif;fill:#213b56}.detail{font:16px 'Segoe UI',Arial,sans-serif;fill:#52657a}.legend{font:16px 'Segoe UI',Arial,sans-serif;fill:#334b64}
+  </style></defs>
+  <rect class="bg" width="1200" height="720" rx="20"/>
+  <text class="title" x="60" y="58">Go2-W 关节与 SDK 通道映射</text>
+  <text class="sub" x="60" y="91">俯视示意：前方在上，左右按机器人自身坐标。圆点内数字为零起始 SDK 电机索引。</text>
+  <text class="label" x="555" y="137" text-anchor="middle">FRONT / 机器人前方</text>
+  <path d="M555 148 L555 170" stroke="#52657a" stroke-width="2"/>
+  <rect class="body" x="365" y="190" width="380" height="330" rx="75"/>
+  <text class="bodytxt" x="555" y="330" text-anchor="middle">Go2-W</text>
+  <text class="detail" x="555" y="365" text-anchor="middle">机身 + IMU</text>
+  <text class="detail" x="555" y="393" text-anchor="middle">四腿 × 3 关节 + 四轮</text>
+  <text class="sub" x="555" y="570" text-anchor="middle">REAR / 机器人后方</text>
+  <line class="leg" x1="420" y1="245" x2="245" y2="155"/>
+  <circle class="joint" cx="380" cy="224" r="17"/><text class="jointtext" x="380" y="224">3</text>
+  <circle class="joint" cx="335" cy="201" r="17"/><text class="jointtext" x="335" y="201">4</text>
+  <circle class="joint" cx="290" cy="178" r="17"/><text class="jointtext" x="290" y="178">5</text>
+  <circle class="wheel" cx="220" cy="142" r="27"/><text class="wheeltext" x="220" y="142">13</text>
+  <text class="label" x="80" y="123">FL 左前</text><text class="detail" x="80" y="149">hip · thigh · calf</text><text class="detail" x="80" y="173">轮电机 13</text>
+  <line class="leg" x1="690" y1="245" x2="865" y2="155"/>
+  <circle class="joint" cx="730" cy="224" r="17"/><text class="jointtext" x="730" y="224">0</text>
+  <circle class="joint" cx="775" cy="201" r="17"/><text class="jointtext" x="775" y="201">1</text>
+  <circle class="joint" cx="820" cy="178" r="17"/><text class="jointtext" x="820" y="178">2</text>
+  <circle class="wheel" cx="895" cy="142" r="27"/><text class="wheeltext" x="895" y="142">12</text>
+  <text class="label" x="950" y="123">FR 右前</text><text class="detail" x="950" y="149">hip · thigh · calf</text><text class="detail" x="950" y="173">轮电机 12</text>
+  <line class="leg" x1="420" y1="455" x2="245" y2="545"/>
+  <circle class="joint" cx="380" cy="476" r="17"/><text class="jointtext" x="380" y="476">9</text>
+  <circle class="joint" cx="335" cy="499" r="17"/><text class="jointtext" x="335" y="499">10</text>
+  <circle class="joint" cx="290" cy="522" r="17"/><text class="jointtext" x="290" y="522">11</text>
+  <circle class="wheel" cx="220" cy="558" r="27"/><text class="wheeltext" x="220" y="558">15</text>
+  <text class="label" x="80" y="602">RL 左后</text><text class="detail" x="80" y="628">hip · thigh · calf · wheel 15</text>
+  <line class="leg" x1="690" y1="455" x2="865" y2="545"/>
+  <circle class="joint" cx="730" cy="476" r="17"/><text class="jointtext" x="730" y="476">6</text>
+  <circle class="joint" cx="775" cy="499" r="17"/><text class="jointtext" x="775" y="499">7</text>
+  <circle class="joint" cx="820" cy="522" r="17"/><text class="jointtext" x="820" y="522">8</text>
+  <circle class="wheel" cx="895" cy="558" r="27"/><text class="wheeltext" x="895" y="558">14</text>
+  <text class="label" x="950" y="602">RR 右后</text><text class="detail" x="950" y="628">hip · thigh · calf · wheel 14</text>
+  <circle class="joint" cx="395" cy="672" r="12"/><text class="legend" x="416" y="678">腿部关节电机，索引 0–11</text>
+  <circle class="wheel" cx="700" cy="672" r="12"/><text class="legend" x="721" y="678">轮电机，索引 12–15</text>
+</svg>

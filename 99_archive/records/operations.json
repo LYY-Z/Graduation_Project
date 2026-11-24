@@ -1,0 +1,312 @@
+[
+  {
+    "action": "move",
+    "source": "02_learning/research_screening_2026_11_21",
+    "destination": "02_learning/motion_control"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/flair_results",
+    "destination": "02_learning/flair/results"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/flair_reproduction_execution.md",
+    "destination": "02_learning/flair/reproduction_execution.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/flair_reproduction_summary.md",
+    "destination": "02_learning/flair/reproduction_summary.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/VNC",
+    "destination": "02_learning/platform/vnc"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/.build_tam/gram.pdf",
+    "destination": "01_papers/GRAM.pdf"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/.build_tam/sadl.pdf",
+    "destination": "01_papers/SADL.pdf"
+  },
+  {
+    "action": "move",
+    "source": "03_code/50_LocoFormer_Generalist_Locom_Supplementary Material/LocoFormer_Appendix.pdf",
+    "destination": "01_papers/locoformer_supplementary/LocoFormer_Appendix.pdf"
+  },
+  {
+    "action": "move",
+    "source": "03_code/50_LocoFormer_Generalist_Locom_Supplementary Material/CoRL_locoformer.mp4",
+    "destination": "01_papers/locoformer_supplementary/CoRL_locoformer.mp4"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/diffusion_policy/report.CN.pptx",
+    "destination": "02_learning/reports/diffusion_policy/report.CN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/diffusion_policy/speech.CN.docx",
+    "destination": "02_learning/reports/diffusion_policy/speech.CN.docx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/diffusion_policy/knowledge_review.CN.docx",
+    "destination": "02_learning/reports/diffusion_policy/knowledge_review.CN.docx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/flair/FLAIR_Paper_Review_and_Go2W_Research.CN.pptx",
+    "destination": "02_learning/reports/flair/report.CN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/flair/FLAIR_Paper_Review_and_Go2W_Research.EN.pptx",
+    "destination": "02_learning/reports/flair/report.EN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/flair/FLAIR_Presenter_Notes.CN.md",
+    "destination": "02_learning/reports/flair/speech.CN.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/locoformer/LocoFormer_Report.CN.pptx",
+    "destination": "02_learning/reports/locoformer/paper.CN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/locoformer/LocoFormer_Report.EN.pptx",
+    "destination": "02_learning/reports/locoformer/paper.EN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/locoformer/LocoFormer_Reproduction_Plan.CN.pptx",
+    "destination": "02_learning/reports/locoformer/reproduction.CN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/locoformer/LocoFormer_Reproduction_Plan.EN.pptx",
+    "destination": "02_learning/reports/locoformer/reproduction.EN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/locoformer/speech.CN.md",
+    "destination": "02_learning/reports/locoformer/paper.speech.CN.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/locoformer/speech.EN.md",
+    "destination": "02_learning/reports/locoformer/paper.speech.EN.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/motion_control/motion_control_review.CN.pptx",
+    "destination": "02_learning/reports/motion_control/report.CN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/motion_control/motion_control_review.EN.v3.pptx",
+    "destination": "02_learning/reports/motion_control/report.EN.pptx"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/motion_control/speech.CN.md",
+    "destination": "02_learning/reports/motion_control/speech.CN.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/motion_control/speech.EN.md",
+    "destination": "02_learning/reports/motion_control/speech.EN.md"
+  },
+  {
+    "action": "move",
+    "source": "02_learning/04_review/deliverables/ur7e/deployment_brief.CN.md",
+    "destination": "02_learning/reports/ur7e/deployment_brief.CN.md"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_dp_advisor_detailed_20261023\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_dp_advisor_v4\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_dp_advisor_v5\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_dp_report_rework_20261023\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_flair_group_meeting\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_locoformer_bilingual_20261102\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_locoformer_flow_20261102\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_locoformer_notes_20261102\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_locoformer_refinement_20261102\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\04_review\\.build_locoformer_report_20261101\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\locoformer\\go2_reproduction\\.build\\go2w_presentation\\node_modules"
+  },
+  {
+    "action": "unlink-junction",
+    "source": "02_learning\\locoformer\\go2_reproduction\\.build\\source_inspection\\node_modules"
+  },
+  {
+    "action": "remove",
+    "source": "03_code/diffusion_policy_ur7e_v1"
+  },
+  {
+    "action": "remove",
+    "source": "03_code/lyy_ws"
+  },
+  {
+    "action": "remove",
+    "source": "03_code/ur7e_deployment_reference"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/flair_reproduction_plan.md"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/flair_reproduction_plan_advisor.md"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/go2w_adaptive_control_workplan.md"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/go2w_research_briefing.md"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/go2w_research_topic.md"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/04_review"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/locoformer/go2_reproduction/.build"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/locoformer/go2_reproduction/archive"
+  },
+  {
+    "action": "remove",
+    "source": "02_learning/locoformer/go2_reproduction/details"
+  },
+  {
+    "action": "remove",
+    "source": "03_code/50_LocoFormer_Generalist_Locom_Supplementary Material"
+  },
+  {
+    "action": "remove",
+    "source": "03_code/50_LocoFormer_Generalist_Locom_Supplementary Material.zip"
+  },
+  {
+    "action": "remove",
+    "source": "money"
+  },
+  {
+    "action": "remove",
+    "source": "NVIDIA Corporation"
+  },
+  {
+    "action": "remove",
+    "source": "inspect.ndjson"
+  },
+  {
+    "action": "remove",
+    "source": ".chart-data-Hy0wbC"
+  },
+  {
+    "action": "remove",
+    "source": ".chart-data-xRqmvp"
+  },
+  {
+    "action": "remove",
+    "source": ".codex_presentation_validation"
+  },
+  {
+    "action": "remove",
+    "source": ".codex_presentation_validation_v3"
+  },
+  {
+    "action": "remove",
+    "source": ".codex_presentation_validation_v5"
+  },
+  {
+    "action": "remove",
+    "source": ".codex_presentation_validation_v6"
+  },
+  {
+    "action": "remove",
+    "source": ".codex_presentation_validation_v7"
+  },
+  {
+    "action": "remove",
+    "source": ".codex_presentation_validation_v8"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/documentation_updates"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/empty_01_papers_created_during_move"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/learning"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/learning_before_restructure_2026-10-22"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/learning_source_before_restructure"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/planning_records"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/review_cleanup"
+  },
+  {
+    "action": "remove",
+    "source": "99_archive/ur7e_refactor_legacy_20261026"
+  }
+]

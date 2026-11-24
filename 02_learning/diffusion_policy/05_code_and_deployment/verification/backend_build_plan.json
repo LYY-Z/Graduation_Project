@@ -1,0 +1,29 @@
+{
+  "commands": [
+    [
+      "cmake",
+      "-S",
+      "G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\.cache\\guarded_control\\20261026T161447Z_75a73b47\\source",
+      "-B",
+      "G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\.cache\\guarded_control\\20261026T161447Z_75a73b47\\build",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DEXAMPLES=OFF",
+      "-DPYTHON_BINDINGS=ON",
+      "-DPYTHON_EXECUTABLE=G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\.envs\\inference\\bin\\python",
+      "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\.cache\\guarded_control\\20261026T161447Z_75a73b47\\output",
+      "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+      "-DFETCHCONTENT_SOURCE_DIR_PYBIND11-SRC=G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\.cache\\guarded_control\\20261026T161447Z_75a73b47\\source\\pybind11"
+    ],
+    [
+      "cmake",
+      "--build",
+      "G:\\\u6bd5\u8bbe\\03_code\\diffusion_policy_ur7e_refactored\\.cache\\guarded_control\\20261026T161447Z_75a73b47\\build",
+      "--target",
+      "rtde_control",
+      "-j2"
+    ]
+  ],
+  "native_transport_test": true,
+  "install_environment": false,
+  "robot_connected": false
+}

@@ -1,0 +1,210 @@
+FFFFFFFFFF                                                               [100%]
+================================== FAILURES ===================================
+_ test_release_checks_both_pinned_source_trees_without_deserializing_a_model __
+
+    def test_release_checks_both_pinned_source_trees_without_deserializing_a_model():
+>       report = tool("verify_bundle").verify(ROOT, check_model=False)
+E       AttributeError: module 'test_tool_verify_bundle' has no attribute 'verify'
+
+tests\test_repository_tools.py:21: AttributeError
+_ test_public_file_selection_excludes_local_material_and_machine_configuration _
+
+tmp_path = WindowsPath('C:/Users/laiyo/AppData/Local/Temp/pytest-of-laiyo/pytest-35/test_public_file_selection_exc0')
+
+    def test_public_file_selection_excludes_local_material_and_machine_configuration(tmp_path):
+        for name in ["README.md", "config.example.yaml", "config.yaml", ".local/secret.txt", ".runtime/frame.npz", "runs/x/events.jsonl", "models/model.ckpt", "src/a.py"]:
+            path = tmp_path / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("fixture", encoding="utf-8")
+>       selection = {p.relative_to(tmp_path).as_posix() for p in tool("verify_bundle").public_files(tmp_path)}
+E       AttributeError: module 'test_tool_verify_bundle' has no attribute 'public_files'
+
+tests\test_repository_tools.py:33: AttributeError
+_ test_native_build_plan_stays_private_and_does_not_install_into_an_environment _
+
+tmp_path = WindowsPath('C:/Users/laiyo/AppData/Local/Temp/pytest-of-laiyo/pytest-35/test_native_build_plan_stays_p0')
+
+    def test_native_build_plan_stays_private_and_does_not_install_into_an_environment(tmp_path):
+>       commands = tool("build_backend").build_commands(
+            tmp_path / "source", tmp_path / "build", tmp_path / "output",
+            tmp_path / ".envs/inference/bin/python", jobs=2,
+        )
+
+tests\test_repository_tools.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'build_backend'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: build_backend has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/build_backend.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+____________ test_deployment_rejects_ambiguous_or_broad_targets[/] ____________
+
+destination = '/'
+
+    @pytest.mark.parametrize("destination", ["/", "/home", "relative/path", "/home/user/../other", "/home/user/."])
+    def test_deployment_rejects_ambiguous_or_broad_targets(destination):
+        with pytest.raises(ValueError):
+>           tool("deploy").validate_destination(destination)
+
+tests\test_repository_tools.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'deploy'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: deploy has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/deploy.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+__________ test_deployment_rejects_ambiguous_or_broad_targets[/home] __________
+
+destination = '/home'
+
+    @pytest.mark.parametrize("destination", ["/", "/home", "relative/path", "/home/user/../other", "/home/user/."])
+    def test_deployment_rejects_ambiguous_or_broad_targets(destination):
+        with pytest.raises(ValueError):
+>           tool("deploy").validate_destination(destination)
+
+tests\test_repository_tools.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'deploy'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: deploy has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/deploy.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+______ test_deployment_rejects_ambiguous_or_broad_targets[relative/path] ______
+
+destination = 'relative/path'
+
+    @pytest.mark.parametrize("destination", ["/", "/home", "relative/path", "/home/user/../other", "/home/user/."])
+    def test_deployment_rejects_ambiguous_or_broad_targets(destination):
+        with pytest.raises(ValueError):
+>           tool("deploy").validate_destination(destination)
+
+tests\test_repository_tools.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'deploy'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: deploy has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/deploy.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+___ test_deployment_rejects_ambiguous_or_broad_targets[/home/user/../other] ___
+
+destination = '/home/user/../other'
+
+    @pytest.mark.parametrize("destination", ["/", "/home", "relative/path", "/home/user/../other", "/home/user/."])
+    def test_deployment_rejects_ambiguous_or_broad_targets(destination):
+        with pytest.raises(ValueError):
+>           tool("deploy").validate_destination(destination)
+
+tests\test_repository_tools.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'deploy'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: deploy has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/deploy.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+______ test_deployment_rejects_ambiguous_or_broad_targets[/home/user/.] _______
+
+destination = '/home/user/.'
+
+    @pytest.mark.parametrize("destination", ["/", "/home", "relative/path", "/home/user/../other", "/home/user/."])
+    def test_deployment_rejects_ambiguous_or_broad_targets(destination):
+        with pytest.raises(ValueError):
+>           tool("deploy").validate_destination(destination)
+
+tests\test_repository_tools.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'deploy'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: deploy has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/deploy.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+_________ test_deployment_accepts_a_named_absolute_project_directory __________
+
+    def test_deployment_accepts_a_named_absolute_project_directory():
+>       assert tool("deploy").validate_destination("/home/example/lyy_ws/dp_project") == "/home/example/lyy_ws/dp_project"
+
+tests\test_repository_tools.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'deploy'
+
+    def tool(name):
+        path = ROOT / "scripts" / (name + ".py")
+>       assert path.is_file(), name + " has not been implemented"
+E       AssertionError: deploy has not been implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('G:/����/03_code/diffusion_policy_ur7e_refactored/scripts/deploy.py').is_file
+
+tests\test_repository_tools.py:13: AssertionError
+____ test_checkpoint_download_rejects_bad_hash_before_publishing_the_file _____
+
+tmp_path = WindowsPath('C:/Users/laiyo/AppData/Local/Temp/pytest-of-laiyo/pytest-35/test_checkpoint_download_rejec0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F6AC2A2580>
+
+    def test_checkpoint_download_rejects_bad_hash_before_publishing_the_file(tmp_path, monkeypatch):
+        module = tool("fetch_checkpoint")
+        class Response:
+            def __enter__(self): return self
+            def __exit__(self, *_): pass
+            def read(self, _):
+                if getattr(self, "done", False): return b""
+                self.done = True
+                return b"bad!"
+>       monkeypatch.setattr(module.urllib.request, "urlopen", lambda *a, **kw: Response())
+E       AttributeError: module 'test_tool_fetch_checkpoint' has no attribute 'urllib'
+
+tests\test_repository_tools.py:68: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/test_repository_tools.py::test_release_checks_both_pinned_source_trees_without_deserializing_a_model
+FAILED tests/test_repository_tools.py::test_public_file_selection_excludes_local_material_and_machine_configuration
+FAILED tests/test_repository_tools.py::test_native_build_plan_stays_private_and_does_not_install_into_an_environment
+FAILED tests/test_repository_tools.py::test_deployment_rejects_ambiguous_or_broad_targets[/]
+FAILED tests/test_repository_tools.py::test_deployment_rejects_ambiguous_or_broad_targets[/home]
+FAILED tests/test_repository_tools.py::test_deployment_rejects_ambiguous_or_broad_targets[relative/path]
+FAILED tests/test_repository_tools.py::test_deployment_rejects_ambiguous_or_broad_targets[/home/user/../other]
+FAILED tests/test_repository_tools.py::test_deployment_rejects_ambiguous_or_broad_targets[/home/user/.]
+FAILED tests/test_repository_tools.py::test_deployment_accepts_a_named_absolute_project_directory
+FAILED tests/test_repository_tools.py::test_checkpoint_download_rejects_bad_hash_before_publishing_the_file
+10 failed in 0.36s

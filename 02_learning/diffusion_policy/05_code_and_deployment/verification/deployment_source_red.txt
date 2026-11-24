@@ -1,0 +1,28 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___ test_deployment_keeps_every_file_required_by_the_pinned_source_manifest ___
+
+    def test_deployment_keeps_every_file_required_by_the_pinned_source_manifest():
+        module = tool("verify_bundle")
+        locked = json.loads((ROOT / "third_party/sources.json").read_text(encoding="utf-8"))
+        required = {
+            entry["root"] + "/" + item["path"]
+            for entry in [locked["diffusion_policy"], locked["ur_rtde_guarded"]]
+            for item in entry["files"]
+        }
+        selected = {path.relative_to(ROOT).as_posix() for path in module.public_files(ROOT)}
+>       assert required <= selected, sorted(required - selected)
+E       AssertionError: ['third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/PKG-INFO', 'third_party/ur_rtde_guarded/source/src/ur_rtde.e...ded/source/src/ur_rtde.egg-info/not-zip-safe', 'third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/top_level.txt']
+E       assert {'third_party...al.yaml', ...} <= {'.gitattribu...uide.md', ...}
+E         
+E         Extra items in the left set:
+E         'third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/SOURCES.txt'
+E         'third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/not-zip-safe'
+E         'third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/PKG-INFO'
+E         'third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/top_level.txt'
+E         'third_party/ur_rtde_guarded/source/src/ur_rtde.egg-info/dependency_links.txt'
+
+tests\test_repository_tools.py:58: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_repository_tools.py::test_deployment_keeps_every_file_required_by_the_pinned_source_manifest
+1 failed in 0.50s

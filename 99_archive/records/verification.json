@@ -1,0 +1,61 @@
+{
+  "protected_files_checked": 9244,
+  "checkpoint_sha256": "d68cdbcf9c21df724fb60f2573aa28a22a333f555225a2ec29cb6b7890608c56",
+  "markdown_files_checked": 97,
+  "issues": [],
+  "presentations": [
+    {
+      "path": "02_learning/reports/diffusion_policy/report.CN.pptx",
+      "slides": 10,
+      "notes": 10
+    },
+    {
+      "path": "02_learning/reports/flair/report.CN.pptx",
+      "slides": 13,
+      "notes": 13
+    },
+    {
+      "path": "02_learning/reports/flair/report.EN.pptx",
+      "slides": 13,
+      "notes": 13
+    },
+    {
+      "path": "02_learning/reports/locoformer/paper.CN.pptx",
+      "slides": 14,
+      "notes": 14
+    },
+    {
+      "path": "02_learning/reports/locoformer/paper.EN.pptx",
+      "slides": 14,
+      "notes": 14
+    },
+    {
+      "path": "02_learning/reports/locoformer/reproduction.CN.pptx",
+      "slides": 10,
+      "notes": 10
+    },
+    {
+      "path": "02_learning/reports/locoformer/reproduction.EN.pptx",
+      "slides": 10,
+      "notes": 10
+    },
+    {
+      "path": "02_learning/reports/motion_control/report.CN.pptx",
+      "slides": 13,
+      "notes": 13
+    },
+    {
+      "path": "02_learning/reports/motion_control/report.EN.pptx",
+      "slides": 13,
+      "notes": 13
+    }
+  ],
+  "before": {
+    "bytes": 14773206418,
+    "files": 152232
+  },
+  "interim_after": {
+    "bytes": 1413393679,
+    "files": 9524
+  }
+}

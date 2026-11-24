@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-23",
+  "root": "G:/毕设",
+  "archives": {
+    "presentation_sources.zip": {
+      "sha256": "b5075a94d659e227d3e6628e7912a29ce04a007be4b073bac93eb15d9caceaa4",
+      "bytes": 19120501,
+      "files": 377
+    },
+    "legacy_documents.zip": {
+      "sha256": "58448f1234b6c24b271235f488774f4366df10638131ce64b09ed36de51c0969",
+      "bytes": 21415627,
+      "files": 64
+    },
+    "legacy_code.zip": {
+      "sha256": "974e312381dea8ee09387a8dfbaa8ca3dad82eb83ef94d210e421988eae30c21",
+      "bytes": 84304153,
+      "files": 3656
+    },
+    "prior_archives.zip": {
+      "sha256": "8b24b2ee83ca387ff872ce8cc8bc2fbe85a39503347011b198b53253e8811d14",
+      "bytes": 32081382,
+      "files": 459
+    },
+    "documentation_before.zip": {
+      "sha256": "04db239014c9120ed645c9774232b4fbaeef3d805d6c1525a903640904ba8308",
+      "bytes": 756270,
+      "files": 128
+    }
+  },
+  "audit_records": {
+    "sha256": "6ac2d8c8925512901e8f0424f6713f1f4befbef15c16ba883b6df3003876d534",
+    "bytes": 3202631,
+    "members": [
+      {
+        "name": "apply_cleanup.ps1",
+        "sha256": "c95c21f805bb4537f5a94fd39d4da755e89858234b0ef21f6fbce329aa8e5ecb",
+        "bytes": 3847
+      },
+      {
+        "name": "broken_links.json",
+        "sha256": "a1abfb79f69b8e897df296bbbe26e6543c99871227311a515f802739084a026c",
+        "bytes": 181
+      },
+      {
+        "name": "compact_audit.py",
+        "sha256": "541b6f4fd53a93bd89454b874862089b6b5bcf82ecc35f45a89c35d7f13b6f79",
+        "bytes": 1519
+      },
+      {
+        "name": "inventory.before.json",
+        "sha256": "d59a1d41781aa47def577fe340a0c0964da5e4fe1335afb5667de1cbdfceef91",
+        "bytes": 33763823
+      },
+      {
+        "name": "link_changes.json",
+        "sha256": "933d0dcf940be9d6e06ff1daa510537f472962a362af217355d6098975910168",
+        "bytes": 2177
+      },
+      {
+        "name": "operations.json",
+        "sha256": "24fb6815bbe88b72ef6a4f61de93cb7cd6705ea3357a01434275015b0bb95224",
+        "bytes": 9225
+      },
+      {
+        "name": "plan.json",
+        "sha256": "0b3d69dc77fa3a3fcf6bcd6f491adc8f221b37b09cc3677700ac22f66c6e587c",
+        "bytes": 38571410
+      },
+      {
+        "name": "prepare_cleanup.py",
+        "sha256": "c29e8f5e7b7c5aa80d0a0ba95f42c4155de38321d0b907579485054844ac13dc",
+        "bytes": 10754
+      },
+      {
+        "name": "refresh_indexes.py",
+        "sha256": "39ac5ba81754cef1733b1935c01af49c5206f29df8c2cf4c52e6fb61aa3d3614",
+        "bytes": 10572
+      },
+      {
+        "name": "repair_links.py",
+        "sha256": "342a0f4a7f166bcad8c0a7ccfad9eb7875ffeaa91034fea5fbc9af604c64bb3a",
+        "bytes": 5964
+      },
+      {
+        "name": "verification.json",
+        "sha256": "f5ca6ca4d6ffc7d6b0105a7d83e469233c31dae85b47131cee806531bacef782",
+        "bytes": 1435
+      },
+      {
+        "name": "verify_cleanup.py",
+        "sha256": "c8b4e4474cca3b236cb46fa113b54f041f0ec271e9fc7a473390062638804882",
+        "bytes": 3460
+      }
+    ]
+  },
+  "moves": {
+    "02_learning/research_screening_2026_11_21": "02_learning/motion_control",
+    "02_learning/flair_results": "02_learning/flair/results",
+    "02_learning/flair_reproduction_execution.md": "02_learning/flair/reproduction_execution.md",
+    "02_learning/flair_reproduction_summary.md": "02_learning/flair/reproduction_summary.md",
+    "02_learning/VNC": "02_learning/platform/vnc",
+    "02_learning/04_review/.build_tam/gram.pdf": "01_papers/GRAM.pdf",
+    "02_learning/04_review/.build_tam/sadl.pdf": "01_papers/SADL.pdf",
+    "03_code/50_LocoFormer_Generalist_Locom_Supplementary Material/LocoFormer_Appendix.pdf": "01_papers/locoformer_supplementary/LocoFormer_Appendix.pdf",
+    "03_code/50_LocoFormer_Generalist_Locom_Supplementary Material/CoRL_locoformer.mp4": "01_papers/locoformer_supplementary/CoRL_locoformer.mp4",
+    "02_learning/04_review/deliverables/diffusion_policy/report.CN.pptx": "02_learning/reports/diffusion_policy/report.CN.pptx",
+    "02_learning/04_review/deliverables/diffusion_policy/speech.CN.docx": "02_learning/reports/diffusion_policy/speech.CN.docx",
+    "02_learning/04_review/deliverables/diffusion_policy/knowledge_review.CN.docx": "02_learning/reports/diffusion_policy/knowledge_review.CN.docx",
+    "02_learning/04_review/deliverables/flair/FLAIR_Paper_Review_and_Go2W_Research.CN.pptx": "02_learning/reports/flair/report.CN.pptx",
+    "02_learning/04_review/deliverables/flair/FLAIR_Paper_Review_and_Go2W_Research.EN.pptx": "02_learning/reports/flair/report.EN.pptx",
+    "02_learning/04_review/deliverables/flair/FLAIR_Presenter_Notes.CN.md": "02_learning/reports/flair/speech.CN.md",
+    "02_learning/04_review/deliverables/locoformer/LocoFormer_Report.CN.pptx": "02_learning/reports/locoformer/paper.CN.pptx",
+    "02_learning/04_review/deliverables/locoformer/LocoFormer_Report.EN.pptx": "02_learning/reports/locoformer/paper.EN.pptx",
+    "02_learning/04_review/deliverables/locoformer/LocoFormer_Reproduction_Plan.CN.pptx": "02_learning/reports/locoformer/reproduction.CN.pptx",
+    "02_learning/04_review/deliverables/locoformer/LocoFormer_Reproduction_Plan.EN.pptx": "02_learning/reports/locoformer/reproduction.EN.pptx",
+    "02_learning/04_review/deliverables/locoformer/speech.CN.md": "02_learning/reports/locoformer/paper.speech.CN.md",
+    "02_learning/04_review/deliverables/locoformer/speech.EN.md": "02_learning/reports/locoformer/paper.speech.EN.md",
+    "02_learning/04_review/deliverables/motion_control/motion_control_review.CN.pptx": "02_learning/reports/motion_control/report.CN.pptx",
+    "02_learning/04_review/deliverables/motion_control/motion_control_review.EN.v3.pptx": "02_learning/reports/motion_control/report.EN.pptx",
+    "02_learning/04_review/deliverables/motion_control/speech.CN.md": "02_learning/reports/motion_control/speech.CN.md",
+    "02_learning/04_review/deliverables/motion_control/speech.EN.md": "02_learning/reports/motion_control/speech.EN.md",
+    "02_learning/04_review/deliverables/ur7e/deployment_brief.CN.md": "02_learning/reports/ur7e/deployment_brief.CN.md"
+  },
+  "checkpoint": {
+    "path": "03_code/diffusion_policy_ur7e/models/pusht_image_transformer.ckpt",
+    "sha256": "d68cdbcf9c21df724fb60f2573aa28a22a333f555225a2ec29cb6b7890608c56",
+    "deduplicated": [
+      "03_code/diffusion_policy_ur7e_v1/models/pusht_image_transformer.ckpt",
+      "03_code/lyy_ws/diffusion_policy_ur7e/models/pusht_image_transformer.ckpt"
+    ]
+  },
+  "verification": {
+    "protected_files_checked": 9244,
+    "checkpoint_sha256": "d68cdbcf9c21df724fb60f2573aa28a22a333f555225a2ec29cb6b7890608c56",
+    "markdown_files_checked": 97,
+    "issues": [],
+    "presentations": [
+      {
+        "path": "02_learning/reports/diffusion_policy/report.CN.pptx",
+        "slides": 10,
+        "notes": 10
+      },
+      {
+        "path": "02_learning/reports/flair/report.CN.pptx",
+        "slides": 13,
+        "notes": 13
+      },
+      {
+        "path": "02_learning/reports/flair/report.EN.pptx",
+        "slides": 13,
+        "notes": 13
+      },
+      {
+        "path": "02_learning/reports/locoformer/paper.CN.pptx",
+        "slides": 14,
+        "notes": 14
+      },
+      {
+        "path": "02_learning/reports/locoformer/paper.EN.pptx",
+        "slides": 14,
+        "notes": 14
+      },
+      {
+        "path": "02_learning/reports/locoformer/reproduction.CN.pptx",
+        "slides": 10,
+        "notes": 10
+      },
+      {
+        "path": "02_learning/reports/locoformer/reproduction.EN.pptx",
+        "slides": 10,
+        "notes": 10
+      },
+      {
+        "path": "02_learning/reports/motion_control/report.CN.pptx",
+        "slides": 13,
+        "notes": 13
+      },
+      {
+        "path": "02_learning/reports/motion_control/report.EN.pptx",
+        "slides": 13,
+        "notes": 13
+      }
+    ],
+    "before": {
+      "bytes": 14773206418,
+      "files": 152232
+    },
+    "interim_after": {
+      "bytes": 1413393679,
+      "files": 9524
+    }
+  },
+  "compact_remove": [
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\apply_cleanup.ps1",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\broken_links.json",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\compact_audit.py",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\inventory.before.json",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\link_changes.json",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\operations.json",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\plan.json",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\prepare_cleanup.py",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\refresh_indexes.py",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\repair_links.py",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\verification.json",
+    "G:\\毕设\\99_archive\\workspace_cleanup_20261123\\verify_cleanup.py"
+  ],
+  "after": {
+    "bytes": 1416611701,
+    "files": 9529,
+    "markdown_checked": 98,
+    "broken_links": 0
+  },
+  "released_bytes": 13356594717,
+  "status": "complete_with_raw_audit_retained",
+  "raw_audit_note": "Final removal of raw audit records was rejected by automatic approval review. Originals retained."
+}

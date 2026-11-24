@@ -1,0 +1,9 @@
+Processing g:\����\03_code\diffusion_policy_ur7e_refactored
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: dp-ur7e
+  Building wheel for dp-ur7e (pyproject.toml): started
+  Building wheel for dp-ur7e (pyproject.toml): finished with status 'done'
+  Created wheel for dp-ur7e: filename=dp_ur7e-0.2.0-py3-none-any.whl size=30255 sha256=789caae979e56a40f3a17a3ddcd9d887476b6debf2e86350782d3b5f856557d7
+  Stored in directory: C:\Users\laiyo\AppData\Local\Temp\pip-ephem-wheel-cache-abosdap3\wheels\6b\70\f8\101838b7f81646898eadb377a76904561b44959a42047007f1
+Successfully built dp-ur7e
