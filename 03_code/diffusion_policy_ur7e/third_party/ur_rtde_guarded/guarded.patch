@@ -1,0 +1,331 @@
+--- a/include/ur_rtde/rtde.h
++++ b/include/ur_rtde/rtde.h
+@@ -198,7 +198,7 @@
+ 
+  public:
+   RTDE_EXPORT void connect();
+-  RTDE_EXPORT void disconnect(bool send_pause = true);
++  RTDE_EXPORT void disconnect(bool send_pause = false);
+   RTDE_EXPORT bool isConnected();
+   RTDE_EXPORT bool isStarted();
+   RTDE_EXPORT bool isDataAvailable();
+@@ -208,7 +208,7 @@
+   RTDE_EXPORT boost::system::error_code receiveData(std::shared_ptr<RobotState> &robot_state);
+ 
+   RTDE_EXPORT void send(const RobotCommand &robot_cmd);
+-  RTDE_EXPORT void sendAll(const std::uint8_t &command, std::string payload = "");
++  RTDE_EXPORT void sendAll(const std::uint8_t &command, std::string payload = "", bool immediate = false);
+   RTDE_EXPORT void sendStart();
+   RTDE_EXPORT void sendPause();
+   RTDE_EXPORT bool sendOutputSetup(const std::vector<std::string> &output_names, double frequency);
+--- a/include/ur_rtde/rtde_control_interface.h
++++ b/include/ur_rtde/rtde_control_interface.h
+@@ -18,9 +18,9 @@
+ #define CB3_MAJOR_VERSION 3
+ #define UR_CONTROLLER_RDY_FOR_CMD 1
+ #define UR_CONTROLLER_DONE_WITH_CMD 2
+-#define UR_EXECUTION_TIMEOUT 300
+-#define UR_PATH_EXECUTION_TIMEOUT 600
+-#define UR_GET_READY_TIMEOUT 3
++#define UR_EXECUTION_TIMEOUT 1
++#define UR_PATH_EXECUTION_TIMEOUT 2
++#define UR_GET_READY_TIMEOUT 1
+ #define RTDE_START_SYNCHRONIZATION_TIMEOUT 5
+ #define WAIT_FOR_PROGRAM_RUNNING_TIMEOUT 60
+ #define RT_PRIORITY_UNDEFINED 0
+@@ -1233,11 +1233,15 @@
+  private:
+   bool setupRecipes(const double &frequency);
+ 
++  std::atomic<bool> guarded_connection_failed_{false};
+   bool sendCommand(const RTDE::RobotCommand &cmd);
+ 
+   void sendClearCommand();
+ 
++ public:
++  // Cached read-only readiness for the external guarded dispatch gate.
+   int getControlScriptState();
++ private:
+ 
+   bool isProtectiveStopped();
+ 
+--- a/src/rtde.cpp
++++ b/src/rtde.cpp
+@@ -16,6 +16,9 @@
+ #include <thread>
+ #include <tuple>
+ #include <type_traits>
++#include <cerrno>
++#include <poll.h>
++#include <sys/socket.h>
+ 
+ const unsigned HEADER_SIZE = 3;
+ #define RTDE_PROTOCOL_VERSION 2
+@@ -289,11 +292,11 @@
+   cmd_packed.insert(cmd_packed.begin(), robot_cmd.recipe_id_);
+   std::string sent(cmd_packed.begin(), cmd_packed.end());
+ 
+-  sendAll(command, sent);
++  sendAll(command, sent, robot_cmd.type_ == RobotCommand::MOVEL);
+   DEBUG("Done sending RTDE_DATA_PACKAGE");
+ }
+ 
+-void RTDE::sendAll(const std::uint8_t &command, std::string payload)
++void RTDE::sendAll(const std::uint8_t &command, std::string payload, bool immediate)
+ {
+   DEBUG("Payload size is: " << payload.size());
+   // Pack size and command into header
+@@ -318,7 +321,37 @@
+   // function is RTDE is disconnected - i.e. in case of desynchronization
+   if (isConnected())
+   {
+-    boost::asio::write(*socket_, boost::asio::buffer(header_packed, header_packed.size()));
++    if (immediate)
++    {
++      ssize_t written = ::send(socket_->native_handle(), header_packed.data(),
++          header_packed.size(), MSG_DONTWAIT | MSG_NOSIGNAL);
++      if (written != static_cast<ssize_t>(header_packed.size()))
++        throw std::runtime_error("Guarded backend: motion packet was not sent immediately in full");
++      return;
++    }
++    // First-motion Linux fork: one bounded packet transmission, never a command retry.
++    const auto deadline = std::chrono::steady_clock::now() + std::chrono::milliseconds(500);
++    std::size_t offset = 0;
++    while (offset < header_packed.size())
++    {
++      auto remaining = std::chrono::duration_cast<std::chrono::milliseconds>(
++          deadline - std::chrono::steady_clock::now()).count();
++      if (remaining <= 0)
++        throw std::runtime_error("Guarded backend: RTDE packet send timeout");
++      struct pollfd descriptor = {socket_->native_handle(), POLLOUT, 0};
++      int ready = ::poll(&descriptor, 1, static_cast<int>(remaining));
++      if (ready < 0 && errno == EINTR)
++        continue;
++      if (ready <= 0 || (descriptor.revents & (POLLERR | POLLHUP | POLLNVAL)))
++        throw std::runtime_error("Guarded backend: RTDE socket write failed or timed out");
++      ssize_t written = ::send(descriptor.fd, header_packed.data() + offset,
++          header_packed.size() - offset, MSG_DONTWAIT | MSG_NOSIGNAL);
++      if (written < 0 && (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR))
++        continue;
++      if (written <= 0)
++        throw std::runtime_error("Guarded backend: RTDE socket send failed");
++      offset += static_cast<std::size_t>(written);
++    }
+   }
+ }
+ 
+@@ -481,7 +514,7 @@
+ {
+   if (timeout_ms < 0)
+   {
+-    timeout_ms = 2500;
++    timeout_ms = 500;
+   }
+ 
+   // Set a deadline for the asynchronous operation. Since this function uses
+--- a/src/rtde_control_interface.cpp
++++ b/src/rtde_control_interface.cpp
+@@ -325,6 +325,8 @@
+ 
+ AsyncOperationStatus RTDEControlInterface::getAsyncOperationProgressEx()
+ {
++  if (guarded_connection_failed_)
++    throw std::runtime_error("Guarded backend: connection fault is latched");
+   std::string output_int_register_key = "output_int_register_" + std::to_string(2 + register_offset_);
+   int32_t output_int_register_val;
+   if (robot_state_->getStateData(output_int_register_key, output_int_register_val))
+@@ -383,7 +385,7 @@
+ 
+ bool RTDEControlInterface::isConnected()
+ {
+-  return rtde_->isConnected();
++  return !guarded_connection_failed_ && rtde_->isConnected();
+ }
+ 
+ bool RTDEControlInterface::waitForNextState()
+@@ -842,35 +844,10 @@
+ 
+     if (should_reconnect)
+     {
+-      try
+-      {
+-        if (rtde_ != nullptr)
+-        {
+-          std::cout << "Reconnecting..." << std::endl;
+-          if (rtde_->isConnected())
+-            rtde_->disconnect();
+-
+-          if (!rtde_->isConnected())
+-          {
+-            std::cerr << "RTDEControlInterface: Robot is disconnected, reconnecting..." << std::endl;
+-            reconnect();
+-          }
+-
+-          if (rtde_->isConnected())
+-            std::cout << "RTDEControlInterface: Successfully reconnected!" << std::endl;
+-          else
+-            throw std::runtime_error("Could not recover from losing connection to robot!");
+-        }
+-      }
+-      catch (std::exception &e)
+-      {
+-        std::cerr << "RTDEControlInterface Exception: " << e.what() << std::endl;
+-        th_.signalStop();
+-        return;
+-        // is it save to throw exceptions in an ASIO async handler? If this line
+-        // is not disables, it will crash the application
+-        // throw std::runtime_error("RTDEControlInterface: Could not reconnect to robot...");
+-      }
++      // Guarded first-motion fork: never recover/reupload from the reader thread.
++      guarded_connection_failed_ = true;
++      th_.signalStop();
++      return;
+     }
+   }
+ }
+@@ -880,7 +857,8 @@
+   RTDE::RobotCommand robot_cmd;
+   robot_cmd.type_ = RTDE::RobotCommand::Type::STOP_SCRIPT;
+   robot_cmd.recipe_id_ = RTDE::RobotCommand::Recipe::RECIPE_4;
+-  sendCommand(robot_cmd);
++  if (!sendCommand(robot_cmd))
++    throw std::runtime_error("Guarded backend: stopScript was not acknowledged");
+ }
+ 
+ void RTDEControlInterface::stopL(double a, bool async)
+@@ -893,7 +871,8 @@
+   else
+     robot_cmd.async_ = 0;
+   robot_cmd.val_.push_back(a);
+-  sendCommand(robot_cmd);
++  if (!sendCommand(robot_cmd))
++    throw std::runtime_error("Guarded backend: stopL was not acknowledged");
+ }
+ 
+ void RTDEControlInterface::stopJ(double a, bool async)
+@@ -2511,6 +2490,8 @@
+ 
+ bool RTDEControlInterface::sendCommand(const RTDE::RobotCommand &cmd)
+ {
++  if (guarded_connection_failed_)
++    return false;
+   std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();
+ 
+   try
+@@ -2530,8 +2511,13 @@
+ 
+     if (isProgramRunning() || custom_script_ || custom_script_running_ || use_external_control_ur_cap_)
+     {
++      if (cmd.type_ == RTDE::RobotCommand::Type::MOVEL &&
++          getControlScriptState() != UR_CONTROLLER_RDY_FOR_CMD)
++        return false;  // Never queue a stale motion behind a prior command.
+       while (getControlScriptState() != UR_CONTROLLER_RDY_FOR_CMD)
+       {
++        if (guarded_connection_failed_)
++          return false;
+         // If robot is in an emergency or protective stop return false
+         if (isProtectiveStopped() || isEmergencyStopped())
+         {
+@@ -2541,7 +2527,7 @@
+ 
+         // Wait until the controller is ready for a command or timeout
+         std::chrono::steady_clock::time_point current_time = std::chrono::steady_clock::now();
+-        auto duration = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
++        auto duration = std::chrono::duration<double>(current_time - start_time).count();
+         if (duration > UR_GET_READY_TIMEOUT)
+         {
+           sendClearCommand();
+@@ -2578,9 +2564,10 @@
+ 
+         if (cmd.type_ != RTDE::RobotCommand::Type::STOP_SCRIPT)
+         {
+-          start_time = std::chrono::steady_clock::now();
+           while (getControlScriptState() != UR_CONTROLLER_DONE_WITH_CMD)
+           {
++            if (guarded_connection_failed_)
++              return false;
+             // if the script causes an error, for example because of inverse
+             // kinematics calculation failed, then it may be that the script no
+             // longer runs an we will never receive the UR_CONTROLLER_DONE_WITH_CMD
+@@ -2601,7 +2588,7 @@
+ 
+             // Wait until the controller has finished executing or timeout
+             auto current_time = std::chrono::steady_clock::now();
+-            auto duration = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
++            auto duration = std::chrono::duration<double>(current_time - start_time).count();
+             if (duration > UR_EXECUTION_TIMEOUT)
+             {
+               sendClearCommand();
+@@ -2624,6 +2611,8 @@
+           {
+             while (isProgramRunning())
+             {
++              if (guarded_connection_failed_)
++                return false;
+               // If robot is in an emergency or protective stop return false
+               if (isProtectiveStopped() || isEmergencyStopped())
+               {
+@@ -2633,7 +2622,7 @@
+ 
+               // Wait for program to stop running or timeout
+               auto current_time = std::chrono::steady_clock::now();
+-              auto duration = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
++              auto duration = std::chrono::duration<double>(current_time - start_time).count();
+               if (duration > UR_EXECUTION_TIMEOUT)
+               {
+                 sendClearCommand();
+@@ -2660,6 +2649,7 @@
+   catch (std::exception &e)
+   {
+     std::cerr << "RTDEControlInterface: Lost connection to robot..." << std::endl;
++    guarded_connection_failed_ = true;
+     std::cerr << e.what() << std::endl;
+     if (rtde_ != nullptr)
+     {
+@@ -2670,9 +2660,8 @@
+ 
+   if (!rtde_->isConnected())
+   {
+-    std::cerr << "RTDEControlInterface: Robot is disconnected, reconnecting..." << std::endl;
+-    reconnect();
+-    return sendCommand(cmd);
++    std::cerr << "Guarded backend: disconnected; no reconnect or command replay" << std::endl;
++    return false;
+   }
+   sendClearCommand();
+   return false;
+@@ -2680,6 +2669,8 @@
+ 
+ void RTDEControlInterface::sendClearCommand()
+ {
++  if (guarded_connection_failed_)
++    return;
+   RTDE::RobotCommand clear_cmd;
+   clear_cmd.type_ = RTDE::RobotCommand::Type::NO_CMD;
+   clear_cmd.recipe_id_ = RTDE::RobotCommand::Recipe::RECIPE_4;
+--- a/src/rtde_python_bindings.cpp
++++ b/src/rtde_python_bindings.cpp
+@@ -16,9 +16,13 @@
+ 
+ namespace rtde_control
+ {
+-PYBIND11_MODULE(rtde_control, m)
++PYBIND11_MODULE(dp_ur7e_rtde_control, m)
+ {
+   m.doc() = "RTDE Control Interface";
++  m.attr("guarded_no_reconnect") = true;
++  m.attr("guarded_immediate_motion_dispatch") = true;
++  m.attr("guarded_command_timeout_s") = 1.0;
++  m.attr("guarded_send_timeout_s") = 0.5;
+ 
+   py::class_<PathEntry> pentry(m, "PathEntry");
+   pentry.def(py::init<PathEntry::eMoveType, PathEntry::ePositionType, std::vector<double>>(), py::arg("move_type"), py::arg("position_type"), py::arg("parameters"))
+@@ -58,6 +62,8 @@
+ 
+ 
+   py::class_<RTDEControlInterface> control(m, "RTDEControlInterface");
++  control.def("guarded_ready", &RTDEControlInterface::getControlScriptState,
++              py::call_guard<py::gil_scoped_release>());
+   py::enum_<RTDEControlInterface::Flags>(control, "Flags", py::arithmetic())
+       .value("FLAG_UPLOAD_SCRIPT", RTDEControlInterface::Flags::FLAG_UPLOAD_SCRIPT)
+       .value("FLAG_USE_EXT_UR_CAP", RTDEControlInterface::Flags::FLAG_USE_EXT_UR_CAP)

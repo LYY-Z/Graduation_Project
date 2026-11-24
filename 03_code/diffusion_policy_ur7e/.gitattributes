@@ -1,0 +1,6 @@
+* text=auto eol=lf
+third_party/** -text
+*.ckpt binary
+*.npz binary
+*.png binary
+*.jpg binary

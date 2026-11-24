@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "scope": "historical_original_release_only",
+  "refactored_hardware_revalidated": false,
+  "task_success_evaluated": false,
+  "source_run_id": "20261025T085457Z_live",
+  "upstream_commit": "5ba07ac6661db573af695b419a7947ecb704690f",
+  "checkpoint_sha256": "d68cdbcf9c21df724fb60f2573aa28a22a333f555225a2ec29cb6b7890608c56",
+  "hardware_reference": {
+    "record_date": "2026-10-25",
+    "robot": {
+      "model": "UR7e",
+      "controller": "CB5 v5.5",
+      "polyscope_version": "5.23.0",
+      "version_source": "Technical Report on Manipulator UR7e",
+      "report_tcp_offset_m_rad": [0, 0, 0.244, 0, 0, 0],
+      "requested_rtde_receive_hz": 125
+    },
+    "camera": {
+      "model": "Orbbec Gemini 335L",
+      "firmware_version": "1.4.60",
+      "sdk_version": "2.7.6",
+      "ros_package": "orbbec_camera",
+      "ros_wrapper_version": null,
+      "ros_wrapper_version_status": "not_recorded; inspect installed package.xml",
+      "launch_file": "gemini_330_series.launch.py",
+      "requested_color_width": 640,
+      "requested_color_height": 480,
+      "requested_color_fps": 30,
+      "requested_color_format": "MJPG",
+      "observed_topic": "/wrist_camera/color/image_raw",
+      "observed_encoding": "rgb8",
+      "observed_frame_id": "wrist_camera_color_optical_frame",
+      "source_record": "camera_result.json",
+      "source_record_sha256": "7c2e6ba4b948fb457a866dc535dfd575a9968a1065bd6197c76cecd4e5d19741"
+    }
+  },
+  "non_motion_example": {
+    "source_run_id": "20261025T073651Z_4b65b2f2",
+    "source_version_scope": "original_implementation_record",
+    "mode": "shadow",
+    "prediction_records": 1,
+    "image_shape": [1, 2, 3, 96, 96],
+    "agent_pos_shape": [1, 2, 2],
+    "input_dtype": "float32",
+    "recorded_action_pred_px_shape": [10, 2],
+    "recorded_action_segment_shape": [8, 2],
+    "executed": false,
+    "acknowledged_motions": 0,
+    "completed_motions": 0,
+    "feedback_samples": 0,
+    "run_completed": true,
+    "task_success_evaluated": false
+  },
+  "completed_motions": 3,
+  "motion_dispatch_intents": 3,
+  "acknowledged_motions": 3,
+  "feedback_samples": 132,
+  "command_displacements_mm": [
+    0.500405,
+    0.77397,
+    0.84464
+  ],
+  "measured_displacements_mm": [
+    0.494955,
+    0.751001,
+    0.83142
+  ],
+  "endpoint_errors_mm": [
+    0.01385,
+    0.025017,
+    0.017835
+  ],
+  "commanded_path_mm": 2.119015,
+  "net_measured_displacement_mm": 2.02226,
+  "inference_seconds": [
+    0.602357,
+    0.600784,
+    0.602541
+  ],
+  "source_age_at_dispatch_seconds": [
+    1.017711,
+    0.858719,
+    0.891487
+  ],
+  "definitions": {
+    "command_displacements_mm": "Euclidean distance from actual pre-dispatch TCP to commanded target.",
+    "measured_displacements_mm": "Euclidean distance between actual TCP before dispatch and actual settled TCP.",
+    "endpoint_errors_mm": "Distance between commanded target and settled actual TCP.",
+    "commanded_path_mm": "Sum of commanded displacements, distinct from net measured displacement.",
+    "task_success": "No Push-T task success, calibrated camera projection, or policy quality result is claimed."
+  },
+  "refactor_offline_validation": {
+    "tests_passed": 131,
+    "tests_skipped": 5,
+    "skip_reason": "ROS lifecycle checks require a ROS system environment",
+    "critical_definitions_ast_identical": 38,
+    "differential_cases_passed": 533,
+    "offline_pipeline_cases": 2,
+    "upstream_files_verified": 369,
+    "sdk_files_verified": 339,
+    "wheel_built": true,
+    "real_policy_inference": false,
+    "linux_backend_built": false,
+    "hardware_revalidated": false,
+    "ci_workflow_executed_on_github": false,
+    "development_python": "3.9.19",
+    "development_numpy": "1.23.5"
+  }
+}

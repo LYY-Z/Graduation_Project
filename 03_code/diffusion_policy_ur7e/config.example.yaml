@@ -1,0 +1,62 @@
+# Copy to config.yaml and set device-specific values before using hardware modes.
+# Paths are relative to project_root, resolved from this file's directory.
+schema_version: 2
+project_root: .
+
+paths:
+  upstream: third_party/diffusion_policy
+  checkpoint: models/pusht_image_transformer.ckpt
+  checkpoint_manifest: models/checkpoint_manifest.json
+  official_config: models/transformer_config.yaml
+  frame_store: .runtime/wrist_rgb.npz
+  runs: runs
+
+robot:
+  model: UR7e
+  ip: 192.0.2.1  # Documentation-only address; rejected for hardware modes.
+  state_interface: rtde_receive_only
+  receive_hz: 125.0
+  pose_frame: ur_base
+  report_tcp_offset_m_rad: [0, 0, 0.244, 0, 0, 0]
+  # actual_TCP_pose already uses the controller's active TCP. Do not add twice.
+  declared_active_tcp_offset_m_rad: [0, 0, 0.244, 0, 0, 0]
+  active_tcp_offset_verified_on_pendant: false
+
+camera:
+  model: Orbbec Gemini 335L
+  serial: ""
+  topic: /wrist_camera/color/image_raw
+  expected_frame_id: wrist_camera_color_optical_frame
+  image_shape_hw: [96, 96]
+  roi_xywh: null  # Centre-square crop, then INTER_AREA resize.
+  publication_hz: 30.0
+  frame_store_poll_hz: 100.0
+
+observation:
+  n_obs_steps: 2
+  rate_hz: 10.0
+  max_age_s: 0.5
+  max_acquisition_skew_s: 0.05
+  startup_timeout_s: 20.0
+
+mapping:
+  mode: relative_anchor
+  calibration_status: engineering_mapping_not_calibrated
+  anchor_px: [256, 256]
+  axes_in_ur_base: [[1, 0, 0], [0, 1, 0]]
+  pixels_per_m: [1000, 1000]
+  model_bounds_px: [0, 512]
+
+inference:
+  device: cuda:0
+  seed: 42
+  max_predictions: 20
+  max_duration_s: 120.0
+  save_observations: true
+
+# Configuration cannot authorize motion. Only the execute CLI mode can do so.
+# Numeric motion bounds remain checked in control/safety.py and control/robot.py.
+execution:
+  implementation: guarded
+  default_mode: preview
+

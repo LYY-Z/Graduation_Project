@@ -1,0 +1,395 @@
+# /// script
+# dependencies = [
+#     "accelerate",
+#     "fire",
+#     "gymnasium[mujoco]>=1.0.0",
+#     "locoformer>=0.2.0",
+#     "discrete-continuous-embed-readout>=0.2.7",
+#     "moviepy",
+#     "tqdm",
+#     "wandb"
+# ]
+# ///
+
+import os
+from pathlib import Path
+from collections import deque
+from shutil import rmtree
+from tqdm import tqdm
+import wandb
+
+from accelerate import Accelerator
+
+import gymnasium as gym
+
+import torch
+from torch import nn
+from torch.nn import Module
+from torch import from_numpy, randint, tensor, is_tensor, stack, arange
+import torch.nn.functional as F
+from torch.optim import Adam
+
+from einops import rearrange, einsum
+
+from locoformer.locoformer import (
+    Locoformer,
+    ReplayBuffer,
+    check_has_param_attr,
+    tensor_to_dict,
+    reward_linear_velocity_command_tracking,
+    reward_angular_velocity_command_tracking,
+    reward_base_linear_velocity_penalty,
+    reward_base_angular_velocity_penalty,
+    reward_base_height_penalty,
+    reward_joint_velocity_penalty,
+    reward_torque_penalty,
+    reward_alive
+)
+
+from fire import Fire
+
+from x_mlps_pytorch import Feedforwards
+
+# humanoid observation config
+
+HUMANOID_OBS_CONFIG = (
+    ('x_z', 1),   # height
+    ('quat', 4),
+    ('joint_q', 17),
+    ('v_xy', 2),
+    ('v_z', 1),
+    ('w_xy', 2),
+    ('w_z', 1),
+    ('joint_v', 17),
+    ('tau', 17),
+    ('rest', 286)
+)
+
+# helper functions
+
+def exists(v):
+    return v is not None
+
+def default(v, d):
+    return v if exists(v) else d
+
+def divisible_by(num, den):
+    return (num % den) == 0
+
+# get rgb snapshot from env
+
+def get_snapshot(env, shape):
+    vision_state = from_numpy(env.render().copy())
+    vision_state = rearrange(vision_state, 'h w c -> 1 c h w')
+    reshaped = F.interpolate(vision_state, shape, mode = 'bilinear')
+    return rearrange(reshaped / 255., '1 c h w -> c h w')
+
+# main function
+
+def main(
+    fixed_env_index = -1,
+    num_learning_cycles = 5_000,
+    num_episodes_before_learn = 128,
+    record_every_episode = 128,
+    max_timesteps = 250,
+    replay_buffer_size = 256,
+    use_vision = False,
+    embed_past_action = True,
+    vision_height_width_dim = 64,
+    clear_video = True,
+    video_folder = 'recordings_animal',
+    learning_rate = 3e-4,
+    discount_factor = 0.99,
+    betas = (0.9, 0.99),
+    gae_lam = 0.95,
+    ppo_eps_clip = 0.2,
+    ppo_entropy_weight = .002,
+    state_entropy_bonus_weight = 0.,
+    batch_size = 64,
+    epochs = 3,
+    reward_range = (-100., 500.),
+    num_reward_bins = 1_000,
+    test_mock_reward_shaping = False,
+    vectorized_env_indices = (),
+    num_vectorized_envs = 16,
+    cpu = False,
+    use_wandb = False,
+    wandb_mode = 'online',
+    wandb_project = 'locoformer-animal'
+):
+
+    if clear_video:
+        rmtree(video_folder, ignore_errors = True)
+
+    if use_wandb:
+        wandb.init(project = wandb_project, config = dict(locals()), mode = wandb_mode)
+
+    # possible envs
+
+    envs = [
+        ('Humanoid-v5', 'humanoid', 348, 17, 0.001),
+        ('HalfCheetah-v5', 'cheetah', 17, 6, 0.05),
+    ]
+
+    # replays
+
+    replay_buffers = dict()
+
+    # accelerate
+
+    accelerator = Accelerator(cpu = cpu)
+    device = accelerator.device
+
+    # model
+
+    reward_shaping_fns = None
+
+    if test_mock_reward_shaping:
+        reward_shaping_fns = [
+            [
+                (reward_linear_velocity_command_tracking, ('shaped_reward', 0)),
+                (reward_angular_velocity_command_tracking, ('shaped_reward', 1)),
+                (reward_base_linear_velocity_penalty,      ('shaped_reward', 2)),
+                (reward_base_angular_velocity_penalty,     ('shaped_reward', 3)),
+                (reward_base_height_penalty,               ('shaped_reward', 4)),
+                (reward_joint_velocity_penalty,            ('shaped_reward', 5)),
+                (reward_torque_penalty,                    ('shaped_reward', 6)),
+                (reward_alive,                             ('shaped_reward', 7)),
+            ],
+            []
+        ]
+
+    locoformer = Locoformer(
+        embedder = dict(
+            dim = 256,
+            dim_state = [348, 17],
+        ),
+        unembedder = dict(
+            dim = 256,
+            num_continuous = 17 + 6,
+            continuous_dist_type = 'beta',
+            continuous_dist_kwargs = dict(unimodal = True),
+            selectors = [
+                list(range(17)),
+                list(range(17, 17 + 6))
+            ]
+        ),
+        state_pred_loss_weight = 0.005,
+        state_pred_network = Feedforwards(dim = 256, depth = 2, final_norm = True),
+        embed_past_action = embed_past_action,
+        transformer = dict(
+            dim = 256,
+            dim_head = 32,
+            heads = 8,
+            depth = 6,
+            window_size = 32,
+            dim_cond = 2,
+            gru_layers = True
+        ),
+        discount_factor = discount_factor,
+        gae_lam = gae_lam,
+        ppo_eps_clip = ppo_eps_clip,
+        ppo_entropy_weight = ppo_entropy_weight,
+        ppo_soft_constrain_action_max = 1.,
+        policy_network = Feedforwards(dim = 256, depth = 2, final_norm = True),
+        value_network = Feedforwards(dim = 256, depth = 4, final_norm = True),
+        dim_value_input = 256,
+        num_reward_bins = num_reward_bins,
+        reward_range = reward_range,
+        hl_gauss_loss_kwargs = dict(),
+        action_rescale_ranges = [
+            (-0.4, 0.4), # humanoid
+            (-1., 1.)    # cheetah
+        ],
+        vectorized_env_indices = vectorized_env_indices,
+        recurrent_cache = True,
+        calc_gae_kwargs = dict(
+            use_accelerated = False
+        ),
+        state_named_config = HUMANOID_OBS_CONFIG,
+        reward_shaping_fns = reward_shaping_fns,
+        use_spo = False,
+        asymmetric_spo = False,
+        max_mem_segments = 2
+    ).to(device)
+
+    optim_base = Adam(locoformer.base_parameters(), lr = learning_rate, betas = betas)
+    optim_actor = Adam(locoformer.actor_parameters(), lr = learning_rate, betas = betas)
+    optim_critic = Adam(locoformer.critic_parameters(), lr = learning_rate, betas = betas)
+
+    optims = [optim_base, optim_actor, optim_critic]
+
+    # loop
+
+    rolling_rewards = {i: deque(maxlen = 20) for i in range(len(envs))}
+
+    pbar = tqdm(range(num_learning_cycles), desc = 'learning cycles')
+
+    for learn_cycle in pbar:
+
+        if fixed_env_index > -1:
+            env_index = fixed_env_index
+        else:
+            env_index = learn_cycle % len(envs)
+
+        env_name, env_short_name, dim_state, num_actions, env_state_pred_loss_weight = envs[env_index]
+
+        pbar.set_description(f'environment: {env_name}')
+
+        is_vectorized = env_index in vectorized_env_indices
+
+        if is_vectorized:
+            env = gym.make_vec(env_name, num_envs = num_vectorized_envs, vectorization_mode = 'sync', render_mode = 'rgb_array' if use_vision else None)
+        else:
+            env = gym.make(env_name, render_mode = 'rgb_array')
+
+            env = gym.wrappers.RecordVideo(
+                env = env,
+                video_folder = video_folder,
+                name_prefix = f'{learn_cycle}-{env_short_name}',
+                episode_trigger = lambda eps: divisible_by(eps, record_every_episode),
+                disable_logger = True
+            )
+
+        # memory
+
+        dim_state_image_shape = (3, vision_height_width_dim, vision_height_width_dim)
+
+        replay = replay_buffers.get(env_index, None)
+
+        if not exists(replay):
+            replay = ReplayBuffer(
+                f'replay_{env_short_name}',
+                replay_buffer_size,
+                max_timesteps + 1,
+                fields = dict(
+                    state       = ('float', dim_state),
+                    state_image = ('float', dim_state_image_shape),
+                    action      = ('float', num_actions),
+                    action_log_prob = ('float', num_actions),
+                    reward      = 'float',
+                    value       = 'float',
+                    done        = 'bool',
+                    condition   = ('float', 2),
+                    cond_mask   = 'bool',
+                    shaped_reward = ('float', 8),
+                    internal_state = ('float', 2)
+                ),
+                meta_fields = dict(
+                    cum_rewards = 'float'
+                ),
+                circular = True,
+                overwrite = True,
+                flush_every_store_step = 0
+            )
+
+            replay_buffers[env_index] = replay
+
+        # state embed kwargs
+
+        if use_vision:
+            state_embed_kwargs = dict(state_type = 'image')
+            compute_state_pred_loss = False
+        else:
+            state_embed_kwargs = dict(state_type = 'raw')
+            compute_state_pred_loss = True
+
+        state_id_kwarg = dict(state_id = env_index)
+        action_select_kwargs = dict(selector_index = env_index)
+
+        # transforms for replay buffer
+
+        def state_transform(state):
+            return state.float()
+
+        def get_snapshot_from_env(step_output, env):
+            if not use_vision:
+                return None
+
+            return get_snapshot(env, dim_state_image_shape[1:])
+
+        def derive_internal_state(step_output, env):
+            state = step_output['state']
+            return state[..., :2]
+
+        transforms = dict(
+            state_image = get_snapshot_from_env,
+            internal_state = derive_internal_state
+        )
+
+        num_envs = num_vectorized_envs if is_vectorized else 1
+        num_rollouts = max(num_episodes_before_learn // num_envs, 1)
+
+        for _ in range(num_rollouts):
+
+            mean_cum_reward, steps_per_episode = locoformer.gather_experience_from_env_(
+                env,
+                replay,
+                num_envs = num_envs,
+                max_timesteps = max_timesteps,
+                use_vision = use_vision,
+                env_output_transforms = transforms,
+                state_transform = state_transform,
+                action_select_kwargs = action_select_kwargs,
+                state_embed_kwargs = state_embed_kwargs,
+                state_id_kwarg = state_id_kwarg,
+                env_index = env_index,
+                state_entropy_bonus_weight = state_entropy_bonus_weight,
+                embed_past_action = embed_past_action
+            )
+
+            rolling_rewards[env_index].append(mean_cum_reward)
+
+            postfix = dict()
+            for i, env_rolling_reward in rolling_rewards.items():
+                if len(env_rolling_reward) == 0:
+                    continue
+
+                _, short_name, _, _, _ = envs[i]
+                postfix[short_name] = f'{sum(env_rolling_reward) / len(env_rolling_reward):.2f}'
+
+            pbar.set_postfix(**postfix)
+
+            if use_wandb:
+                wandb_log = dict(
+                    mean_cum_reward = mean_cum_reward,
+                    steps_per_episode = steps_per_episode,
+                    env_index = env_index
+                )
+
+                # check for new videos
+
+                video_files = sorted(list(Path(video_folder).glob(f'{learn_cycle}-{env_short_name}-episode-*.mp4')))
+                if len(video_files) > 0:
+                    wandb_log['video'] = wandb.Video(str(video_files[-1]))
+
+                wandb.log(wandb_log)
+
+        # learn
+
+        actor_loss, critic_loss = locoformer.learn(
+            optims,
+            accelerator,
+            replay,
+            state_embed_kwargs,
+            action_select_kwargs,
+            state_id_kwarg,
+            batch_size,
+            epochs,
+            use_vision,
+            compute_state_pred_loss,
+            env_state_pred_loss_weight
+        )
+
+        if use_wandb:
+            wandb.log(dict(
+                actor_loss = actor_loss.item(),
+                critic_loss = critic_loss.item()
+            ))
+
+        env.close()
+
+# main
+
+if __name__ == '__main__':
+    Fire(main)

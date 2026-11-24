@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "base_version": "1.6.5",
+  "source_state": "guarded_patch_already_applied",
+  "patch_application": "provenance_only_do_not_apply_twice",
+  "module_name": "dp_ur7e_rtde_control",
+  "cmake_target": "rtde_control",
+  "platform": "Linux",
+  "runtime_directory": ".runtime/control_backend",
+  "capabilities": {
+    "no_automatic_reconnect": true,
+    "no_command_replay": true,
+    "immediate_motion_dispatch": true,
+    "command_deadline_s": 1.0,
+    "packet_send_deadline_s": 0.5
+  }
+}

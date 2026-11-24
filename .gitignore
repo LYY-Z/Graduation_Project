@@ -1,0 +1,18 @@
+# Local environments and generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.envs/
+.venv/
+.cache/
+
+# Local credentials and environment settings
+.env
+.env.*
+!.env.example
+
+# Checkpoints are fetched using the project manifests.
+*.ckpt
+*.part
