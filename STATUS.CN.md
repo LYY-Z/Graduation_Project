@@ -80,3 +80,4 @@
 - 2026-11-25：用户指出调研陷入循环（反复围绕 sim-to-real 对齐与适应），要求跳出既有思路。启动第四轮发散检索：基础模型/VLA/LLM 用于足式机器人、技能与运动生成（模仿、敏捷技能、移动操作）、真实世界学习与 real-to-sim；输出 `04_research/screening/round4_*.md`。
 - 2026-11-25：第四轮发散检索完成，9 个新方向汇总于 [options_overview](06_reports/options_overview.CN.md)。主模型判断最有希望的新方向：轮足动作模仿（无轮数据迁移到轮足）与 3DGS 视觉轮足策略（VR-Robo）；已启动两份 Opus 精读汇报，完成后与 PACE 统一比较，不预设 PACE 为首选。
 - 2026-11-25：两个新方向的 Opus 可行性核查完成：轮足动作模仿 5.5/10（基础 Fu 等 Nat Commun 2026；价值论证风险大）、3DGS 视觉轮足 5.5/10（VR-Robo 代码只开源一半）。扩大检索后 PACE 方案（7/10）仍为首选。按用户要求，未通过可行性判断的方向不写完整方案。
+- 2026-11-25：第五轮系统普查完成：会议（385 篇，venue_sweep_2025_2026.md）、期刊（38,332 篇中筛出 151 篇，venue_sweep_journals.md）、跨领域借鉴（10 个领域，cross_domain_sweep.md，车辆动力学最有价值）、arXiv 轮足+学习预印本（69 篇，最后一轮新增 0，saturation_closure.md）。三源一致：轮足上的仿真—真机对齐未见先例。待办：精读最接近约 5 篇全文做最终查重（含 Terramechanics-Aware Adaptive Quadrupedal Locomotion，RA-L 2026），再写最终文档。用户已要求暂停。
