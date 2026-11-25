@@ -7,8 +7,8 @@
 | Diffusion Policy | [正文](diffusion_policy/paper.pdf) | [学习手册](../02_learning/diffusion_policy/README.md) |
 | LocoFormer | [正文](locoformer/paper.pdf) · [附录](locoformer/supplementary.pdf) · [视频](locoformer/video.mp4) | [学习手册](../02_learning/locoformer/README.md) |
 | FLAIR | [正文](flair/paper.pdf) · [补充材料](flair/supplementary.pdf) | [源码与复现](../02_learning/flair/README.md) |
-| 当前调研 | [TAM](research/TAM.pdf) · [GRAM](research/GRAM.pdf) · [SADL](research/SADL.pdf) | [阶段比较](../02_learning/research/review.CN.md) |
-| 适应方法参考 | [ASID：Active System Identification](research/ASID.pdf) · [RMA：Rapid Motor Adaptation](research/RMA.pdf) | [详细调研](../02_learning/research/README.md) |
+| 当前调研 | [TAM](research/TAM.pdf) · [GRAM](research/GRAM.pdf) · [SADL](research/SADL.pdf) | [阶段比较](../04_research/review.CN.md) |
+| 适应方法参考 | [ASID：Active System Identification](research/ASID.pdf) · [RMA：Rapid Motor Adaptation](research/RMA.pdf) | [详细调研](../04_research/README.md) |
 | 机械臂技术报告 | [报告 PDF](manipulator_report/report.pdf) · [LaTeX 主文件](manipulator_report/main.tex) | [部署代码](../03_code/diffusion_policy_ur7e/README.CN.md) |
 
 `manipulator_report/` 保存收到的报告与主文件。主文件引用的 `figures/` 和 `section/references` 未随材料提供；当前目录不是完整可编译的 LaTeX 工程。

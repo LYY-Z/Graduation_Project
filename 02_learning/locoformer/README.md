@@ -16,7 +16,7 @@
 | 不清楚奖励怎样变成梯度和参数更新 | [03 强化学习与PPO](03_reinforcement_learning_and_ppo.md) |
 | 要对照真实函数调用、配置与张量 | [04 代码阅读与复现边界](04_code_and_reproduction.md) |
 | 忘了当初某个疑问怎样解决 | [05 疑问归纳与复习索引](05_questions_and_review.md) |
-| 准备汇报 | 先看01，再看05末尾的复述与自测；[汇报PPT](../reports/locoformer/paper.CN.pptx)、[逐页演讲稿](../../99_archive/history.zip) |
+| 准备汇报 | 先看01，再看05末尾的复述与自测；[汇报PPT](../../06_reports/locoformer/paper.CN.pptx)、[逐页演讲稿](../../99_archive/history.zip) |
 
 理解算法可按01→02→03→04阅读；准备研究汇报时，先读06建立问题、方法、比较与证据的主线，再用其他章节补充技术解释。以后可用05定位既有疑问。
 

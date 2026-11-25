@@ -7,7 +7,7 @@
 | 1 | 机器学习、DDPM、机器人控制与 RL 背景 | [机器学习与模仿学习](01_foundations/01_ml_dl_and_imitation.md) · [DDPM 完整推导](01_foundations/02_ddpm_from_intuition_to_formula.md) · [控制与 RL](01_foundations/03_robot_control_and_rl.md) |
 | 2 | 问题、建模、方法、网络、实验与局限 | [中文阅读](02_paper_study/00_paper_chinese_reading.md) · [问题与流程](02_paper_study/01_problem_and_full_pipeline.md) · [公式](02_paper_study/02_action_diffusion_and_formulas.md) · [网络与控制](02_paper_study/03_control_network_and_design.md) · [实验](02_paper_study/04_experiments_appendix_limits.md) |
 | 3 | 官方仓库、配置、训练与评估 | [论文到源码](03_code_and_practice/01_paper_to_official_code.md) · [13 节代码教材](03_code_and_practice/code_study/README.md) · [最小复现](03_code_and_practice/02_minimal_reproduction_and_debug.md) |
-| 4 | UR7e 硬件输入、checkpoint、推理与受限执行 | [六章部署代码教材](05_code_and_deployment/README.md) · [已完成部署记录](deployment_record.CN.md) |
+| 4 | UR7e 硬件输入、checkpoint、推理与受限执行 | [六章部署代码教材](05_code_and_deployment/README.md) · [已完成部署记录](../../05_experiments/ur7e_diffusion_policy/deployment_record.CN.md) |
 | 5 | 查公式、回顾疑问和准备汇报 | [公式卡](04_review/01_symbols_and_formula_cards.md) · [疑问索引](04_review/02_faq_and_question_index.md) · [复述与自测](04_review/03_paper_recap_and_self_test.md) |
 
 ## 学习目标与复习路线
@@ -63,8 +63,8 @@
 
 ## 代码与验证资料
 
-当前工程为 [diffusion_policy_ur7e](../../03_code/diffusion_policy_ur7e/README.CN.md)；原论文实现为 [diffusion_policy](../../03_code/diffusion_policy/README.md)。原始部署证据保存在 [code.zip](../../99_archive/code.zip)，整理后的事实与指标见[部署记录](deployment_record.CN.md)。旧部署六章、早期组织计划、清单与报告插入稿已收录 [history.zip](../../99_archive/history.zip) 的 `organization_20261123/`，现行代码学习统一使用 `05_code_and_deployment/`。
+当前工程为 [diffusion_policy_ur7e](../../03_code/diffusion_policy_ur7e/README.CN.md)；原论文实现为 [diffusion_policy](../../03_code/diffusion_policy/README.md)。原始部署证据保存在 [code.zip](../../99_archive/code.zip)，整理后的事实与指标见[部署记录](../../05_experiments/ur7e_diffusion_policy/deployment_record.CN.md)。旧部署六章、早期组织计划、清单与报告插入稿已收录 [history.zip](../../99_archive/history.zip) 的 `organization_20261123/`，现行代码学习统一使用 `05_code_and_deployment/`。
 
 训练噪声 MSE 降低不等于闭环任务成功。原工程的实机记录与后续重构的离线检查分别解释，操作以当前项目 README 和 Guide 为准。
 
-继续：[LocoFormer](../locoformer/README.md) · [学习总入口](../README.md) · [汇报资料](../reports/README.md)。
+继续：[LocoFormer](../locoformer/README.md) · [学习总入口](../README.md) · [汇报资料](../../06_reports/README.md)。

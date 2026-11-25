@@ -16,3 +16,17 @@ __pycache__/
 # Checkpoints are fetched using the project manifests.
 *.ckpt
 *.part
+
+# Additional rules
+.ipynb_checkpoints/
+.mypy_cache/
+venv/
+conda_env/
+*.local.*
+.claude/settings.local.json
+wandb/
+*.pth
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

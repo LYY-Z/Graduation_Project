@@ -30,8 +30,8 @@ flowchart LR
 | --- | --- |
 | [官方 v1.0.0 源码](https://github.com/adaptive-intelligent-robotics/FLAIR/tree/v1.0.0) | 核对发布版实现 |
 | [作者数据与六足 notebook](https://zenodo.org/records/14546657) | 对齐论文的误差计算及四组统计 |
-| [复现记录](reproduction.CN.md) | 查询服务端环境、批次记录和项目脚本 |
-| [组间指标 CSV](results/data/comparison_metrics.csv) | 核对作者与独立批次每组的结果 |
+| [复现记录](../../05_experiments/flair/reproduction.CN.md) | 查询服务端环境、批次记录和项目脚本 |
+| [组间指标 CSV](../../05_experiments/flair/results/data/comparison_metrics.csv) | 核对作者与独立批次每组的结果 |
 | [论文](https://doi.org/10.1038/s41467-026-70256-y) · [补充材料](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-026-70256-y/MediaObjects/41467_2026_70256_MOESM1_ESM.pdf) | 查原论文实机及六足评测的范围 |
 
-早期选题已归档。当前研究仍可重新选择论文与方向，见[交接说明](../00_research_handoff.CN.md)。六足执行步骤与结果统一见[复现记录](reproduction.CN.md)。
+早期选题已归档。当前研究仍可重新选择论文与方向，见[STATUS](../../STATUS.CN.md)。六足执行步骤与结果统一见[复现记录](../../05_experiments/flair/reproduction.CN.md)。

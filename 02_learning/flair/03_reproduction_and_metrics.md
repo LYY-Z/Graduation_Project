@@ -8,11 +8,11 @@
 | 原版四组试跑 | 服务器隔离 Conda 环境运行 v1.0.0 原入口 | 本方环境能否用发布代码从航点走到终点 |
 | 正式独立重跑 | 用 CPU 网格加速入口重新跑四组各 20 次 | 独立生成的运动轨迹是否复现补偿收益的趋势 |
 
-作者仓库中通用的 `analysis/FLAIR_released_plots.ipynb` 主要含实机分析。六足四组应定位到 Zenodo 的 `FLAIR_plots_simplified_Hexapod.ipynb`。Notebook 是能逐单元执行代码的文件。引用单元编号按从零计数。 [官方源码](https://github.com/adaptive-intelligent-robotics/FLAIR/tree/v1.0.0) · [六足 notebook 与原始数据](https://zenodo.org/records/14546657) · [执行记录](reproduction.CN.md)
+作者仓库中通用的 `analysis/FLAIR_released_plots.ipynb` 主要含实机分析。六足四组应定位到 Zenodo 的 `FLAIR_plots_simplified_Hexapod.ipynb`。Notebook 是能逐单元执行代码的文件。引用单元编号按从零计数。 [官方源码](https://github.com/adaptive-intelligent-robotics/FLAIR/tree/v1.0.0) · [六足 notebook 与原始数据](https://zenodo.org/records/14546657) · [执行记录](../../05_experiments/flair/reproduction.CN.md)
 
 ## 2. 怎样手动启动一组
 
-服务器使用独立 Python 3.10 Conda 前缀，Python 本身运行实验代码，JAX 在 CPU 上计算，Brax 提供物理推进，QDax 读步态库，GPJax 用于模型组件。已用组合是 JAX/jaxlib 0.4.22、GPJax 0.6.0、Brax 0.10.2。无需另外打开一个 GUI。下例假定沿用归档里的专用环境及已准备的源码。 [直接依赖](results/provenance/requirements-cpu.txt) · [解析后的依赖](results/provenance/requirements-resolved.txt)
+服务器使用独立 Python 3.10 Conda 前缀，Python 本身运行实验代码，JAX 在 CPU 上计算，Brax 提供物理推进，QDax 读步态库，GPJax 用于模型组件。已用组合是 JAX/jaxlib 0.4.22、GPJax 0.6.0、Brax 0.10.2。无需另外打开一个 GUI。下例假定沿用归档里的专用环境及已准备的源码。 [直接依赖](../../05_experiments/flair/results/provenance/requirements-cpu.txt) · [解析后的依赖](../../05_experiments/flair/results/provenance/requirements-resolved.txt)
 
 ```bash
 cd "$HOME/lyy_ws/flair_reproduction"
@@ -65,7 +65,7 @@ MPLBACKEND=Agg "$python_flair" flair_example.py \
 
 ## 5. 正式复现如何得到 80 回合
 
-正式任务分 4 个分片，每片 4 个实验组，每组运行 5 回合，即 4×4×5=80。相同分片的四组使用同一个种子入口，分片种子从 40260 到 40263。每个种子经内部 PRNG 分出不同 reset 随机量，提高覆盖。比较时可用 `shard + rep` 配对，控制初始扰动噪声等因素。原版默认种子来自当前系统时间，手动启动主要用于教学与运行核对。 [原版 PRNG](../../03_code/references/FLAIR/fast_adaptation/example/flair_example.py:520) · [正式验收表](results/data/formal_trials.csv) · [配对表](results/data/formal_paired.csv)
+正式任务分 4 个分片，每片 4 个实验组，每组运行 5 回合，即 4×4×5=80。相同分片的四组使用同一个种子入口，分片种子从 40260 到 40263。每个种子经内部 PRNG 分出不同 reset 随机量，提高覆盖。比较时可用 `shard + rep` 配对，控制初始扰动噪声等因素。原版默认种子来自当前系统时间，手动启动主要用于教学与运行核对。 [原版 PRNG](../../03_code/references/FLAIR/fast_adaptation/example/flair_example.py:520) · [正式验收表](../../05_experiments/flair/results/data/formal_trials.csv) · [配对表](../../05_experiments/flair/results/data/formal_paired.csv)
 
 | 服务端项目脚本 | 输入 | 输出或检查 |
 | --- | --- | --- |
@@ -77,7 +77,7 @@ MPLBACKEND=Agg "$python_flair" flair_example.py \
 | `summarize_formal.py` | 正式批次的逐回合日志 | 完成验收、同一行误差和配对汇总 |
 | `compare_metrics.py`、`analyze_formal.sh` | 作者数据与独立批次数据 | 同口径对照表和派生统计 |
 
-CPU 加速的着力点是稀疏网格。按照执行记录，加样只处理命中的单元，选择只在有数据的单元执行，边界情况走原实现。六批网格数值逐元素一致，同种子短轨迹的 551 行主日志和 110 行指令日志数值列最大差为 0，整圈逐值等价仍需验证。本地直接审阅的模块为 v1.0.0，服务端项目脚本行为依据已归档执行记录和结果。 [项目脚本与验证记录](reproduction.CN.md) · [短轨迹比较](results/provenance/summary.txt) · [发布版源码核验](results/provenance/verified-source.txt)
+CPU 加速的着力点是稀疏网格。按照执行记录，加样只处理命中的单元，选择只在有数据的单元执行，边界情况走原实现。六批网格数值逐元素一致，同种子短轨迹的 551 行主日志和 110 行指令日志数值列最大差为 0，整圈逐值等价仍需验证。本地直接审阅的模块为 v1.0.0，服务端项目脚本行为依据已归档执行记录和结果。 [项目脚本与验证记录](../../05_experiments/flair/reproduction.CN.md) · [短轨迹比较](../../05_experiments/flair/results/provenance/summary.txt) · [发布版源码核验](../../05_experiments/flair/results/provenance/verified-source.txt)
 
 ## 6. 一行速度数据怎样变成一个实验成绩
 
@@ -96,7 +96,7 @@ CPU 加速的着力点是稀疏网格。按照执行记录，加样只处理命�
 | `median_notebook_error` | 依作者 notebook 原样跑，包括偏航变换 | 复现论文的主表 |
 | `median_notebook_duration_s` | 作者口径的组中位完成时间 | 比较每组走完路线所需日志时间 |
 
-六足源代码把车体角速度分量写入日志，notebook 的角速度转换值得专门核对。用相同代码精确复算是一种证据，保留 Brax 原生反馈重算是另一种口径检查。直接将原 notebook 的偏航变换移到 Go2-W 之前，应依据平台坐标、符号和单位独立验证。 [作者 notebook](https://zenodo.org/records/14546657/files/FLAIR_plots_simplified_Hexapod.ipynb?download=1) · [组统计](results/data/comparison_metrics.csv)
+六足源代码把车体角速度分量写入日志，notebook 的角速度转换值得专门核对。用相同代码精确复算是一种证据，保留 Brax 原生反馈重算是另一种口径检查。直接将原 notebook 的偏航变换移到 Go2-W 之前，应依据平台坐标、符号和单位独立验证。 [作者 notebook](https://zenodo.org/records/14546657/files/FLAIR_plots_simplified_Hexapod.ipynb?download=1) · [组统计](../../05_experiments/flair/results/data/comparison_metrics.csv)
 
 ## 7. 三个百分数的分母
 
@@ -106,7 +106,7 @@ CPU 加速的着力点是稀疏网格。按照执行记录，加样只处理命�
 | 本方减力组完成时间缩短 26.45 s | 组中位完成时间 197.05 s 减 170.60 s |
 | 作者六足额外误差恢复 138.8% | `(E减力关 − E减力开) / (E减力关 − E健康关)`。用 0.050322、0.044313、0.045992 代入。减力开组低于健康关组，故可超过 100% |
 
-本方保留原生偏航率对齐后，减力组误差从 0.052797 降到 0.046424，约 12.1%。实机的 74.4% 来自论文 GVR-Bot 多赛段汇总，属于另一平台和评测集。当前独立复现覆盖六足 Chicane 固定减力主对照。 [论文实机结果](https://doi.org/10.1038/s41467-026-70256-y) · [本方执行总结](reproduction.CN.md)
+本方保留原生偏航率对齐后，减力组误差从 0.052797 降到 0.046424，约 12.1%。实机的 74.4% 来自论文 GVR-Bot 多赛段汇总，属于另一平台和评测集。当前独立复现覆盖六足 Chicane 固定减力主对照。 [论文实机结果](https://doi.org/10.1038/s41467-026-70256-y) · [本方执行总结](../../05_experiments/flair/reproduction.CN.md)
 
 ## 8. 自己动手追一回合
 
@@ -116,5 +116,5 @@ CPU 加速的着力点是稀疏网格。按照执行记录，加样只处理命�
 4. 查 `formal_trials.csv` 中任意一个组合的 20 行，按回合编号定位同条件的另一组。
 5. 从 `comparison_metrics.csv` 找出两组 notebook 误差列，自己算一遍降幅，再比较原生偏航率的结果。
 
-掌握这五步以后，可以从一张统计图回到对应的回合、指令、反馈和源码。 [作者原始数据](https://zenodo.org/records/14546657) · [原版四组轨迹](results/figures/smoke-v100-long_trajectories.png)
+掌握这五步以后，可以从一张统计图回到对应的回合、指令、反馈和源码。 [作者原始数据](https://zenodo.org/records/14546657) · [原版四组轨迹](../../05_experiments/flair/results/figures/smoke-v100-long_trajectories.png)
 

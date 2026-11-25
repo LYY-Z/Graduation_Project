@@ -8,6 +8,6 @@
 | 2 | [统一接口与核心实现](interfaces.CN.md) | 三种输入统一方式、关节槽位、输出映射、策略与跨 Trial 记忆 |
 | 3 | [复现工作计划](workplan.CN.md) | 原方向的阶段步骤、条件、交付和验收 |
 
-原汇报概览与旧索引已收敛到本页；细节分别保留在三份文档中。[复现汇报 PPT](../../reports/locoformer/reproduction.CN.pptx)是对应阶段的汇报材料。原稿保存在 [history.zip](../../../99_archive/history.zip) 的 `organization_20261123/02_learning/locoformer/go2_reproduction/`。
+原汇报概览与旧索引已收敛到本页；细节分别保留在三份文档中。[复现汇报 PPT](../../../06_reports/locoformer/reproduction.CN.pptx)是对应阶段的汇报材料。原稿保存在 [history.zip](../../../99_archive/history.zip) 的 `organization_20261123/02_learning/locoformer/go2_reproduction/`。
 
-作者原始发布的缺失和第三方实现的适用范围均是当时的审查结果，后续可根据新发布重评。当前开放调研要求见[研究交接](../../00_research_handoff.CN.md)。
+作者原始发布的缺失和第三方实现的适用范围均是当时的审查结果，后续可根据新发布重评。当前开放调研要求见[STATUS](../../../STATUS.CN.md)。

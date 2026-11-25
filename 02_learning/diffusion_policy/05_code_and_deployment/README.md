@@ -2,7 +2,7 @@
 
 这套教材写给这样的你：已经理解“给观察、从噪声逐步生成动作序列”的 Diffusion Policy 思想，但对 Python、工程目录、相机数据、机械臂通信以及真实执行程序还不熟。这里从整个系统怎样流动讲起，再看每个文件负责什么，最后拆开常见代码行。你不需要先把 Python 全部学完，读完也不应只记住几条启动命令。
 
-本教材对应当前模块化工程 [diffusion_policy_ur7e](../../../03_code/diffusion_policy_ur7e/README.CN.md)。重构前工程 [diffusion_policy_ur7e_v1](../../../99_archive/code.zip) 保留既有实现与实机证据；[部署记录](../deployment_record.CN.md)汇总当时的实现、指标与验证依据。
+本教材对应当前模块化工程 [diffusion_policy_ur7e](../../../03_code/diffusion_policy_ur7e/README.CN.md)。重构前工程 [diffusion_policy_ur7e_v1](../../../99_archive/code.zip) 保留既有实现与实机证据；[部署记录](../../../05_experiments/ur7e_diffusion_policy/deployment_record.CN.md)汇总当时的实现、指标与验证依据。
 
 本教材形成于重构阶段，2026-11-02整理时同步了目录名称与链接。后文“本轮验证”“新版当前”等表述均指原重构记录的时间范围，不表示本次重新完成训练、推理或实机验收。当前环境与启动操作以项目[中文README](../../../03_code/diffusion_policy_ur7e/README.CN.md)和[Guide](../../../03_code/diffusion_policy_ur7e/docs/guide.CN.md)为准；`verification/`保留原始证据字段与原项目命名。
 

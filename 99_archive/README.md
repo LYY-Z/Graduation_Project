@@ -1,6 +1,6 @@
 # 历史归档
 
-日常入口见[研究与学习](../02_learning/README.md)、[汇报](../02_learning/reports/README.md)和[代码](../03_code/README.md)。
+日常入口见[研究与学习](../02_learning/README.md)、[汇报](../06_reports/README.md)和[代码](../03_code/README.md)。
 
 | 内容 | 位置 |
 |---|---|

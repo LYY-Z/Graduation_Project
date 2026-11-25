@@ -165,12 +165,12 @@ MPLBACKEND=Agg "$PWD/.conda/lyy_flair_v100_cpu_py310/bin/python" \
 | 正式原始证据 | 服务器 runs/formal-v100-s0 到 runs/formal-v100-s3，各组有配置 CSV、控制台、逐回合主日志和补偿日志 |
 | 正式统计 | [作者与独立批次对照](results/data/comparison_metrics.csv)、[正式批次图](results/figures/formal_four_groups.png) |
 | 环境追溯 | 服务器 runs/conda-explicit.txt 和[已解析 Python 包](results/provenance/requirements-resolved.txt) |
-| 汇报材料 | [汇报 PPT](../reports/flair/report.CN.pptx) · [逐页讲稿](../reports/flair/speech.CN.md) |
+| 汇报材料 | [汇报 PPT](../../06_reports/flair/report.CN.pptx) · [逐页讲稿](../../06_reports/flair/speech.CN.md) |
 
 ### 指标与后续研究的边界
 
-本批次减力组总跟踪误差降幅约 13.0%；作者数据复算的 138.773% 则以健康/减力条件之间的额外误差为分母。两者不是同一指标，具体计算见[指标教材](03_reproduction_and_metrics.md)。论文的 GVR-Bot 实机比较也不能由六足结果代替。
+本批次减力组总跟踪误差降幅约 13.0%；作者数据复算的 138.773% 则以健康/减力条件之间的额外误差为分母。两者不是同一指标，具体计算见[指标教材](../../02_learning/flair/03_reproduction_and_metrics.md)。论文的 GVR-Bot 实机比较也不能由六足结果代替。
 
-六足 Chicane 主对照是已经完成的复现范围；Go2-W 迁移、其他六足故障和整篇论文全部实验不在本次完成结论之内。此前迁移设想保存在归档中，当前选题与研究方向以[研究交接](../00_research_handoff.CN.md)为准。
+六足 Chicane 主对照是已经完成的复现范围；Go2-W 迁移、其他六足故障和整篇论文全部实验不在本次完成结论之内。此前迁移设想保存在归档中，当前选题与研究方向以 [STATUS](../../STATUS.CN.md) 为准。
 
 旧执行文档与旧总结已合并到本记录；完整原稿保留在 [history.zip](../../99_archive/history.zip) 的 `organization_20261123/02_learning/flair/`。

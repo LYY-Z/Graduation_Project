@@ -1,6 +1,6 @@
 # UR7e Diffusion Policy 部署记录
 
-本记录集中说明已完成的部署链路、实现来源和实测依据。逐步代码讲解见[六章教材](05_code_and_deployment/README.md)，当前配置与启动方法见[项目 README](../../03_code/diffusion_policy_ur7e/README.CN.md)和 [Guide](../../03_code/diffusion_policy_ur7e/docs/guide.CN.md)。
+本记录集中说明已完成的部署链路、实现来源和实测依据。逐步代码讲解见[六章教材](../../02_learning/diffusion_policy/05_code_and_deployment/README.md)，当前配置与启动方法见[项目 README](../../03_code/diffusion_policy_ur7e/README.CN.md)和 [Guide](../../03_code/diffusion_policy_ur7e/docs/guide.CN.md)。
 
 ## 1. 已完成的链路
 
@@ -65,7 +65,7 @@ d68cdbcf9c21df724fb60f2573aa28a22a333f555225a2ec29cb6b7890608c56
 
 ## 5. 资料分工
 
-- 学习实现：[当前部署教材](05_code_and_deployment/README.md)。
+- 学习实现：[当前部署教材](../../02_learning/diffusion_policy/05_code_and_deployment/README.md)。
 - 操作和配置：[项目文档](../../03_code/diffusion_policy_ur7e/README.CN.md)。
 - 原始机械臂报告：[PDF 与 LaTeX](../../01_papers/README.md)。
 - 旧部署六章、早期目录方案、原始证据快照与报告插入稿：[history.zip](../../99_archive/history.zip)，内部路径 `organization_20261123/02_learning/diffusion_policy/05_deployment/`。

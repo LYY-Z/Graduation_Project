@@ -1,15 +1,13 @@
-# 学习与研究导航
+# 学习资料导航
 
-当前研究目标和长期要求见[交接说明](00_research_handoff.CN.md)。详细教材与调研资料按用途分开，论文见[原始资料索引](../01_papers/README.md)，源码在 `03_code/`。
+本目录保存论文与代码讲解、平台硬件说明。当前研究状态见 [STATUS](../STATUS.CN.md)；选题调研、实验记录和汇报分别在 [04_research](../04_research/README.md)、[05_experiments](../05_experiments/README.md)、[06_reports](../06_reports/README.md)。论文见[原始资料索引](../01_papers/README.md)，源码在 `03_code/`。
 
 | 用途 | 入口 |
 |---|---|
-| 研究调研与选题 | [research](research/README.md) |
 | DDPM、Diffusion Policy、UR7e | [学习路线](diffusion_policy/README.md) |
 | LocoFormer、长记忆与 PPO | [学习手册](locoformer/README.md) |
-| FLAIR 源码与复现 | [学习入口](flair/README.md) |
+| FLAIR 源码与指标 | [学习入口](flair/README.md) · [复现记录](../05_experiments/flair/reproduction.CN.md) |
 | 实验平台 | [Go2-W 硬件、双平台接口与连接](platform/README.md) |
-| PPT 与讲稿 | [reports](reports/README.md) |
 | 服务器可视化 | [VNC](platform/vnc.md) |
 
 ## 基础概念怎么衔接

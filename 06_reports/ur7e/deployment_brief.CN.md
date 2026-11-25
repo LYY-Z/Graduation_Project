@@ -258,5 +258,5 @@ diffusion_policy_ur7e_refactored/
 
 ---
 
-参考：[论文官方代码与实机教程](https://github.com/real-stanford/diffusion_policy) · [当前官方仿真权重](https://diffusion-policy.cs.columbia.edu/data/experiments/image/pusht/diffusion_policy_transformer/train_0/checkpoints/epoch=0100-test_mean_score=0.748.ckpt) · [原部署实机记录](../../../99_archive/code.zip) · [重构版主流程](../../../03_code/diffusion_policy_ur7e/src/dp_ur7e/pipeline.py)
+参考：[论文官方代码与实机教程](https://github.com/real-stanford/diffusion_policy) · [当前官方仿真权重](https://diffusion-policy.cs.columbia.edu/data/experiments/image/pusht/diffusion_policy_transformer/train_0/checkpoints/epoch=0100-test_mean_score=0.748.ckpt) · [原部署实机记录](../../99_archive/code.zip) · [重构版主流程](../../03_code/diffusion_policy_ur7e/src/dp_ur7e/pipeline.py)
 
