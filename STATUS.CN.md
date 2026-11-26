@@ -96,3 +96,4 @@
 - 2026-11-26：主模型直接用 GitHub API 复查 Go2-W MPC：确认无实机可用实现（仅单轨规划层、MATLAB 仿真、个人教学项目）。发现 DreamWaQ_Go2W（136★）、HIMLoco-for-Go2W（111★）可作 GRAM 主线的 Go2-W 基线与适配参考。
 - 2026-11-26：完成向老师汇报的总文档 [06_reports/topic_selection/report.CN.md](06_reports/topic_selection/report.CN.md)：整合老师、Claude、Codex 三方意见；约 30 篇论文按推荐度排序，核心 4 篇按老师论证链十项展开并附原话，其余附原话简表；更正 AugMPC 不依赖里程计、TAM 障碍为浮动基座与接触。素材见 teacher_chain_core / teacher_chain_secondary。
 - 2026-11-26：按用户要求重写选题汇报为正式文稿（去掉三方意见与评价标签，按背景—调研—基础论文—比较—方案—计划组织，附录列其余论文原文）；问答准备另存 [qa_prep](06_reports/topic_selection/qa_prep.CN.md)，不交给老师。
+- 2026-11-26：汇报文档改为调研阶段口径：调研概况（检索与略读/精读数量）、Go2-W 平台条件、8 篇精读论文按 GRAM 同格式列出（含迁移条件如悬挂架、外接电脑、机身速度，以及基于局限的可能创新点）、对比汇总与初步倾向；课题待与老师讨论确定。

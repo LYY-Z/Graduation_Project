@@ -1,219 +1,198 @@
-# 运行中局部动力学变化下轮足机器人的选择性鲁棒适应
+# 轮足机器人学习运动控制：论文调研汇报
 
-选题汇报　2026 年 11 月
+2026 年 11 月　（调研阶段，课题尚未确定）
 
-## 一、研究背景与问题
+## 一、调研概况
 
-本课题的实验平台为 Unitree Go2-W 轮足机器人，共 16 个驱动关节：12 个腿关节采用位置控制，4 个轮子采用速度控制。基于强化学习的运动控制已能在仿真中训练、零样本部署到真机，但机器人在运行中仍会遇到训练时未充分覆盖的变化，例如负载突然增加、地面摩擦改变、某个轮子的驱动能力下降。
+**平台**：Unitree Go2-W 开发版，12 个腿关节采用位置控制，4 个轮子采用速度控制。
 
-目前处理这类变化有两类主要做法：
-- **适应类方法**（如 RMA）：从最近的历史观测中推断当前环境，再据此调整动作。在训练见过的范围内表现好，超出范围时推断容易出错。
-- **鲁棒类方法**（如域随机化、对抗训练）：训练一个对各种情况都能工作的保守策略。可靠，但在正常情况下性能偏低。
+**方向**：学习驱动或学习与控制结合的运动控制，重点关注运行中扰动和动力学变化下的适应与恢复。
 
-GRAM（RA-L 2026）把两者结合起来：根据推断结果的不确定程度，决定多大程度采用适应信息、多大程度退回鲁棒策略。但它的退回是整体的，只要不确定，所有适应信息一起被弱化。
+**检索范围与筛选**：
 
-实际运行中的变化往往是局部的。例如机器人已经适应了当前的地面和负载，途中右前轮驱动突然变弱：此时对地面和负载的判断大部分仍然有用，只有轮驱动相关的部分不再可信。整体退回会丢掉这些仍然有用的信息，使机器人不必要地变保守。
-
-**本课题研究的问题**：运行中发生局部动力学变化时，能否保留仍然可信的适应信息，只对不可信的部分采取保守处理，从而在不牺牲正常性能的前提下更好地应对变化。
-
-## 二、文献调研概况
-
-调研覆盖 2025–2026 年的主要机器人会议（RSS、CoRL、ICRA、IROS、NeurIPS、ICLR、ICML）的录用列表，以及 Science Robotics、IJRR、T-RO、RA-L 等期刊同期的论文，另检索了轮足方向的预印本。筛选出与足式和轮足学习控制相关的会议论文 385 篇、期刊论文 151 篇、轮足预印本 69 篇，并对其中 258 篇顶刊顶会论文提取了作者自述的局限与未来工作。
-
-几点主要结论：
-1. **轮足方向的研究仍然很少**。轮足只占相关会议论文的约 2%，明确以 Go2-W 为平台的论文仅有 1 篇。
-2. **适应与鲁棒控制是成熟方向**。历史编码器、教师—学生训练、域随机化都有大量工作，单纯组合这些方法已难以形成新贡献。因此创新需要针对某篇具体方法的明确不足展开。
-3. **选择基础论文的标准**：顶刊或顶会正式发表；有完整的训练与评估代码；原平台与 Go2-W 接近；存在可以针对性改进的局限。
-
-## 三、基础论文：GRAM
-
-Queeney J., Cai X., Schperberg A., Corcodel R., Benosman M., How J. P. *GRAM: Generalization in Deep RL with a Robust Adaptation Module*. IEEE Robotics and Automation Letters, 11(2): 2218–2225, 2026. DOI: 10.1109/LRA.2025.3641155。官方代码：github.com/merlresearch/gram。
-
-### 1. 作者要解决的问题
-
-训练时可以获得环境参数（摩擦、质量等），部署时无法获得。作者希望用一个策略，同时在训练分布内取得好的性能，又能应对分布外的情况（论文式 1–2）。
-
-### 2. 已有方法的局限
-
-- 适应类方法："adaptation is only reliable for the range of ID scenarios seen during training"（p.1）——适应只在训练见过的范围内可靠。
-- 鲁棒类方法："at the cost of conservative performance in ID environments"（p.1）——鲁棒性以分布内的保守表现为代价。
-- 两者难以兼顾："making it challenging to achieve both with a single policy"（p.2）。
-
-### 3. 方法设计
-
-GRAM 以 RMA 式的教师—学生框架和 PPO 为基础，新增三项设计：
-
-| 设计 | 内容 | 对应的问题 |
+| 环节 | 范围 | 数量 |
 |---|---|---|
-| 鲁棒适应模块 | 用认知不确定性网络（epinet）估计历史编码的均值与方差，8 次采样（式 5） | 判断当前的适应信息是否可信 |
-| 按不确定性混合 | 最终表示 = (1 − α)·鲁棒表示 + α·适应估计，α = exp(−(σ̂² − β)⁺)，鲁棒表示取 0（式 9） | 不确定时自动退向鲁棒策略 |
-| 联合训练 | 并行环境交替进行"适应训练"与"带推力对抗的鲁棒训练"，共用一个策略网络（p.4） | 同一策略同时具备两种能力 |
+| 会议 | RSS、CoRL、ICRA、IROS、NeurIPS、ICLR、ICML（2025–2026），逐条查看录用列表 | 筛出相关论文 385 篇 |
+| 期刊 | Science Robotics、IJRR、T-RO、RA-L、Nature 系（2025 年至今），共 38,332 篇 | 筛出相关论文 151 篇 |
+| 预印本 | arXiv 上的轮足 + 学习论文（2024 年至今） | 69 篇 |
+| 略读 | 四足和轮足相关的顶刊顶会论文，阅读摘要、结论与局限 | 258 篇 |
+| 精读 | 方法、代码、实验条件逐项核对 | 8 篇（见第三部分） |
 
-关键细节：不确定性是对 8 维隐变量的方差求和得到的一个标量，回退系数 α 也是一个标量，作用于整个隐变量（式 6–9；代码 `gram_actor_critic.py` 第 620–696 行）。也就是说，退回是整体的。
+**几点观察**：
+1. 轮足方向的研究较少，在相关会议论文中约占 2%；以 Go2-W 为实验平台的论文只有 1 篇。
+2. 适应与鲁棒控制是成熟方向，历史编码器、教师—学生训练、域随机化都有大量工作，创新需要针对具体论文的局限展开。
+3. 精读论文的选择标准：顶刊或顶会正式发表；与本方向相关；有代码或足够详细的方法描述；能迁移到 Go2-W。
 
-### 4. 任务与训练
+## 二、Go2-W 平台条件（影响论文能否迁移）
 
-- 任务：Go2 速度跟踪；
-- 观测：关节角、关节速度、投影重力、基座角速度，不含机身线速度；
-- 动作：12 维目标关节角，PD 控制 200 Hz，策略 50 Hz；
-- 历史长度 16 步，隐变量 8 维（表 I）；
-- 训练时随机化的环境参数共 26 维：摩擦、附加质量、各关节电机强度、各关节零偏（表 II）；
-- 部署只使用本体历史，不需要特权信息。
-
-### 5. 测试设置与对比
-
-- 训练只在平地上进行；
-- 测试分为近分布外与远分布外：6 kg / 9 kg 负载、5° / 10° 坡、5 cm / 10 cm 粗糙地面、关节冻结；
-- 另有运行中变化：仿真中第 10 s 突然增加 9 kg 负载（图 4），真机上走上泡沫和湿滑白板；
-- 对比方法：鲁棒 RL、情境 RL（教师—学生）、域随机化，以及三个消融。
-
-### 6. 主要结果
-
-| 方法 | 分布内 | 近分布外 | 远分布外 |
-|---|---|---|---|
-| GRAM | 0.92 | 0.79 | 0.58 |
-| 鲁棒 RL | 0.87 | 0.74 | 0.59 |
-| 情境 RL | 0.94 | 0.75 | 0.42 |
-| 域随机化 | 0.93 | 0.74 | 0.43 |
-
-数值为归一化平均回报（表 III）。真机共 105 次试验，困难场景的成功次数为 GRAM 15/15、鲁棒 RL 12/15、情境 RL 2/15（表 V）。
-
-### 7. 贡献与不足
-
-作者指出，分布外的泛化能力取决于对抗训练对最坏情况的覆盖程度，论文只尝试了标准对抗者和四足机器人（p.8）。
-
-阅读中发现的不足：
-1. **退回是整体的**。只有一个因素异常时，其余仍可信的适应信息也被一起丢弃。这是本课题的切入点。
-2. 鲁棒训练只使用了"推力"一种对抗，没有针对质量、摩擦、电机等单一因素的分布外训练。
-3. 远分布外的回报与鲁棒 RL 相当（0.58 对 0.59）；近分布外有一个消融（0.80）略高于完整方法（0.79）。
-4. 未报告仿真实验的随机种子数。
-
-### 8. 复现条件
-
-- 官方代码包含 6 种算法的训练与评估，但没有预训练权重、真机部署代码，也没有"运行中改变负载"的实现；
-- 代码基于 Isaac Lab 1.0 和 Isaac Sim 4.1，需迁移到 Isaac Lab 2.3 才能在实验室服务器（Blackwell 架构显卡）上运行，预计 1–2 周；
-- 迁移到 Go2-W 需要增加轮子的速度动作、修改观测与奖励，预计 1–2 周。Go2-W 的开源强化学习项目（HIMLoco、DreamWaQ 的 Go2-W 版本）可作为参考。
-
-## 四、候选方案比较
-
-| 排序 | 论文 | 出处 | 优势 | 主要问题 | 定位 |
-|---|---|---|---|---|---|
-| 1 | GRAM | RA-L 2026 | 问题对口；原平台为 Go2；代码完整；局限明确 | 代码需迁移 | 基础论文 |
-| 2 | MoE-CTS / RoboGauge | RSS 2026 | 不依赖机身速度，与 Go2-W 最契合；代码与评估工具开源 | 贡献偏向策略评价与筛选，需要大量重复实机实验 | 备选 |
-| 3 | PACE | IJRR 2026 | 期刊级别最高；辨识流程清晰 | 运动训练环境未公开；在轮足上的延伸偏工程 | 保底 |
-| 4 | AugMPC | RA-L 2026 | 学习与 MPC 分工清楚；不依赖里程计 | Go2-W 没有现成的轮足 MPC，自建需 2–4 个月；论文无对比基线 | 若实验室有轮足 MPC 可考虑 |
-| 5 | Random Joint Masking | ICRA 2024 | 足式容错的代表方法 | 无代码，参数不全；只处理单关节 | 相关工作 |
-| 6 | TAM | CoRL 2026 | 在力矩层做适应，与策略解耦 | 只适用于固定基座机械臂 | 相关工作 |
-| 7 | SimDist | RSS 2026 | 世界模型适应，思路好 | 需要机身速度和外接 GPU 做在线规划 | 相关工作 |
-| 8 | LocoFormer | CoRL 2025 | 包含 Go2-W 实机 | 无官方代码，训练规模极大 | 相关工作 |
-
-### MoE-CTS / RoboGauge
-
-Wu T. 等，RSS 2026。作者指出："the lack of reliable quantitative proxies compels researchers to rely on direct physical validation, a process that remains prohibitively risky and inefficient"（p.2）——缺少可靠的定量指标，只能依赖有风险且低效的实机验证。方法是在并行教师—学生框架上加入多专家编码器，并用 MuJoCo 中的评估工具 RoboGauge 预测实机表现。实机侧向冲击成功 18/20，Unitree 内置控制器为 5/20（表 VI）。
-
-不足：可预测性只用一个模型验证；多专家的增益与训练配方改进没有分开比较。该方向更适合研究"怎样可靠地选出可部署策略"，与本课题直接改进控制的目标不同。
-
-### PACE
-
-Bjelonic F. 等，IJRR 2026。作者指出现有方法 "often require specialized sensors, exhaustive parameter identification, or iterative expert tuning"（p.1）。方法是让机器人悬空，只用关节编码器数据，通过 CMA-ES 拟合每个关节的电枢、阻尼、摩擦、偏置与延迟。作者自述局限："finite excitation bandwidth on suspended setups and temperature/aging dependencies that shift effective parameters"（p.21）。
-
-用于 Go2-W 时，作者在代码仓库中说明悬空辨识不会辨识滚动阻力与打滑；论文的运动训练环境也未公开，复现只能覆盖辨识部分。因此作为保底方向：在 Go2-W 上复现悬空辨识，并补充轮—地参数的标定。
-
-### AugMPC
-
-Patrizi A. 等，RA-L 11(5):5797–5804，2026。上层强化学习决定步态与接触时序，下层全刚体 MPC 负责执行，"This offloads the combinatorial burden of contact timing from the MPC"（p.1）。作者假设机器人没有里程计和接触传感器，速度由 MPC 估计。作者将强外扰下的系统评估列为未来工作（p.8），论文中也没有对比基线。
-
-在 Go2-W 上使用需要先建立完整的刚体模型和实时 MPC。目前没有可直接用于 Go2-W 实机的轮足 MPC 开源实现，全身 MPC 的公开案例也都运行在外接 x86 电脑上，自建预计 2–4 个月，超出本课题的工期。
-
-### 其余三篇
-
-- **Random Joint Masking**（Kim M. 等，ICRA 2024）：训练中随机屏蔽关节来模拟故障，并估计哪个关节受损。作者指出模型类方法 "relied on a specific robot dynamic model, case-by-case models for various failure cases"（p.2）。该论文未公开代码，超参数不全，只处理单关节故障。其研究的"执行器局部失效"已作为本课题的变化类型之一。
-- **TAM**（Son D. 等，CoRL 2026）：把适应层放到力矩接口，学习残差力矩。作者明确其前提为 "a usable ideal inverse torque-command map, and matched kinematic structure"，并指出接触 "may still be confused with robot-side mismatch"（p.9）。Go2-W 机身浮动且持续与地面接触，不满足其前提。
-- **SimDist**（Levy J. 等，RSS 2026）与 **LocoFormer**（Liu M. 等，CoRL 2025）：前者部署时需要机身线速度和高度图，在线规划依赖笔记本级 GPU；后者没有官方代码，作者自述 "Training LocoFormer is highly resource-intensive compared to a specialist policy"（p.9）。
-
-其他调研过的论文及其局限见附录。
-
-## 五、研究方案
-
-### 1. 拟解决的挑战
-
-1. **因素能否区分**：一个轮子变弱会同时改变机身姿态和地面接触，仅凭 16 步本体历史，未必能区分"轮子变弱"与"地面变滑"。
-2. **部分退回的组合需要训练**：如果训练时没有见过"一部分信息可信、另一部分不可信"的输入，推理时直接组合，效果可能比整体退回更差。
-3. **鲁棒训练信号不足**：GRAM 的鲁棒训练只针对推力，没有针对单一因素的分布外训练。
-4. **轮足适配**：16 个关节，轮子为速度控制，执行器、观测和奖励都需要重新设计。
-
-### 2. 方法
-
-1. **按物理因素分组**：先分为两组，环境因素（地面摩擦、负载）与执行器因素（轮驱动），将 8 维隐变量拆分为两个 4 维部分，每组分别估计不确定性和回退系数。
-2. **训练时随机组合可信状态**：每个训练环境随机指定哪些组"不可信"，使策略见过各种部分可信的组合。
-3. **针对性的鲁棒训练**：对被指定为不可信的组，把该组参数的采样范围扩展到训练分布之外，其余组保持在分布内。
-4. **运行中变化**：在仿真中实现运行过程中改变负载、摩擦和单轮驱动增益。
-
-### 3. 实验设计
-
-**变化类型**：均在运行中发生，包括单轮驱动增益下降、单轮锁死、负载突变、地面摩擦突变及其组合；测试使用训练中未出现的幅度和组合。
-
-**对比方法**：
-
-| 对比方法 | 目的 |
+| 项目 | 情况 |
 |---|---|
-| 充分域随机化的历史编码策略 | 常用强基线 |
-| HIMLoco、DreamWaQ（Go2-W 版本） | 已有适应方法 |
-| 原版 GRAM | 基础论文 |
-| 分组但不做选择性退回 | 检验分组本身是否足够 |
-| 变化检测 + 重置历史 | 简单的替代方案 |
-| 驱动响应估计 + 降速 + 轮速重新分配 | 传统控制方法 |
-| 直接告知哪组可信 | 方法上限 |
+| 底层控制 | 官方 SDK 支持 16 个电机的底层控制（腿：位置 + PD；轮：速度） |
+| 机身速度 | 进入底层控制模式后读不到官方的机身速度估计，需要自建状态估计（激光雷达里程计或动捕） |
+| 电机数据 | 每个电机可读位置、速度、估计力矩、温度；**读不到单个电机的电流**，整机电压电流可读 |
+| 机载算力 | 运行强化学习策略可行（50 Hz）；简化的质心 MPC 需要 Orin NX 级别的扩展模块；全身 MPC 的公开案例都在外接电脑上运行 |
+| 训练环境 | 已有 Go2-W 的开源训练环境（robot_lab）和部署工具（rl_sar）；HIMLoco、DreamWaQ 有 Go2-W 移植版本 |
+| 服务器 | 2 块 Blackwell 架构显卡，需要较新的软件版本（Isaac Sim 5.x、PyTorch 2.7 以上），旧代码需迁移 |
 
-**评价指标**：速度跟踪误差、路线完成率、变化后的恢复时间、摔倒次数，以及正常情况下的性能损失（用于检验鲁棒性是否靠全程保守换来）。
+## 三、精读论文
 
-**统计方法**：仿真使用多个随机种子并报告种子数；真机每个条件至少 5 次，按随机顺序配对进行。
+以下 8 篇按与本方向的相关程度和可实施程度排序。每篇按"问题—已有局限—方法—实验—局限"整理，并列出迁移到 Go2-W 的条件和可能的创新点。原文引用的页码为 arXiv 版本页码。
 
-### 4. 与传统控制方法的关系
+### 1. GRAM：鲁棒适应模块
 
-该方法与容错控制中的"可重构控制"思路一致：可信的信息照常使用，不可信的部分保守处理。区别在于，由学习方法完成可信度判断和全身的腿轮协调。实验中直接与传统方法（驱动响应估计、降速与轮速重新分配）对比，并按变化类型分别分析两类方法的适用情形。
+Queeney 等，*GRAM: Generalization in Deep RL with a Robust Adaptation Module*，IEEE RA-L 11(2):2218–2225，2026。代码：github.com/merlresearch/gram。
 
-### 5. 预期贡献
-
-1. 将 GRAM 的整体退回扩展为按物理因素的选择性退回，并给出"部分信息可信"条件下的鲁棒训练方法；
-2. 在轮足机器人上实现运行中局部动力学变化的适应与恢复，并在 Go2-W 实机上验证；
-3. 通过消融实验分析分组、选择性退回和针对性鲁棒训练各自的作用。
-
-与本课题相关的已有工作包括多因素上下文解耦（DMCM，CoRL 2025）和上下文不确定性估计（CERTAIN，ICML 2025）。本课题的区别在于面向运行中的局部变化，把因素可信度判断与条件鲁棒训练结合起来，并应用于轮足控制。
-
-## 六、进度安排与风险
-
-| 时间 | 工作内容 | 检查点 |
-|---|---|---|
-| 第 1 周 | 评估 GRAM 代码迁移工作量 | 迁移不可行则转为备选方向 |
-| 第 2–4 周 | 在 Go2 仿真中复现 GRAM 的主要结果；进行上限检验：直接告知策略哪组可信，比较选择性退回与整体退回 | 若选择性退回没有明显优势，则调整为 GRAM 复现与失效分析 |
-| 第 5–7 周 | 完成 Go2-W 适配 | — |
-| 第 8–11 周 | 实现分组可信度估计与条件鲁棒训练，完成对比与消融实验 | — |
-| 第 12–14 周 | Go2-W 实机实验：软件改变单轮驱动增益、增加负载、更换地面 | — |
-| 第 15–16 周 | 整理结果，撰写论文 | — |
-
-| 风险 | 应对措施 |
+| 项目 | 内容 |
 |---|---|
-| 不同因素难以区分 | 先通过上限检验判断区分是否有价值；若实际难以区分，分析可区分的边界并如实报告 |
-| 代码迁移耗时超出预期 | 第 1 周完成评估，必要时先在原环境中小规模验证思路 |
-| 原代码缺少权重和运行中变化的实现 | 自行训练并实现，在论文中说明 |
-| 实机安全 | 先在仿真中完成全部测试；实机从低速、轮子相关的变化开始，配备急停 |
+| 问题 | 训练时可以获得环境参数，部署时无法获得。希望一个策略同时在训练分布内表现好，又能应对分布外情况 |
+| 已有局限 | 适应类方法："adaptation is only reliable for the range of ID scenarios seen during training"（p.1）；鲁棒类方法："at the cost of conservative performance in ID environments"（p.1） |
+| 方法 | 在教师—学生框架上，用认知不确定性网络估计历史编码的不确定程度。最终表示 = (1 − α)·鲁棒表示 + α·适应估计，不确定时自动退向鲁棒策略；并行环境交替进行适应训练和带推力对抗的鲁棒训练 |
+| 实验 | Go2 速度跟踪。观测不含机身线速度；训练只在平地；测试包括 6/9 kg 负载、5°/10° 坡、粗糙地面、关节冻结，以及运行中突然加 9 kg 负载 |
+| 结果 | 归一化回报（分布内 / 近分布外 / 远分布外）：GRAM 0.92 / 0.79 / 0.58，鲁棒 RL 0.87 / 0.74 / 0.59，域随机化 0.93 / 0.74 / 0.43（表 III）。真机困难场景成功 15/15，鲁棒 RL 12/15（表 V） |
+| 作者自述局限 | 分布外泛化取决于对抗训练对最坏情况的覆盖，只试了标准对抗者和四足（p.8） |
+| 阅读发现的不足 | ①不确定性和回退系数都是单个标量，退回是整体的（式 6–9，代码已核对）；②鲁棒训练只用推力一种对抗；③远分布外与鲁棒 RL 持平；④未报告随机种子数 |
+| 迁移条件 | 有完整的训练与评估代码，但无训练好的模型、无真机部署代码、无运行中变化的实现；基于 Isaac Lab 1.0，需迁移到新版本（约 1–2 周），再适配 Go2-W（约 1–2 周）。**不需要机身速度，不需要外接电脑或特殊设备** |
+| 可能的创新点 | ①**选择性退回**：按物理因素（环境、轮驱动等）分别判断可信度，只对不可信的部分保守；②针对单一因素的分布外鲁棒训练；③面向轮足的局部执行器变化（如单轮驱动变弱） |
 
-## 七、需要确认的事项
+### 2. MoE-CTS / RoboGauge：仿真到真机可预测性
 
-1. 研究方向与基础论文（GRAM）是否合适。
-2. 实验室是否有可用于 Go2-W 的轮足 MPC。如有，AugMPC 方向可以作为备选。
-3. 实机条件：能否通过软件改变单个轮子的驱动增益；实验场地与每周可用的实机时间。
+Wu 等，*Toward Reliable Sim-to-Real Predictability for MoE-based Robust Quadrupedal Locomotion*，RSS 2026。代码：RoboGauge（MIT）、Isaac Lab 复现版（Apache-2.0）、Go2 部署代码。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | "sim-to-real gap and reward overfitting in complex terrains can produce policies that fail to transfer, while physical validation remains risky and inefficient"（p.1） |
+| 已有局限 | "the lack of reliable quantitative proxies compels researchers to rely on direct physical validation"（p.2）；学生模型表达能力不足，难以还原教师信息（p.3） |
+| 方法 | 在并行教师—学生框架上加入多专家编码器；改进奖励与课程；提出 RoboGauge，在 MuJoCo 中多地形、多扰动评估，用于预测实机表现 |
+| 实验 | Go2，7 种地形；与 DreamWaQ、HIM、CTS 比较，每种 3 个随机种子 |
+| 结果 | RoboGauge 总分 0.6713，CTS 0.5786（表 IV）；实机侧向冲击成功 18/20，Unitree 内置控制器 5/20（表 VI） |
+| 作者自述未来工作 | 扩展到人形等形态，加入外部感知（p.9） |
+| 阅读发现的不足 | 可预测性只用一个模型验证；多专家的增益与训练配方改进没有分开比较；用 RoboGauge 选模型又用它比较 |
+| 迁移条件 | 观测**不含机身线速度**，与 Go2-W 条件最契合；有训练好的 Go2 模型；需增加轮子的动作与奖励，并把评估工具改到 Go2-W。论文数字来自 Isaac Gym 版本，复现需用 Isaac Lab 版本 |
+| 可能的创新点 | ①轮足版的评估工具与指标；②用多个策略验证"仿真评分能否预测实机排序"；③隔离多专家结构本身的贡献 |
+
+### 3. PACE：系统化的执行器辨识
+
+Bjelonic 等，*Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots*，IJRR 2026。代码：辨识部分开源。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | "controllers trained in simulation often fail to transfer reliably, and most existing approaches neglect actuator-specific energy losses or depend on complex, hand-tuned reward formulations"（p.1） |
+| 已有局限 | 现有方法 "often require specialized sensors, exhaustive parameter identification, or iterative expert tuning"（p.1） |
+| 方法 | 机器人悬空，只用关节编码器数据（约 20–40 s），用 CMA-ES 拟合每个关节的电枢、阻尼、摩擦、偏置和全机延迟，使仿真执行器与真机一致 |
+| 实验 | 十余台机器人零样本部署；ANYmal 上与执行器网络、无模型对比 |
+| 结果 | 与执行器网络效果相当，所需数据更少；ANYmal D 运输成本 1.27（表 5） |
+| 作者自述局限 | "finite excitation bandwidth on suspended setups and temperature/aging dependencies that shift effective parameters"（p.21） |
+| 阅读发现的不足 | 没有消融实验和统计；没有与调过参数的域随机化比较；作者在代码仓库中说明悬空辨识不会辨识滚动阻力与打滑 |
+| 迁移条件 | **需要刚性悬挂架**（机身固定，腿和轮可自由运动）；运动训练环境与模型未公开，只能复现辨识部分；评估轮地效果时需要测量机身运动（相机加标签或雷达里程计） |
+| 可能的创新点 | ①检验"悬空数据足够"在轮子上是否成立；②补充轮—地参数（滚动阻力、滑移）的标定；③温度和老化引起的参数漂移 |
+
+### 4. AugMPC：强化学习与 MPC 结合
+
+Patrizi 等，*RL-Augmented MPC for Non-Gaited Legged and Hybrid Locomotion*，IEEE RA-L 11(5):5797–5804，2026。代码：GPL-2.0。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | 上层强化学习决定步态与接触时序，下层 MPC 负责执行，"This offloads the combinatorial burden of contact timing from the MPC"（p.1） |
+| 已有局限 | MPC 中优化接触 "leads to a Mixed-Integer Nonlinear Programming problem, which is often too complex to solve online"（p.1）；无模型强化学习依赖大量域随机化和奖励设计 |
+| 方法 | 全刚体逆动力学 MPC（Horizon 框架）+ SAC；每只脚一个控制是否抬起的动作；训练时 800 个 MPC 并行；不做域随机化；假设没有里程计，速度由 MPC 估计 |
+| 实验 | 50 kg 简化四足、B2-W（仅仿真）、Centauro 轮足（120 kg，仿真与真机） |
+| 结果 | 混合运动的运输成本约 0.12，纯腿式约 0.35（图 4）；仿真到仿真、仿真到真机零样本迁移 |
+| 作者自述局限 | "a systematic evaluation of robustness to strong and persistent external disturbances remains an important direction for future investigation"（p.8） |
+| 阅读发现的不足 | 没有对比基线；没有扰动实验；未报告种子数 |
+| 迁移条件 | **需要为 Go2-W 建立完整刚体模型和实时 MPC**，目前没有可直接用于 Go2-W 实机的开源轮足 MPC，自建预计 2–4 个月；全身 MPC 可能需要**外接电脑**运行；训练需要大量 CPU 核心（服务器 96 线程可满足） |
+| 可能的创新点 | ①执行能力下降（如轮驱动变弱）后，上层接触决策与下层可实现运动如何共同调整；②补充对外扰和变化的系统评估 |
+
+### 5. Random Joint Masking：关节受损下的运动
+
+Kim 等，*Learning Quadrupedal Locomotion with Impaired Joints Using Random Joint Masking*，ICRA 2024。代码未公开。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | "enable a quadrupedal robot to walk with impaired joints"（p.1） |
+| 已有局限 | 模型类方法 "relied on a specific robot dynamic model, case-by-case models for various failure cases, and time-consuming model parameter tuning"（p.2） |
+| 方法 | 训练时随机屏蔽某个关节的动作和力矩；教师—学生结构估计哪个关节受损；按难度逐步加入故障的课程 |
+| 实验 | Go1，单关节零力矩或锁死；仿真与室内外真机 |
+| 结果 | 仿真平均速度误差从 0.5787 降到 0.1951（表 II） |
+| 作者自述局限 | 性能随受损关节位置下降，仍有较大改进空间（p.6） |
+| 阅读发现的不足 | 只处理单关节；基线训练时没见过故障，对比偏弱；无重复实验 |
+| 迁移条件 | 无代码，课程阈值等参数不全，需自行实现；实机故障可用软件屏蔽电机模拟，**腿关节失效时需要悬挂保护** |
+| 可能的创新点 | ①轮足上的多种执行器失效（轮锁死、轮无力、腿关节失效）；②利用腿和轮互相补偿 |
+
+### 6. TAM：力矩层适应
+
+Son 等，*Torque Adaptation Module for Robust Motion Transfer in Manipulation*，CoRL 2026。代码已公开，未声明许可证。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | "A policy tuned for one robot often behaves differently on another, whether due to the sim-to-real gap, unknown payloads, or the differing dynamics of two instances of the same robot"（p.1） |
+| 已有局限 | 域随机化 "can result in overly conservative policies"（p.1）；RMA 类方法需要重新训练策略（p.2） |
+| 方法 | 把适应层放到力矩接口，根据历史学习残差力矩，不需要修改上层策略 |
+| 实验 | Franka 机械臂实机推箱、翻转、球板平衡等；仿真 7 种机械臂 |
+| 结果 | 推箱成功率 76.2%，不做适应为 47.6%（表 1） |
+| 作者自述局限 | 需要 "a usable ideal inverse torque-command map, and matched kinematic structure"；接触 "may still be confused with robot-side mismatch"（p.9） |
+| 迁移条件 | 只适用于固定基座机械臂；Go2-W 机身浮动且持续与地面接触，不满足其理想逆动力学的前提；历史编码器需在 GPU 上运行 |
+| 可能的创新点 | 轮子是单轴执行器，可尝试只对轮驱动做力矩层修正；但接触引起的误判仍需解决，难度较大 |
+
+### 7. SimDist：仿真预训练世界模型
+
+Levy 等，*Simulation Distillation: Pretraining World Models in Simulation for Rapid Real-World Adaptation*，RSS 2026。代码：MIT（四足部分已公开）。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | "Robot learning requires adaptation methods that improve reliably from limited, mixed-quality interaction data"（p.1） |
+| 已有局限 | 端到端强化学习 "often collapse when finetuning policies in new domains"（p.2） |
+| 方法 | 在仿真中预训练世界模型；部署时冻结编码器、奖励和价值函数，只用真机数据更新动力学部分；用 MPPI 在线规划 |
+| 实验 | Go2 在光滑斜坡和泡沫上行走；UR5e 机械臂 |
+| 结果 | 斜坡上 4/5 到 5/5 成功，对比方法 0/5（表 IX）；真机数据约 30 分钟 |
+| 作者自述局限 | "freezing reward and value models can cap performance when the transferred value function saturates"（p.9） |
+| 迁移条件 | 观测**需要机身线速度和高度图**（需要激光雷达定位或动捕）；在线规划需要**外接带 RTX 4090 级显卡的笔记本**；预训练数据量大（约 1 亿条数据、28 小时）；代码基于旧版软件，世界模型部分使用 JAX |
+| 可能的创新点 | ①在世界模型中加入轮子打滑，用于轮足快速适应；②检验"只更新动力学"在执行能力大幅变化时是否足够 |
+
+### 8. LocoFormer：长上下文跨机体运动
+
+Liu 等，*LocoFormer: Generalist Locomotion via Long-context Adaptation*，CoRL 2025。无官方代码。
+
+| 项目 | 内容 |
+|---|---|
+| 问题 | "Modern locomotion controllers are manually tuned for specific embodiments"（p.1）；希望一个模型控制未见过的腿式与轮式机器人 |
+| 已有局限 | 现有控制器 "fail catastrophically in the case of large changes such as burnt out motors, broken legs, or modeling errors"（p.2） |
+| 方法 | 程序化生成约 10 万种机器人，配合极宽的域随机化；Transformer-XL 保留跨回合的长历史，在测试时适应 |
+| 实验 | 10 种未见机器人（含 Go2-W）；实机 Go2、Go2-W、G1、H1 |
+| 结果 | 仿真平均 0.96（零样本）、0.98（少样本），专门训练的策略为 0.99（表 1） |
+| 作者自述局限 | "Training LocoFormer is highly resource-intensive compared to a specialist policy"（p.9） |
+| 迁移条件 | 无官方代码和模型；观测规格未公开；训练算力约为单机型策略的 500 倍 |
+| 可能的创新点 | 只针对 Go2-W 的小规模长上下文版本，用于运行中执行器变化的适应 |
+
+## 四、对比汇总
+
+| 论文 | 发表 | 代码 | 需要机身速度 | 特殊设备 | 迁移工作量 | 创新空间 |
+|---|---|---|---|---|---|---|
+| GRAM | RA-L 2026 | 有（需迁移） | 否 | 无 | 中（2–4 周） | 较大：局限明确 |
+| MoE-CTS / RoboGauge | RSS 2026 | 有，含模型 | 否 | 无 | 中 | 中：偏评价方向 |
+| PACE | IJRR 2026 | 仅辨识部分 | 辨识时否 | 刚性悬挂架；评估需相机或雷达定位 | 中 | 中：偏工程 |
+| AugMPC | RA-L 2026 | 有（GPL） | 否（由 MPC 估计） | 可能需外接电脑 | 大（MPC 需自建，2–4 个月） | 较大 |
+| Random Joint Masking | ICRA 2024 | 无 | 否 | 腿故障实验需悬挂保护 | 中（需自行实现） | 中 |
+| TAM | CoRL 2026 | 有 | — | — | 不适用于浮动基座 | 小 |
+| SimDist | RSS 2026 | 有（旧版本） | 是 | 外接 GPU 笔记本；雷达定位 | 大 | 中 |
+| LocoFormer | CoRL 2025 | 无 | 未公开 | 大规模算力 | 很大 | 小 |
+
+**初步倾向**：GRAM 的局限明确、代码完整、原平台为 Go2、不需要额外设备，目前看最适合作为基础论文，研究方向可以是"运行中局部动力学变化下的选择性鲁棒适应"。MoE-CTS 和 PACE 可作为备选；若实验室有可用于 Go2-W 的 MPC，AugMPC 也值得考虑。具体课题希望与老师讨论后确定。
+
+## 五、下一步
+
+1. 与老师讨论，确定基础论文与研究方向；
+2. 确认实验条件：实验室是否有轮足 MPC 或悬挂架，扩展计算模块型号，实验场地与时间；
+3. 对选定论文开展复现：先在仿真中跑通原论文主要结果，再迁移到 Go2-W。
 
 ---
 
 ## 附录：其他调研论文
 
-| 论文 | 出处 | 作者的问题或自述局限（原文） | 与本课题的关系 |
+| 论文 | 出处 | 作者的问题或自述局限（原文） | 与本方向的关系 |
 |---|---|---|---|
-| RMA | RSS 2021 | "domain randomization trades optimality for robustness leading to an over conservative policy"（p.4） | 历史编码器的来源，GRAM 的基础 |
-| HIMLoco | ICLR 2024 | "This two-phase training paradigm complicates the training process and inevitably induces information loss"（p.2） | 对比基线 |
-| DreamWaQ | ICRA 2023 | "its adaptation mechanism, where it must first hit the obstacles with its legs"（p.6） | 对比基线 |
+| RMA | RSS 2021 | "domain randomization trades optimality for robustness leading to an over conservative policy"（p.4） | 历史编码器的来源 |
+| HIMLoco | ICLR 2024 | "This two-phase training paradigm complicates the training process and inevitably induces information loss"（p.2） | 适应类基线，有 Go2-W 版本 |
+| DreamWaQ | ICRA 2023 | "its adaptation mechanism, where it must first hit the obstacles with its legs"（p.6） | 适应类基线，有 Go2-W 版本 |
 | DreamFLEX | ICRA 2025 | "these studies had a limited demonstration for overcoming various rough terrains"（p.1） | 关节故障下的容错运动 |
 | ESCP | AAAI 2022 | "previous methods show lagged and unstable context extraction, which are hard to handle sudden changes well"（摘要） | 突变环境中的快速适应 |
 | SADL | IJRR 2026 | "particularly when encountering dynamics that are out-of-distribution"（p.25） | 情境识别与条件动力学 |
@@ -223,13 +202,13 @@ Patrizi A. 等，RA-L 11(5):5797–5804，2026。上层强化学习决定步态�
 | CaT | IROS 2024 | "current solvers fail to produce efficient policies respecting hard constraints"（摘要） | 约束强化学习 |
 | PEGrad | CoRL 2025 | "we found it challenging to combine the energy minimization objective with style rewards"（p.9） | 能耗优化 |
 | DIAL-MPC | ICRA 2025 | "requires fast simulation to generate samples"（p.7） | 采样式 MPC，需要外部定位 |
-| Omni-Perception | CoRL 2025 | "Performance can degrade in environments dominated by highly unstructured vegetation"（p.9） | 激光雷达避障 |
+| Omni-Perception | CoRL 2025 | "Performance can degrade in environments dominated by highly unstructured vegetation"（p.9） | 激光雷达避障，训练代码未公开 |
 | VR-Robo | RA-L 2025 | "limited to indoor scenes with static terrains"（p.7） | 三维重建视觉策略 |
-| StreamVLN | ICRA 2026 | "face trade-offs among fine-grained visual understanding, long-term context modeling and computational efficiency"（摘要） | 视觉语言导航 |
+| StreamVLN | ICRA 2026 | "face trade-offs among fine-grained visual understanding, long-term context modeling and computational efficiency"（摘要） | 视觉语言导航，需外接 GPU |
 | Fu 等 | Nature Communications 17:5857, 2026 | "its adaptation to environmental shifts is limited"（p.7） | 动物动作模仿 |
 | QOED | RSS 2026 | "identifying nuisance parameters and accounting for their influence remains a significant gap"（p.2） | 信息论主动探索 |
-| Lee 等 | Science Robotics 9(89), 2024 | "Existing approaches for hybrid locomotion build upon simple heuristics to decide when to step and when to drive"（p.1） | 轮足混合运动 |
+| Lee 等 | Science Robotics 9(89), 2024 | "Existing approaches for hybrid locomotion build upon simple heuristics to decide when to step and when to drive"（p.1） | 轮足混合运动，无代码 |
 | Skid-steer loaders | Science Robotics 11(120), 2026 | "we composed the overall behavior using hand-crafted switching conditions"（p.6） | 滑移转向车辆的学习控制 |
 | Hao 等 | RICAI 2023 | "the tire longitudinal and lateral force are large"（摘要） | 腿姿辅助轮足转向 |
 
-注：引用页码为 arXiv 版本页码。各论文的完整分析见 `04_research/candidates/` 下的精读记录。
+各论文的完整阅读记录见 `04_research/candidates/`。
