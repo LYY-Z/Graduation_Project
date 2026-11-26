@@ -95,3 +95,4 @@
 - 2026-11-26：核查 Go2-W 机载算力与开源 MPC：RL 推理机载可行；质心 MPC 需 Orin NX；全身 NMPC 需外接电脑；无可直接用的 Go2-W 全身 MPC 开源实现（AugMPC 后端 Horizon 仅 Centauro 实机；OCS2 加轮约 2–4 个月）。AugMPC 降为'仅当实验室已有轮足 MPC'的条件备选，主线维持 GRAM。
 - 2026-11-26：主模型直接用 GitHub API 复查 Go2-W MPC：确认无实机可用实现（仅单轨规划层、MATLAB 仿真、个人教学项目）。发现 DreamWaQ_Go2W（136★）、HIMLoco-for-Go2W（111★）可作 GRAM 主线的 Go2-W 基线与适配参考。
 - 2026-11-26：完成向老师汇报的总文档 [06_reports/topic_selection/report.CN.md](06_reports/topic_selection/report.CN.md)：整合老师、Claude、Codex 三方意见；约 30 篇论文按推荐度排序，核心 4 篇按老师论证链十项展开并附原话，其余附原话简表；更正 AugMPC 不依赖里程计、TAM 障碍为浮动基座与接触。素材见 teacher_chain_core / teacher_chain_secondary。
+- 2026-11-26：按用户要求重写选题汇报为正式文稿（去掉三方意见与评价标签，按背景—调研—基础论文—比较—方案—计划组织，附录列其余论文原文）；问答准备另存 [qa_prep](06_reports/topic_selection/qa_prep.CN.md)，不交给老师。
