@@ -87,7 +87,8 @@
 - 2026-11-25：腿姿辅助转弯专项查重：部分覆盖（Hao 等 RICAI 2023 用腿缩轴距辅助滑移转向，规划+PID；Racing 2026 Go2-W 抗侧倾；ETH 系列未涉及）。主线保留，措辞改为在前人基础上，差异为擦地目标+多几何量+RL+实测侧向力模型；第 0 周增加理论收益估算。见 [leg_turning_check](04_research/novelty/leg_turning_check.md)。
 - 2026-11-25：最终评估定稿：主线腿姿协同转弯 + 实测标定轮—地模型；核心科学问题明确为擦地、姿态代价、稳定性的权衡（学习的必要性来源）；新增几何规则基线（Hao 2023 式）为关键对照。第一备选轮—腿冗余容错。待用户与老师讨论。
 - 2026-11-25：用户质疑腿姿转弯'已被 Hao 做过、不难想到却无论文'。引入价值信号检验（顶会同类线 / 强组点名未来工作 / 实际需求）：腿姿转弯仅见于小会，降为备选；**轮—腿冗余容错三项通过，定为最终主线**（基础论文 Random Joint Masking ICRA 2024 等；IIT Kyon 预印本点名轮足容错为未来工作）。保底为轮—地标定对齐。见 [decision_memo 第 4 版](04_research/decision_memo.CN.md)。
-- 2026-11-26：写成向老师汇报的选题文档 [06_reports/fault_tolerance/report.CN.md](06_reports/fault_tolerance/report.CN.md)（选题过程、老师方向的去向、Random Joint Masking 精读、方案、Q&A）。基础论文已核实 ICRA 2024 pp.9751–9757，无代码。旧 PACE 汇报标注为已被取代。
+- 2026-11-26：写成向老师汇报的选题文档 [06_reports/topic_selection/report.CN.md](06_reports/topic_selection/report.CN.md)（选题过程、老师方向的去向、Random Joint Masking 精读、方案、Q&A）。基础论文已核实 ICRA 2024 pp.9751–9757，无代码。旧 PACE 汇报标注为已被取代。
 - 2026-11-26：用户指出基础论文无代码、超参不全。补复现方案：robot_lab 作底座（与 legged_gym 同源），IIT fault-locomotion-isaaclab（BSD-3，Isaac Lab，Go2，2026-11 更新）作实现参考，缺失超参用默认值并问作者，复现目标为表 II 相对趋势；有代码的备选基础论文为 GRAM（Isaac Lab 1.0，需移植）。方向不变。
 - 2026-11-26：决策备忘第 5 版。研究问题（轮足局部执行器变化）不变；基础论文由 Random Joint Masking（无代码）改为 GRAM（RA-L 2026，官方代码，老师给的论文）；核心机制采纳 Codex 建议的'选择性鲁棒适应'（经主模型核实 DMCM、CERTAIN、GRAM 出处），加理想上限检验关卡。选题汇报需按新基础论文重写第 2 部分，待用户确认后进行。
 - 2026-11-26：**最终定稿**：主线 GRAM + 选择性鲁棒适应；条件备选 AugMPC（需 MPC 支持）、MoE-CTS/RoboGauge（偏评价）；保底 GRAM 复现 + 失效分析。综合 Codex 两轮意见，主模型收窄候选面、补充因素分组与变化类型、第 1 周代码移植关卡。已派 Sonnet 精读 GRAM 并审代码（输出 04_research/candidates/gram.md），完成后重写选题汇报。
+- 2026-11-26：GRAM 精读与代码审查完成（[gram.md](04_research/candidates/gram.md)）：确认回退为整体标量（式 6–9，代码 L620–696），创新切入点成立；代码 Isaac Lab 1.0，迁移约 1–2 周，无权重、无运行中变化代码。选题汇报改写为 GRAM 版并移至 [06_reports/topic_selection/report.CN.md](06_reports/topic_selection/report.CN.md)。

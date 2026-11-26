@@ -94,7 +94,7 @@
 | 轮足 RL 基础 | Lee 等 | Science Robotics 9(89) 2024 | 轮足特权学习、走/驶切换 |
 | 开放问题依据 | Ha 等，学习足式运动综述 | IJRR 2025 | §8.5 轮足混合运动 |
 | 代码底座（非正式发表） | IIT fault-locomotion-isaaclab（arXiv 2606.25965） | 预印本 | Isaac Lab、Go2 的故障注入与训练代码，可借鉴，不作论证依据 |
-| 训练底座 | robot_lab（开源，Isaac Lab，含 Go2/Go2-W） | — | 与基础论文所用 legged_gym 同源，默认超参可沿用。基础论文无代码、超参不全，复现方案见[选题汇报 §3.7](../06_reports/fault_tolerance/report.CN.md) |
+| 训练底座 | robot_lab（开源，Isaac Lab，含 Go2/Go2-W） | — | 与基础论文所用 legged_gym 同源，默认超参可沿用。基础论文无代码、超参不全，复现方案见[选题汇报 §3.7](../06_reports/topic_selection/report.CN.md) |
 
 ## 4. 方法要点
 

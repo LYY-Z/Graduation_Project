@@ -9,7 +9,7 @@
 | LocoFormer 论文阅读 | [中文](locoformer/paper.CN.pptx) · [英文](locoformer/paper.EN.pptx) | [中文讲稿](locoformer/paper.speech.CN.md) · [英文讲稿](locoformer/paper.speech.EN.md) |
 | LocoFormer 复现计划 | [中文](locoformer/reproduction.CN.pptx) · [英文](locoformer/reproduction.EN.pptx) | 讲稿见 PPT 备注 |
 | Diffusion Policy 论文阅读 | [中文](diffusion_policy/report.CN.pptx) | [讲稿](diffusion_policy/speech.CN.docx) · [知识回顾](diffusion_policy/knowledge_review.CN.docx) |
-| **选题汇报（当前）：轮—腿冗余容错** | — | [汇报文档](fault_tolerance/report.CN.md) |
+| **选题汇报（当前）：GRAM + 选择性鲁棒适应** | — | [汇报文档](topic_selection/report.CN.md) |
 | PACE 精读与早期方案（已被取代，现为保底方向） | — | [汇报文档](pace/report.CN.md) |
 | 备选：电机过热与热约束运动 | — | [汇报文档](thermal/report.CN.md) |
 | 备选：部署时快速适应（TEMPO） | — | [汇报文档](adaptation/report.CN.md) |
