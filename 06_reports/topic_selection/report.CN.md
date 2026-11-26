@@ -1,7 +1,5 @@
 # 轮足机器人学习运动控制：论文调研汇报
 
-2026 年 11 月　（调研阶段，课题尚未确定）
-
 ## 一、调研概况
 
 **平台**：Unitree Go2-W 开发版，12 个腿关节采用位置控制，4 个轮子采用速度控制。
@@ -14,7 +12,7 @@
 |---|---|---|
 | 会议 | RSS、CoRL、ICRA、IROS、NeurIPS、ICLR、ICML（2025–2026），逐条查看录用列表 | 筛出相关论文 385 篇 |
 | 期刊 | Science Robotics、IJRR、T-RO、RA-L、Nature 系（2025 年至今），共 38,332 篇 | 筛出相关论文 151 篇 |
-| 预印本 | arXiv 上的轮足 + 学习论文（2024 年至今） | 69 篇 |
+| 预印本 | arXiv 上的轮足 + 学习论文| 69 篇 |
 | 略读 | 四足和轮足相关的顶刊顶会论文，阅读摘要、结论与局限 | 258 篇 |
 | 精读 | 方法、代码、实验条件逐项核对 | 8 篇（见第三部分） |
 
@@ -23,16 +21,15 @@
 2. 适应与鲁棒控制是成熟方向，历史编码器、教师—学生训练、域随机化都有大量工作，创新需要针对具体论文的局限展开。
 3. 精读论文的选择标准：顶刊或顶会正式发表；与本方向相关；有代码或足够详细的方法描述；能迁移到 Go2-W。
 
-## 二、Go2-W 平台条件（影响论文能否迁移）
+## 二、Go2-W 平台条件
 
 | 项目 | 情况 |
 |---|---|
 | 底层控制 | 官方 SDK 支持 16 个电机的底层控制（腿：位置 + PD；轮：速度） |
 | 机身速度 | 进入底层控制模式后读不到官方的机身速度估计，需要自建状态估计（激光雷达里程计或动捕） |
-| 电机数据 | 每个电机可读位置、速度、估计力矩、温度；**读不到单个电机的电流**，整机电压电流可读 |
+| 电机数据 | 每个电机可读位置、速度、估计力矩、温度；读不到单个电机的电流，整机电压电流可读 |
 | 机载算力 | 8 核主控不对用户开放，用户程序需运行在 Jetson Orin 扩展模块或外接电脑上；运行强化学习策略可行（50 Hz）；简化的质心 MPC 需要 Orin NX 级别的扩展模块；全身 MPC 的公开案例都在外接电脑上运行 |
-| 训练环境 | 已有 Go2-W 的开源训练环境（robot_lab）和部署工具（rl_sar）；HIMLoco、DreamWaQ 有 Go2-W 移植版本 |
-| 服务器 | 2 块 Blackwell 架构显卡，需要较新的软件版本（Isaac Sim 5.x、PyTorch 2.7 以上），旧代码需迁移 |
+| 服务器 | 2 块 Blackwell 架构显卡，需要较新的软件版本（Isaac Sim 5.x、PyTorch 2.7 以上） |
 
 ## 三、精读论文
 
@@ -51,9 +48,9 @@ Queeney 等，*GRAM: Generalization in Deep RL with a Robust Adaptation Module*�
 | 结果 | 归一化回报（分布内 / 近分布外 / 远分布外）：GRAM 0.92 / 0.79 / 0.58，鲁棒 RL 0.87 / 0.74 / 0.59，域随机化 0.93 / 0.74 / 0.43（表 III）。真机困难场景成功 15/15，鲁棒 RL 12/15（表 V） |
 | 作者自述局限 | 分布外泛化取决于对抗训练对最坏情况的覆盖，只试了标准对抗者和四足（p.8） |
 | 阅读发现的不足 | ①不确定性和回退系数都是单个标量，退回是整体的（式 6–9，代码已核对）；②鲁棒训练只用推力一种对抗；③远分布外与鲁棒 RL 持平；④未报告随机种子数 |
-| 迁移条件 | 有完整的训练与评估代码，但无训练好的模型、无真机部署代码、无运行中变化的实现；基于 Isaac Lab 1.0，需迁移到新版本（约 1–2 周），再适配 Go2-W（约 1–2 周）。**不需要机身速度，不需要外接电脑或特殊设备** |
+| 迁移条件 | 有完整的训练与评估代码，但无训练好的模型、无真机部署代码、无运行中变化的实现；基于 Isaac Lab 1.0，需迁移到新版本，再适配 Go2-W。 |
 | 算力与硬件 | 训练：4096 个并行环境，强化学习 1 万次迭代 + 适应模块 5 千次迭代（原文）；显卡与训练时间未报告，估计单卡约 3–4 小时。部署：原文 "all computation is performed onboard"，策略 50 Hz。本服务器可承受 |
-| 可能的创新点 | ①**选择性退回**：按物理因素（环境、轮驱动等）分别判断可信度，只对不可信的部分保守；②针对单一因素的分布外鲁棒训练；③面向轮足的局部执行器变化（如单轮驱动变弱） |
+| 可能的创新点 | ①选择性退回：按物理因素（环境、轮驱动等）分别判断可信度，只对不可信的部分保守；②针对单一因素的分布外鲁棒训练；③面向轮足的局部执行器变化（如单轮驱动变弱） |
 
 ### 2. MoE-CTS / RoboGauge：仿真到真机可预测性
 
@@ -68,7 +65,7 @@ Wu 等，*Toward Reliable Sim-to-Real Predictability for MoE-based Robust Quadru
 | 结果 | RoboGauge 总分 0.6713，CTS 0.5786（表 IV）；实机侧向冲击成功 18/20，Unitree 内置控制器 5/20（表 VI） |
 | 作者自述未来工作 | 扩展到人形等形态，加入外部感知（p.9） |
 | 阅读发现的不足 | 可预测性只用一个模型验证；多专家的增益与训练配方改进没有分开比较；用 RoboGauge 选模型又用它比较 |
-| 迁移条件 | 观测**不含机身线速度**，与 Go2-W 条件最契合；有训练好的 Go2 模型；需增加轮子的动作与奖励，并把评估工具改到 Go2-W。论文数字来自 Isaac Gym 版本，复现需用 Isaac Lab 版本 |
+| 迁移条件 | 有训练好的 Go2 模型；需增加轮子的动作与奖励，并把评估工具改到 Go2-W。 |
 | 算力与硬件 | 训练：8192 个并行环境（原文），仓库检查点约 8–14 万次迭代；论文未报告训练时间，仓库在 RTX 4090 上实测约 2.3–4.4 秒/迭代，估计单卡约 3.5–4 天。部署：Orin NX 或网线连接的外接电脑，策略 50 Hz（仓库说明）。本服务器可承受，但单次训练需数天；其 Isaac Lab 版本要求 Isaac Sim 6.2，与服务器的 5.1 不一致 |
 | 可能的创新点 | ①轮足版的评估工具与指标；②用多个策略验证"仿真评分能否预测实机排序"；③隔离多专家结构本身的贡献 |
 
@@ -85,8 +82,8 @@ Bjelonic 等，*Towards bridging the gap: Systematic sim-to-real transfer for di
 | 结果 | 与执行器网络效果相当，所需数据更少；ANYmal D 运输成本 1.27（表 5） |
 | 作者自述局限 | "finite excitation bandwidth on suspended setups and temperature/aging dependencies that shift effective parameters"（p.21） |
 | 阅读发现的不足 | 没有消融实验和统计；没有与调过参数的域随机化比较；作者在代码仓库中说明悬空辨识不会辨识滚动阻力与打滑 |
-| 迁移条件 | **需要刚性悬挂架**（机身固定，腿和轮可自由运动）；运动训练环境与模型未公开，只能复现辨识部分；评估轮地效果时需要测量机身运动（相机加标签或雷达里程计） |
-| 算力与硬件 | 辨识：单张 RTX 3080、4096 个并行环境，10–24 小时（原文）。运动策略：3 万次迭代，约 24 小时（作者在代码仓库中的说明，Isaac Gym）。部署硬件未报告。本服务器可承受，策略训练需改用 Isaac Lab |
+| 迁移条件 | 需要刚性悬挂架（机身固定，腿和轮可自由运动）；运动训练环境与模型未公开，只能复现辨识部分；评估轮地效果时需要测量机身运动（相机加标签或雷达里程计） |
+| 算力与硬件 | 辨识：单张 RTX 3080、4096 个并行环境，10–24 小时（原文）。运动策略：3 万次迭代，约 24 小时（作者在代码仓库中的说明，Isaac Gym）。部署硬件未报告。本服务器可承受 |
 | 可能的创新点 | ①检验"悬空数据足够"在轮子上是否成立；②补充轮—地参数（滚动阻力、滑移）的标定；③温度和老化引起的参数漂移 |
 
 ### 4. AugMPC：强化学习与 MPC 结合
@@ -136,12 +133,12 @@ Son 等，*Torque Adaptation Module for Robust Motion Transfer in Manipulation*�
 | 结果 | 推箱成功率 76.2%，不做适应为 47.6%（表 1） |
 | 作者自述局限 | 需要 "a usable ideal inverse torque-command map, and matched kinematic structure"；接触 "may still be confused with robot-side mismatch"（p.9） |
 | 迁移条件 | 只适用于固定基座机械臂；Go2-W 机身浮动且持续与地面接触，不满足其理想逆动力学的前提；历史编码器需在 GPU 上运行 |
-| 算力与硬件 | 训练显卡、时长、数据量均未报告；历史编码器约 440 万参数。部署：编码器在 GPU 上运行（RTX 3080 上约 1 ms、约 1.3 GB 显存），5 Hz；力矩修正在 CPU 上，1 kHz（原文）。训练可承受。部署方面（估计）：编码器规模不大，Go2-W 的 Jetson Orin 扩展模块自带 GPU，5 Hz 运行应可满足，不一定需要外接电脑；但力矩修正原文为 1 kHz，而 Go2-W 底层通信通常为 500 Hz 左右（需实测），只能降频运行 |
+| 算力与硬件 | 训练显卡、时长、数据量均未报告；历史编码器约 440 万参数。部署：编码器在 GPU 上运行（RTX 3080 上约 1 ms、约 1.3 GB 显存），5 Hz；力矩修正在 CPU 上，1 kHz（原文）。训练可承受；Go2-W 上需外接带 GPU 的电脑 |
 | 可能的创新点 | 轮子是单轴执行器，可尝试只对轮驱动做力矩层修正；但接触引起的误判仍需解决，难度较大 |
 
 ### 7. SimDist：仿真预训练世界模型
 
-Levy 等，*Simulation Distillation: Pretraining World Models in Simulation for Rapid Real-World Adaptation*，RSS 2026。代码：MIT（四足部分已公开）。
+Levy 等，*Simulation Distillation: Pretraining World Models in Simulation for Rapid Real-World Adaptation*，RSS 2026。代码：MIT。
 
 | 项目 | 内容 |
 |---|---|
@@ -175,47 +172,48 @@ Liu 等，*LocoFormer: Generalist Locomotion via Long-context Adaptation*，CoRL
 
 | 论文 | 发表 | 代码 | 需要机身速度 | 特殊设备与算力 | 迁移工作量 | 创新空间 |
 |---|---|---|---|---|---|---|
-| GRAM | RA-L 2026 | 有（需迁移） | 否 | 无；单卡约数小时 | 中（2–4 周） | 较大：局限明确 |
+| GRAM | RA-L 2026 | 有（需迁移） | 否 | 无；单卡约数小时 | 中 | 较大：局限明确 |
 | MoE-CTS / RoboGauge | RSS 2026 | 有，含模型 | 否 | 无；单卡约 3.5–4 天 | 中 | 中：偏评价方向 |
 | PACE | IJRR 2026 | 仅辨识部分 | 辨识时否 | 刚性悬挂架；评估需相机或雷达定位；辨识 10–24 小时 | 中 | 中：偏工程 |
 | AugMPC | RA-L 2026 | 有（GPL） | 否（由 MPC 估计） | Orin 或外接电脑运行 MPC；训练以 CPU 为主，约 6 小时 | 大（MPC 需自建，2–4 个月） | 较大 |
 | Random Joint Masking | ICRA 2024 | 无 | 否 | 腿故障实验需悬挂保护 | 中（需自行实现） | 中 |
-| TAM | CoRL 2026 | 有 | — | 编码器需 GPU（Orin 估计可满足）；力矩修正需高频底层控制 | 不适用于浮动基座 | 小 |
+| TAM | CoRL 2026 | 有 | — | 部署需 GPU | 不适用于浮动基座 | 小 |
 | SimDist | RSS 2026 | 有（旧版本） | 是 | 外接 GPU 笔记本；雷达定位；训练约 1.5–2 天 | 大 | 中 |
 | LocoFormer | CoRL 2025 | 无 | 未公开 | 约 500 GPU·天（估计），本服务器不可承受 | 很大 | 小 |
 
-**初步倾向**：GRAM 的局限明确、代码完整、原平台为 Go2、不需要额外设备，目前看最适合作为基础论文，研究方向可以是"运行中局部动力学变化下的选择性鲁棒适应"。MoE-CTS 和 PACE 可作为备选；若实验室有可用于 Go2-W 的 MPC，AugMPC 也值得考虑。具体课题希望与老师讨论后确定。
+## 五、结合 Go2-W 轮足特点的两个方向
 
-## 五、从 Go2-W 平台特点出发的研究方向
+上面的论文大多以纯腿式机器人为平台。Go2-W 同时有腿和轮，这一结构特点可以引出以下两个方向，均可与第三部分的论文结合。
 
-以下两个方向来自 Go2-W"既有腿又有轮"的结构特点，可以与上面的基础论文结合，也可以单独成题。
+### 1. 轮—腿冗余容错
 
-| 方向 | 内容 | 相关工作 | 现状与问题 |
-|---|---|---|---|
-| 轮—腿冗余容错 | 电机失效时利用另一套运动方式继续完成任务：轮子锁死或无力时改用腿行走，腿关节失效时依靠轮子滚动 | 足式容错：FT-Net（RA-L 2023）、Random Joint Masking（ICRA 2024）、DreamFLEX（ICRA 2025）、FT-CPG（RA-L 2025）、Contrastive Forward Prediction（CoRL 2025）；IIT 的 Kyon 轮足论文（2026，预印本）将"轮足混合系统的容错"列为未来工作 | 检索范围内未见轮足上的学习式容错，但相关基础论文大多没有公开代码；"估计故障并调整步态"已有 DreamFLEX 等工作。可作为 GRAM 方向中"局部执行器变化"的一类具体情形 |
-| 腿姿辅助转向 | Go2-W 的轮子不能转向，转弯靠左右轮差速，轮子横向擦地。通过调整腿的姿态（轮距、前后轴距、各轮载荷）减少擦地、提高转弯效率与精度 | Hao 等（RICAI 2023）已用缩短轴距辅助滑移转向（规划 + PID）；Go2-W 赛车论文（arXiv 2606.26313，AVEC 2026）用腿抑制侧倾；滑移转向装载机的学习控制（Science Robotics 2026） | 核心想法已被 Hao 等做过，且只见于小型会议；需要先用简化模型估算腿姿改变对转弯阻力的影响有多大。仿真器难以准确模拟轮子侧向擦地，需要标定轮—地模型 |
+| 项目 | 内容 |
+|---|---|
+| 问题 | 运行中某个电机失效时，利用另一套运动方式继续完成任务：轮子锁死或无力时改用腿行走，腿关节失效时依靠轮子滚动 |
+| 相关工作 | 足式容错：FT-Net（RA-L 2023）、Random Joint Masking（ICRA 2024）、DreamFLEX（ICRA 2025）、FT-CPG（RA-L 2025）、Contrastive Forward Prediction（CoRL 2025）；IIT 的 Kyon 轮足论文（2026，预印本）将"轮足混合系统的容错"列为未来工作 |
+| 现状 | 检索范围内未见轮足上的学习式容错；已有工作均为纯腿机器人，且以单关节故障为主；"估计故障并调整步态"已有 DreamFLEX 等工作 |
+| 条件与难点 | 相关基础论文大多没有公开代码，需自行实现；实机故障可用软件屏蔽电机模拟，腿关节失效需悬挂保护；部分故障（如轮子无力时被动滚动）影响可能较小，需先测各类故障造成的退化程度 |
+| 可结合的论文 | Random Joint Masking（故障注入与估计）；GRAM（作为"局部执行器变化"的一类具体情形） |
 
-## 六、下一步
+### 2. 腿姿辅助转向
 
-1. 与老师讨论，确定基础论文与研究方向；
-2. 确认实验条件：实验室是否有轮足 MPC 或悬挂架，扩展计算模块型号，实验场地与时间；
-3. 对选定论文开展复现：先在仿真中跑通原论文主要结果，再迁移到 Go2-W。
+| 项目 | 内容 |
+|---|---|
+| 问题 | Go2-W 的轮子不能转向，转弯靠左右轮差速，轮子横向擦地，耗能大、易打滑、转向不准。通过调整腿的姿态（轮距、前后轴距、各轮载荷）减少擦地，提高转弯效率与精度 |
+| 相关工作 | Hao 等（RICAI 2023）已用缩短轴距辅助滑移转向（规划 + PID）；Go2-W 赛车论文（arXiv 2606.26313，AVEC 2026）用腿抑制转弯侧倾；滑移转向装载机的学习控制（Science Robotics 2026）；Lee 等轮足导航与运动（Science Robotics 2024） |
+| 现状 | 用腿姿辅助转向的核心想法已有工作，但只见于小型会议，且未使用学习方法 |
+| 条件与难点 | 需先用简化模型估算腿姿变化对转弯阻力的影响有多大；仿真器难以准确模拟轮子侧向擦地，需要用真机数据标定轮—地模型；收腿、蹲低需要腿部电机持续出力，可能抵消部分收益 |
+| 可结合的论文 | PACE（执行器与轮—地参数标定） |
 
 ---
 
 ## 附录：其他调研论文
 
-| 论文 | 出处 | 作者的问题或自述局限（原文） | 与本方向的关系 |
+| 论文 | 出处 | 作者的问题或自述局限（原文） | 方向 |
 |---|---|---|---|
-| RMA | RSS 2021 | "domain randomization trades optimality for robustness leading to an over conservative policy"（p.4） | 历史编码器的来源 |
-| HIMLoco | ICLR 2024 | "This two-phase training paradigm complicates the training process and inevitably induces information loss"（p.2） | 适应类基线，有 Go2-W 版本 |
-| DreamWaQ | ICRA 2023 | "its adaptation mechanism, where it must first hit the obstacles with its legs"（p.6） | 适应类基线，有 Go2-W 版本 |
 | DreamFLEX | ICRA 2025 | "these studies had a limited demonstration for overcoming various rough terrains"（p.1） | 关节故障下的容错运动 |
-| ESCP | AAAI 2022 | "previous methods show lagged and unstable context extraction, which are hard to handle sudden changes well"（摘要） | 突变环境中的快速适应 |
 | SADL | IJRR 2026 | "particularly when encountering dynamics that are out-of-distribution"（p.25） | 情境识别与条件动力学 |
-| ASID | ICLR 2024 | "the requirement for an extremely accurate simulation"（摘要） | 主动系统辨识 |
 | FLAIR | Nature Communications 17:3715, 2026 | "FLAIR cannot fully recover operability when the force required to counteract a perturbation exceeds the maximal strength of the actuators"（p.8） | 在线扰动补偿 |
-| Diffusion Policy | RSS 2023 / IJRR 2024 | "higher computational costs and inference latency"（p.15） | 生成式策略，面向机械臂 |
 | CaT | IROS 2024 | "current solvers fail to produce efficient policies respecting hard constraints"（摘要） | 约束强化学习 |
 | PEGrad | CoRL 2025 | "we found it challenging to combine the energy minimization objective with style rewards"（p.9） | 能耗优化 |
 | DIAL-MPC | ICRA 2025 | "requires fast simulation to generate samples"（p.7） | 采样式 MPC，需要外部定位 |
@@ -227,5 +225,3 @@ Liu 等，*LocoFormer: Generalist Locomotion via Long-context Adaptation*，CoRL
 | Lee 等 | Science Robotics 9(89), 2024 | "Existing approaches for hybrid locomotion build upon simple heuristics to decide when to step and when to drive"（p.1） | 轮足混合运动，无代码 |
 | Skid-steer loaders | Science Robotics 11(120), 2026 | "we composed the overall behavior using hand-crafted switching conditions"（p.6） | 滑移转向车辆的学习控制 |
 | Hao 等 | RICAI 2023 | "the tire longitudinal and lateral force are large"（摘要） | 腿姿辅助轮足转向 |
-
-各论文的完整阅读记录见 `04_research/candidates/`。
