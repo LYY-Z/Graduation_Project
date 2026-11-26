@@ -92,3 +92,4 @@
 - 2026-11-26：决策备忘第 5 版。研究问题（轮足局部执行器变化）不变；基础论文由 Random Joint Masking（无代码）改为 GRAM（RA-L 2026，官方代码，老师给的论文）；核心机制采纳 Codex 建议的'选择性鲁棒适应'（经主模型核实 DMCM、CERTAIN、GRAM 出处），加理想上限检验关卡。选题汇报需按新基础论文重写第 2 部分，待用户确认后进行。
 - 2026-11-26：**最终定稿**：主线 GRAM + 选择性鲁棒适应；条件备选 AugMPC（需 MPC 支持）、MoE-CTS/RoboGauge（偏评价）；保底 GRAM 复现 + 失效分析。综合 Codex 两轮意见，主模型收窄候选面、补充因素分组与变化类型、第 1 周代码移植关卡。已派 Sonnet 精读 GRAM 并审代码（输出 04_research/candidates/gram.md），完成后重写选题汇报。
 - 2026-11-26：GRAM 精读与代码审查完成（[gram.md](04_research/candidates/gram.md)）：确认回退为整体标量（式 6–9，代码 L620–696），创新切入点成立；代码 Isaac Lab 1.0，迁移约 1–2 周，无权重、无运行中变化代码。选题汇报改写为 GRAM 版并移至 [06_reports/topic_selection/report.CN.md](06_reports/topic_selection/report.CN.md)。
+- 2026-11-26：核查 Go2-W 机载算力与开源 MPC：RL 推理机载可行；质心 MPC 需 Orin NX；全身 NMPC 需外接电脑；无可直接用的 Go2-W 全身 MPC 开源实现（AugMPC 后端 Horizon 仅 Centauro 实机；OCS2 加轮约 2–4 个月）。AugMPC 降为'仅当实验室已有轮足 MPC'的条件备选，主线维持 GRAM。
