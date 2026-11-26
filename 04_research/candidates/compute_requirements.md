@@ -38,7 +38,7 @@
 
 - 8 核主控不对用户开放（见 `05_experiments/go2w_onboard_compute.CN.md`），用户程序须放外接电脑或 Orin 扩展；Orin 型号待确认。
 - GRAM、MoE-CTS、RJM：MLP 或小网络，50 Hz，毫秒级，机载可行。
-- TAM：编码器需 GPU，适配器 1 kHz；Go2-W 不开放力矩接口，需外接。
+- TAM：编码器需 GPU，适配器 1 kHz。【更正 2026-11-26】Go2-W 底层指令含前馈力矩（tau），并非不开放力矩接口；编码器约 440 万参数、5 Hz，Orin 的 GPU 估计可运行；主要限制是底层通信频率（通常约 500 Hz，需实测）低于 1 kHz。
 - SimDist：MPPI 450 采样×8 迭代需 RTX 4090M 笔记本，机载不可行。
 - AugMPC：作者在 i7-11800H 级 CPU 上机载实时运行 MPC；Go2-W 的 8 核主控与 Orin NX 能否达到未知，需实测。
 - LocoFormer：Transformer 的 KV-cache 推理时延，机载未知。
