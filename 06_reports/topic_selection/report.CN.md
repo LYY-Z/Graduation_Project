@@ -133,7 +133,7 @@ Son 等，*Torque Adaptation Module for Robust Motion Transfer in Manipulation*�
 | 结果 | 推箱成功率 76.2%，不做适应为 47.6%（表 1） |
 | 作者自述局限 | 需要 "a usable ideal inverse torque-command map, and matched kinematic structure"；接触 "may still be confused with robot-side mismatch"（p.9） |
 | 迁移条件 | 只适用于固定基座机械臂；Go2-W 机身浮动且持续与地面接触，不满足其理想逆动力学的前提；历史编码器需在 GPU 上运行 |
-| 算力与硬件 | 训练显卡、时长、数据量均未报告；历史编码器约 440 万参数。部署：编码器在 GPU 上运行（RTX 3080 上约 1 ms、约 1.3 GB 显存），5 Hz；力矩修正在 CPU 上，1 kHz（原文）。训练可承受；Go2-W 上需外接带 GPU 的电脑 |
+| 算力与硬件 | 训练显卡、时长、数据量均未报告；历史编码器约 440 万参数。部署：编码器在 GPU 上运行（RTX 3080 上约 1 ms、约 1.3 GB 显存），5 Hz；力矩修正在 CPU 上，1 kHz（原文）。训练可承受。部署（估计）：编码器规模不大，Jetson Orin 扩展模块自带 GPU，5 Hz 运行应可满足；但力矩修正原文为 1 kHz，Go2-W 底层通信通常约 500 Hz（需实测），只能降频运行 |
 | 可能的创新点 | 轮子是单轴执行器，可尝试只对轮驱动做力矩层修正；但接触引起的误判仍需解决，难度较大 |
 
 ### 7. SimDist：仿真预训练世界模型
@@ -177,7 +177,7 @@ Liu 等，*LocoFormer: Generalist Locomotion via Long-context Adaptation*，CoRL
 | PACE | IJRR 2026 | 仅辨识部分 | 辨识时否 | 刚性悬挂架；评估需相机或雷达定位；辨识 10–24 小时 | 中 | 中：偏工程 |
 | AugMPC | RA-L 2026 | 有（GPL） | 否（由 MPC 估计） | Orin 或外接电脑运行 MPC；训练以 CPU 为主，约 6 小时 | 大（MPC 需自建，2–4 个月） | 较大 |
 | Random Joint Masking | ICRA 2024 | 无 | 否 | 腿故障实验需悬挂保护 | 中（需自行实现） | 中 |
-| TAM | CoRL 2026 | 有 | — | 部署需 GPU | 不适用于浮动基座 | 小 |
+| TAM | CoRL 2026 | 有 | — | 编码器需 GPU（Orin 估计可满足）；力矩修正需约 1 kHz 底层控制 | 不适用于浮动基座 | 小 |
 | SimDist | RSS 2026 | 有（旧版本） | 是 | 外接 GPU 笔记本；雷达定位；训练约 1.5–2 天 | 大 | 中 |
 | LocoFormer | CoRL 2025 | 无 | 未公开 | 约 500 GPU·天（估计），本服务器不可承受 | 很大 | 小 |
 
