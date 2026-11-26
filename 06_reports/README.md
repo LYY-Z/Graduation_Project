@@ -13,7 +13,7 @@
 | 备选：电机过热与热约束运动 | — | [汇报文档](thermal/report.CN.md) |
 | 备选：部署时快速适应（TEMPO） | — | [汇报文档](adaptation/report.CN.md) |
 | 备选：雷达感知避障（Omni-Perception） | — | [汇报文档](perception/report.CN.md) |
-| 四个方案横向比较 | — | [比较](options_overview.CN.md) |
+| 全部选题方向统一比较 | — | [比较](options_overview.CN.md) |
 | UR7e 部署进展 | — | [汇报文档](ur7e/deployment_brief.CN.md) |
 
 文献调研为 7 页正文和 6 页附录，逐页讲稿已写入备注。其他主题反映各自汇报时的状态，这些阶段汇报不限定后续论文选择，研究目标以[STATUS](../STATUS.CN.md)为准。
