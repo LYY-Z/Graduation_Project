@@ -96,3 +96,17 @@
 - **基座速度需要外部来源**：底层模式下无官方速度估计，需雷达 LIO（Point-LIO，须先确认雷达型号与其 IMU 质量）或动捕。对实验设计：若对齐只用关节和 IMU 信号，可避开该风险。
 - **仿真侧简化**：隐式 PD、无延迟、无轮胎模型、无热模型，正是 sim-to-real 差距的来源，与 [STATUS.CN.md](../STATUS.CN.md) 中的热与轮速方向一致。
 - 执行器参数在 URDF / robot_lab / rl_sar / 官方例程间存在多处不一致（见 1.4 和 §2），做对齐实验前应建立单一参数表。
+
+
+## 补充：能否读到轮电机的电流或功率（2026-11-25 主模型核实）
+
+依据：unitree_ros2 的消息定义 `unitree_go/msg/MotorState.msg`、`LowState.msg`、`BmsState.msg`（[GitHub](https://github.com/unitreerobotics/unitree_ros2/tree/master/cyclonedds_ws/src/unitree/unitree_go/msg)）。Go2-W 与 Go2 共用 `unitree_go` 消息，`motor_state[20]` 中使用 16 路。
+
+| 量 | 字段 | 结论 |
+|---|---|---|
+| 单个电机电流 | `MotorState` 只有 `mode、q、dq、ddq、tau_est、q_raw、dq_raw、ddq_raw、temperature、lost、reserve` | **读不到单个电机（含轮电机）的电流** |
+| 单个电机机械功率 | `tau_est × dq` | 可估算（估计力矩的精度未标定） |
+| 整机电功率 | `LowState.power_v × LowState.power_a`（母线电压、电流） | 可读，整机总量 |
+| 电池电流 | `BmsState.current` | 可读，整机总量 |
+
+**含义**：转弯能耗可用两种方式测量：① 整机电功率（母线电压 × 电流）随时间积分，这是最可靠的总能耗；② 各轮 `tau_est × dq` 作为分轮的机械功率估计。分轮的电功率无法直接测得。
