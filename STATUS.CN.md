@@ -86,3 +86,4 @@
 - 2026-11-25：按用户要求，把接手以来全部方向（含老师给的 LocoFormer、TAM、FLAIR、Diffusion Policy、GRAM/RMA/ESCP/SADL/ASID 等）统一评分比较，见 [options_overview](06_reports/options_overview.CN.md)。结论不变：主线腿辅助转向 + 标定轮—地模型；老师给的论文多作背景、基线与方法参考。
 - 2026-11-25：腿姿辅助转弯专项查重：部分覆盖（Hao 等 RICAI 2023 用腿缩轴距辅助滑移转向，规划+PID；Racing 2026 Go2-W 抗侧倾；ETH 系列未涉及）。主线保留，措辞改为在前人基础上，差异为擦地目标+多几何量+RL+实测侧向力模型；第 0 周增加理论收益估算。见 [leg_turning_check](04_research/novelty/leg_turning_check.md)。
 - 2026-11-25：最终评估定稿：主线腿姿协同转弯 + 实测标定轮—地模型；核心科学问题明确为擦地、姿态代价、稳定性的权衡（学习的必要性来源）；新增几何规则基线（Hao 2023 式）为关键对照。第一备选轮—腿冗余容错。待用户与老师讨论。
+- 2026-11-25：用户质疑腿姿转弯'已被 Hao 做过、不难想到却无论文'。引入价值信号检验（顶会同类线 / 强组点名未来工作 / 实际需求）：腿姿转弯仅见于小会，降为备选；**轮—腿冗余容错三项通过，定为最终主线**（基础论文 Random Joint Masking ICRA 2024 等；IIT Kyon 预印本点名轮足容错为未来工作）。保底为轮—地标定对齐。见 [decision_memo 第 4 版](04_research/decision_memo.CN.md)。

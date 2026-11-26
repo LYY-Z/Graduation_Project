@@ -58,8 +58,8 @@
 
 | 方向 | 核心依据（顶刊顶会） | 创新 | 价值 | 可行 | 结论与主要原因 |
 |---|---|---|---|---|---|
-| **腿辅助转向 + 实测标定轮—地模型** | Lee SciRob 2024；PACE IJRR 2026；滑移转向装载机 SciRob 2026；Swift Nature 2023；Deep Dynamics RA-L 2024 | **8** | **7.5** | **6** | **最终主线**。轮足独有的新能力，核心空白在；有保底（[决策备忘](../04_research/decision_memo.CN.md)、[开拓性核查](../04_research/novelty/pioneering_check.md)、[最终查重](../04_research/novelty/final_check.md)） |
-| 轮—腿冗余容错 | FT-Net RA-L 2023；Random Joint Masking ICRA 2024；DreamFLEX ICRA 2025；FT-CPG RA-L 2025；CoRL 2025 | 7 | 6 | 6 | **第一备选**。容错是最稀疏主题之一，轮足上未见；多数基础论文无代码，有被抢风险（[核查](../04_research/novelty/fault_tolerance_check.md)） |
+| 腿姿协同转弯 + 实测标定轮—地模型 | Lee SciRob 2024；PACE IJRR 2026；滑移转向装载机 SciRob 2026；Swift Nature 2023；Deep Dynamics RA-L 2024 | 6 | 6 | 6 | **降为备选**。核心想法已见于 Hao 等 RICAI 2023（缩轴距助转弯），且只出现在小会，价值信号弱（[决策备忘](../04_research/decision_memo.CN.md)、[开拓性核查](../04_research/novelty/pioneering_check.md)、[最终查重](../04_research/novelty/final_check.md)） |
+| **轮—腿冗余容错** | FT-Net RA-L 2023；Random Joint Masking ICRA 2024；DreamFLEX ICRA 2025；FT-CPG RA-L 2025；CoRL 2025 | **7** | **7** | **6** | **最终主线**（价值信号三项通过：顶会同类线、强组点名未来工作、实际需求）。容错是最稀疏主题之一，轮足上未见；多数基础论文无代码，有被抢风险（[核查](../04_research/novelty/fault_tolerance_check.md)） |
 | 打滑率约束的牵引力控制 RL | 车辆 TCS/ABS + CaT | 6 | 6.5 | 5.5 | 打滑时地速估计最不准；可作主线的扩展任务（[跨领域](../04_research/screening/cross_domain_sweep.md)） |
 | RL vs MPC 极限操控归因 | Song SciRob 2023 | 6 | 7 | 4 | 高速实机风险，工期紧 |
 | 滚/走转换由能量还是可行性驱动 | Shafiee 等 Nat. Commun. 2024 | 6 | 5 | 6 | 平地上滚总比走省电，结论可能平凡（[核查](../04_research/novelty/mode_transition_check.md)） |
@@ -69,17 +69,8 @@
 
 ## 3. 结论
 
-1. **老师给的论文与原有方向**（LocoFormer、TAM、FLAIR、Diffusion Policy、GRAM 与 RMA 等扰动适应类）大多价值高，但对 Go2-W 本科毕设有硬伤：
-   - 要么算力不可及或无代码（LocoFormer）；
-   - 要么接口不匹配（TAM 是力矩、Diffusion Policy 是机械臂）；
-   - 要么方向已被大量占据（扰动适应类）。
+**最终主线：轮—腿冗余容错**（见[决策备忘第 4 版](../04_research/decision_memo.CN.md)）。保底为轮—地标定对齐（PACE 延伸），备选为腿姿协同转弯。
 
-   它们更适合作为**背景、对照或方法参考**：
-   - LocoFormer 说明"适应"类已有强先例；
-   - GRAM 可作适应类基线；
-   - RMA 与 ASID 是辨识与适应的经典引用。
-2. **前几轮的候选**里，PACE 最稳但开拓性弱，因此并入主线作地基；其余的主要问题是代码缺失、算力或外接设备要求、方向拥挤。
-3. **最终主线：腿辅助转向 + 实测标定轮—地模型**。三项最均衡，而且能把前面的积累用上：
-   - PACE 的辨识、车辆动力学的轮胎模型和标准试验，都是它的组成部分；
-   - 第 1–2 周的实机探针决定继续主线，还是转向保底或第一备选（轮—腿冗余容错）。
-4. 若老师更看重"已有成熟代码、立刻能复现"：可选 GRAM（RA-L 2026，有 Go2 代码），但需另找创新点，创新空间较小。若更看重"新问题、可冲更高级别"：维持主线。
+判断方法是"价值信号检验"：有没有顶刊顶会的同类工作，有没有强课题组把它点名为下一步，有没有实际需求。腿姿转弯的核心想法只出现在小会，被降级；容错三项都通过。
+
+老师给的论文与原有方向（LocoFormer、TAM、FLAIR、Diffusion Policy、GRAM 与 RMA 等扰动适应类）价值高，但对 Go2-W 本科毕设有硬伤：算力或代码不具备、接口不匹配，或方向拥挤。它们在论文中作背景与对照：GRAM、RMA 可作适应类基线；LocoFormer 说明适应类已有强先例。
