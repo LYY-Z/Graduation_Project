@@ -89,3 +89,4 @@
 - 2026-11-25：用户质疑腿姿转弯'已被 Hao 做过、不难想到却无论文'。引入价值信号检验（顶会同类线 / 强组点名未来工作 / 实际需求）：腿姿转弯仅见于小会，降为备选；**轮—腿冗余容错三项通过，定为最终主线**（基础论文 Random Joint Masking ICRA 2024 等；IIT Kyon 预印本点名轮足容错为未来工作）。保底为轮—地标定对齐。见 [decision_memo 第 4 版](04_research/decision_memo.CN.md)。
 - 2026-11-26：写成向老师汇报的选题文档 [06_reports/fault_tolerance/report.CN.md](06_reports/fault_tolerance/report.CN.md)（选题过程、老师方向的去向、Random Joint Masking 精读、方案、Q&A）。基础论文已核实 ICRA 2024 pp.9751–9757，无代码。旧 PACE 汇报标注为已被取代。
 - 2026-11-26：用户指出基础论文无代码、超参不全。补复现方案：robot_lab 作底座（与 legged_gym 同源），IIT fault-locomotion-isaaclab（BSD-3，Isaac Lab，Go2，2026-11 更新）作实现参考，缺失超参用默认值并问作者，复现目标为表 II 相对趋势；有代码的备选基础论文为 GRAM（Isaac Lab 1.0，需移植）。方向不变。
+- 2026-11-26：决策备忘第 5 版。研究问题（轮足局部执行器变化）不变；基础论文由 Random Joint Masking（无代码）改为 GRAM（RA-L 2026，官方代码，老师给的论文）；核心机制采纳 Codex 建议的'选择性鲁棒适应'（经主模型核实 DMCM、CERTAIN、GRAM 出处），加理想上限检验关卡。选题汇报需按新基础论文重写第 2 部分，待用户确认后进行。
