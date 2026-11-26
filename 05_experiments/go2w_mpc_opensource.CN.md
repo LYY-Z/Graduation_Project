@@ -52,3 +52,28 @@ Cheetah-Software 移植：GitHub 检索无 Go2 结果，**未核实**。
 | E 从零 | 3 个月以上 | 毕设周期风险高 |
 
 **推荐**：毕设稳妥路线为"2606.26313 单轨 MPC 作规划层 + 现成 Go2-W RL 底层策略"（若有）；若必须腿部 MPC，选 go2-convex-mpc（MIT，已含 Go2 模型）在 MuJoCo 中加轮，先仿真后实机。
+
+
+## 补充：主模型直接用 GitHub API 复查（2026-11-26）
+
+查询式：`go2w mpc`、`go2-w mpc`、`go2w`、`wheel-legged mpc`、`wheeled quadruped mpc`、`wheel legged mpc`、`b2w mpc`、`wheeled-legged mpc`（按星数排序）。
+
+**MPC 相关（均不能直接上 Go2-W 实机）**：
+
+| 仓库 | 星数 / 最近更新 | 内容 | 判断 |
+|---|---|---|---|
+| meisman-ucb/go2w-roll-control-mpc | 9 / 2026-09-08 | Go2-W 赛车论文的单轨模型 MPC | 只有规划层和仿真，无许可证 |
+| TrackinBIT/Wheel_legged-Robot | 31 / 2025-08-07 | MATLAB Simscape 中轮式四足的地面反力 MPC，复现中文论文《复杂地形下轮腿复合机动平台动态运动控制》 | 个人学习项目，纯仿真，无许可证；可作 MPC 入门参考 |
+| LYHrmer/wheel-legged-control-lab | 0 / 2026-11-20 | 16 自由度轮足的分层控制（VMC + LQR / 约束 MPC / 有界残差 PPO），MIT | 个人求职作品，平面教学模型，纯仿真 |
+| RayyanRafikh/wheeled-quadruped-mpc | 0 | 辅助出行轮式四足设计 | 无关 |
+
+**意外收获：Go2-W 的强化学习开源项目（对 GRAM 主线有用）**：
+
+| 仓库 | 星数 / 最近更新 | 用途 |
+|---|---|---|
+| ShengqianChen/DreamWaQ_Go2W | 136 / 2026-05-12 | DreamWaQ（ICRA 2023，隐式地形想象）的 Go2-W 版，Isaac 平台。可作适应类基线，以及 Go2-W 资产与奖励的参考 |
+| TrackinBIT/HIMLoco-for-Go2W | 111 / 2025-11-18 | HIMLoco（ICLR 2024，混合内部模型）的 Go2-W 版。可作适应类基线 |
+| vigorlee/wave-go | 101 / 2026-11-10 | WAVE-Go：Go2-W 世界模型动作适应 |
+| uwvwko-zzz/go2w-supermimic | 39 / 2026-11-12 | Go2-W 动作模仿 |
+
+结论不变：没有可直接用于 Go2-W 实机的轮足 MPC。另外，DreamWaQ 与 HIMLoco 已有 Go2-W 开源实现，可直接作为 GRAM 主线中"历史编码器类"基线，并为 Go2-W 适配提供参考（框架版本未核对）。
