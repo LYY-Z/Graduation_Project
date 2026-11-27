@@ -1,29 +1,36 @@
-# 学习资料导航
+# 02 学习资料
 
-本目录保存论文与代码讲解、平台硬件说明。当前研究状态见 [STATUS](../STATUS.CN.md)；选题调研、实验记录和汇报分别在 [04_research](../04_research/README.md)、[05_experiments](../05_experiments/README.md)、[06_reports](../06_reports/README.md)。论文见[原始资料索引](../01_papers/README.md)，源码在 `03_code/`。
+**放什么**：论文精读、代码逐行讲解、基础概念、平台与服务器使用说明。
+**不放什么**：论文原文（[01_papers](../01_papers/README.md)）、调研比较（[04_research](../04_research/README.md)）、实验记录（[05_experiments](../05_experiments/README.md)）。
 
-| 用途 | 入口 |
+当前研究状态见 [STATUS](../STATUS.CN.md)。
+
+## 目录清单
+
+| 目录 | 内容 | 状态 |
+|---|---|---|
+| [gram/](gram/README.md) | **GRAM 学习手册**：前置知识、论文逐节、实验、代码逐行（`code/` 7 篇）、批判性阅读、老师问答、服务器与复现 | ★ 当前主线 |
+| [platform/](platform/README.md) | Go2-W 硬件手册、输入输出接口、**服务器操作入门**、VNC | 常用参考 |
+| [locoformer/](locoformer/README.md) | LocoFormer 论文、网络与记忆、PPO 讲解 | 历史调研，已不在主线（PPO 部分仍可参考） |
+| [diffusion_policy/](diffusion_policy/README.md) | DDPM、Diffusion Policy、UR7e 部署 | 历史调研，已不在主线 |
+| [flair/](flair/README.md) | FLAIR 源码与指标 | 历史调研，已不在主线 |
+
+## 推荐阅读顺序
+
+| 顺序 | 内容 |
 |---|---|
-| DDPM、Diffusion Policy、UR7e | [学习路线](diffusion_policy/README.md) |
-| LocoFormer、长记忆与 PPO | [学习手册](locoformer/README.md) |
-| FLAIR 源码与指标 | [学习入口](flair/README.md) · [复现记录](../05_experiments/flair/reproduction.CN.md) |
-| 实验平台 | [Go2-W 硬件、双平台接口与连接](platform/README.md) |
-| 服务器可视化 | [VNC](platform/vnc.md) |
+| 1 | [GRAM 学习手册](gram/README.md)：按手册里的顺序读 |
+| 2 | [服务器操作入门](platform/server_guide.CN.md)：学会登录服务器、看训练进度 |
+| 3 | [Go2-W 硬件手册](platform/go2w.CN.md)：了解实机平台 |
+| 需要时 | [PPO 讲解](locoformer/03_reinforcement_learning_and_ppo.md)：另一种角度讲强化学习 |
 
-## 基础概念怎么衔接
-
-共同基础是张量、网络、参数、前向、损失、梯度和优化器。Diffusion Policy 从演示学习噪声预测并生成动作块；LocoFormer 从交互回报训练历史条件策略；FLAIR 从实际响应在线更新补偿模型。训练信号和时间组织各不相同。
+## 基础概念速查
 
 | 疑问 | 阅读位置 |
 |---|---|
-| 网络、参数和前向到底是什么？ | [网络基础](locoformer/02_network_and_memory.md#tensors) |
-| 加噪、高斯、平方根和反向公式 | [DDPM 推导](diffusion_policy/01_foundations/02_ddpm_from_intuition_to_formula.md) |
-| score、动作扩散和 DDIM | [条件动作扩散](diffusion_policy/02_paper_study/02_action_diffusion_and_formulas.md) |
-| 视觉、FiLM、EMA 和控制窗口 | [网络与控制](diffusion_policy/02_paper_study/03_control_network_and_design.md) |
-| QKV、segment 和缓存 | [网络与记忆](locoformer/02_network_and_memory.md) |
-| Trial、Episode 和训练时间链 | [全流程](locoformer/01_paper_and_full_pipeline.md#concepts) |
-| 奖励、优势、重新前向和 PPO 更新 | [强化学习与 PPO](locoformer/03_reinforcement_learning_and_ppo.md) |
-| 相机、checkpoint、限幅与实体执行 | [重构代码讲解](diffusion_policy/05_code_and_deployment/README.md) |
-| 航点怎样到六足结果统计 | [FLAIR 源码](flair/README.md) |
-
-遇到公式或代码，先明确它处于哪个阶段、数据从哪里来、使用哪版参数或缓存、结果交给谁，再用小例子连接。详细疑问索引见各教材，不再维护一份重复的总教材。
+| MDP、PPO、教师—学生、认知不确定性 | [GRAM 01 前置知识](gram/01_background.CN.md) |
+| 张量、shape、网络、梯度、PyTorch 写法 | [GRAM code/00 Python 与 PyTorch 基础](gram/code/00_python_pytorch_basics.CN.md) |
+| PPO、GAE 手算 | [GRAM code/05 PPO 与数据存储](gram/code/05_ppo_and_storage.CN.md) |
+| 网络、参数和前向 | [网络基础](locoformer/02_network_and_memory.md#tensors) |
+| 奖励、优势、PPO 更新 | [强化学习与 PPO](locoformer/03_reinforcement_learning_and_ppo.md) |
+| 加噪、扩散模型公式 | [DDPM 推导](diffusion_policy/01_foundations/02_ddpm_from_intuition_to_formula.md) |

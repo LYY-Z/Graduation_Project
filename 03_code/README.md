@@ -1,11 +1,16 @@
-# 代码索引
+# 03 代码
 
-| 目录 | 用途 |
-|---|---|
-| [diffusion_policy_ur7e](diffusion_policy_ur7e/README.CN.md) | 当前 UR7e 与腕部相机适配项目 |
-| [diffusion_policy](diffusion_policy/README.md) | 原 Diffusion Policy 源码，供论文与实现学习 |
-| [locoformer](locoformer/README.md) | lucidrains 第三方实现，供长历史策略与 PPO 学习 |
-| [references](references/README.md) | FLAIR、TAM、BabyLocoFormer、MetaMorph 等参考仓库 |
+**放什么**：在本地保存的源码（自己维护的项目和第三方参考实现）。
+**不放什么**：Python 环境、安装缓存、模型权重、训练输出。
+
+> **当前主线 GRAM 的代码不在这里。** GRAM 只能在服务器上训练，代码放在服务器个人目录 `gram_repro/code/gram`（git 管理，记录了兼容修改和对齐论文版本的修改）。改了什么、为什么改，见 [GRAM 复现记录](../05_experiments/gram_reproduction.CN.md)；代码讲解见 [GRAM 代码分册](../02_learning/gram/04_code_walkthrough.CN.md)。
+
+| 目录 | 用途 | 状态 |
+|---|---|---|
+| [references](references/README.md) | FLAIR、TAM、BabyLocoFormer、MetaMorph 等参考仓库 | 调研参考（TAM 为老师推荐论文的代码） |
+| [diffusion_policy_ur7e](diffusion_policy_ur7e/README.CN.md) | UR7e 与腕部相机适配项目 | 历史项目，已不在主线（平台已改为只做 Go2-W） |
+| [diffusion_policy](diffusion_policy/README.md) | 原 Diffusion Policy 源码 | 历史调研，已不在主线 |
+| [locoformer](locoformer/README.md) | lucidrains 第三方实现，长历史策略与 PPO | 历史调研，已不在主线 |
 
 ## 源码获取与版本
 
